@@ -14,7 +14,7 @@ public class IngredientTypeTest {
         String expectedSauces = "SAUCE\n"+"FILLING";
         String actualSauce = sauce.name().toString()+"\n"+filling.name().toString();
         //Assert
-        assertEquals("Типы ингредиеонтов не совпадают!", actualSauce, expectedSauces);
+        assertEquals("Типы ингредиентов не совпадают!", actualSauce, expectedSauces);
 
 
     }

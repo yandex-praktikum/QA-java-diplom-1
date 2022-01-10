@@ -11,20 +11,21 @@ import static org.junit.Assert.assertEquals;
 
 
 public class BunTest {
-
+    String name = "Черная булка";
+    float price = 100;
 
     @Test
     public void getPriceTest() {
-        Bun bun = new Bun("Лилёк", 100);
+        Bun bun = new Bun(name, price);
         float actualPrice = bun.getPrice();
-        assertEquals("Крякря, ассерт не совпал!Что-то не так в цене!",100, actualPrice,0);
+        assertEquals("Цена не совпадает!",100, actualPrice,0);
 
     }
 
     @Test
     public void getNameTest() {
-        Bun bun = new Bun("Лилёк", 100);
+        Bun bun = new Bun(name, price);
         String actualName = bun.getName();
-        assertEquals("Крякря, ассерт не совпал!Что-то не так в имени!", "Лилёк", actualName);
+        assertEquals("Имя не совпадает", "Черная булка", actualName);
     }
 }

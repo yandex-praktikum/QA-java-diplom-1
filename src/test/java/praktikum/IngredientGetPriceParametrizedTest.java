@@ -48,4 +48,3 @@ public class IngredientGetPriceParametrizedTest {
 
 
 }
-//Надо создать три параметризованных теста на три метода - разнести их по разным

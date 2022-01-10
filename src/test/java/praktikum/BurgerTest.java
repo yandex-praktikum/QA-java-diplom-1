@@ -24,10 +24,9 @@ public class BurgerTest {
     public void addIngredientTest() {
         //Arrange
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
         //Act
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
+        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
         int actual = burger.ingredients.size();
         int expected = 2;
         String actualName = burger.ingredients.get(0).name;
