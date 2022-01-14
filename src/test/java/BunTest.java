@@ -1,12 +1,14 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Bun;
 
+
 @RunWith(Parameterized.class)
 public class BunTest {
-
+    private Bun bun;
     private final String name;
     private final float price;
 
@@ -15,6 +17,10 @@ public class BunTest {
         this.price = price;
     }
 
+    @Before
+    public void setUp() {
+        bun = new Bun(name, price);
+    }
 
     @Parameterized.Parameters
     public static Object[][] setBun() {
@@ -28,14 +34,12 @@ public class BunTest {
 
     @Test
     public void testGetName() {
-        Bun bun = new Bun(name, price);
         String actualName = bun.getName();
         Assert.assertEquals(actualName, name);
     }
 
     @Test
     public void testGetPrice() {
-        Bun bun = new Bun(name, price);
         float actualPrice = bun.getPrice();
         Assert.assertTrue(actualPrice == price);
     }
