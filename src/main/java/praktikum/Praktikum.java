@@ -25,6 +25,8 @@ public class Praktikum {
         burger.addIngredient(ingredients.get(3));
         burger.addIngredient(ingredients.get(5));
 
+        System.out.println();
+
         // Переместим слой с ингредиентом
         burger.moveIngredient(2, 1);
 

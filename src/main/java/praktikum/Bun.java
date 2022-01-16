@@ -6,8 +6,8 @@ package praktikum;
  */
 public class Bun {
 
-    public String name;
-    public float price;
+    private String name; //было паблик, поменал на приват здесь в ингридиентах
+    private float price;
 
     public Bun(String name, float price) {
         this.name = name;
