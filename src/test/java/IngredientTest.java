@@ -10,6 +10,7 @@ public class IngredientTest {
 
     @Mock
     IngredientType type;
+
     Ingredient ingredient = new Ingredient(IngredientType.FILLING, "Мясо", 4.2F);
 
     @Test
