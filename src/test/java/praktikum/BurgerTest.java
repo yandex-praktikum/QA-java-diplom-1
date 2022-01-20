@@ -5,6 +5,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -23,8 +27,9 @@ public class BurgerTest {
         //Arrange
         Burger burger = new Burger();
         //Act
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
+        for(int i = 0; i <= 2; i++) {
+            burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
+        }
         int actual = burger.ingredients.size();
         int expected = 2;
         String actualName = burger.ingredients.get(0).name;
@@ -44,9 +49,9 @@ public class BurgerTest {
         //Arrange
         Burger burger = new Burger();
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
+        for(int i = 0; i <= 3; i++) {
+            burger.addIngredient(ingredient);
+        }
         //Act
         burger.removeIngredient(1);
         burger.removeIngredient(1);
@@ -61,20 +66,15 @@ public class BurgerTest {
     public void moveIngredientTest() {
         //Arrange
         Burger burger = new Burger();
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
-        burger.addIngredient(new Ingredient(IngredientType.FILLING, "cutlet", 100));
-        burger.addIngredient(new Ingredient(IngredientType.FILLING, "dinosaur", 200));
+        for(int i = 0; i < 5; i++) {
+            burger.addIngredient(new Ingredient(IngredientType.FILLING, "cutlet", 100));
+        }
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         //Act
-        burger.moveIngredient(3,0);
-        burger.moveIngredient(4,2);
+        burger.moveIngredient(5,0);
         String actualName = burger.ingredients.get(0).name;
-        String actualName2 = burger.ingredients.get(2).name;
         //Assert
-        assertEquals("Название ингредиента котлета не совпадает", "cutlet", actualName);
-        assertEquals("Название элемента динозавр не совпадает", "dinosaur", actualName2);
+        assertEquals("Название ингредиента котлета не совпадает", "sausage", actualName);
 
     }
 
@@ -115,4 +115,6 @@ public class BurgerTest {
         assertEquals("Рецепт не совпадает!", expextedReceipt.toString(),actualReceipt);
 
     }
+
+
 }
