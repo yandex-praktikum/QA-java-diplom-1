@@ -5,7 +5,7 @@ import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
 
-public class IngredientTests {
+public class IngredientTest {
 
     private Ingredient ingredient;
     private static final double DELTA = 1e-15;

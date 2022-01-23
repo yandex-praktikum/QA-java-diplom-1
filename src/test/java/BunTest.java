@@ -4,7 +4,7 @@ import praktikum.Bun;
 
 import static org.junit.Assert.assertEquals;
 
-public class BunTests {
+public class BunTest {
 
     private Bun bun;
     private static final double DELTA = 1e-15;
