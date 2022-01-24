@@ -4,7 +4,7 @@ import praktikum.Bun;
 import static org.junit.Assert.assertEquals;
 
 public class BunTest {
-    Bun bun = new Bun("Имя", 2.3F);
+    private Bun bun = new Bun("Имя", 2.3F);
 
     @Test
     public void getBunNameTest() {

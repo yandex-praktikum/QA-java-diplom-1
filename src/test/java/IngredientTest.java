@@ -6,9 +6,9 @@ import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
 
-    IngredientType type;
+    private IngredientType type;
 
-    Ingredient ingredient = new Ingredient(IngredientType.FILLING, "Мясо", 4.2F);
+    private Ingredient ingredient = new Ingredient(IngredientType.FILLING, "Мясо", 4.2F);
 
     @Test
     public void getIngredientTypeTest() {
