@@ -1,31 +1,24 @@
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
-import praktikum.Ingredient;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-        import org.junit.runner.RunWith;
-        import org.mockito.Mock;
-        import org.mockito.Mockito;
-        import org.mockito.junit.MockitoJUnitRunner;
-        import praktikum.Bun;
-        import praktikum.Burger;
-        import praktikum.Ingredient;
-
-        import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerSetBunsMethodTest{
+    Burger burger;
+    @Mock
     Bun mBun;
-    Burger mBurger;
+    @Before
+    public void before(){
+         burger = new Burger();
+    }
     @Test
-    public void testBurgerSetBunsMethod(){
-        mBurger.setBuns(mBun);
-        Mockito
-                .verify(mBurger,Mockito.times(1))
-                .setBuns(Mockito.any(Bun.class));
+    public void testThatBunFieldIsSetBySetter(){
+        burger.setBuns(mBun);
+        assertEquals("Булка после сеттера определена",mBun,burger.bun);
     }
 }
