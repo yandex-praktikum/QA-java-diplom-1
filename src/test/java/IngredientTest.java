@@ -6,7 +6,6 @@ import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
 
-    IngredientType inredientType;
     final float PRICE = 1f;
     final String NAME = "name";
     Ingredient sauce = new Ingredient(IngredientType.SAUCE,NAME,PRICE);
