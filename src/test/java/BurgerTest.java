@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -6,56 +7,60 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
-    @Mock
-    Bun mBun;
-    @Mock
-    Burger mBurger;
-    @Mock
-    Ingredient mIngredient;
+    private final float BUN_PRICE = 2.5f;
+    private final float INGREDIENT_PRICE = 2f;
+    private final float BURGER_PRICE= 2*BUN_PRICE+INGREDIENT_PRICE;
+    private final String BUN_NAME = "BUN";
+    private final String INGREDIENT_NAME = "ING";
+    private Burger burger;
+@Mock
+private Bun mBun;
+@Mock
+private Ingredient mIngredient;
+
+@Before
+public void before(){
+    burger = new Burger();
+    burger.setBuns(mBun);
+    burger.addIngredient(mIngredient);
+}
     @Test
-    public void testBurgerSetBunsMethod(){
-        mBurger.setBuns(mBun);
-        Mockito
-                .verify(mBurger,Mockito.times(1))
-                .setBuns(Mockito.any(Bun.class));
+    public void testGetPriceWorkingCorrect(){
+    Mockito.when(mBun.getPrice()).thenReturn(BUN_PRICE);
+    Mockito.when(mIngredient.getPrice()).thenReturn(INGREDIENT_PRICE);
+
+    assertEquals("Проверка расчета цены бургера",
+            BURGER_PRICE,
+            burger.getPrice(),0);
     }
     @Test
-    public void testBurgerAddIngredientMethod(){
-        mBurger.addIngredient(mIngredient);
-        Mockito
-                .verify(mBurger,Mockito.times(1))
-                .addIngredient(Mockito.any(Ingredient.class));
+    public void testGetReceiptReturnsNameOfTheBun(){
+        Mockito.when(mBun.getName()).thenReturn(BUN_NAME);
+        Mockito.when(mIngredient.getName()).thenReturn(INGREDIENT_NAME);
+        Mockito.when(mIngredient.getType()).thenReturn(IngredientType.FILLING);
+        assertEquals("Имя булки есть в рецепте",true,burger.getReceipt().contains(BUN_NAME));
     }
     @Test
-    public void testBurgerRemoveIngredientMethod(){
-        mBurger.removeIngredient(0);
-        Mockito
-                .verify(mBurger,Mockito.times(1))
-                .removeIngredient(Mockito.anyInt());
+    public void testGetReceiptReturnsNameOfTheIngredient(){
+        Mockito.when(mBun.getName()).thenReturn(BUN_NAME);
+        Mockito.when(mIngredient.getName()).thenReturn(INGREDIENT_NAME);
+        Mockito.when(mIngredient.getType()).thenReturn(IngredientType.FILLING);
+        assertEquals("Имя ингредиента есть в рецепте",true,burger.getReceipt().contains(INGREDIENT_NAME));
     }
     @Test
-    public void testBurgerMoveIngredientMethod(){
-        mBurger.moveIngredient(0,1);
-        Mockito
-                .verify(mBurger,Mockito.times(1))
-                .moveIngredient(Mockito.anyInt(),Mockito.anyInt());
+    public void testGetReceiptReturnsPrice(){
+        Mockito.when(mBun.getName()).thenReturn(BUN_NAME);
+        Mockito.when(mIngredient.getName()).thenReturn(INGREDIENT_NAME);
+        Mockito.when(mIngredient.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(mIngredient.getPrice()).thenReturn(INGREDIENT_PRICE);
+        Mockito.when(mBun.getPrice()).thenReturn(BUN_PRICE);
+        System.err.println(burger.getReceipt());
+        assertEquals("Цена есть в рецепте",true,burger.getReceipt().contains("Price: "));
     }
-    @Test
-    public void testBurgerGetPriceMethod(){
-        mBurger.getPrice();
-        Mockito
-                .verify(mBurger,Mockito.times(1))
-                .getPrice();
-    }
-    @Test
-    public void testBurgerGetReceipt(){
-        mBurger.getReceipt();
-        Mockito
-                .verify(mBurger,Mockito.times(1))
-                .getReceipt();
-    }
+
 }
