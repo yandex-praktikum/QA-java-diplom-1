@@ -59,8 +59,8 @@ public void before(){
         Mockito.when(mIngredient.getType()).thenReturn(IngredientType.FILLING);
         Mockito.when(mIngredient.getPrice()).thenReturn(INGREDIENT_PRICE);
         Mockito.when(mBun.getPrice()).thenReturn(BUN_PRICE);
-        System.err.println(burger.getReceipt());
-        assertEquals("Цена есть в рецепте",true,burger.getReceipt().contains("Price: "));
+        assertEquals(true,burger.getReceipt().contains("Price:"));//вызываю метод
+
     }
 
 }
