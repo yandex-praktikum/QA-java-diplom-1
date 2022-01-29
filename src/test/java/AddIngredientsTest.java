@@ -12,7 +12,7 @@ public class AddIngredientsTest {
     Ingredient ingredient;
 
     @Test
-    public void canAddIngredientTest() {
+    public void canAddIngredientsTest() {
         Burger burger = new Burger();
 
         int sizeBeforeAdd = burger.ingredients.size();
