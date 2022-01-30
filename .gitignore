@@ -1,2 +1,4 @@
-/praktikum.iml
+*.iml
+
 /.idea/
+/target/
