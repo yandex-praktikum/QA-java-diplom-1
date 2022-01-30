@@ -6,7 +6,7 @@ package praktikum;
  */
 public class Bun {
 
-    private String name; //было паблик, поменал на приват здесь в ингридиентах
+    private String name;
     private float price;
 
     public Bun(String name, float price) {

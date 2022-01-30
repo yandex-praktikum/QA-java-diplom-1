@@ -1,6 +1,5 @@
-QA-java-diplom-2.iml
+praktikum.iml
 
 build
-.allure/allure-2.15.0
 .idea
 target
