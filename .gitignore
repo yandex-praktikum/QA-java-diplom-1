@@ -1,0 +1,6 @@
+QA-java-diplom-2.iml
+
+build
+.allure/allure-2.15.0
+.idea
+target

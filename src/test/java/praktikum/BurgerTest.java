@@ -34,7 +34,6 @@ public class BurgerTest {
     public void removeIngredientTest() {
         Burger burger = new Burger();  //создали бургер без всего, в нем же создался ingredients
         burger.ingredients.add(ingredient);
-        System.out.println(burger.ingredients.get(0));
         burger.removeIngredient(0);
         assertTrue("Remove method (class Burger) doesn't delete an element from the list",burger.ingredients.isEmpty());
     }
@@ -53,7 +52,7 @@ public class BurgerTest {
 
         String actualResult = burger.getReceipt();
         String finalPrice = "" + burger.getPrice();
-        System.out.println(actualResult);
+        //System.out.println(actualResult);
 
         assertTrue("The receipt doesn't contain correct bun information",actualResult.contains("bun"));
         assertTrue("The receipt doesn't contain correct sauce information",actualResult.contains("sauce"));
@@ -62,18 +61,3 @@ public class BurgerTest {
         assertTrue("The receipt doesn't contain correct value of final price",actualResult.contains(finalPrice));
     }
 }
-
-/*        @Test
-    public void moveIngredientTest() {
-        Ingredient ingredient1 = new Ingredient(anyIngredientType, "TestIngredientName1", anyPrice);
-        Ingredient ingredient2 = new Ingredient(anyIngredientType, "TestIngredientName2", anyPrice);
-        Burger burger = new Burger();  //создали бургер без всего, в нем же создался ingredients
-        burger.addIngredient(ingredient1);
-
-        burger.moveIngredient(ingredient2);
-        String expectedTestIngredientName = "TestIngredientName";
-        String actualTestIngredientName = (burger.ingredients.get(burger.ingredients.size()-1)).getName();
-        assertEquals("Ingredient wasn't added correctly", expectedTestIngredientName, actualTestIngredientName);
-    }
-
-    }*/

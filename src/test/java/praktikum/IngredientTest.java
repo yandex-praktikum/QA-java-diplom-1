@@ -19,7 +19,6 @@ public class IngredientTest {
         Ingredient ingredient = new Ingredient(testType, anyName, anyPrice);
         IngredientType expectedResult = IngredientType.FILLING;
         IngredientType actualResult = ingredient.getType();
-        System.out.println(ingredient.getPrice());
         assertEquals("getIngredientType method (class Ingredient) doesn't work", expectedResult, actualResult);
     }
 
