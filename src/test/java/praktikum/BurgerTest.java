@@ -1,10 +1,13 @@
 package praktikum;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 class BurgerTest {
 
     String name = "Putbar";
@@ -22,12 +25,17 @@ class BurgerTest {
         return receiptActual.toString().replaceAll("\\s+", "");
     }
 
+    @Mock
+    Bun bun = Mockito.mock(Bun.class);
+
     @Test
     void setBuns() {
-        Bun bun = new Bun("adsf", 11);
+        Mockito.when(bun.getName()).thenReturn("LambXXL");
+        Mockito.when(bun.getPrice()).thenReturn(455F);
         Burger burger = new Burger();
         burger.setBuns(bun);
-        Assert.assertEquals(bun, burger.bun);
+        Assertions.assertEquals(bun.getPrice(), burger.bun.getPrice());
+        Assertions.assertEquals(bun.getPrice(), burger.bun.getPrice());
     }
 
     @Test
@@ -65,7 +73,6 @@ class BurgerTest {
     @Test
     void getReceipt() {
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Cheese", 40);
-        Bun bun = Mockito.mock(Bun.class);
         Mockito.when(bun.getName()).thenReturn("LambXXL");
         Mockito.when(bun.getPrice()).thenReturn(455F);
         Burger burger = new Burger();
