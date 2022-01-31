@@ -5,24 +5,24 @@ import static org.junit.Assert.assertEquals;
 public class BunTest {
 
     @Test
-    public void getNameTest(){
+    public void getNameTest() {
 
         Bun bun = new Bun("Gary", 12);
         String actualName = bun.getName();
         String expectedName = "Gary";
 
-        assertEquals(actualName, expectedName);
+        assertEquals("Имя не совпадает", actualName, expectedName);
 
     }
 
     @Test
-    public void getPriceTest(){
+    public void getPriceTest() {
 
         Bun bun = new Bun("Gary", 12);
         int actualPrice = (int) bun.getPrice();
         int expectedPrice = 12;
 
-        assertEquals(actualPrice, expectedPrice);
+        assertEquals("Цена не совпадает", actualPrice, expectedPrice);
 
     }
 }

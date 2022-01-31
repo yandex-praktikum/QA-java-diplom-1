@@ -3,37 +3,38 @@ import praktikum.*;
 import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
-IngredientType ingredientType;
+
+    IngredientType ingredientType;
 
     @Test
-    public void getPriceTest(){
+    public void getPriceTest() {
 
         Ingredient in = new Ingredient(ingredientType.SAUCE, "Колбаса", 12);
         int actualPrice = (int) in.getPrice();
         int expectedPrice = 12;
 
-        assertEquals(actualPrice, expectedPrice);
+        assertEquals("Цена не совпадает", actualPrice, expectedPrice);
     }
 
     @Test
-    public void getNameTest(){
+    public void getNameTest() {
 
         Ingredient in = new Ingredient(ingredientType.SAUCE, "Колбаса", 12);
         String actualName = in.getName();
         String expectedName = "Колбаса";
 
-        assertEquals(actualName, expectedName);
+        assertEquals("Название ингредиента не совпадает", actualName, expectedName);
 
     }
 
     @Test
-    public void getTypeTest(){
+    public void getTypeTest() {
 
         Ingredient in = new Ingredient(ingredientType.SAUCE, "Колбаса", 12);
         String actualType = in.getType().name();
         String expectedType = "SAUCE";
 
-        assertEquals(actualType, expectedType);
+        assertEquals("Тип ингредиента не совпадает", actualType, expectedType);
 
     }
 

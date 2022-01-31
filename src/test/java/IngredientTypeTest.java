@@ -1,23 +1,38 @@
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import praktikum.*;
 import static org.junit.Assert.assertEquals;
 
+@RunWith(Parameterized.class)
 public class IngredientTypeTest {
 
-    @Test
-    public void IngredientTypeTest(){
+    String expectedIngredient;
+    String actualIngredient;
 
-      String expectedSauce = "SAUCE";
-      String expectedFilling = "FILLING";
-      String actualSauce = IngredientType.SAUCE.name();
-      String actualFilling = IngredientType.FILLING.name();
+    public IngredientTypeTest(String expectedIngredient, String actualIngredient) {
 
-      assertEquals(expectedSauce, actualSauce);
-
-      assertEquals(expectedFilling, actualFilling);
+        this.expectedIngredient = expectedIngredient;
+        this.actualIngredient = actualIngredient;
 
     }
 
+    @Parameterized.Parameters
+    public static Object[] getData() {
+
+        return new Object[][]{
+
+                {"SAUCE", IngredientType.SAUCE.name()},
+                {"FILLING", IngredientType.FILLING.name()}
+
+        };
+    }
+
+    @Test
+    public void IngredientTypeTest() {
+
+        assertEquals("Неверно определён тип ингредиента", expectedIngredient, actualIngredient);
+
+    }
 
 }
