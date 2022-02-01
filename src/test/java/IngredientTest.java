@@ -22,4 +22,6 @@ public class IngredientTest {
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Соус фирменный Space Sauce", 80);
         Assert.assertEquals(IngredientType.SAUCE, ingredient.getType());
     }
+
+
 }
