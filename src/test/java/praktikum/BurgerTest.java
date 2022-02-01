@@ -3,12 +3,12 @@ package praktikum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 class BurgerTest {
+    Bun bun = Mockito.mock(Bun.class);
 
     String name = "Putbar";
     float price = 354;
@@ -24,9 +24,6 @@ class BurgerTest {
         receiptActual.append("\nPrice: 950,000000\n");
         return receiptActual.toString().replaceAll("\\s+", "");
     }
-
-    @Mock
-    Bun bun = Mockito.mock(Bun.class);
 
     @Test
     void setBuns() {
@@ -63,10 +60,9 @@ class BurgerTest {
 
     @Test
     void getPrice() {
-        Bun bun = new Bun("LambXXL", 370);
+        Mockito.when(bun.getPrice()).thenReturn(570F);
         Burger burger = new Burger();
         burger.setBuns(bun);
-        burger.getPrice();
         Assertions.assertEquals(bun.getPrice() * 2, burger.getPrice());
     }
 
