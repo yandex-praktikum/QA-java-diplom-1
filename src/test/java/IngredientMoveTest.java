@@ -16,8 +16,6 @@ public class IngredientMoveTest {
     public void canMoveIngredientTest() {
         Burger burger = new Burger();
 
-        //int sizeBeforeAdd = burger.ingredients.size();
-
         burger.addIngredient(ingredient);
 
         Ingredient sausage = new Ingredient(IngredientType.FILLING,"сосиска",1);

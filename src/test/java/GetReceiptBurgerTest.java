@@ -6,8 +6,8 @@ import praktikum.Ingredient;
 import praktikum.IngredientType;
 
 public class GetReceiptBurgerTest {
-    @Test
 
+    @Test
     public void canGetBurgerReceipt() {
         Burger burger = new Burger();
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE,"Имбирный",3F);
@@ -15,11 +15,12 @@ public class GetReceiptBurgerTest {
         burger.addIngredient(ingredient);
         burger.setBuns(bun);
 
-        System.out.println(burger.getReceipt());
 
-        String expectedReceipt = String.format(("(==== " + bun.getName() + " ====)%n= " + ingredient.getType().toString().toLowerCase() + " " + ingredient.getName() + " =%n(==== " + bun.getName() + " ====)%n%nPrice: %f%n"), burger.getPrice());
-        System.out.println(expectedReceipt);
-
+        String expectedReceipt = "(==== С кунжутом ====)\n" +
+                "= sauce Имбирный =\n" +
+                "(==== С кунжутом ====)\n" +
+                "\n" +
+                "Price: 5,000000\n";
         Assert.assertEquals(expectedReceipt, burger.getReceipt());
     }
 }

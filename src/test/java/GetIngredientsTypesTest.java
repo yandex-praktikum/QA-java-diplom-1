@@ -1,4 +1,5 @@
 import net.bytebuddy.utility.RandomString;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -7,7 +8,6 @@ import praktikum.IngredientType;
 
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
@@ -31,6 +31,6 @@ public class GetIngredientsTypesTest {
     @Test
     public void canGetIngredientType(){
         Ingredient ingredient = new Ingredient(ingredientType, RandomString.make(10), new Random().nextFloat());
-        assertEquals(ingredientType, ingredient.getType());
+        Assert.assertEquals(ingredientType, ingredient.getType());
     }
 }

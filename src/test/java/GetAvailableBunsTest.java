@@ -2,12 +2,10 @@
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mock;
 import praktikum.Bun;
 import praktikum.Database;
 
 public class GetAvailableBunsTest {
-    @Mock
     Bun bun;
 
     @Test
