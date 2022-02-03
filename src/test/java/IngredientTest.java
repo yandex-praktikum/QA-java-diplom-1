@@ -13,7 +13,7 @@ public class IngredientTest {
         int actualPrice = (int) in.getPrice();
         int expectedPrice = 12;
 
-        assertEquals("Цена не совпадает", actualPrice, expectedPrice);
+        assertEquals("Цена не совпадает",  expectedPrice, actualPrice);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class IngredientTest {
         String actualName = in.getName();
         String expectedName = "Колбаса";
 
-        assertEquals("Название ингредиента не совпадает", actualName, expectedName);
+        assertEquals("Название ингредиента не совпадает",  expectedName, actualName);
 
     }
 
@@ -34,7 +34,7 @@ public class IngredientTest {
         String actualType = in.getType().name();
         String expectedType = "SAUCE";
 
-        assertEquals("Тип ингредиента не совпадает", actualType, expectedType);
+        assertEquals("Тип ингредиента не совпадает", expectedType, actualType);
 
     }
 

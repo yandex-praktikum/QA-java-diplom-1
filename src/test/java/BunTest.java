@@ -11,7 +11,7 @@ public class BunTest {
         String actualName = bun.getName();
         String expectedName = "Gary";
 
-        assertEquals("Имя не совпадает", actualName, expectedName);
+        assertEquals("Имя не совпадает", expectedName, actualName);
 
     }
 
@@ -22,7 +22,7 @@ public class BunTest {
         int actualPrice = (int) bun.getPrice();
         int expectedPrice = 12;
 
-        assertEquals("Цена не совпадает", actualPrice, expectedPrice);
+        assertEquals("Цена не совпадает", expectedPrice, actualPrice);
 
     }
 }
