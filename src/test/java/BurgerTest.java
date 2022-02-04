@@ -36,10 +36,11 @@ public class BurgerTest {
 
     @Test
     public void setBunTest() {
-        bun = new Bun("Говядина", 7.29F);
         burger.setBuns(bun);
-        assertEquals(bun.getName(), "Говядина");
-        assertEquals(bun.getPrice(), 7.29F, 0);
+        when(bun.getName()).thenReturn("Говядина");
+        when(bun.getPrice()).thenReturn(7.29F);
+        assertEquals("Название не совпадает", burger.bun.getName(), bun.getName());
+        assertEquals("Цена не совпадает", burger.bun.getPrice(), bun.getPrice(), 0);
     }
 
     @Test
@@ -56,7 +57,7 @@ public class BurgerTest {
         burger.ingredients.add(ingredient2);
         burger.ingredients.add(ingredient);
         burger.removeIngredient(0);
-        assertEquals(burger.ingredients.size(), 1);
+        assertEquals("Длинна массива не совпадает", 1, burger.ingredients.size());
     }
 
     @Test
@@ -65,8 +66,8 @@ public class BurgerTest {
         ingredient2 = new Ingredient(IngredientType.SAUCE, "Паприка", 2.0F);
         burger.ingredients.add(ingredient2);
         burger.ingredients.add(ingredient);
-        burger.moveIngredient(0,1);
-        assertEquals(ingredient, burger.ingredients.get(0));
+        burger.moveIngredient(0, 1);
+        assertEquals("Ингредиент в массиве переместился не верно", ingredient, burger.ingredients.get(0));
     }
 
     @Test
@@ -77,7 +78,7 @@ public class BurgerTest {
         when(ingredient.getPrice()).thenReturn(price);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        assertEquals(expectedPrice , burger.getPrice(),0);
+        assertEquals("Цена отличается", expectedPrice, burger.getPrice(), 0);
     }
 
     @Test
@@ -95,6 +96,6 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         when(ingredient.getName()).thenReturn(nameIngredient);
         when(ingredient.getType()).thenReturn(ingredientType);
-        assertEquals(expectedReceipt, burger.getReceipt());
+        assertEquals("Рецепт напечатан неверно", expectedReceipt, burger.getReceipt());
     }
 }

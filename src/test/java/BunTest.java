@@ -8,12 +8,12 @@ public class BunTest {
 
     @Test
     public void getBunNameTest() {
-        assertEquals(bun.getName(), "Имя");
+        assertEquals("Название не совпадает", "Имя" ,bun.getName());
     }
 
     @Test
     public void getBunPriceTest() {
-        assertEquals(bun.getPrice(), 2.3F, 0);
+        assertEquals("Цена не совпадает",2.3F, bun.getPrice(),  0);
     }
 
 }
