@@ -23,19 +23,6 @@ public class BurgerTest {
     }
 
     @Test
-    public void setBuns() {
-        burger.setBuns(buns.get(0));
-        assertNotNull(burger.bun);
-    }
-
-    @Test
-    public void addIngredient() {
-        assertEquals(burger.ingredients.get(0).name, "sour cream");
-        assertEquals(burger.ingredients.get(0).price, 200,0);
-        assertEquals(burger.ingredients.get(0).type, IngredientType.SAUCE);
-    }
-
-    @Test
     public void getPrice() {
         burger.setBuns(buns.get(0));
         assertEquals(burger.getPrice(), 400, 0);
