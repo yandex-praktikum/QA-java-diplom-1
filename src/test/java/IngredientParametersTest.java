@@ -1,7 +1,6 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import praktikum.Bun;
 import praktikum.Database;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
@@ -16,7 +15,7 @@ public class IngredientParametersTest {
     private final int index;
     private final String expectedName;
     private final float expectedPrice;
-    IngredientType expectedType;
+    private IngredientType expectedType;
 
     public IngredientParametersTest(int index,IngredientType expectedType,  String expectedName, float expectedPrice) {
         this.index = index;
@@ -40,8 +39,8 @@ public class IngredientParametersTest {
     @Test
     public void getNameAndPrice(){
     /*
-    Получим данные по типу, наименованию и цене из БД и сравним с шаблоном
-     */
+         Получим данные по типу, наименованию и цене из БД и сравним с шаблоном
+    */
         Database database = new Database();
         List<Ingredient> ingredients = database.availableIngredients();
         Ingredient ingredient = new Ingredient(

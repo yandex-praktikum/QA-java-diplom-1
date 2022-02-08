@@ -8,15 +8,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class BurgerTest {
-    List<Bun> buns;
-    List<Ingredient> ingredients_;
-    Burger burger;
-    Database database;
+    private List<Bun> buns;
+    private List<Ingredient> ingredients_;
+    private Burger burger;
 
     @Before
     public void setUp(){
         burger = new Burger();
-        database = new Database();
+        Database database = new Database();
         buns = database.availableBuns();
         ingredients_ = database.availableIngredients();
         burger.addIngredient(ingredients_.get(1));
