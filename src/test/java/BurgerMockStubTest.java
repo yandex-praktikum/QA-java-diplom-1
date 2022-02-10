@@ -7,56 +7,50 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 
-import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerMockStubTest {
-
     @Mock
     Bun bun;
 
     @Mock
     Ingredient ingredient;
 
-    @Mock
-    Burger burger;
+    private Burger burger = new Burger();
 
     @Test
-    public void setBuns() {
+    public void getBunsName() {
         burger.setBuns(bun);
-        Mockito.verify(burger).setBuns(bun);
+        burger.bun.getName();
+        Mockito.verify(bun, Mockito.times(1)).getName();
     }
 
     @Test
-    public void addIngredient() {
-        burger.addIngredient(ingredient);
-        Mockito.verify(burger).addIngredient(ingredient);
+    public void getBunsPrice() {
+        burger.setBuns(bun);
+        burger.bun.getPrice();
+        burger.bun.getPrice();
+        Mockito.verify(bun, Mockito.times(2)).getPrice();
     }
 
     @Test
-    public void removeIngredient() {
-        burger.removeIngredient(Mockito.anyInt());
-        Mockito.verify(burger).removeIngredient(Mockito.anyInt());
+    public void getIngredientPrice() {
+        ingredient.getPrice();
+        Mockito.verify(ingredient, Mockito.times(1)).getPrice();
     }
 
     @Test
-    public void moveIngredient() {
-        burger.moveIngredient(Mockito.anyInt(), Mockito.anyInt());
-        Mockito.verify(burger).moveIngredient(Mockito.anyInt(), Mockito.anyInt());
+    public void getIngredientName() {
+        ingredient.getName();
+        Mockito.verify(ingredient, Mockito.times(1)).getName();
     }
 
     @Test
-    public void getPrice() {
-        Mockito.when(burger.getPrice()).thenReturn(1000.00F);
-        assertEquals(1000.000, burger.getPrice(), 0);
-    }
-
-    @Test
-    public void getReceipt() {
-        burger.getReceipt();
-        burger.getReceipt();
-        burger.getReceipt();
-        Mockito.verify(burger, Mockito.times(3)).getReceipt();
+    public void getIngredientTypeThreeTimes() {
+        ingredient.getType();
+        ingredient.getType();
+        ingredient.getType();
+        Mockito.verify(ingredient, Mockito.times(3)).getType();
     }
 
 }
