@@ -18,7 +18,7 @@ public class IngredientTest {
 
         String actualName = ingredient.getName();
         String expectedName = "Tasty";
-        assertEquals(actualName, expectedName);
+        assertEquals(expectedName, actualName);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class IngredientTest {
 
         float actualPrice = ingredient.getPrice();
         float expectedPrice = 10;
-        assertEquals(actualPrice, expectedPrice, 0);
+        assertEquals(expectedPrice, actualPrice,0);
     }
 
 }

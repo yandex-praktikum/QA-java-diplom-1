@@ -32,6 +32,6 @@ public class IngredientParameterizationTest {
     @Test
     public void doesHaveManeTrueResult() {
         Ingredient ingredient = new Ingredient(ingredientType, nameMock, priceMock);
-        assertEquals(ingredient.getType().toString(), expected);
+        assertEquals(expected, ingredient.getType().toString());
     }
 }
