@@ -1,0 +1,6 @@
+# Ignore folder
+.idea
+target/*
+
+# Exception
+!target/site
