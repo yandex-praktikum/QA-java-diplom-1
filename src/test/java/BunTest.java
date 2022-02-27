@@ -4,15 +4,15 @@ import praktikum.Bun;
 
 public class BunTest {
 
-    Bun bun = new Bun("umwelt", 42);
+    Bun testBun = new Bun("umwelt", 42);
 
     @Test
     public void bunGetNameTest() {
-        Assert.assertEquals("Авария в корпусе имени bun", "umwelt", bun.getName());
+        Assert.assertEquals("Авария в корпусе имени bun", "umwelt", testBun.getName());
     }
 
     @Test
     public void bunGetPriceTest() {
-        Assert.assertEquals("Авария в отсеке цены bun", 42, bun.getPrice(), 0);
+        Assert.assertEquals("Авария в отсеке цены bun", 42, testBun.getPrice(), 0);
     }
 }
