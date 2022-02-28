@@ -4,7 +4,8 @@ import org.junit.runners.Parameterized;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
 public class IngredientTypeParameterizedTest {
@@ -31,6 +32,6 @@ public class IngredientTypeParameterizedTest {
     public void getIngredientTypeReturnIngredientTypeTest(){
         Ingredient ingredient = new Ingredient(type,name,price);
         IngredientType actual = ingredient.getType();
-        assertEquals(type,actual);
+        assertThat("Метод вернул неверное значение типа ингредиента.",actual,is(type));
     }
 }

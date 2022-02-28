@@ -1,8 +1,8 @@
-import org.junit.Assert;
 import org.junit.Test;
 import praktikum.Bun;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class BunTest {
 
@@ -10,14 +10,14 @@ public class BunTest {
     public void getNameReturnNameTest(){
         Bun bun = new Bun("Биг-мак",169f);
         String actual = bun.getName();
-        assertEquals("Биг-мак",actual);
+        assertThat("Метод вернул неверное значение названия.",actual,is("Биг-мак"));
     }
 
     @Test
     public void getPriceReturnPriceTest(){
         Bun bun = new Bun("Биг-мак",169f);
         float actual = bun.getPrice();
-        assertEquals(169,actual,0);
+        assertThat("Метод вернул неверное значение цены.",actual,is(169f));
     }
 
 
