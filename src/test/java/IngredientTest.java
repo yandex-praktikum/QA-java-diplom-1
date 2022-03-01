@@ -26,25 +26,25 @@ public class IngredientTest {
     @Test
     public void ingredientCreatedTest(){
         Ingredient ingredient = new Ingredient(ingredientType, "рандомная начинка", 40.0F );
-        assertNotNull(ingredient);
+        assertNotNull("начинка не создана",ingredient);
     }
 
     @Test
     public void getIngredientNameTest(){
         Ingredient ingredient = new Ingredient(ingredientType, "рандомная начинка", 40.0F );
-        assertEquals("рандомная начинка", ingredient.getName());
+        assertEquals("не выдается имя начинки","рандомная начинка", ingredient.getName());
     }
 
     @Test
     public void getIngredientTypeTest(){
         Ingredient ingredient = new Ingredient(ingredientType, "рандомная начинка", 40.0F );
-        assertEquals(ingredientType, ingredient.getType());
+        assertEquals("не выдается тип начинки", ingredientType, ingredient.getType());
     }
 
     @Test
     public void getIngredientPriceTest(){
         Ingredient ingredient = new Ingredient(ingredientType, "рандомная начинка", 40.0F );
-        assertTrue(40.0F == ingredient.getPrice());
+        assertEquals("не выдается цена",40.0F, ingredient.getPrice(),0.000000001);
     }
 }
 

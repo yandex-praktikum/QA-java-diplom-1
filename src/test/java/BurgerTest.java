@@ -28,20 +28,20 @@ public class BurgerTest {
     @Test
     public void setBunTest() {
         burger.setBuns(bun);
-        assertNotNull(burger.bun);
+        assertNotNull("Нет булочки",burger.bun);
     }
 
     @Test
     public void addIngredientTest() {
         burger.addIngredient(ingredient);
-        assertNotNull(burger.ingredients);
+        assertNotNull("нет начинки",burger.ingredients);
     }
 
     @Test
     public void removeIngredient(){
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
-        assertFalse(burger.ingredients.contains(ingredient));
+        assertFalse("удаление не работает",burger.ingredients.contains(ingredient));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         Ingredient firstPosition =  burger.ingredients.get(0);
         burger.moveIngredient(0, 1);
-        assertNotEquals(firstPosition, burger.ingredients.get(0));
+        assertNotEquals("не изменяется место в списке",firstPosition, burger.ingredients.get(0));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class BurgerTest {
         burger.addIngredient(database.availableIngredients().get(0));
         float ingredientPrice = database.availableIngredients().get(0).price;
         float correctPrice = (bunPrice*2) + ingredientPrice;
-        assertTrue(correctPrice == burger.getPrice());
+        assertEquals("не считается цена",correctPrice, burger.getPrice(),0.000001);
     }
 
     @Test
@@ -70,15 +70,14 @@ public class BurgerTest {
         Database database = new Database();
         burger.setBuns(database.availableBuns().get(0));
         String bunName = database.availableBuns().get(0).name;
-        System.out.print(burger.getReceipt());
-        assertTrue(burger.getReceipt().contains(bunName));
+        assertTrue("нет булочки в чеке", burger.getReceipt().contains(bunName));
     }
     @Test
     public void receiptHasBunPriceTest(){
         Database database = new Database();
         burger.setBuns(database.availableBuns().get(0));
         int burgerPrice = (int)burger.getPrice();
-        assertTrue(burger.getReceipt().contains(Integer.toString(burgerPrice)));
+        assertTrue("нет названия в чеке",burger.getReceipt().contains(Integer.toString(burgerPrice)));
     }
 
     @Test
@@ -87,8 +86,6 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(database.availableIngredients().get(0));
         String ingredientType = database.availableIngredients().get(0).type.toString();
-        System.out.print(burger.getReceipt());
-        System.out.print(ingredientType);
-        assertTrue(burger.getReceipt().contains(ingredientType.toLowerCase()));
+        assertTrue("нет начинки в чеке",burger.getReceipt().contains(ingredientType.toLowerCase()));
     }
 }
