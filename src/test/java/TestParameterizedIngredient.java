@@ -32,6 +32,6 @@ public class TestParameterizedIngredient {
     public void getTypeIngredient() {
         Ingredient ingredient = new Ingredient(type, name, prise);
         IngredientType resultGetType = ingredient.getType();
-        assertEquals(type, resultGetType);
+        assertEquals("Ingredient Type is"+type, type, resultGetType);
     }
 }

@@ -20,18 +20,18 @@ public class TestIngredient {
     @Test
     public void getPriceIngredient() {
         Float resultGetPrice = ingredient.getPrice();
-        assertEquals(INGREDIENT_PRISE, resultGetPrice);
+        assertEquals("Ingredient back prise in getPrice method", INGREDIENT_PRISE, resultGetPrice);
     }
 
     @Test
     public void getNameIngredient() {
         String resultGetName = ingredient.getName();
-        assertEquals(INGREDIENT_NAME, resultGetName);
+        assertEquals("Ingredient back name in getName method", INGREDIENT_NAME, resultGetName);
     }
 
     @Test
     public void getTypeIngredient() {
         IngredientType resultGetType = ingredient.getType();
-        assertEquals(INGREDIENT_TYPE, resultGetType);
+        assertEquals("Ingredient back type in getType method", INGREDIENT_TYPE, resultGetType);
     }
 }

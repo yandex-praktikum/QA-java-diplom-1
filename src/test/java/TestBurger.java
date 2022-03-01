@@ -11,6 +11,7 @@ import praktikum.Ingredient;
 import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestBurger {
@@ -40,13 +41,13 @@ public class TestBurger {
     @Test
     public void setBunsBurger(){
         burger.setBuns(bun);
-        assertEquals(bun, burger.bun);
+        assertEquals("Burger setBuns method", bun, burger.bun);
     }
 
     @Test
     public void addIngredientBurger(){
         burger.addIngredient(ingredientFirst);
-        assertEquals(1, burger.ingredients.size());
+        assertEquals("Burger addIngredient method",1, burger.ingredients.size());
     }
 
     @Test
@@ -54,7 +55,7 @@ public class TestBurger {
         burger.addIngredient(ingredientFirst);
         burger.addIngredient(ingredientSecond);
         burger.removeIngredient(0);
-        assertEquals( 1, burger.ingredients.size());
+        assertEquals( "Burger removeIngredient method",1, burger.ingredients.size());
     }
 
     @Test
@@ -62,8 +63,8 @@ public class TestBurger {
         burger.addIngredient(ingredientFirst);
         burger.addIngredient(ingredientSecond);
         burger.moveIngredient(1, 0);
-        assertEquals(ingredientFirst, burger.ingredients.get(1));
-        assertEquals(ingredientSecond, burger.ingredients.get(0));
+        assertEquals("First ingredient is on second place moveIngredientBurger method", ingredientFirst, burger.ingredients.get(1));
+        assertEquals("Second ingredient is on first place moveIngredientBurger method", ingredientSecond, burger.ingredients.get(0));
     }
 
     @Test
@@ -73,7 +74,7 @@ public class TestBurger {
         Mockito.when(burger.bun.getPrice()).thenReturn(BUN_PRISE);
         Mockito.when(ingredientFirst.getPrice()).thenReturn(INGREDIENT_PRISE);
         Float actualGetPriceBurger = burger.getPrice();
-        assertEquals((Float)27.7f, actualGetPriceBurger);
+        assertEquals("Burger getPrice method back price",(Float)27.7f, actualGetPriceBurger);
     }
 
     @Test
@@ -94,9 +95,9 @@ public class TestBurger {
         boolean checkIngredientType = resultGetReceipt.contains(INGREDIENT_TYPE.toString().toLowerCase());
         boolean checkIngredientName = resultGetReceipt.contains(INGREDIENT_NAME);
 
-        assertEquals(true, checkNameBun);
-        assertEquals(true, checkPriseBurger);
-        assertEquals(true, checkIngredientType);
-        assertEquals(true, checkIngredientName);
+        assertTrue("Burger getReceipt method back name bun",checkNameBun);
+        assertTrue("Burger getReceipt method back price burger",checkPriseBurger);
+        assertTrue("Burger getReceipt method back ingredient type",checkIngredientType);
+        assertTrue("Burger getReceipt method back ingredient name",checkIngredientName);
     }
 }

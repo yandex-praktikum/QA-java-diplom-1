@@ -17,13 +17,13 @@ public class TestBun {
     @Test
     public void getNameBun(){
         String resultGetName = bun.getName();
-        assertEquals(BUN_NAME, resultGetName);
+        assertEquals("Bun back name in getName method",BUN_NAME, resultGetName);
     }
 
     @Test
     public void getPriceBun(){
         Float resultGetPrice = bun.getPrice();
-        assertEquals(BUN_PRISE, resultGetPrice);
+        assertEquals("Bun back prise in getPrice method",BUN_PRISE, resultGetPrice);
     }
 
 }
