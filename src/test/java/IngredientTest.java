@@ -10,7 +10,7 @@ public class IngredientTest {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, "Мясо бессмертных моллюсков Protostomia", 1337F);
         String actual = ingredient.getName();
         String expected = "Мясо бессмертных моллюсков Protostomia";
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("getName() returns incorrect name of ingredient", expected, actual);
     }
 
     @Test
@@ -18,6 +18,6 @@ public class IngredientTest {
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Соус Spicy-X", 90F);
         float actual = ingredient.getPrice();
         float expected = 90F;
-        Assert.assertEquals(expected, actual, 0);
+        Assert.assertEquals("getPrice() returns incorrect price of ingredient", expected, actual, 0);
     }
 }

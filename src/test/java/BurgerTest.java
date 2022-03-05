@@ -25,7 +25,7 @@ public class BurgerTest {
     public void testSetBuns() {
         Burger burger = new Burger();
         burger.setBuns(bun);
-        Assert.assertEquals(burger.bun, bun);
+        Assert.assertEquals("setBuns() sets incorrect instance of bun", burger.bun, bun);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         List<Ingredient> expected = new ArrayList<>();
         expected.add(ingredient);
-        Assert.assertEquals(expected, burger.ingredients);
+        Assert.assertEquals("addIngredient() adds incorrect ingredients to burger", expected, burger.ingredients);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class BurgerTest {
         List<Ingredient> expected = new ArrayList<>();
         expected.add(ingredient);
         expected.remove(ingredient);
-        Assert.assertEquals(expected, burger.ingredients);
+        Assert.assertEquals("removeIngredient() incorrectly removes ingredients from burger", expected, burger.ingredients);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class BurgerTest {
         expected.add(0, ingredient);
         expected.add(1, ingredient);
         expected.set(0, expected.get(1));
-        Assert.assertEquals(expected, burger.ingredients);
+        Assert.assertEquals("moveIngredient() incorrectly moves ingredients of burger", expected, burger.ingredients);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(1337F);
         Mockito.when(bun.getPrice()).thenReturn(988F);
         float expected = bun.getPrice() * 2 + ingredient.getPrice();
-        Assert.assertEquals(expected, burger.getPrice(),0);
+        Assert.assertEquals("getPrice() returns incorrect price of burger", expected, burger.getPrice(),0);
     }
 
     @Test
@@ -87,6 +87,6 @@ public class BurgerTest {
                 + " " +  ingredient.getName() + " =\r\n" + "(==== " + bun.getName() + " ====)\r\n" + "\r\nPrice: "
                 + String.format("%.6f", bun.getPrice() * 2 + ingredient.getPrice()) + "\r\n";
 
-        Assert.assertEquals(expected, burger.getReceipt());
+        Assert.assertEquals("getReceipt() returns incorrect receipt for burger", expected, burger.getReceipt());
     }
 }

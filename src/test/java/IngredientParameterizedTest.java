@@ -31,6 +31,6 @@ public class IngredientParameterizedTest {
     public void testGetTypeReturnsType() {
         Ingredient ingredient = new Ingredient(type, name, price);
         IngredientType actual = ingredient.getType();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("getType() returns incorrect type of ingredient", expected, actual);
     }
 }
