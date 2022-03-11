@@ -3,9 +3,8 @@ package praktikum;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import static junit.framework.TestCase.assertEquals;
 import static praktikum.IngredientType.SAUCE;
 
@@ -17,7 +16,7 @@ public class IngredientTest {
     public void getPriceTest() {
         Ingredient ingredient = new Ingredient(SAUCE, "hot sauce", 100);
         float expectedPrice = 100;
-        assertEquals(expectedPrice, ingredient.getPrice());
+        assertEquals(" цена для Souce не совпала", expectedPrice, ingredient.getPrice());
     }
 
     @Test
@@ -25,7 +24,7 @@ public class IngredientTest {
     public void getNameTest() {
         Ingredient ingredient = new Ingredient(SAUCE, "sour cream", 200);
         String expectedName = "sour cream";
-        assertEquals(expectedName, ingredient.getName());
+        assertEquals("имя для Souce не совпал", expectedName, ingredient.getName());
     }
 
     @Test
@@ -33,6 +32,6 @@ public class IngredientTest {
     public void getTypeTest() {
         Ingredient ingredient = new Ingredient(SAUCE, "chili sauce", 300);
         IngredientType expectedType = SAUCE;
-        assertEquals(expectedType,ingredient.getType());
+        assertEquals(expectedType, ingredient.getType());
     }
 }

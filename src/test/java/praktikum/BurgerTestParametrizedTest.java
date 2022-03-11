@@ -17,29 +17,30 @@ public class BurgerTestParametrizedTest {
     Burger burger;
     private static int ingredientIndex;
     Database database;
-    private static int bunIndex ;
+    private static int bunIndex;
 
     @Before
-    public void initObjects(){
+    public void initObjects() {
         burger = new Burger();
         database = new Database();
     }
 
-    public BurgerTestParametrizedTest(int bunIndex,int ingredientIndex, float price){
-        this.bunIndex =bunIndex;
+    public BurgerTestParametrizedTest(int bunIndex, int ingredientIndex, float price) {
+        this.bunIndex = bunIndex;
         this.ingredientIndex = ingredientIndex;
         this.price = price;
     }
 
     @Parameterized.Parameters
-    public static Object[][] getDataForBurger(){
+    public static Object[][] getDataForBurger() {
         return new Object[][]{
-                {1,1, 600},
-                {0,0, 300},
-                {2,3, 700},
+                {1, 1, 600},
+                {0, 0, 300},
+                {2, 3, 700},
 
         };
     }
+
     @Test
     public void BurgerTestParametrized() {
         Burger burger = new Burger();
@@ -48,9 +49,8 @@ public class BurgerTestParametrizedTest {
         burger.setBuns(buns.get(bunIndex));
         burger.addIngredient(ingredients.get(ingredientIndex));
         System.out.println(burger.getReceipt());
-        Assert.assertEquals(burger.getPrice(), price,0);
+        Assert.assertEquals(burger.getPrice(), price, 0);
     }
-
 
 
 }
