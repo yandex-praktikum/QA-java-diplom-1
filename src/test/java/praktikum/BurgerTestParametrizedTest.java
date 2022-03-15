@@ -5,13 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mock;
-
 import java.util.List;
 
 @RunWith(Parameterized.class)
 public class BurgerTestParametrizedTest {
-
 
     private final float price;
     Burger burger;
@@ -37,7 +34,6 @@ public class BurgerTestParametrizedTest {
                 {1, 1, 600},
                 {0, 0, 300},
                 {2, 3, 700},
-
         };
     }
 
@@ -48,9 +44,6 @@ public class BurgerTestParametrizedTest {
         List<Ingredient> ingredients = database.availableIngredients();
         burger.setBuns(buns.get(bunIndex));
         burger.addIngredient(ingredients.get(ingredientIndex));
-        System.out.println(burger.getReceipt());
         Assert.assertEquals(burger.getPrice(), price, 0);
     }
-
-
 }

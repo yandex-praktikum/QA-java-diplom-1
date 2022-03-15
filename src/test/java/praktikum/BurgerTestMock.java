@@ -63,8 +63,6 @@ public class BurgerTestMock {
         Mockito.when(ingredient.getPrice()).thenReturn(300f);
         String expected = "(==== black bun ====)\n= filling dinosaur =\n(==== black bun ====)\n\nPrice: 900,000000\n";
         Assert.assertEquals(expected, burger.getReceipt());
-
     }
-
 }
 
