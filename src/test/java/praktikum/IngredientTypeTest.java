@@ -11,7 +11,7 @@ public class IngredientTypeTest {
         IngredientType sauce = IngredientType.SAUCE;
         String expectedType = "SAUCE";
         String actualType = sauce.name();
-        assertEquals("тип для Souce не совпал", expectedType ,actualType );
+        assertEquals("тип для Souce не совпал", expectedType, actualType);
     }
 
     @Test
@@ -19,6 +19,6 @@ public class IngredientTypeTest {
         IngredientType filling = IngredientType.FILLING;
         String expectedType = "FILLING";
         String actualType = filling.name();
-        assertEquals("тип для Souce не совпал",expectedType, actualType);
+        assertEquals("тип для Souce не совпал", expectedType, actualType);
     }
 }

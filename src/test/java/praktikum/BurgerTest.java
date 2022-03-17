@@ -26,8 +26,8 @@ public class BurgerTest {
     public void getBurgerPriceTest() {
         burger.setBuns(buns.get(1));
         burger.addIngredient(ingredients.get(1));
-        Assert.assertEquals(burger.getPrice(), 600, 0);
-        Assert.assertEquals(burger.countLayers(burger.getReceipt()), 3);
+        Assert.assertEquals(600, burger.getPrice(), 0);
+        Assert.assertEquals(3, burger.countLayers(burger.getReceipt()));
         Assert.assertNotNull(burger.getReceipt());
     }
 
@@ -38,7 +38,7 @@ public class BurgerTest {
         burger.addIngredient(ingredients.get(0));
         burger.addIngredient(ingredients.get(1));
         burger.moveIngredient(1, 0);
-        Assert.assertEquals(burger.ingredients.get(1).getName(), "hot sauce");
+        Assert.assertEquals("hot sauce", burger.ingredients.get(1).getName());
     }
 
     @Test
@@ -48,6 +48,6 @@ public class BurgerTest {
         burger.addIngredient(ingredients.get(1));
         burger.removeIngredient(0);
         Assert.assertEquals(burger.countLayers(burger.getReceipt()), 3);
-        Assert.assertEquals(burger.ingredients.get(0).getName(), "sour cream");
+        Assert.assertEquals("sour cream", burger.ingredients.get(0).getName());
     }
 }

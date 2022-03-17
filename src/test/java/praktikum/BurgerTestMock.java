@@ -48,7 +48,7 @@ public class BurgerTestMock {
         Mockito.when(ingredient.getPrice()).thenReturn(price);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        Assert.assertEquals(price * 2 + price, burger.getPrice(),0);
+        Assert.assertEquals(price * 2 + price, burger.getPrice(), 0);
     }
 
     @Test

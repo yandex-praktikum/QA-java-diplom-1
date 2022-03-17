@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
 import java.util.List;
 
 @RunWith(Parameterized.class)
@@ -44,6 +45,6 @@ public class BurgerTestParametrizedTest {
         List<Ingredient> ingredients = database.availableIngredients();
         burger.setBuns(buns.get(bunIndex));
         burger.addIngredient(ingredients.get(ingredientIndex));
-        Assert.assertEquals(burger.getPrice(), price, 0);
+        Assert.assertEquals(price, burger.getPrice(), 0);
     }
 }
