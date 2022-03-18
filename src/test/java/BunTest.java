@@ -7,7 +7,6 @@ public class BunTest {
 
     @Test
     public void getNameTest() {
-
         String expected = "Булочка";
         Bun bun = new Bun("Булочка", 100);
 
@@ -18,7 +17,6 @@ public class BunTest {
 
     @Test
     public void getPriceTest() {
-
         float expected = (float) 100.00;
         Bun bun = new Bun("Булочка", (float) 100.00);
 
