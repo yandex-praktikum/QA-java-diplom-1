@@ -64,7 +64,7 @@ public class BurgerTest {
 
     @Test
     public void getReceiptTest(){
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Antarian Flathead spikes", 88);
+        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Antarian Flathead spikes!", 88);
         Bun bun = new Bun("Fluorescent bun R2-D3", 988);
         burger.addIngredient(ingredient);
         burger.setBuns(bun);
