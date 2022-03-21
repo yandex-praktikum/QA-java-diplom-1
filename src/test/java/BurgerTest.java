@@ -46,7 +46,7 @@ public class BurgerTest {
         burger.addIngredient(sauce);
         burger.addIngredient(topping);
         burger.moveIngredient(0, 1);
-        String expected = "Sauce with Antarian Flathead spikes";
+        String expected = "Sauce with Antarian Flathead spikes.";
         String actual = burger.ingredients.get(1).name;
         assertEquals("condition not met", expected, actual);
     }
