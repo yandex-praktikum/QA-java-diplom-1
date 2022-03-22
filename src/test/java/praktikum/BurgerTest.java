@@ -23,8 +23,8 @@ public class BurgerTest {
 
     @Test
     public void setBunsCheck() {
-        burger.setBuns(bun);
-        assertNotNull(bun);
+        burger.setBuns(burger.bun);
+        assertNotNull(burger);
     }
 
     @Test
@@ -52,26 +52,24 @@ public class BurgerTest {
     @Test
     public void getPriceCheck() {
         burger.setBuns(bun);
-        Mockito.when(bun.getPrice()).thenReturn((float) 1.1);
+        Mockito.when(bun.getPrice()).thenReturn(1.1f);
         burger.addIngredient(ingredient);
-        Mockito.when(ingredient.getPrice()).thenReturn((float) 1.1);
+        Mockito.when(ingredient.getPrice()).thenReturn(1.1f);
         float actual = burger.getPrice();
-        float expected = (float) 3.3;
-        System.out.println(actual);
+        float expected = 3.3f;
         assertEquals(expected, actual, 0.000002);
     }
 
     @Test
-    public void getReceipt() {
+    public void getReceiptCheck() {
         burger.setBuns(bun);
-        Mockito.when(bun.getPrice()).thenReturn((float) 1.1);
+        Mockito.when(bun.getPrice()).thenReturn(1.1f);
         Mockito.when(bun.getName()).thenReturn("Whooper");
         burger.addIngredient(ingredient);
         Mockito.when(ingredient.getName()).thenReturn("Beef");
         Mockito.when((ingredient.getType())).thenReturn(IngredientType.FILLING);
-        Mockito.when(ingredient.getPrice()).thenReturn((float) 1.1);
+        Mockito.when(ingredient.getPrice()).thenReturn(1.1f);
         String actual = burger.getReceipt();
-        System.out.println(actual);
         String expected = "(==== Whooper ====)\n= filling Beef =\n(==== Whooper ====)\n\nPrice: 3,300000\n";
         assertEquals(expected, actual);
     }

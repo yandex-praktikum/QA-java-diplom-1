@@ -1,7 +1,6 @@
 package praktikum;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.FunnyName;
 import org.junit.Test;
 
 import java.util.Random;
@@ -20,15 +19,13 @@ public class BunTest {
 
     @Test
     public void getNameCheck() {
-        String expected = name;
         String actual = bun.getName();
-        assertEquals(expected,actual);
+        assertEquals(name, actual);
     }
 
     @Test
     public void getPriceCheck() {
-        float expected = price;
         float actual = bun.getPrice();
-        assertEquals(expected,actual,0);
+        assertEquals(price, actual, 0);
     }
 }

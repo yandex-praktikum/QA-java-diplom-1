@@ -9,11 +9,15 @@ import static org.junit.Assert.*;
 
 public class IngredientTest {
 
+    private IngredientType getRandomIngredientType() {
+        IngredientType[] values = IngredientType.values();
+        return values[random.nextInt(values.length)];
+    }
 
-    IngredientType type;
     Faker faker = Faker.instance();
     Random random = new Random();
 
+    final private IngredientType type = getRandomIngredientType();
     final private String name = faker.name().toString();
     final private float price = random.nextFloat();
 
@@ -22,16 +26,14 @@ public class IngredientTest {
 
     @Test
     public void getPriceCheck() {
-        String expected = name;
         String actual = ingredient.getName();
-        assertEquals(expected,actual);
+        assertEquals(name, actual);
     }
 
     @Test
     public void getNameCheck() {
-        float expected = price;
         float actual = ingredient.getPrice();
-        assertEquals(expected,actual,0);
+        assertEquals(price, actual, 0);
     }
 
     @Test
@@ -39,4 +41,5 @@ public class IngredientTest {
         IngredientType actual = ingredient.getType();
         assertEquals(type, actual);
     }
+
 }
