@@ -27,7 +27,8 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         float actual = burger.ingredients.size();
         float expected = 4;
-        assertEquals(4, expected, actual);
+        assertEquals(4, expected,actual);
+
     }
 
     @Test
@@ -36,7 +37,8 @@ public class BurgerTest {
         burger.removeIngredient(0);
         int actual = burger.ingredients.size();
         int expected = 0;
-        assertEquals(0, expected,actual);
+        assertEquals(0,expected,actual);
+
     }
 
     @Test
@@ -46,9 +48,10 @@ public class BurgerTest {
         burger.addIngredient(sauce);
         burger.addIngredient(topping);
         burger.moveIngredient(0, 1);
-        String expected = "Sauce with Antarian Flathead spikes.";
+        String expected = "Sauce with Antarian Flathead spikes";
         String actual = burger.ingredients.get(1).name;
-        assertEquals("condition not met", expected, actual);
+        assertEquals("Sauce with Antarian Flathead spikes",expected,actual);
+
     }
 
     @Test
