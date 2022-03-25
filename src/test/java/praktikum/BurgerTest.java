@@ -19,7 +19,7 @@ public class BurgerTest {
 
     @Test
     public void checkSetBuns() {
-        Bun bun = new Bun("Железобетонная булочка", 393F);
+        when(bun.getName()).thenReturn("Железобетонная булочка");
         String actual = bun.getName();
         assertEquals("Железобетонная булочка", actual);
     }
