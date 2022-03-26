@@ -1,0 +1,20 @@
+# ignored files
+
+
+.allure/
+
+.idea/
+
+
+target/classes/
+target/generated-sources/
+target/generated-test-sources/
+target/maven-status/
+target/surefire-reports/
+target/test-classes/
+target/maven-archiver/
+
+*.jar
+
+
+
