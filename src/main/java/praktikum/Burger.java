@@ -14,6 +14,7 @@ public class Burger {
     public Bun bun;
     public List<Ingredient> ingredients = new ArrayList<>();
 
+
     public void setBuns(Bun bun) {
         this.bun = bun;
     }
@@ -30,7 +31,7 @@ public class Burger {
         ingredients.add(newIndex, ingredients.remove(index));
     }
 
-    public float getPrice() {
+    public  float getPrice() {
         float price = bun.getPrice() * 2;
 
         for (Ingredient ingredient : ingredients) {
