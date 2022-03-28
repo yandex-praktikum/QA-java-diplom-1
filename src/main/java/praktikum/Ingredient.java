@@ -29,4 +29,12 @@ public class Ingredient {
         return type;
     }
 
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "type=" + type +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
