@@ -12,7 +12,7 @@ public class BunTest {
 
         String actual = bun.getName();
 
-        assertEquals(expected, actual);
+        assertEquals("Имена не совпадают", expected, actual);
     }
 
     @Test
@@ -22,6 +22,6 @@ public class BunTest {
 
         float actual = bun.getPrice();
 
-        assertEquals(expected, actual, 0);
+        assertEquals("Цены не совпадают", expected, actual, 0);
     }
 }

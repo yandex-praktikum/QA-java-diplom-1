@@ -17,7 +17,7 @@ public class IngredientTest {
 
         float actual = ingredient.getPrice();
 
-        assertEquals(expected, actual, 0);
+        assertEquals("Цены не совпадают", expected, actual, 0);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class IngredientTest {
 
         String actual = ingredient.getName();
 
-        assertEquals(expected, actual);
+        assertEquals("Имена не совпадают", expected, actual);
     }
 
     @Test
@@ -37,6 +37,6 @@ public class IngredientTest {
 
         IngredientType actual = ingredient.getType();
 
-        assertEquals(expected, actual);
+        assertEquals("Типы ингредиентов не совпадают", expected, actual);
     }
 }

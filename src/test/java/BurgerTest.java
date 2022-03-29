@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
@@ -49,8 +50,8 @@ public class BurgerTest {
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
 
-        assertEquals(2, burger.ingredients.size());
-        assertEquals(expected, burger.ingredients);
+        assertEquals("Количество ингредиентов не совпадает", 2, burger.ingredients.size());
+        assertEquals("Ингредиенты не совпадают", expected, burger.ingredients);
     }
 
     @Test
@@ -62,12 +63,12 @@ public class BurgerTest {
         burger.addIngredient(ingredient2);
         burger.removeIngredient(0);
 
-        assertEquals(1, burger.ingredients.size());
-        assertEquals(expected, burger.ingredients);
+        assertEquals("Количество ингредиентов не совпадает", 1, burger.ingredients.size());
+        assertEquals("Ингредиенты не совпадают", expected, burger.ingredients);
 
         burger.removeIngredient(0);
 
-        assertEquals(0, burger.ingredients.size());
+        assertEquals("Количество ингредиентов не совпадает", 0, burger.ingredients.size());
     }
 
     @Test
@@ -80,8 +81,8 @@ public class BurgerTest {
         int expectedSize = burger.ingredients.size();
         burger.moveIngredient(0, 1);
 
-        assertEquals(expectedSize, burger.ingredients.size());
-        assertEquals(expected, burger.ingredients);
+        assertEquals("Количество ингредиентов не совпадает", expectedSize, burger.ingredients.size());
+        assertEquals("Порядок ингредиентов не совпадает", expected, burger.ingredients);
     }
 
     @Test
@@ -94,8 +95,8 @@ public class BurgerTest {
         int expectedSize = burger.ingredients.size();
         burger.moveIngredient(0, 0);
 
-        assertEquals(expectedSize, burger.ingredients.size());
-        assertEquals(expected, burger.ingredients);
+        assertEquals("Количество ингредиентов не совпадает", expectedSize, burger.ingredients.size());
+        assertEquals("Порядок ингредиентов не совпадает", expected, burger.ingredients);
     }
 
     @Test
@@ -106,16 +107,16 @@ public class BurgerTest {
         float expected = 2 * priceBun + priceFilling + priceSauce;
 
         Burger burger = new Burger();
-        Bun bun = new Bun("Булка", priceBun);
         Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "Мясо", priceFilling);
         Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "Соус", priceSauce);
+        Mockito.when(bun.getPrice()).thenReturn(priceBun);
 
         burger.setBuns(bun);
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
         float actual = burger.getPrice();
 
-        assertEquals(expected, actual, 0);
+        assertEquals("Цены не совпадают", expected, actual, 0);
     }
 
     @Test
@@ -124,12 +125,12 @@ public class BurgerTest {
         float expected = 2 * priceBun;
 
         Burger burger = new Burger();
-        Bun bun = new Bun("Булка", priceBun);
+        Mockito.when(bun.getPrice()).thenReturn(priceBun);
 
         burger.setBuns(bun);
         float actual = burger.getPrice();
 
-        assertEquals(expected, actual, 0);
+        assertEquals("Цены не совпадают", expected, actual, 0);
     }
 
     @Test
@@ -139,9 +140,10 @@ public class BurgerTest {
         float priceSauce = 58;
 
         Burger burger = new Burger();
-        Bun bun = new Bun("Булка", priceBun);
         Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "Мясо", priceFilling);
         Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "Соус", priceSauce);
+        Mockito.when(bun.getPrice()).thenReturn(priceBun);
+        Mockito.when(bun.getName()).thenReturn("Булка");
 
         burger.setBuns(bun);
         burger.addIngredient(ingredient1);
@@ -156,6 +158,6 @@ public class BurgerTest {
 
         String actual = burger.getReceipt();
 
-        assertEquals(expected, actual);
+        assertEquals("Рецепты не совпадают", expected, actual);
     }
 }

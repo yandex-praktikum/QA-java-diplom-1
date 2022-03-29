@@ -12,7 +12,7 @@ public class DatabaseTest {
 
         int actual = database.availableBuns().size();
 
-        assertEquals(expected, actual);
+        assertEquals("Количество булок не совпадает", expected, actual);
     }
 
     @Test
@@ -22,6 +22,6 @@ public class DatabaseTest {
 
         int actual = database.availableIngredients().size();
 
-        assertEquals(expected, actual);
+        assertEquals("Количество ингредиентов не совпадает", expected, actual);
     }
 }
