@@ -7,12 +7,12 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import static org.junit.Assert.*;
+
 import java.util.List;
 
+import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-
 public class BurgerTest {
     @Before
     public void setUp() {
@@ -31,14 +31,12 @@ public class BurgerTest {
     private static float bunExpectedPrice;
     private static float ingrExpectedPrice;
 
-
-
     @Mock
     Ingredient ingredient;
     @Mock
     Bun bun;
 
-    public BurgerTest (int bunId, float bunPrice, int sauceId, float saucePrice, int fillingId, float fillingPrice, float bunExpectedPrice, float ingrExpectedPrice) {
+    public BurgerTest(int bunId, float bunPrice, int sauceId, float saucePrice, int fillingId, float fillingPrice, float bunExpectedPrice, float ingrExpectedPrice) {
         this.bunId = bunId;
         this.bunPrice = bunPrice;
         this.sauceId = sauceId;
@@ -49,7 +47,7 @@ public class BurgerTest {
         this.ingrExpectedPrice = ingrExpectedPrice;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{index}: bun[{0}]=price{1}, sauce[{2}]=price{3}, filling[{4}]=price{5}")
     public static Object[][] getBunId() {
         return new Object[][]{
                 {0, 100f, 0, 100f, 3, 100f, 100f, 200f},
@@ -73,7 +71,7 @@ public class BurgerTest {
         burger.setBuns(buns.get(bunId));
         Mockito.when(bun.getPrice()).thenReturn(bunExpectedPrice);
         expectedBunPrice = bun.getPrice() * 2;
-        assertEquals(expectedBunPrice, burger.getPrice(),0);
+        assertEquals("Внимание! Не удалось добавить булочку", expectedBunPrice, burger.getPrice(), 0);
     }
 
     @Test
@@ -88,8 +86,7 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(bunExpectedPrice);
         Mockito.when(ingredient.getPrice()).thenReturn(ingrExpectedPrice);
         expectedIngrPrice = bun.getPrice() * 2 + ingredient.getPrice();
-        assertEquals(expectedIngrPrice, burger.getPrice(),0);
-
+        assertEquals("Внимание! Не удалось добавить ингредиент", expectedIngrPrice, burger.getPrice(), 0);
     }
 
     @Test
@@ -106,8 +103,7 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(bunExpectedPrice);
         Mockito.when(ingredient.getPrice()).thenReturn(ingrExpectedPrice);
         expectedBurgerPrice = bun.getPrice() * 2 + ingredient.getPrice();
-        assertEquals(expectedBurgerPrice, burger.getPrice(),0);
-
+        assertEquals("Внимание! Не удалось удалить ингредиент", expectedBurgerPrice, burger.getPrice(), 0);
     }
 
     @Test
@@ -121,8 +117,8 @@ public class BurgerTest {
         burger.addIngredient(ingredients.get(2));
         burger.addIngredient(ingredients.get(3));
         burger.moveIngredient(2, 1);
-        assertEquals("cutlet", burger.ingredients.get(1).getName());
-        assertEquals("chili sauce", burger.ingredients.get(2).getName());
+        assertEquals("Внимание! Не удалось переместить ингредиент на позицию 1", "cutlet", burger.ingredients.get(1).getName());
+        assertEquals("Внимание! Не удалось переместить ингредиент с позиции 2", "chili sauce", burger.ingredients.get(2).getName());
     }
 
     @Test
@@ -135,9 +131,8 @@ public class BurgerTest {
         burger.addIngredient(ingredients.get(sauceId));
         burger.addIngredient(ingredients.get(sauceId));
         burger.addIngredient(ingredients.get(fillingId));
-        assertNotEquals(0, burger.getPrice());
+        assertNotEquals("Внимание! Цена бургера некорректна", 0, burger.getPrice());
     }
-
 
     @Test
     public void testGetReceipt() {
@@ -149,8 +144,6 @@ public class BurgerTest {
         burger.addIngredient(ingredients.get(sauceId));
         burger.addIngredient(ingredients.get(sauceId));
         burger.addIngredient(ingredients.get(fillingId));
-        assertFalse(burger.getReceipt().isEmpty());
+        assertFalse("Внимание! Не удалось получить рецепт", burger.getReceipt().isEmpty());
     }
-
-
 }
