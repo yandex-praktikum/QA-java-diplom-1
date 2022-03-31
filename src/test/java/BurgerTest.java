@@ -54,13 +54,16 @@ public class BurgerTest {
         float ingredientPrice = 300;
         Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
 
-        Burger burger = new Burger();
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
-        burger.getPrice();
+        Burger actualburger = new Burger();
+        actualburger.setBuns(bun);
+        actualburger.addIngredient(ingredient);
+        actualburger.getPrice();
 
-        String actualReceipt = burger.getReceipt();
-        String expectedReceipt = (String.format("(==== red bun ====)%n" + "= sauce chili sauce =%n" + "(==== red bun ====)%n" + "%nPrice: 900,000000%n"));
+        String actualReceipt = actualburger.getReceipt();
+        String expectedBun = String.format("(==== %s ====)%n", "red bun");
+        String expectedSauce = String.format("= %s %s =%n", "sauce", "chili sauce");
+        String expectedPrice = String.format("%nPrice: %s%n", "900,000000");
+        String expectedReceipt = expectedBun + expectedSauce + expectedBun + expectedPrice;
 
         Assert.assertEquals(expectedReceipt, actualReceipt);
     }
