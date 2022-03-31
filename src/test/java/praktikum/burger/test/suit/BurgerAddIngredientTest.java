@@ -1,4 +1,4 @@
-package praktikum.burgerTestSuit;
+package praktikum.burger.test.suit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +21,6 @@ public class BurgerAddIngredientTest {
         testBurger.addIngredient(testIngredient);
         int countAfterAdd = testBurger.ingredients.size();
         assertEquals(1,
-                        countAfterAdd - countBeforeAdd);
+                countAfterAdd - countBeforeAdd);
     }
 }

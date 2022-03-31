@@ -1,4 +1,4 @@
-package praktikum.burgerTestSuit;
+package praktikum.burger.test.suit;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,16 +18,16 @@ public class BurgerGetReceiptTest {
         testBurger.setBuns(testBun);
         System.out.println(testBurger.getReceipt());
         String expectedReceipt = String.format(("(==== " +
-                                               testBun.getName() +
-                                               " ====)%n= " +
-                                               testIngredient.getType().toString().toLowerCase() +
-                                               " " +
-                                               testIngredient.getName() +
-                                               " =%n(==== " +
-                                               testBun.getName() +
-                                               " ====)%n%nPrice: %f%n"),
-                                               testBurger.getPrice());
-                System.out.println(expectedReceipt);
+                        testBun.getName() +
+                        " ====)%n= " +
+                        testIngredient.getType().toString().toLowerCase() +
+                        " " +
+                        testIngredient.getName() +
+                        " =%n(==== " +
+                        testBun.getName() +
+                        " ====)%n%nPrice: %f%n"),
+                testBurger.getPrice());
+        System.out.println(expectedReceipt);
         Assert.assertEquals(expectedReceipt, testBurger.getReceipt());
     }
 }

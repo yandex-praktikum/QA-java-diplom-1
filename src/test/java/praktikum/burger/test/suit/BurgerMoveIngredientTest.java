@@ -1,4 +1,4 @@
-package praktikum.burgerTestSuit;
+package praktikum.burger.test.suit;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +17,6 @@ public class BurgerMoveIngredientTest {
     @Test
     public void moveIngredientTest() {
         Burger testBurger = new Burger();
-//        int countIngredientsBeforeAdd = testBurger.ingredients.size();
         testBurger.addIngredient(testIngredient);
         Ingredient nilfgaardSauce = new Ingredient(IngredientType.SAUCE, "Нильфгаардский ржаной", 990F);
         testBurger.addIngredient(nilfgaardSauce);

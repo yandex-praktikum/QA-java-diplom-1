@@ -1,4 +1,4 @@
-package praktikum.ingredientTestSuit;
+package praktikum.ingredient.test.suit;
 
 import org.junit.Test;
 import praktikum.Ingredient;

@@ -1,4 +1,4 @@
-package praktikum.bunTestSuit;
+package praktikum.bun.test.suit;
 
 import org.junit.Test;
 import praktikum.Bun;

@@ -1,4 +1,4 @@
-package praktikum.databaseTestSuit;
+package praktikum.database.test.suit;
 
 import org.junit.Assert;
 import org.junit.Test;

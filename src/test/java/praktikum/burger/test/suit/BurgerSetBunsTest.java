@@ -1,4 +1,4 @@
-package praktikum.burgerTestSuit;
+package praktikum.burger.test.suit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
