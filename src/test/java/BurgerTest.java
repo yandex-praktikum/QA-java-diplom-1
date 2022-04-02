@@ -16,7 +16,7 @@ public class BurgerTest {
     Database database;
 
     @Test
-    public void CheckGetPrice() {
+    public void checkGetPrice() {
         float expectedPrice = 300;
         Bun expBun = new Bun("Чизбургер", 50);
         List<Bun> expectedBuns = new ArrayList<>();
@@ -39,7 +39,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckGetReceipt() {
+    public void сheckGetReceipt() {
         String expectedReceipt = "(==== Чизбургер ====)\n" +
                 "= filling Крокодил =\n" +
                 "(==== Чизбургер ====)\n" +
@@ -62,6 +62,6 @@ public class BurgerTest {
         burger.moveIngredient(0, 1);
         burger.removeIngredient(1);
         String actualReceipt = burger.getReceipt();
-        expectedReceipt.equals(actualReceipt);
+        assertEquals(actualReceipt.replaceAll("\\s+",""), expectedReceipt.replaceAll("\\s+",""));
     }
 }
