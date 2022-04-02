@@ -1,5 +1,3 @@
-package praktikum;
-
 import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +6,9 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
+import praktikum.Bun;
+import praktikum.Burger;
+import praktikum.Ingredient;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +20,6 @@ public class BurgerParametrizedTest {
     float bunPrice;
     float ingredientPrice;
     Burger burger = new Burger();
-
 
     public BurgerParametrizedTest(float bunPrice, float ingredientPrice, float expectedPrice) {
         this.bunPrice = bunPrice;
@@ -42,8 +41,8 @@ public class BurgerParametrizedTest {
     @Parameterized.Parameters
     public static Object[][] sexTest() {
         return new Object[][]{
-                {3.14f,3.14f,9.14f},
-                {0f,0f,0f},
+                {3.14f, 3.14f, 9.14f},
+                {0f, 0f, 0f},
         };
     }
 
@@ -53,9 +52,8 @@ public class BurgerParametrizedTest {
         burger.addIngredient(ingredient);
         Mockito.when(bun.getPrice()).thenReturn(bunPrice);
         Mockito.when(ingredient.getPrice()).thenReturn((ingredientPrice));
-        assertEquals(expectedPrice,burger.getPrice(),1);
+        assertEquals(expectedPrice, burger.getPrice(), 1);
 
     }
-
 
 }
