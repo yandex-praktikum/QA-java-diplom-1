@@ -14,6 +14,8 @@ public class Bun {
         this.price = price;
     }
 
+    public Bun(){};
+
     public String getName() {
         return name;
     }
