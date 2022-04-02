@@ -39,7 +39,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void сheckGetReceipt() {
+    public void checkGetReceipt() {
         String expectedReceipt = "(==== Чизбургер ====)\n" +
                 "= filling Крокодил =\n" +
                 "(==== Чизбургер ====)\n" +
