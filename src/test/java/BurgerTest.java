@@ -16,10 +16,13 @@ import java.util.Random;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class BurgerTestWithMock {
+public class BurgerTest {
 
     @Mock
     Bun bun;
+
+    @Mock
+    private Ingredient ingredient;
 
     private int index;
     private int expectedSize;
@@ -29,7 +32,7 @@ public class BurgerTestWithMock {
         MockitoAnnotations.openMocks(this);
     }
 
-    public BurgerTestWithMock(int index, int expectedSize) {
+    public BurgerTest(int index, int expectedSize) {
         this.index = index;
         this.expectedSize = expectedSize;
     }
@@ -52,7 +55,7 @@ public class BurgerTestWithMock {
 
         Bun expectedBun = burger.bun;
 
-        assertEquals(expectedBun, bun);
+        assertEquals("Error in Burger class setBuns() method", expectedBun, bun);
     }
 
     /*
@@ -74,11 +77,11 @@ public class BurgerTestWithMock {
 
         List<Ingredient> actualIigredient = burger.ingredients;
 
-        assertEquals(expectedIigredient, actualIigredient);
+        assertEquals("Error in Burger class addIngredient() method", expectedIigredient, actualIigredient);
 
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = "Тестовые данные: {0} {1}")
     public static Object[][] getData() {
         return new Object[][] {
                 { 0, 1},
@@ -106,35 +109,30 @@ public class BurgerTestWithMock {
 
         int actualSize = burger.ingredients.size();
 
-        assertEquals(expectedSize, actualSize);
+        assertEquals("Error in Burger class removeIngredient() method",expectedSize, actualSize);
     }
 
     /*
     Проверка метода getPrice() класса Burger.java
-    Использован мок на классе Bun, на методе getPrice(), всегда возвращает 500F
+    Использован мок на классе Bun и Ingredient на методе getPrice(), всегда возвращает 500F
     */
     @Test
     public void testGetPriceSomeBurgerReturnFloat() throws Exception {
 
-        Mockito.when(bun.getPrice()).thenReturn(500F);
+        Mockito.when(bun.getPrice()).thenReturn(300F);
+        Mockito.when(ingredient.getPrice()).thenReturn(500F);
 
-        float expectedPrice = 2 * 500;
-
-        Random random = new Random();
-        List<Ingredient> ingredients = List.of(
-                new Ingredient(IngredientType.FILLING, RandomStringUtils.randomAlphabetic(10), random.nextFloat()*100),
-                new Ingredient(IngredientType.SAUCE, RandomStringUtils.randomAlphabetic(10), random.nextFloat()*100));
+        float expectedPrice = 2 * 300F;
 
         Burger burger = new Burger();
         burger.setBuns(bun);
-        for (Ingredient ingredient : ingredients) {
-            burger.addIngredient(ingredient);
-            expectedPrice = expectedPrice + ingredient.getPrice();
-        }
+        burger.addIngredient(ingredient);
+
+        expectedPrice = expectedPrice + ingredient.getPrice();
 
         float actualPrice = burger.getPrice();
 
-        assertEquals(expectedPrice, actualPrice, 0);
+        assertEquals("Error in Burger class getPrice() method", expectedPrice, actualPrice, 0);
 
     }
 
@@ -142,38 +140,30 @@ public class BurgerTestWithMock {
     Проверка метода getReceipt() класса Burger.java
     Использован мок на классе Bun, на методе getPrice(), всегда возвращает 500F
     Использован мок на классе Bun, на методе getName(), всегда возвращает "some_bun"
+    Использован мок на классе Bun, на методе getType(), всегда возвращает FILLING
+    Использован мок на классе Ingredient, на методе getName(), всегда возвращает some_ingredient
+    Использован мок на классе Ingredient, на методе getPrice(), всегда возвращает 700F
     */
     @Test
     public void testGetReceiptSomeBurgerReturnString() throws Exception {
 
         Mockito.when(bun.getPrice()).thenReturn(500F);
         Mockito.when(bun.getName()).thenReturn("some_bun");
-
-        float expectedPrice = 2 * 500;
-
-        Random random = new Random();
-        List<Ingredient> ingredients = List.of(
-                new Ingredient(IngredientType.FILLING, RandomStringUtils.randomAlphabetic(10), random.nextFloat()*100),
-                new Ingredient(IngredientType.SAUCE, RandomStringUtils.randomAlphabetic(10), random.nextFloat()*100));
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(ingredient.getName()).thenReturn("some_ingredient");
+        Mockito.when(ingredient.getPrice()).thenReturn(700F);
 
         Burger burger = new Burger();
         burger.setBuns(bun);
+        burger.addIngredient(ingredient);
 
-        StringBuilder expectedReceipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
+        String expectedReceipt = "(==== " + bun.getName() + " ====)\r\n"
+                + "= " + ingredient.getType().toString().toLowerCase()
+                + " " +  ingredient.getName() + " =\r\n"
+                + "(==== " + bun.getName() + " ====)\r\n"
+                + "\r\nPrice: " + String.format("%.6f", 2 * bun.getPrice() + ingredient.getPrice()) + "\r\n";
 
-        for (Ingredient ingredient : ingredients) {
-            burger.addIngredient(ingredient);
-
-            expectedReceipt.append(String.format("= %s %s =%n",ingredient.getType().toString().toLowerCase(),
-                    ingredient.getName()));
-
-            expectedPrice = expectedPrice + ingredient.getPrice();
-        }
-
-        expectedReceipt.append(String.format("(==== %s ====)%n", bun.getName()));
-        expectedReceipt.append(String.format("%nPrice: %f%n", expectedPrice));
-
-        assertEquals(expectedReceipt.toString(), burger.getReceipt().toString());
+        assertEquals("Error in Burger class getReceipt() method", expectedReceipt, burger.getReceipt());
 
     }
 

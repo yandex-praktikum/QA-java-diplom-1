@@ -19,7 +19,7 @@ public class IngredientTest extends TestCase {
         this.ingredientTypeExpected = ingredientTypeExpected;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = "Тестовые данные: {0} {1}")
     public static Object[] getIngredientType() {
         return new Object[][] {
                 {IngredientType.FILLING, IngredientType.FILLING},
@@ -43,7 +43,7 @@ public class IngredientTest extends TestCase {
 
         IngredientType ingredientType = ingredient.getType();
 
-        assertEquals(ingredientTypeExpected, ingredientType);
+        assertEquals("Error in Ingredient class getType() method", ingredientTypeExpected, ingredientType);
 
     }
 
@@ -64,7 +64,7 @@ public class IngredientTest extends TestCase {
 
         String actualName = ingredient.getName();
 
-        assertEquals(name, actualName);
+        assertEquals("Error in Ingredient class getName() method",name, actualName);
 
     }
 
@@ -85,7 +85,7 @@ public class IngredientTest extends TestCase {
 
         Float actualPrice = ingredient.getPrice();
 
-        assertEquals(price, actualPrice);
+        assertEquals("Error in Ingredient class getPrice() method", price, actualPrice);
 
     }
 

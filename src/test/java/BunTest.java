@@ -21,7 +21,7 @@ public class BunTest extends TestCase {
 
         String actualName = bun.getName();
 
-        assertEquals(name, actualName);
+        assertEquals("Error in Bun class getName() method", name, actualName);
 
     }
 
@@ -40,7 +40,7 @@ public class BunTest extends TestCase {
 
         float actualPrice = bun.getPrice();
 
-        assertEquals(price, actualPrice);
+        assertEquals("Error in Bun class getPrice() method", price, actualPrice);
 
     }
 
