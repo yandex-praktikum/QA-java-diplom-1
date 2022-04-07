@@ -20,5 +20,4 @@ public class BurgerSetBunsTest {
         testBurger.setBuns(testBun);
         Mockito.verify(testBurger).setBuns(testBun);
     }
-
 }
