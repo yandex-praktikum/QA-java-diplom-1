@@ -12,9 +12,9 @@ import java.util.Random;
 public class IngredientTest extends TestCase {
 
     private IngredientType ingredientType;
-    private IngredientType ingredientTypeExpected;
+    private String ingredientTypeExpected;
 
-    public IngredientTest(IngredientType type, IngredientType ingredientTypeExpected) {
+    public IngredientTest(IngredientType type, String ingredientTypeExpected) {
         this.ingredientType = type;
         this.ingredientTypeExpected = ingredientTypeExpected;
     }
@@ -22,8 +22,8 @@ public class IngredientTest extends TestCase {
     @Parameterized.Parameters (name = "Тестовые данные: {0} {1}")
     public static Object[] getIngredientType() {
         return new Object[][] {
-                {IngredientType.FILLING, IngredientType.FILLING},
-                {IngredientType.SAUCE, IngredientType.SAUCE},
+                {IngredientType.FILLING, "FILLING"},
+                {IngredientType.SAUCE, "SAUCE"},
 
         };
     }
@@ -43,7 +43,7 @@ public class IngredientTest extends TestCase {
 
         IngredientType ingredientType = ingredient.getType();
 
-        assertEquals("Error in Ingredient class getType() method", ingredientTypeExpected, ingredientType);
+        assertEquals("Error in Ingredient class getType() method", IngredientType.valueOf(ingredientTypeExpected), ingredientType);
 
     }
 
