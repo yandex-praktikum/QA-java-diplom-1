@@ -18,7 +18,7 @@ public class IngredientParameterizedTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] getSumData() {
         return new Object[][]{
                 { SAUCE, SAUCE},
