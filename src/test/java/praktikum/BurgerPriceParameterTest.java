@@ -2,49 +2,67 @@ package praktikum;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(Parameterized.class)
 public class BurgerPriceParameterTest {
 
     Float bunPrice;
-    Float ingredientPrice0;
-    Float ingredientPrice1;
+    Float ingredientPrice;
     Float expectedPrice;
 
-    public BurgerPriceParameterTest(Float bunPrice, Float ingredientPrice0, Float ingredientPrice1, Float expectedPrice) {
+    public BurgerPriceParameterTest(Float bunPrice, Float ingredientPrice, Float expectedPrice) {
         this.bunPrice = bunPrice;
-        this.ingredientPrice0 = ingredientPrice0;
-        this.ingredientPrice1 = ingredientPrice1;
+        this.ingredientPrice = ingredientPrice;
         this.expectedPrice = expectedPrice;
     }
 
     @Parameterized.Parameters
     public static Object[][] getTestData() {
         return new Object[][] {
-                {0f, 0f, 0f, 0f},
-                {2f, 0f, 0f, 4f},
-                {0f, 1f, 2f, 3f},
-                {2f, 1f, 1f, 6f},
+                {0f, 0f, 0f},
+                {2f, 0f, 4f},
+                {0f, 3f, 3f},
+                {2f, 1f, 5f}
         };
+    }
+
+    @InjectMocks
+    private Burger burger;
+
+    @Mock
+    private Bun bun;
+
+    @Mock
+    private Ingredient ingredient;
+
+    @Before
+    public void setup() {
+        initMocks(this);
     }
 
     @Test
     public void methodGetPriceShouldReturnBurgerPrice() {
         String name = RandomStringUtils.randomAlphabetic(10);
-        Burger burger = new Burger();
-        Bun bun = new Bun(name, bunPrice);
-        Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, name, ingredientPrice0);
-        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, name, ingredientPrice1);
+        //Burger burger = new Burger();
+        //Bun bun = new Bun(name, bunPrice);
+        //Ingredient ingredient = new Ingredient(IngredientType.SAUCE, name, ingredientPrice);
 
         burger.setBuns(bun);
-        burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
+        burger.addIngredient(ingredient);
 
-        Float burgerPice = burger.getPrice();
-        Assert.assertEquals("he expected price does not match actual price", burgerPice, expectedPrice);
+        when(bun.getPrice()).thenReturn(bunPrice);
+        when(ingredient.getPrice()).thenReturn(ingredientPrice);
+        Float burgerPrice = burger.getPrice();
 
+        Assert.assertEquals("he expected price does not match actual price", burgerPrice, expectedPrice);
     }
 }
