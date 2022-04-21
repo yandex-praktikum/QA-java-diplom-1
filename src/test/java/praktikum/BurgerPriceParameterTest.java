@@ -7,14 +7,14 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class BurgerPriceTest {
+public class BurgerPriceParameterTest {
 
     Float bunPrice;
     Float ingredientPrice0;
     Float ingredientPrice1;
     Float expectedPrice;
 
-    public BurgerPriceTest(Float bunPrice, Float ingredientPrice0, Float ingredientPrice1, Float expectedPrice) {
+    public BurgerPriceParameterTest(Float bunPrice, Float ingredientPrice0, Float ingredientPrice1, Float expectedPrice) {
         this.bunPrice = bunPrice;
         this.ingredientPrice0 = ingredientPrice0;
         this.ingredientPrice1 = ingredientPrice1;

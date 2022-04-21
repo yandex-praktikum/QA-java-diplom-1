@@ -1,10 +1,10 @@
+package praktikum;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
 
 import static org.apache.commons.lang3.RandomUtils.nextFloat;
 
@@ -40,9 +40,8 @@ public class IngredientTest {
     public void methodGetNameShouldReturnSameName() {
         String name = RandomStringUtils.randomAlphabetic(10);
         float price = nextFloat();
-        IngredientType type = IngredientType.SAUCE;
 
-        Ingredient ingredient = new Ingredient(type, name, price);
+        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, name, price);
         Assert.assertEquals(name, ingredient.getName());
     }
 
@@ -50,9 +49,8 @@ public class IngredientTest {
     public void methodGetPriceShouldReturnSamePrice() {
         String name = RandomStringUtils.randomAlphabetic(10);
         float price = nextFloat();
-        IngredientType type = IngredientType.FILLING;
 
-        Ingredient ingredient = new Ingredient(type, name, price);
+        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, name, price);
         Assert.assertEquals(price, ingredient.getPrice(), 0.001);
     }
 }

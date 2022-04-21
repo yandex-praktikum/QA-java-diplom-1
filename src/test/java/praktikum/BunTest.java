@@ -1,6 +1,7 @@
+package praktikum;
+
 import org.junit.Assert;
 import org.junit.Test;
-import praktikum.Bun;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import static org.apache.commons.lang3.RandomUtils.nextFloat;
