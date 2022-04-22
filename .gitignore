@@ -1,0 +1,10 @@
+build/
+out/
+.idea/
+*.txt
+*.log
+*.lock
+*.sync
+.allure/
+target/
+.DS_Store
