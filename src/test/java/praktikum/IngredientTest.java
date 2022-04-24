@@ -17,7 +17,7 @@ public class IngredientTest {
     public Ingredient ingredient;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         name = RandomStringUtils.randomAlphabetic(5);
         price = RandomUtils.nextInt(5, 500);
         int ingredientTypeChoice = RandomUtils.nextInt(0, 2);
