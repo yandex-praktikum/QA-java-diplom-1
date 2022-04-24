@@ -1,6 +1,5 @@
 package praktikum;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,11 +50,6 @@ public class BurgerPriceParameterTest {
 
     @Test
     public void methodGetPriceShouldReturnBurgerPrice() {
-        String name = RandomStringUtils.randomAlphabetic(10);
-        //Burger burger = new Burger();
-        //Bun bun = new Bun(name, bunPrice);
-        //Ingredient ingredient = new Ingredient(IngredientType.SAUCE, name, ingredientPrice);
-
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
 
@@ -63,6 +57,6 @@ public class BurgerPriceParameterTest {
         when(ingredient.getPrice()).thenReturn(ingredientPrice);
         Float burgerPrice = burger.getPrice();
 
-        Assert.assertEquals("he expected price does not match actual price", burgerPrice, expectedPrice);
+        Assert.assertEquals("Expected price does not match actual price", burgerPrice, expectedPrice);
     }
 }
