@@ -1,4 +1,4 @@
-package praktikum;
+package praktikum.burger;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -7,6 +7,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import praktikum.Bun;
+import praktikum.Burger;
+import praktikum.Ingredient;
 
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;

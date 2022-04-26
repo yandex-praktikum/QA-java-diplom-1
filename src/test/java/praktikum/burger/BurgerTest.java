@@ -1,9 +1,13 @@
-package praktikum;
+package praktikum.burger;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import praktikum.Bun;
+import praktikum.Burger;
+import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 import static org.apache.commons.lang3.RandomUtils.nextFloat;
 
