@@ -1,6 +1,7 @@
-package praktikum;
 import static org.junit.Assert.*;
 import org.junit.jupiter.api.Test;
+import praktikum.Ingredient;
+
 import static praktikum.IngredientType.*;
 
 class IngredientTest {
