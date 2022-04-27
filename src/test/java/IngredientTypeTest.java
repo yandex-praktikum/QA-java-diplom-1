@@ -1,9 +1,10 @@
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class IngredientTypeTest {
@@ -28,6 +29,6 @@ public class IngredientTypeTest {
     @Test
     public void ingredientTypeTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals("Неправильный тип ингридиента", type, ingredient.getType());
+        assertEquals("Неправильный тип ингридиента", type, ingredient.getType());
     }
 }

@@ -1,41 +1,45 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.*;
 
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
-class BurgerTest {
+public class BurgerTest {
 
     Burger burger = new Burger();
+    Bun bun = new Bun("black bun", 100);
 
     @Mock
     Ingredient ingredient;
 
-    @Mock
-    Bun bun;
+    @Test
+    public void setBunTest() {
+        burger.setBuns(bun);
+        assertNotNull("Нет булки",burger.bun);
+    }
 
     @Test
     public void addIngredientTest() {
         burger.addIngredient(ingredient);
-        Assertions.assertEquals(1, burger.ingredients.size(), "Ингридиент не был добавлен");
+        assertEquals("Ингридиент не был добавлен",1, burger.ingredients.size());
     }
 
     @Test
-    void removeIngredientTest() {
+    public void removeIngredientTest() {
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
-        Assertions.assertEquals(0, burger.ingredients.size(),"Ингридиент не был удален");
+        assertEquals("Ингридиент не был удален",0, burger.ingredients.size());
     }
 
     @Test
-    void moveIngredientTest() {
+    public void moveIngredientTest() {
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "Соус Spicy-X", 90));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "Говяжий метеорит", 3000));
         burger.moveIngredient(0, 1);
-        Assertions.assertEquals("Говяжий метеорит", burger.ingredients.get(0).name,"Ингридиенты не поменяли свои индексы");
+        assertEquals("Ингридиенты не поменяли свои индексы", "Говяжий метеорит", burger.ingredients.get(0).name);
     }
 
     @Test
@@ -46,7 +50,7 @@ class BurgerTest {
         burger.addIngredient(database.availableIngredients().get(0));
         float ingredientPrice = database.availableIngredients().get(0).price;
         float correctPrice = (bunPrice*2) + ingredientPrice;
-        Assertions.assertEquals(correctPrice, burger.getPrice(),0.000001, "Цена не считается");
+        assertEquals("Цена не считается",correctPrice, burger.getPrice(),0.000001);
     }
 
     @Test
@@ -54,14 +58,14 @@ class BurgerTest {
         Database database = new Database();
         burger.setBuns(database.availableBuns().get(0));
         String bunName = database.availableBuns().get(0).name;
-        Assertions.assertTrue(burger.getReceipt().contains(bunName), "Нет булочки в чеке");
+        assertTrue("Нет булочки в чеке", burger.getReceipt().contains(bunName));
     }
     @Test
     public void receiptHasBunPriceTest(){
         Database database = new Database();
         burger.setBuns(database.availableBuns().get(0));
         int burgerPrice = (int)burger.getPrice();
-        Assertions.assertTrue(burger.getReceipt().contains(Integer.toString(burgerPrice)), "нет названия в чеке");
+        assertTrue("Нет названия в чеке", burger.getReceipt().contains(Integer.toString(burgerPrice)));
     }
 
     @Test
@@ -70,6 +74,6 @@ class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(database.availableIngredients().get(0));
         String ingredientType = database.availableIngredients().get(0).type.toString();
-        Assertions.assertTrue(burger.getReceipt().contains(ingredientType.toLowerCase()),"нет начинки в чеке");
+        assertTrue("Нет начинки в чеке",burger.getReceipt().contains(ingredientType.toLowerCase()));
     }
 }
