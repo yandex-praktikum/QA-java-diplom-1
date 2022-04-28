@@ -9,13 +9,13 @@ import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
-public class SuccessIngredientTestPrice {
+public class IngredientTestPrice {
     private final IngredientType type;
     private final String name;
     private final float price;
     private final String errorMessage;
 
-    public SuccessIngredientTestPrice(IngredientType type , String name, float price, String errorMessage) {
+    public IngredientTestPrice(IngredientType type , String name, float price, String errorMessage) {
         this.type = type;
         this.name = name;
         this.price = price;
