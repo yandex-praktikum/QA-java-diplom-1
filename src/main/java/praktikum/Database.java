@@ -12,6 +12,7 @@ public class Database {
     private final List<Ingredient> ingredients = new ArrayList<>();
 
     public Database() {
+
         buns.add(new Bun("black bun", 100));
         buns.add(new Bun("white bun", 200));
         buns.add(new Bun("red bun", 300));
