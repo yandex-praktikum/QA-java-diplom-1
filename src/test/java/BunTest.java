@@ -16,6 +16,7 @@ public class BunTest {
     }
 
     //исхожу из того, что поля name и price класса Bun сделаны публичными сознательно, в соответсвии с требованиями
+    //поэтому проверяю, что измение этих полей приводит к изменниям в объекте
     @Test
     public void checkChangePriceOnValid() {
         float expectedPrice = 10.50f;
