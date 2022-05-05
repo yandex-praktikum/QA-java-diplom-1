@@ -19,22 +19,22 @@ public class IngredientTypeTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{0} - передаем тип ингредиента, {1} - получаем ожидаемый результат")
     public static Object[][] getIngredientType() {
         Database database = new Database();
-        return new Object[][] {
-                { database.availableIngredients().get(2).getType(), SAUCE},
-                { database.availableIngredients().get(3).getType(), FILLING},
-                {null,null}
+        return new Object[][]{
+                {database.availableIngredients().get(2).getType(), SAUCE},
+                {database.availableIngredients().get(3).getType(), FILLING},
+                {null, null}
 
         };
     }
 
     @Test
-    public void shouldGetAType()  {
+    public void shouldGetAType() {
 
-        IngredientType actual = new Ingredient(type,"",100).getType();
-        assertEquals(expected, actual);
+        IngredientType actual = new Ingredient(type, "", 100).getType();
+        assertEquals("Тип ингредиента соответствует ожидаемому", expected, actual);
 
     }
 }

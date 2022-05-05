@@ -16,8 +16,7 @@ public class BunNameTest {
         this.expected = expected;
     }
 
-
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = "{0} - передаем имя, {1} - получаем ожидаемый результат")
     public static Object[][] getNameTest() {
         Database database = new Database();
         return new Object[][] {
@@ -33,7 +32,7 @@ public class BunNameTest {
     public void shouldGetABunName()  {
 
         String actual = new Bun(name,20f).getName();
-        assertEquals(expected, actual);
+        assertEquals("Имя соответствует ожидаемому",expected, actual);
 
     }
 

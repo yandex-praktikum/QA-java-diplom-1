@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static praktikum.IngredientType.FILLING;
@@ -25,12 +26,12 @@ public class BurgerTest {
     //только булки, без ингредиентов
     @Test
     public void burgerWithoutIngredientsCheckTotalPrice() {
-       // Burger burger = new Burger();
+        // Burger burger = new Burger();
         when(bun.getPrice()).thenReturn(20f);
         burger.setBuns(bun);
         float actual = burger.getPrice();
         float expected = 40f;
-        assertEquals(expected, actual,0);
+        assertEquals("Итоговая цена бургера", expected, actual, 0);
     }
 
     // булки + ингредиенты
@@ -46,7 +47,7 @@ public class BurgerTest {
         float actual = burger.getPrice();
 
         float expected = 700f;
-        assertEquals(expected, actual,0);
+        assertEquals("Итоговая цена бургера", expected, actual, 0);
     }
 
     //удалим ингредиент
@@ -66,7 +67,7 @@ public class BurgerTest {
         burger.setBuns(bun);
         float actual = burger.getPrice();
         float expected = 310;
-        assertEquals(expected, actual,0);
+        assertEquals("Итоговая цена бургера", expected, actual, 0);
     }
 
     //перемешаем ингредиенты
@@ -84,14 +85,14 @@ public class BurgerTest {
         burger.addIngredient(ingredient2);
         burger.addIngredient(ingredient3);
 
-        burger.moveIngredient(0,2);  // новый порядок теперь: 99.99, 200, 100
+        burger.moveIngredient(0, 2);  // новый порядок теперь: 99.99, 200, 100
 
         // удалим элемент с индексом 1 (=200) чтобы потом увидеть цену и убедиться что данные были реально перемешаны
         burger.removeIngredient(1);
 
         float actual = burger.getPrice();
         float expected = 400.99f; // 100.50*2 + 99.99 + 100
-        assertEquals(expected, actual,0);
+        assertEquals("Итоговая цена бургера", expected, actual, 0);
     }
 
     // получим чек: булочка, 2 начинки, 1 соус
@@ -120,18 +121,17 @@ public class BurgerTest {
 
         String actual = burger.getReceipt();
         String receipt = (String.format("(==== Vegan Burger ====)%n" +
-                        "= sauce sour cream =%n" +
-                        "= filling vegan cutlet =%n" +
-                        "= filling green =%n" +
-                        "(==== Vegan Burger ====)%n" +
-                        "%n" +
-                        "Price: 2200,000000%n"));
+                "= sauce sour cream =%n" +
+                "= filling vegan cutlet =%n" +
+                "= filling green =%n" +
+                "(==== Vegan Burger ====)%n" +
+                "%n" +
+                "Price: 2200,000000%n"));
 
         System.out.println(actual);
 
-        assertEquals(receipt, actual);
+        assertEquals("Чек соответствует ожидаемому", receipt, actual);
     }
-
 
     // булка без имени, нет начинки и соуса
     @Test
@@ -147,9 +147,8 @@ public class BurgerTest {
                 "Price: 0,000000%n"));
 
         System.out.println(actual);
-        assertEquals(receipt, actual);
+        assertEquals("Чек соответствует ожидаемому", receipt, actual);
     }
-
 
 }
 

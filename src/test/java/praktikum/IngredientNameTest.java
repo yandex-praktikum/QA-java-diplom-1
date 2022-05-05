@@ -18,21 +18,21 @@ public class IngredientNameTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = "{0} - передаем название ингредиента, {1} - получаем ожидаемый результат")
     public static Object[][] getIngredientName() {
         Database database = new Database();
-        return new Object[][] {
-                { database.availableIngredients().get(0).getName(), "hot sauce"},
-                { "some 125 name", "some 125 name"},
-                { null, null},
+        return new Object[][]{
+                {database.availableIngredients().get(0).getName(), "hot sauce"},
+                {"some 125 name", "some 125 name"},
+                {null, null},
         };
     }
 
     @Test
-    public void shouldGetAnIngredientName()  {
+    public void shouldGetAnIngredientName() {
 
-        String actual = new Ingredient(FILLING,name,100).getName();
-        assertEquals(expected, actual);
+        String actual = new Ingredient(FILLING, name, 100).getName();
+        assertEquals("Имя ингредиента соответствует ожидаемому",expected, actual);
 
     }
 }
