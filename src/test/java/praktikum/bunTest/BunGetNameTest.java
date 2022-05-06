@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Bun;
-
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
@@ -19,19 +18,20 @@ public class BunGetNameTest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] getBunData() {
+    public static Object[][] getTestData() {
         return new Object[][]{
                 {"black bun", "black bun"},
-                {"red bun", "red bun"},
-                {"white bun", "white bun"}
+                {"", ""},
+                {"black", "black"},
+                {"black big bun", "black big bun"}
         };
     }
 
     @Test
-    public void paramTest() {
-        Bun bun = new Bun(name, 100);
+    public void shouldCheckGetNameReturnExactName() {
+        Bun bun = new Bun(name, 100.f);
         String actualName = bun.getName();
-        assertEquals("message", expectedName, actualName);
+        assertEquals("return invalid name", expectedName, actualName);
     }
 
 }

@@ -13,7 +13,7 @@ import praktikum.IngredientType;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerTests {
+public class BurgerTest {
 
     @Mock
     Burger burger;
