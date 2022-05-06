@@ -1,5 +1,10 @@
 package praktikum.burger;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,11 +20,13 @@ import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(Parameterized.class)
+@Epic(value = "Stellar Burgers")
+@Feature(value = "Burger Receipt")
+@Story(value = "Burger Parameter Test")
 public class BurgerPriceParameterTest {
-
-    Float bunPrice;
-    Float ingredientPrice;
-    Float expectedPrice;
+    private Float bunPrice;
+    private Float ingredientPrice;
+    private Float expectedPrice;
 
     public BurgerPriceParameterTest(Float bunPrice, Float ingredientPrice, Float expectedPrice) {
         this.bunPrice = bunPrice;
@@ -38,20 +45,19 @@ public class BurgerPriceParameterTest {
     }
 
     @InjectMocks
-    private Burger burger;
-
+        private Burger burger;
     @Mock
-    private Bun bun;
-
+        private Bun bun;
     @Mock
-    private Ingredient ingredient;
-
+        private Ingredient ingredient;
     @Before
-    public void setup() {
+        public void setup() {
         initMocks(this);
     }
 
     @Test
+    @DisplayName("Getting price of the burger")
+    @Description("Create the new burger with parameters and then get price of the burger")
     public void methodGetPriceShouldReturnBurgerPrice() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);

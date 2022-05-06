@@ -3,6 +3,7 @@ package praktikum.bun;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,8 +12,9 @@ import praktikum.Bun;
 
 import static org.apache.commons.lang3.RandomUtils.nextFloat;
 
-@Feature(value = "Bun for burger")
-@Epic(value = "Burger order in Stellar Burger")
+@Epic(value = "Stellar Burgers")
+@Feature(value = "Burger Receipt")
+@Story(value = "Bun for burger")
 public class BunTest {
 
     @Test
@@ -23,6 +25,7 @@ public class BunTest {
         float price = nextFloat();
 
         Bun bun = new Bun(name, price);
+
         Assert.assertEquals(name, bun.getName());
     }
 
@@ -34,6 +37,7 @@ public class BunTest {
         float price = nextFloat();
 
         Bun bun = new Bun(name, price);
+
         Assert.assertEquals(price, bun.getPrice(), 0.001);
     }
 }
