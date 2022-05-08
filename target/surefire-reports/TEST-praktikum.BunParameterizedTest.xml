@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="praktikum.BunParameterizedTest" time="0.034" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="praktikum.BunParameterizedTest" time="0.031" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -61,10 +61,10 @@
     <property name="java.vendor.version" value="Corretto-17.0.1.12.1"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="praktikum.BunParameterizedTest" name="withParametersNameTest[Тестовые данные: входная строка: black bun, цена: 100]" time="0.024"/>
+  <testcase classname="praktikum.BunParameterizedTest" name="withParametersNameTest[Тестовые данные: входная строка: black bun, цена: 100]" time="0.031"/>
   <testcase classname="praktikum.BunParameterizedTest" name="withParametersPriceTest[Тестовые данные: входная строка: black bun, цена: 100]" time="0"/>
-  <testcase classname="praktikum.BunParameterizedTest" name="withParametersNameTest[Тестовые данные: входная строка: white bun, цена: 200]" time="0.001"/>
-  <testcase classname="praktikum.BunParameterizedTest" name="withParametersPriceTest[Тестовые данные: входная строка: white bun, цена: 200]" time="0.003"/>
+  <testcase classname="praktikum.BunParameterizedTest" name="withParametersNameTest[Тестовые данные: входная строка: white bun, цена: 200]" time="0"/>
+  <testcase classname="praktikum.BunParameterizedTest" name="withParametersPriceTest[Тестовые данные: входная строка: white bun, цена: 200]" time="0"/>
   <testcase classname="praktikum.BunParameterizedTest" name="withParametersNameTest[Тестовые данные: входная строка: red bun, цена: 300]" time="0"/>
-  <testcase classname="praktikum.BunParameterizedTest" name="withParametersPriceTest[Тестовые данные: входная строка: red bun, цена: 300]" time="0.006"/>
+  <testcase classname="praktikum.BunParameterizedTest" name="withParametersPriceTest[Тестовые данные: входная строка: red bun, цена: 300]" time="0"/>
 </testsuite>

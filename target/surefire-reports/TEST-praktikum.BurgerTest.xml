@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="praktikum.BurgerTest" time="2.588" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="praktikum.BurgerTest" time="1.985" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -61,10 +61,10 @@
     <property name="java.vendor.version" value="Corretto-17.0.1.12.1"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="praktikum.BurgerTest" name="getPriceTest" time="2.541"/>
-  <testcase classname="praktikum.BurgerTest" name="moveIngredientTest" time="0.004"/>
-  <testcase classname="praktikum.BurgerTest" name="addIngredient" time="0.003"/>
-  <testcase classname="praktikum.BurgerTest" name="setBunsTest" time="0.003"/>
-  <testcase classname="praktikum.BurgerTest" name="removeIngredientTest" time="0.003"/>
-  <testcase classname="praktikum.BurgerTest" name="getReceiptTest" time="0.034"/>
+  <testcase classname="praktikum.BurgerTest" name="getPriceTest" time="1.969"/>
+  <testcase classname="praktikum.BurgerTest" name="moveIngredientTest" time="0"/>
+  <testcase classname="praktikum.BurgerTest" name="addIngredient" time="0"/>
+  <testcase classname="praktikum.BurgerTest" name="setBunsTest" time="0"/>
+  <testcase classname="praktikum.BurgerTest" name="removeIngredientTest" time="0.016"/>
+  <testcase classname="praktikum.BurgerTest" name="getReceiptTest" time="0"/>
 </testsuite>
