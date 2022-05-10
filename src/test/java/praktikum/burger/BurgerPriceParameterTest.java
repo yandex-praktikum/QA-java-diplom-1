@@ -17,7 +17,7 @@ import praktikum.Burger;
 import praktikum.Ingredient;
 
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 @RunWith(Parameterized.class)
 @Epic(value = "Stellar Burgers")
@@ -52,7 +52,7 @@ public class BurgerPriceParameterTest {
         private Ingredient ingredient;
     @Before
         public void setup() {
-        initMocks(this);
+        openMocks(this);
     }
 
     @Test
