@@ -15,6 +15,8 @@ public class IngredientGetPriceTest {
 	@Mock
 	IngredientType type = SAUCE;
 
+	private static final double tolerance = 0.0000001;
+
 	public IngredientGetPriceTest(float price, float expected) {
 		this.price = price;
 		this.expected = expected;
@@ -37,6 +39,6 @@ public class IngredientGetPriceTest {
 	public void ingredientPriceTest() {
 		Ingredient ingredient = new Ingredient(type, name, price);
 		float actual = ingredient.getPrice();
-		assertEquals(expected, actual, 0.0000001);
+		assertEquals(expected, actual, tolerance);
 	}
 }

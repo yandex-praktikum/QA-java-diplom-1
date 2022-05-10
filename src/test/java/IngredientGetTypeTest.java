@@ -11,10 +11,7 @@ import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class IngredientGetTypeTest {
-	@Mock
-	float price = 100;
-	@Mock
-	String name = "Spicy";
+
 	public IngredientGetTypeTest(IngredientType type, IngredientType expected) {
 		this.type = type;
 		this.expected = expected;
@@ -33,7 +30,7 @@ public class IngredientGetTypeTest {
 
 	@Test
 	public void getTypeTest() {
-		Ingredient ingredient = new Ingredient(type, name, price);
+		Ingredient ingredient = new Ingredient(type, "Spicy", 200);
 		IngredientType actual = ingredient.getType();
 		assertEquals(expected, actual);
 	}
