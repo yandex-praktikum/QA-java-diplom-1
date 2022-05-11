@@ -19,7 +19,7 @@ public class BurgerTest {
 	Ingredient ingredient;
 
 	Burger burger = new Burger();
-	private static double tolerance =  0.0000001;
+	private static double TOLERANCE =  0.0000001;
 
 	@Before
 	public void setIngredientsData() {
@@ -62,7 +62,7 @@ public class BurgerTest {
 		when(bun.getPrice()).thenReturn(50f);
 		float priceActual = burger.getPrice();
 		float priceExpected = burger.ingredients.size()*100+bun.getPrice()*2; //стоимость всех выбранных ингредиентов и двух булок
-		assertEquals(priceExpected , priceActual,tolerance);
+		assertEquals(priceExpected , priceActual,TOLERANCE);
 	}
 
 	@Test

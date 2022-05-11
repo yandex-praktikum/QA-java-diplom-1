@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class BunGetPriceTest {
-	private static final double tolerance = 0.0000001;
+	private static final double TOLERANCE = 0.0000001;
 
 	public BunGetPriceTest(float priceParameter) {
 		this.priceParameter = priceParameter;
@@ -30,6 +30,6 @@ public class BunGetPriceTest {
 	public void getNameTest() {
 		Bun bun = new Bun("Минибулка", priceParameter);
 		float actual = bun.getPrice();
-		assertEquals(priceParameter, actual, tolerance);
+		assertEquals(priceParameter, actual, TOLERANCE);
 	}
 }
