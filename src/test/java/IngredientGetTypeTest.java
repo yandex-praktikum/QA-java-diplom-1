@@ -11,26 +11,25 @@ import static praktikum.IngredientType.SAUCE;
 @RunWith(Parameterized.class)
 public class IngredientGetTypeTest {
 
-	public IngredientGetTypeTest(IngredientType type, IngredientType expected) {
-		this.type = type;
-		this.expected = expected;
+	public IngredientGetTypeTest(IngredientType typeParameter) {
+		this.typeParameter = typeParameter;
 	}
 
-	private final IngredientType type;
-	private final IngredientType expected;
+	private final IngredientType typeParameter;
+
 
 	@Parameterized.Parameters // добавили аннотацию
-	public static Object[][] getTypeData() {
-		return new Object[][] {
-				{ SAUCE, SAUCE},
-				{ FILLING, FILLING},
+	public static Object[] getTypeData() {
+		return new Object[] {
+				SAUCE,
+				FILLING,
 		};
 	}
 
 	@Test
 	public void getTypeTest() {
-		Ingredient ingredient = new Ingredient(type, "Spicy", 200);
+		Ingredient ingredient = new Ingredient(typeParameter, "Spicy", 200);
 		IngredientType actual = ingredient.getType();
-		assertEquals(expected, actual);
+		assertEquals(typeParameter, actual);
 	}
 }
