@@ -1,20 +1,17 @@
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
-import org.mockito.Mockito;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -135,7 +132,6 @@ public class BurgerTest {
         Mockito.when(mockBun.getPrice()).thenReturn(2.5f);
 
         float priceToCompare = mockBun.getPrice()*2 +  ingredient2.getPrice() + ingredient3.getPrice();
-        System.out.println("priceToCompare = " + priceToCompare  + "  burgerPrice = " + burger.getPrice());
         assertEquals(priceToCompare,burger.getPrice(), 0.0f);
 
     }

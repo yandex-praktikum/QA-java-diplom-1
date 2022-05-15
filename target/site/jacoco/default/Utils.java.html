@@ -2,8 +2,8 @@
 
 <span class="nc" id="L3">public class Utils {</span>
     public static String randomAlphabeticString(int StringLength) {
-<span class="fc" id="L5">        int leftLimit = 97; // letter 'a'</span>
-<span class="fc" id="L6">        int rightLimit = 122; // letter 'z'</span>
+<span class="fc" id="L5">        int leftLimit = 97;</span>
+<span class="fc" id="L6">        int rightLimit = 122;</span>
 <span class="fc" id="L7">        int targetStringLength = StringLength;</span>
 <span class="fc" id="L8">        Random random = new Random();</span>
 
@@ -12,8 +12,7 @@
 <span class="fc" id="L12">                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)</span>
 <span class="fc" id="L13">                .toString();</span>
 
-<span class="fc" id="L15">        System.out.println(generatedString);</span>
-<span class="fc" id="L16">        return generatedString;</span>
+<span class="fc" id="L15">        return generatedString;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

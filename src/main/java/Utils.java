@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class Utils {
     public static String randomAlphabeticString(int StringLength) {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
+        int leftLimit = 97;
+        int rightLimit = 122;
         int targetStringLength = StringLength;
         Random random = new Random();
 
@@ -12,7 +12,6 @@ public class Utils {
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
 
-        System.out.println(generatedString);
         return generatedString;
     }
 }
