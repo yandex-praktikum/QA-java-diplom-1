@@ -16,6 +16,7 @@ public class IngredientTest {
     private final IngredientType fillingType = FILLING;
 
     @Test
+
     public void getPriceWithIntegerValue() {
 
         Ingredient ingredient = new Ingredient(sauceType, sauceName, intPrice);

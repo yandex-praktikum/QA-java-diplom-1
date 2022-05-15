@@ -82,7 +82,19 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredient2);
-        boolean receiptText = burger.getReceipt().contains(bun.name) & burger.getReceipt().contains(ingredient.name) & burger.getReceipt().contains(ingredient2.name) & burger.getReceipt().contains("Price");
+
+        List<Ingredient> ingredients = List.of(
+                ingredient,
+                ingredient2
+        );
+
+        String receipt = burger.getReceipt();
+
+        for (Ingredient ing : ingredients) {
+            burger.addIngredient(ing);
+        }
+
+        boolean receiptText = receipt.contains(bun.name) & receipt.contains(ingredient.name) & receipt.contains(ingredient2.name) & receipt.contains("Price");
         assertTrue(receiptText);
     }
 
