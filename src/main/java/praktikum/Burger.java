@@ -14,6 +14,8 @@ public class Burger {
     public Bun bun;
     public List<Ingredient> ingredients = new ArrayList<>();
 
+
+
     public void setBuns(Bun bun) {
         this.bun = bun;
     }
@@ -54,4 +56,11 @@ public class Burger {
         return receipt.toString();
     }
 
+/*решил добавить счетчик слоев в бургере, который берется из чека и считается,
+как кол-во строк в чеке за исключением последних 2-х  его строк */
+
+    public  int countLayers(String getReceipt){
+        String[] lines = getReceipt.split("\r\n|\r|\n");
+        return  lines.length -2;
+    }
 }
