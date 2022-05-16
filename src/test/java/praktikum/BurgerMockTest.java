@@ -62,13 +62,6 @@ public class BurgerMockTest {
         Assert.assertEquals(burger.ingredients.get(1),ingredient0);
 
     }
-//
-//    @Test //I assumed that ingredient size should be equal 0, after adding null ingredient
-//    public void addNullIngredient() {
-//        burger.addIngredient(null);
-//        System.out.println(burger.ingredients.size());
-//        Assert.assertEquals(0, burger.ingredients.size());
-//    }
 
     @Test
     public void getPriceTest() {

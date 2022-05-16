@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class BunTest {
 
-    //Unit test for Bun Class
+
     @Test
     public void burgerCreateTest() {
         String name = RandomStringUtils.randomAlphabetic(10);
@@ -22,17 +22,5 @@ public class BunTest {
         Assert.assertEquals("burger price and method burger.getPrice() doesn't coincide", price, bun.getPrice(), 0);
     }
 
-
-
-//    @Test  // I assumed that negative price is not allowed and should be equal 0.
-//    public void createBunWithNegativePrice() {
-//        String name = RandomStringUtils.randomAlphabetic(10);
-//        Float price = new Random().nextFloat()*(-1);
-//
-//        Bun bun = new Bun(name,price);
-//        System.out.println(bun.price);
-//
-//        Assert.assertEquals(0,price, 0);
-//    }
 
 }
