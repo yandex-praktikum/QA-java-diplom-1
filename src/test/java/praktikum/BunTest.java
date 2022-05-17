@@ -19,9 +19,8 @@ public class BunTest {
 
     @Test
     public void getNameReturnsCorrectValue() {
-
         String actualName = bun.getName();
-        assertEquals(actualName,expectedName);
+        assertEquals(expectedName,actualName);
     }
 
     @Test

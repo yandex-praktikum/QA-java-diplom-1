@@ -55,10 +55,7 @@ public class BurgerTest {
 
     @Test
     public void moveIngredient() {
-
-        for (int i = 0; i != 3; i++) {
-            burger.addIngredient(new Ingredient(IngredientType.FILLING, "Булочка с корицей " + 1, 50f));
-        }
+        prepareBurger();
         Ingredient expectedIngredient = new Ingredient(IngredientType.SAUCE, "Нужная булочка", 100f);
         burger.addIngredient(expectedIngredient);
 
@@ -92,14 +89,19 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(30f);
 
         StringBuilder tmpReceipt = new StringBuilder(String.format("(==== %s ====)%n", bunName));
-        tmpReceipt.append(String.format("= %s %s =%n",ingredientType.toString().toLowerCase(), ingredientName));
+        tmpReceipt.append(String.format("= %s %s =%n", ingredientType.toString().toLowerCase(), ingredientName));
         tmpReceipt.append(String.format("(==== %s ====)%n", bunName));
         tmpReceipt.append(String.format("%nPrice: %f%n", expectedPrice));
-
         String expectedReceipt = tmpReceipt.toString();
 
         String actualReceipt = burger.getReceipt();
 
-        assertEquals(expectedReceipt,actualReceipt);
+        assertEquals(expectedReceipt, actualReceipt);
+    }
+
+    private void prepareBurger() {
+        for (int i = 0; i != 3; i++) {
+            burger.addIngredient(new Ingredient(IngredientType.FILLING, "Булочка с корицей " + 1, 50f));
+        }
     }
 }

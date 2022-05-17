@@ -14,20 +14,20 @@ public class DatabaseTest {
     private Database database;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         database = new Database();
     }
 
     @Test
     public void availableBuns() {
         List<Bun> buns = database.availableBuns();
-        assertThat(buns.size(),notNullValue());
+        assertThat(buns.size(), notNullValue());
 
     }
 
     @Test
     public void availableIngredients() {
         List<Ingredient> ingredients = database.availableIngredients();
-        assertThat(ingredients.size(),notNullValue());
+        assertThat(ingredients.size(), notNullValue());
     }
 }

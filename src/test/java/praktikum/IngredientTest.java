@@ -36,7 +36,6 @@ public class IngredientTest {
 
     @Test
     public void getPriceReturnsCorrectValue() {
-
         assertEquals(ingredient.getPrice(), ingredientPrice, 0);
     }
 
@@ -48,7 +47,6 @@ public class IngredientTest {
 
     @Test
     public void getTypeReturnsCorrectValue() {
-
         assertEquals(ingredient.getType(), ingredientType);
     }
 }
