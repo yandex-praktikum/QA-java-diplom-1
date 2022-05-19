@@ -10,7 +10,7 @@ import java.util.Set;
 public class IngredientTypeTest {
 
     @Test
-    public void setBunsTest() {
+    public void checkIngredientsTypeTest() {
         Set<IngredientType> set = new HashSet<>(Arrays.asList(IngredientType.values()));
         set.remove(IngredientType.FILLING);
         set.remove(IngredientType.SAUCE);

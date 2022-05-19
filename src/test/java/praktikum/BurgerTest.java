@@ -65,6 +65,7 @@ public class BurgerTest {
     }
 
     @Test
+    //в данном тесте при отсутсвии булки прослеживается баг
     public void getPriceNoBunTest() {
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sauce", 20f));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "filling", 10f));
@@ -87,6 +88,7 @@ public class BurgerTest {
     }
 
     @Test
+    //в данном тесте при отсутсвии булки прослеживается баг
     public void getReceiptNoBunTest() {
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sauce", 20f));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "filling", 10f));
