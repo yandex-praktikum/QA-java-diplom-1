@@ -68,16 +68,18 @@ public class BurgerTest {
         burger.setBuns(bun);
         List<Ingredient> ingredientList = new ArrayList<>(burger.ingredients);
         Mockito.when(bun.getName()).thenReturn("Булочка");
-        assertEquals("(==== " + bun.getName() + " ====)\r\n" +
-                "= sauce " + ingredientList.get(0).getName() + " =\r\n" +
-                "= sauce " + ingredientList.get(1).getName() + " =\r\n" +
-                "= sauce " + ingredientList.get(2).getName() + " =\r\n" +
-                "= filling " + ingredientList.get(3).getName() + " =\r\n" +
-                "= filling " + ingredientList.get(4).getName() + " =\r\n" +
-                "= filling " + ingredientList.get(5).getName() + " =\r\n" +
-                "(==== " + bun.getName() + " ====)\r\n" +
-                "\r\n" +
-                "Price: 1200,000000\r\n", burger.getReceipt());
+        String expected = "(==== " + bun.getName() + " ====)" + "\n" +
+                "= sauce " + ingredientList.get(0).getName() + " =\n" +
+                "= sauce " + ingredientList.get(1).getName() + " =\n" +
+                "= sauce " + ingredientList.get(2).getName() + " =\n" +
+                "= filling " + ingredientList.get(3).getName() + " =\n" +
+                "= filling " + ingredientList.get(4).getName() + " =\n" +
+                "= filling " + ingredientList.get(5).getName() + " =\n" +
+                "(==== " + bun.getName() + " ====)" + "\n\n" +
+                "Price: 1200.000000" + "\n";
+        String actual = burger.getReceipt();
+
+        assertEquals("Не соответствует информация в чеке", expected, actual);
     }
 
 }
