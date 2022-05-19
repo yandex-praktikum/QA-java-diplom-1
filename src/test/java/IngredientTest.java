@@ -7,16 +7,16 @@ import static praktikum.IngredientType.FILLING;
 public class IngredientTest {
 
 
-    Ingredient ingredient = new Ingredient(FILLING, "котлета", 5.2f);
+    Ingredient ingredient = new Ingredient(FILLING, "cutlet", 100);
 
     @Test
     public void getPriceTest(){
-        assertEquals(5.2f, ingredient.getPrice(), 0.0f);
+        assertEquals(100, ingredient.getPrice(), 0.0f);
     }
 
     @Test
     public void getNameTest(){
-        assertEquals("котлета", ingredient.getName());
+        assertEquals("cutlet", ingredient.getName());
     }
 
     @Test

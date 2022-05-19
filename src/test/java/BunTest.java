@@ -19,8 +19,9 @@ public class BunTest {
     @Parameterized.Parameters
     public static Object[][] getNameAndPrice() {
         return new Object[][]{
-                {"ржаная", 10.37f},
-                {"пшеничная", 9.18f},
+                {"black bun", 100},
+                {"white bun", 200},
+                {"red bun", 300},
                 {"", 0},
                 {null, 0.0f},
         };
