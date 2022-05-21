@@ -7,7 +7,7 @@ import org.junit.runners.Parameterized;
 
 
 @RunWith(Parameterized.class)
-public class IngredientTest {
+public class IngredientsTest {
 
     private final SoftAssertions softAssertions = new SoftAssertions();
 
@@ -18,8 +18,8 @@ public class IngredientTest {
     public float priceIngredient;
     public float expectedPrice;
 
-    public IngredientTest(IngredientType typeIngredient,String expectedType, String nameIngredient
-            , String expectedName, float priceIngredient,float expectedPrice){
+    public IngredientsTest(IngredientType typeIngredient, String expectedType, String nameIngredient
+            , String expectedName, float priceIngredient, float expectedPrice){
         this.typeIngredient = typeIngredient;
         this.expectedType = expectedType;
         this.nameIngredient = nameIngredient;
@@ -29,7 +29,7 @@ public class IngredientTest {
     }
 
     @Parameterized.Parameters(name = "type {1}, name \"{3}\", price = {5}")
-    public static Object[][] dataBun() {
+    public static Object[][] dataIngredients() {
         return new Object[][]{
                 {IngredientType.SAUCE, "SAUCE", "питиаровое масло", "питиаровое масло", 300.09f, 300.09f},
                 {IngredientType.SAUCE, "SAUCE", "vanilla sauce", "vanilla sauce", 10, 10},

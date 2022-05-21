@@ -49,7 +49,7 @@ public class BurgerReceiptTest {
     public float ingredientPrice1;
 
     @Parameterized.Parameters(name = "expected price {0} for burger with: {2} {3} and {5} {6}")
-    public static Object[][] dataBurger() {
+    public static Object[][] dataBurgerIngredients() {
         return new Object[][]{
                 {599*2+200, 1, IngredientType.SAUCE, "Cosmic", 200, null, "", 0},
                 {599*2+200+555, 2, IngredientType.FILLING, "Salmon", 555, IngredientType.SAUCE, "Cosmic", 200},

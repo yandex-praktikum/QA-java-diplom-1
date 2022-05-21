@@ -48,7 +48,7 @@ public class BurgerPriceTest {
     public float burgerPrice;
 
     @Parameterized.Parameters(name = "burger has got {6} ingredient/s cost {3} | bun {5} cost {4} | burger price {7}")
-    public static Object[][] dataBun() {
+    public static Object[][] dataBurger() {
         return new Object[][]{
                 {new Ingredient(IngredientType.SAUCE, "Dino", 300), null, null, 300, 1000, "Cosmic", 1, 300+2*1000},
                 {new Ingredient(IngredientType.SAUCE, "Cosmic", 200), new Ingredient(IngredientType.FILLING,
