@@ -13,13 +13,16 @@ public class IngredientParamTest {
         this.type = type;
     }
 
-    @Parameterized.Parameters
+
+    @Parameterized.Parameters(name = "IngredientType:{0}")
     public static IngredientType[][] getTestData() {
         return new IngredientType[][]{
             {IngredientType.FILLING},
-            {IngredientType.SAUCE},
+            {IngredientType.SAUCE}
     };
 }
+
+
 
     @Test
     public void getPrice() {
