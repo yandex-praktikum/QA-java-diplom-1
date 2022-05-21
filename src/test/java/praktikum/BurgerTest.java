@@ -10,12 +10,12 @@ import java.util.Random;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerMockTest {
+public class BurgerTest {
 
     Burger burger;
 
 
-    public BurgerMockTest(){
+    public BurgerTest(){
         burger = new Burger();
     }
 
