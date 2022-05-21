@@ -57,6 +57,7 @@ public class IngredientTest {
         boolean isIngredientTypeCorrect = expectedIngredientType == actualIngredientType;
         assertEquals(errorMessageConstructorIngredientTypeTest, true, isIngredientTypeCorrect);
     }
+
     @Test
     public void isGetIngredientTypeReturnsCorrectIngredientTypeFILLINGest() {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, testName, testPrice);
