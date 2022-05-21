@@ -32,7 +32,7 @@ public class BunTest {
     }
 
     @Test
-    public void bunNameTest() {
+    public void bunNameAndPriceTest() {
         Bun bun = new Bun(nameBun, priceBun);
         softAssertions.assertThat(bun.getName()).isEqualTo(expectedName);
         softAssertions.assertThat(bun.getPrice()).isEqualTo(expectedPrice);
