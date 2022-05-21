@@ -50,9 +50,17 @@ public class IngredientTest {
     }
 
     @Test
-    public void isGetIngredientTypeReturnsCorrectIngredientTypeTest() {
+    public void isGetIngredientTypeReturnsCorrectIngredientTypeSAUCETest() {
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE, testName, testPrice);
         IngredientType expectedIngredientType = IngredientType.SAUCE;
+        IngredientType actualIngredientType = ingredient.getType();
+        boolean isIngredientTypeCorrect = expectedIngredientType == actualIngredientType;
+        assertEquals(errorMessageConstructorIngredientTypeTest, true, isIngredientTypeCorrect);
+    }
+    @Test
+    public void isGetIngredientTypeReturnsCorrectIngredientTypeFILLINGest() {
+        Ingredient ingredient = new Ingredient(IngredientType.FILLING, testName, testPrice);
+        IngredientType expectedIngredientType = IngredientType.FILLING;
         IngredientType actualIngredientType = ingredient.getType();
         boolean isIngredientTypeCorrect = expectedIngredientType == actualIngredientType;
         assertEquals(errorMessageConstructorIngredientTypeTest, true, isIngredientTypeCorrect);
