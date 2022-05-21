@@ -23,7 +23,15 @@ public class BunTest {
         return new Object[][]{
                 {"black bun", 100},
                 {"white bun", 200},
-                {"red bun", 300}
+                {"red bun", 300},
+                {"red bun", 300.0},
+                {"red bun", 0.834652346524364366425},
+                {"red bun", 2134654562},
+                {"redbunredbunredbunredbunredbunredbunredbunredbunredbun", 300},
+                {"красная булка", 300},
+                {"red bun", 0},
+                {"red bun", null},
+                {"red bun", -345},
         };
     }
 
