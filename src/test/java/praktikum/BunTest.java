@@ -11,16 +11,20 @@ public class BunTest {
 
     @Before
     public void setUp() {
-        bun = new Bun("Crater bun", 1255);
+        bun = new Bun("black bun", 100L);
     }
 
     @Test
     public void getNameBunTest() {
-        Assert.assertEquals("Булочка должна называться - Crater bun", "Crater bun", bun.getName());
+        String actual = "black bun";
+        String expected = bun.getName();
+        Assert.assertEquals("Ожидаемое название булочки - " + expected, actual, expected);
     }
 
     @Test
     public void getPriceBunTest() {
-        Assert.assertEquals("Цена булочки должна быть - 1255", 1255, bun.getPrice(), 0);
+        float expected = 100L;
+        float actual = bun.getPrice();
+        Assert.assertEquals("Ожидаемая цена булочки - " + expected, expected , actual, 0);
     }
 }
