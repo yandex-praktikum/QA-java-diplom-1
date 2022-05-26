@@ -36,19 +36,19 @@ public class IngredientTest {
     }
 
     @Test
-    public void getPrice() {
+    public void getPriceIngredientTest() {
         float actual = ingredient.getPrice();
         Assert.assertEquals("Ожидаемая цена ингредиента " + price, price, actual, 0);
     }
 
     @Test
-    public void getName() {
+    public void getNameIngredientTest() {
         String actual = ingredient.getName();
         Assert.assertEquals("Ожидаемое название ингредиента - " + name, name, actual);
     }
 
     @Test
-    public void getType() {
+    public void getTypeIngredientTest() {
         IngredientType actual = ingredient.getType();
         Assert.assertEquals("Ожидаемый тип ингредиента -" + type, type, actual);
     }
