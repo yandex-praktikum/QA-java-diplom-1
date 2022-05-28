@@ -26,7 +26,7 @@ public class IngredientTypeTest {
     @Test
     public void ingredientTypeTest() {
         IngredientType[] types = IngredientType.values();
-        Assert.assertEquals(expected, types[number].toString());
+        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expected, types[number].toString());
     }
 
 }
