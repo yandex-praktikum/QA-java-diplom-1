@@ -3,7 +3,7 @@ import praktikum.Bun;
 
 import static org.junit.Assert.assertEquals;
 
-public class BunTests {
+public class BunTest {
 
     @Test
     public void BunNameTest() {

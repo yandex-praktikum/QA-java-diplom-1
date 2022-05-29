@@ -85,13 +85,12 @@ public class BurgerTests {
     }
     @Test
     public void getReceiptTest() {
-        Bun bun_sesame = new Bun ("Кунжутная", 350);
         Burger burger = new Burger();
+        Bun bun_sesame = new Bun ("Кунжутная", 350);
         burger.setBuns(bun_sesame);
         burger.addIngredient(new Ingredient(FILLING, "bacon", 120));
         burger.addIngredient(new Ingredient(SAUCE, "garlic sauce", 150));
         String burger_receipt = "(==== Кунжутная ====)" + "\n" + "= filling bacon =" + "\n" + "= sauce garlic sauce =" + "\n" + "(==== Кунжутная ====)" + "\n" + "\n" + "Price: 970.000000" + "\n";
         assertEquals(burger_receipt, burger.getReceipt());
     }
-
 }
