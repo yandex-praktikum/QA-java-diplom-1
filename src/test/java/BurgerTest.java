@@ -79,17 +79,17 @@ public class BurgerTest {
     @Test
     public void getReceiptTest(){
         Burger burger = new Burger();
-        when(bun.getName()).thenReturn("Abc_bun");
+        when(bun.getName()).thenReturn("Abc bun");
         when(bun.getPrice()).thenReturn(100f);
         when(ingredient.getType()).thenReturn(FILLING);
-        when(ingredient.getName()).thenReturn("abc_ingr");
+        when(ingredient.getName()).thenReturn("abc ingr");
         when(ingredient.getPrice()).thenReturn(100f);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         String expectedReceipt =
-        "(==== Abc_bun ====)\r\n" +
-        "= filling abc_ingr =\r\n" +
-        "(==== Abc_bun ====)\r\n" +
+        "(==== Abc bun ====)\r\n" +
+        "= filling abc ingr =\r\n" +
+        "(==== Abc bun ====)\r\n" +
         "\r\nPrice: 300,000000\r\n";
 
         String actualReceipt = burger.getReceipt();
