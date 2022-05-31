@@ -16,7 +16,7 @@ public class BunTest {
     String errorMessageGetPriceTest = "getPrice возвращает некорректное значение переменной price";
 
     @Test
-    public void IsBunClassConstructorSetNameAndPriceTest() {
+    public void isBunClassConstructorSetNameAndPriceTest() {
         String expectedName = testName;
         float expectedPrice = testPrice;
         Bun bun = new Bun(testName, testPrice);
@@ -24,13 +24,13 @@ public class BunTest {
         assertEquals(errorMessageConstructorPriceTest, expectedPrice, bun.price, comparisonDelta);
     }
     @Test
-    public void IsBunClassGetNameReturnNameTest() {
+    public void isBunClassGetNameReturnNameTest() {
         Bun bun = new Bun(testName, testPrice);
         assertEquals(errorMessageGetNameTest, bun.name, bun.getName());
     }
 
     @Test
-    public void IsBunClassGetPriceReturnPriceTest() {
+    public void isBunClassGetPriceReturnPriceTest() {
         Bun bun = new Bun(testName, testPrice);
         assertEquals(errorMessageGetPriceTest, bun.price, bun.getPrice(), comparisonDelta);
     }
