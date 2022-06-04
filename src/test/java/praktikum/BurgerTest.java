@@ -1,61 +1,64 @@
 package praktikum;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
-@RunWith(value = Parameterized.class)
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
     private static final String FILLING = "filling";
     private static final String SAUCE = "sauce";
-    private static final String BUN = "bun";
+    private static final String BUN_NAME = "bun";
     private static final float FILLING_PRICE = 200;
     private static final float SAUCE_PRICE = 100;
-    private static final int BUN_PRICE = 10;
+    private static final float BUN_PRICE = 10;
 
-    private List<Ingredient> inputIngredients;
-    private int expectedSize;
+    @Mock
+    private Bun bun;
 
-    public BurgerTest(List<Ingredient> inputIngredients, int expectedSize) {
-        this.inputIngredients = inputIngredients;
-        this.expectedSize = expectedSize;
-    }
+    private Burger burger;
 
-    @Parameterized.Parameters(name = "{index}: testAdd({0}+{1}) = {2}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {Arrays.asList(new Ingredient(IngredientType.FILLING, FILLING, FILLING_PRICE)), 1},
-                {Arrays.asList(new Ingredient(IngredientType.FILLING, FILLING, FILLING_PRICE),
-                        new Ingredient(IngredientType.SAUCE, SAUCE, SAUCE_PRICE)), 2}
-        });
+    @Before
+    public void init() {
+        burger = new Burger();
+        burger.setBuns(bun);
+
+        when(bun.getPrice()).thenReturn(BUN_PRICE);
+        when(bun.getName()).thenReturn(BUN_NAME);
     }
 
     @Test
     public void testAddIngredient() {
-        Burger burger = new Burger();
+        List<Ingredient> ingredients = Arrays.asList(
+                new Ingredient(IngredientType.FILLING, FILLING, FILLING_PRICE),
+                new Ingredient(IngredientType.SAUCE, SAUCE, SAUCE_PRICE));
 
-        for (Ingredient ingredient : inputIngredients) {
+        for (Ingredient ingredient : ingredients) {
             burger.addIngredient(ingredient);
         }
 
         assertEquals("Burger should have 1 ingredient!",
-                inputIngredients.size(),
+                ingredients.size(),
                 burger.ingredients.size());
 
-        for (int i = 0; i < inputIngredients.size(); i++) {
-            assertEquals("Ingredient should be named '" + inputIngredients.get(i).name + "'!",
-                    inputIngredients.get(i).name,
+        for (int i = 0; i < ingredients.size(); i++) {
+            assertEquals("Ingredient should be named '" + ingredients.get(i).name + "'!",
+                    ingredients.get(i).name,
                     burger.ingredients.get(i).name);
 
-            assertEquals("Ingredient should cost '" + inputIngredients.get(i).price + "'!",
-                    inputIngredients.get(i).price,
+            assertEquals("Ingredient should cost '" + ingredients.get(i).price + "'!",
+                    ingredients.get(i).price,
                     burger.ingredients.get(i).price,
                     0);
         }
@@ -63,8 +66,6 @@ public class BurgerTest {
 
     @Test
     public void testRemoveIngredient() {
-        Burger burger = new Burger();
-
         burger.addIngredient(new Ingredient(IngredientType.FILLING, FILLING, FILLING_PRICE));
 
         burger.removeIngredient(0);
@@ -76,8 +77,6 @@ public class BurgerTest {
 
     @Test
     public void testMoveIngredient() {
-        Burger burger = new Burger();
-
         burger.addIngredient(new Ingredient(IngredientType.FILLING, FILLING, FILLING_PRICE));
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, SAUCE, SAUCE_PRICE));
 
@@ -96,11 +95,9 @@ public class BurgerTest {
 
     @Test
     public void testGetPrice() {
-        Burger burger = new Burger();
-
         float expectedPrice = BUN_PRICE * 2 + FILLING_PRICE + SAUCE_PRICE;
 
-        burger.setBuns(new Bun(BUN, BUN_PRICE));
+        burger.setBuns(new Bun(BUN_NAME, BUN_PRICE));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, FILLING, FILLING_PRICE));
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, SAUCE, SAUCE_PRICE));
 
@@ -114,15 +111,13 @@ public class BurgerTest {
 
     @Test
     public void testGetReceipt() {
-        Burger burger = new Burger();
-
         String expectedReceipt = "(==== bun ====)\r\n" +
                 "= filling filling =\r\n" +
                 "= sauce sauce =\r\n" +
                 "(==== bun ====)\r\n" +
                 "\r\nPrice: 320,000000\r\n";
 
-        burger.setBuns(new Bun(BUN, BUN_PRICE));
+        burger.setBuns(new Bun(BUN_NAME, BUN_PRICE));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, FILLING, FILLING_PRICE));
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, SAUCE, SAUCE_PRICE));
 
