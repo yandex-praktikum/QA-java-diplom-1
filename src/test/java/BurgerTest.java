@@ -24,15 +24,13 @@ public class BurgerTest {
         List<Ingredient> ingredients = new ArrayList<>();
         //добавили ингридиент, чтобы имитировать работу бд
         ingredients.add(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
-        //объявили экземпляр класса, с которым будем сравнивать
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
         //имитировали ответ от базы
         Mockito.when(database.availableIngredients())
                 .thenReturn(ingredients);
         //добавили в бургер ингридиент
         burger.addIngredient(database.availableIngredients().get(0));
         //сравнили полученное с ожидаемым
-        assertEquals(burger.ingredients.get(0).equals(ingredient), true);
+        assertEquals(burger.ingredients.size(), 1);
     }
 
     @Test
@@ -48,14 +46,12 @@ public class BurgerTest {
     public void moveIngredientTest() {
         //объявили экземпляр класса burger
         Burger burger = new Burger();
-        //объявили экземпляр класса, с которым будем сравнивать
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
 
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "cutlet", 100));
         burger.moveIngredient(0, 1);
-        assertEquals(burger.ingredients.get(1).equals(ingredient), true);
 
+        assertEquals(burger.ingredients.get(1).getName(), "hot sauce");
     }
 
     @Test
@@ -81,9 +77,6 @@ public class BurgerTest {
                 .append(String.format("(==== white bun ====)%n"))
                 .append(String.format("%nPrice: 600,000000%n"));
 
-        String exp = sb.toString();
-
-        boolean expected = true;
-        assertEquals(exp.equals(act), expected);
+        assertEquals(sb.toString().equals(act), true);
     }
 }
