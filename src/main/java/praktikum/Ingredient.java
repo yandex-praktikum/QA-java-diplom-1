@@ -1,5 +1,7 @@
 package praktikum;
 
+import java.util.Objects;
+
 /**
  * Модель ингредиента.
  * Ингредиент: начинка или соус.
@@ -28,5 +30,4 @@ public class Ingredient {
     public IngredientType getType() {
         return type;
     }
-
 }
