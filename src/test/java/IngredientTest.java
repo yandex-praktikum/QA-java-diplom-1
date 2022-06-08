@@ -1,14 +1,18 @@
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mock;
-import praktikum.Bun;
+import praktikum.Ingredient;
 import praktikum.IngredientType;
+
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
-    @Mock
-    IngredientType type;
+    private final IngredientType type;
+    private Ingredient ingredient;
     private String name;
     private float price;
 
@@ -19,17 +23,35 @@ public class IngredientTest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] setBun() {
+    public static Object[][] setIngredient() {
         return new Object[][]{
-                {"Tanya", 100},
-                {null, 0},
-                {"TestName", -1},
-                {"", -0.1F}
+                {SAUCE, "Tanuki", 100},
+                {FILLING, null, 0},
+                {SAUCE, "Tanuki", -1},
+                {FILLING, "", -0.1F}
         };
     }
 
     @Before
     public void setUp() {
-        bun = new Bun(name, price);
+        ingredient = new Ingredient(type, name, price);
+    }
+
+    @Test
+    public void checkGetName() {
+        String actualName = ingredient.getName();
+        Assert.assertEquals(actualName, name);
+    }
+
+    @Test
+    public void checkGetPrice() {
+        float actuaPrice = ingredient.getPrice();
+        Assert.assertTrue(actuaPrice == price);
+    }
+
+    @Test
+    public void checkGetType() {
+        IngredientType actualIngredientType = ingredient.getType();
+        Assert.assertEquals(actualIngredientType, type);
     }
 }

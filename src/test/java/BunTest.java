@@ -20,9 +20,9 @@ public class BunTest {
     @Parameterized.Parameters
     public static Object[][] setBun() {
         return new Object[][]{
-                {"Tanya", 100},
+                {"Tanuki", 100},
                 {null, 0},
-                {"TestName", -1},
+                {"Tanuki", -1},
                 {"", -0.1F}
         };
     }
