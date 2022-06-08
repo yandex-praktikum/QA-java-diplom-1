@@ -1,19 +1,22 @@
 import org.junit.Test;
 import praktikum.Bun;
+import praktikum.Database;
 
 import static org.junit.Assert.assertEquals;
 
 public class BunTest {
 
     @Test
-    public void BunNameTest() {
-        Bun bun = new Bun("Классическая", 133.34f);
-        assertEquals("Классическая", bun.getName());
+    public void bunNameTest() {
+        Database database = new Database();
+        Bun bun = database.availableBuns().get(0);
+        assertEquals("black bun", bun.getName());
     }
 
     @Test
-    public void BunPriceTest() {
-        Bun bun = new Bun("Классическая", 133.34f);
-        assertEquals(133.34f, bun.getPrice(), 0);
+    public void bunPriceTest() {
+        Database database = new Database();
+        Bun bun = database.availableBuns().get(2);
+        assertEquals(300, bun.getPrice(), 0);
     }
 }

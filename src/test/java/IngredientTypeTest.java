@@ -4,7 +4,7 @@ import praktikum.IngredientType;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class IngredientTypeTests {
+public class IngredientTypeTest {
 
     @Test
     public void doesFillingValueExist() {

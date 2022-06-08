@@ -12,7 +12,7 @@ import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerTests {
+public class BurgerTest {
 
     @Mock
     Bun bun;
@@ -26,9 +26,9 @@ public class BurgerTests {
     @Test
     public void setBunsTest() {
         Burger burger = new Burger();
-        Bun bun_rye = new Bun("Ржаная", 140.54f);
-        burger.setBuns(bun_rye);
-        assertEquals(bun_rye, burger.bun);
+        Bun bunRye = new Bun("Ржаная", 140.54f);
+        burger.setBuns(bunRye);
+        assertEquals(bunRye, burger.bun);
     }
 
     @Test
@@ -86,11 +86,11 @@ public class BurgerTests {
     @Test
     public void getReceiptTest() {
         Burger burger = new Burger();
-        Bun bun_sesame = new Bun ("Кунжутная", 350);
-        burger.setBuns(bun_sesame);
+        Bun bunSesame = new Bun ("Кунжутная", 350);
+        burger.setBuns(bunSesame);
         burger.addIngredient(new Ingredient(FILLING, "bacon", 120));
         burger.addIngredient(new Ingredient(SAUCE, "garlic sauce", 150));
-        String burger_receipt = "(==== Кунжутная ====)" + "\n" + "= filling bacon =" + "\n" + "= sauce garlic sauce =" + "\n" + "(==== Кунжутная ====)" + "\n" + "\n" + "Price: 970.000000" + "\n";
-        assertEquals(burger_receipt, burger.getReceipt());
+        String burgerReceipt = "(==== Кунжутная ====)" + "\n" + "= filling bacon =" + "\n" + "= sauce garlic sauce =" + "\n" + "(==== Кунжутная ====)" + "\n" + "\n" + "Price: 970.000000" + "\n";
+        assertEquals(burgerReceipt, burger.getReceipt());
     }
 }

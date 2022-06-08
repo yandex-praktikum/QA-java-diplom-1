@@ -28,8 +28,8 @@ public class BunParameterizedTest {
     @Test
     public void isBunDataValid() {
         Bun bun = new Bun(name, price);
-        assertNotNull(bun.getName());
-        assertTrue(bun.getPrice() > 0);
+        assertEquals(name, bun.getName());
+        assertEquals(price, bun.getPrice(), 0);
     }
 }
 

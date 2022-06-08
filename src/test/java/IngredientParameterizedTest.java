@@ -4,11 +4,7 @@ import org.junit.runners.Parameterized;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
-import static org.hamcrest.CoreMatchers.anyOf;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.MatcherAssert.*;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
@@ -38,9 +34,9 @@ public class IngredientParameterizedTest {
     @Test
     public void isIngredientsDataValid() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        assertThat(ingredient.getType(), anyOf(is(FILLING), is(SAUCE)));
-        assertNotNull(ingredient.getName());
-        assertTrue(ingredient.getPrice() > 0);
+        assertEquals(type, ingredient.getType());
+        assertEquals(name, ingredient.getName());
+        assertEquals(price, ingredient.getPrice(),0);
     }
 }
 
