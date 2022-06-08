@@ -46,9 +46,10 @@ public class BurgerTest {
     public void getPriceReturnCorrectResultTest(){
         burger = new Burger();
         burger.setBuns(bun);
-        Mockito.when(bun.getPrice()).thenReturn(200f);
-        float actual = bun.getPrice();
-        assertEquals("Ошибка в расчете цены", 200f, actual, 0);
+        Mockito.when(bun.getPrice()).thenReturn(100f);
+        float actual = burger.getPrice();
+        float expected = bun.getPrice() * 2;
+        assertEquals("Ошибка при расчете цены", expected, actual, 0);
     }
 
     @Test
