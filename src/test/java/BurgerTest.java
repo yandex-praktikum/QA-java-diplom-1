@@ -43,13 +43,14 @@ public class BurgerTest {
     }
 
     @Test
-    public void getPriceReturnCorrectResultTest(){
+    public void getPriceReturnCorrectResultTest() {
         burger = new Burger();
+        Mockito.when(bun.getPrice()).thenReturn(200f);
         burger.setBuns(bun);
-        Mockito.when(bun.getPrice()).thenReturn(100f);
+        Mockito.when(ingredient1.getPrice()).thenReturn(100f);
+        burger.addIngredient(ingredient1);
         float actual = burger.getPrice();
-        float expected = bun.getPrice() * 2;
-        assertEquals("Ошибка при расчете цены", expected, actual, 0);
+        assertEquals("Ошибка при расчете цены",500, actual, 0);
     }
 
     @Test
