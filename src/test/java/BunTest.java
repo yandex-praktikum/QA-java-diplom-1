@@ -12,13 +12,15 @@ public class BunTest {
     public void getNameTest() {
         Bun bun = new Bun(name, price);
         String nameBunActual = bun.getName();
-        assertEquals(name, nameBunActual);
+        String message = "Не удалось получить название булочки";
+        assertEquals(message, name, nameBunActual);
     }
 
     @Test
     public void getPriceTest() {
         Bun bun = new Bun(name, price);
         float priceActual = bun.getPrice();
-        assertEquals(price, priceActual, 0.01);
+        String message = "Не удалось получить цену булочки";
+        assertEquals(message, price, priceActual, 0.01);
     }
 }

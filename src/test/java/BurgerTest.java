@@ -36,7 +36,8 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
 
         float actual = burger.getPrice();
-        assertEquals(burgerPrice, actual, 0.01);
+        String message = "Не удалось получить цену бургера";
+        assertEquals(message, burgerPrice, actual, 0.01);
     }
 
     @Test
@@ -49,7 +50,8 @@ public class BurgerTest {
         setMocksForReceipt();
 
         String actualReceipt = burger.getReceipt();
-        assertEquals(receiptExpected, actualReceipt);
+        String message = "Не удалось получить чек";
+        assertEquals(message, receiptExpected, actualReceipt);
     }
 
     private void setMocksForReceipt() {
@@ -81,15 +83,15 @@ public class BurgerTest {
 
         float firstIngredientPrice = 3;
         float secondIngredientPrice = 5;
-
         Ingredient ingredientFirst = new Ingredient(firstIngredientType, firstIngredientName, firstIngredientPrice);
         Ingredient ingredientSecond = new Ingredient(secondIngredientType, secondIngredientName, secondIngredientPrice);
 
+        String message = "Не удалось заменить ингредиент";
         burger.addIngredient(ingredientFirst);
         burger.addIngredient(ingredientSecond);
         burger.moveIngredient(1, 0);
-        assertEquals(burger.ingredients.get(0).name, secondIngredientName);
-        assertEquals(burger.ingredients.get(1).name, firstIngredientName);
+        assertEquals(message, burger.ingredients.get(0).name, secondIngredientName);
+        assertEquals(message, burger.ingredients.get(1).name, firstIngredientName);
     }
 
     @Test
@@ -101,6 +103,7 @@ public class BurgerTest {
         Ingredient ingredientFirst = new Ingredient(firstIngredientType, firstIngredientName, firstIngredientPrice);
         burger.addIngredient(ingredientFirst);
         burger.removeIngredient(0);
-        assertEquals(burger.ingredients.size(), 0);
+        String message = "Не удалось удалить ингредиент";
+        assertEquals(message, burger.ingredients.size(), 0);
     }
 }

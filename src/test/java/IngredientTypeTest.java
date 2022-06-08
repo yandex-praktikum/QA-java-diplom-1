@@ -19,7 +19,7 @@ public class IngredientTypeTest {
         this.ingredientPrice = ingredientPrice;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] dataForTest() {
         return new Object[][]{
                 {praktikum.IngredientType.FILLING, "Сыр", (float) 3},
@@ -32,20 +32,23 @@ public class IngredientTypeTest {
     public void getPriceTest() {
         Ingredient ingredient = new Ingredient(ingredientType, ingredientName, ingredientPrice);
         float priceActual = ingredient.getPrice();
-        assertEquals(ingredientPrice, priceActual, 0.01);
+        String message = "Не удалось получить цену ингредиента";
+        assertEquals(message, ingredientPrice, priceActual, 0.01);
     }
 
     @Test
     public void getTypeTest() {
         Ingredient ingredient = new Ingredient(ingredientType, ingredientName, ingredientPrice);
         praktikum.IngredientType ingredientTypeActual = ingredient.getType();
-        assertEquals(ingredientType, ingredientTypeActual);
+        String message = "Не удалось получить вид ингредиента";
+        assertEquals(message, ingredientType, ingredientTypeActual);
     }
 
     @Test
     public void getNameTest() {
         Ingredient ingredient = new Ingredient(ingredientType, ingredientName, ingredientPrice);
         String ingredientNameActual = ingredient.getName();
-        assertEquals(ingredientName, ingredientNameActual);
+        String message = "Не удалось получить название ингредиента";
+        assertEquals(message, ingredientName, ingredientNameActual);
     }
 }
