@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="IngredientTypeNegativeTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="IngredientTypeNegativeTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -46,7 +46,7 @@
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.1\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.1\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.1 test"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.1 clean test"/>
     <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk11.0.13_8"/>
     <property name="user.language" value="ru"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -64,6 +64,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="IngredientTypeNegativeTest" name="IngredientTypeNegativeTest[тестовые данные SAUCE, FILLING]" time="0.001"/>
+  <testcase classname="IngredientTypeNegativeTest" name="IngredientTypeNegativeTest[тестовые данные SAUCE, FILLING]" time="0.003"/>
   <testcase classname="IngredientTypeNegativeTest" name="IngredientTypeNegativeTest[тестовые данные FILLING, SAUCE]" time="0"/>
 </testsuite>
