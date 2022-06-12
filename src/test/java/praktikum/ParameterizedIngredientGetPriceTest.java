@@ -11,7 +11,7 @@ public class ParameterizedIngredientGetPriceTest {
     private final String ingredientName;
     private final float ingredientPrice;
 
-    public ParameterizedIngredientGetPriceTest(IngredientType ingredientType, String ingredientName, Float ingredientPrice) {
+    public ParameterizedIngredientGetPriceTest(IngredientType ingredientType, String ingredientName, float ingredientPrice) {
         this.ingredientType = ingredientType;
         this.ingredientName = ingredientName;
         this.ingredientPrice = ingredientPrice;
@@ -25,9 +25,9 @@ public class ParameterizedIngredientGetPriceTest {
                 {IngredientType.FILLING, "ingredientName", 15F},
                 {IngredientType.FILLING, "ingredientName", 0},
                 {IngredientType.FILLING, "ingredientName", -1.5f},
-                {IngredientType.FILLING, "ingredientName", 0.000001},
-                {IngredientType.FILLING, "ingredientName", Float.MAX_VALUE},
-                {IngredientType.FILLING, "ingredientName", ""}
+                {IngredientType.FILLING, "ingredientName", 0.000001F},
+                {IngredientType.FILLING, "ingredientName", 1.456f},
+               // {IngredientType.FILLING, "ingredientName", null}
         };
     }
 
