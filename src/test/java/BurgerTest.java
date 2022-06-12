@@ -31,7 +31,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void addIngredientTest (){
+    public void addIngredientTest() {
         Burger burger = new Burger();
 
         burger.addIngredient(ingredient);
@@ -41,7 +41,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void removeIngredientTest (){
+    public void removeIngredientTest() {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
 
@@ -51,19 +51,19 @@ public class BurgerTest {
     }
 
     @Test
-    public void moveIngredientTest(){
+    public void moveIngredientTest() {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredientTwo);
 
-        burger.moveIngredient(0,1 );
+        burger.moveIngredient(0, 1);
 
         assertEquals(ingredient, burger.ingredients.get(1));
         assertEquals(ingredientTwo, burger.ingredients.get(0));
     }
 
     @Test
-    public void getPriceTest(){
+    public void getPriceTest() {
         Burger burger = new Burger();
         when(bun.getPrice()).thenReturn(100f);
         when(ingredient.getPrice()).thenReturn(100f);
@@ -77,7 +77,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getReceiptTest(){
+    public void getReceiptTest() {
         Burger burger = new Burger();
         when(bun.getName()).thenReturn("Abc bun");
         when(bun.getPrice()).thenReturn(100f);
@@ -87,10 +87,10 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         String expectedReceipt =
-        "(==== Abc bun ====)\r\n" +
-        "= filling abc ingr =\r\n" +
-        "(==== Abc bun ====)\r\n" +
-        "\r\nPrice: 300,000000\r\n";
+                "(==== Abc bun ====)\r\n" +
+                        "= filling abc ingr =\r\n" +
+                        "(==== Abc bun ====)\r\n" +
+                        "\r\nPrice: 300,000000\r\n";
 
         String actualReceipt = burger.getReceipt();
 

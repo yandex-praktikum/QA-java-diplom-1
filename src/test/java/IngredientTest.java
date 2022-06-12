@@ -12,7 +12,7 @@ public class IngredientTest {
     private final float price = 100;
 
     @Test
-    public void getPriceTest(){
+    public void getPriceTest() {
         //Arrange
         Ingredient ingredient = new Ingredient(type, name, price);
         //Act
@@ -22,7 +22,7 @@ public class IngredientTest {
     }
 
     @Test
-    public void getNameTest(){
+    public void getNameTest() {
         //Arrange
         Ingredient ingredient = new Ingredient(type, name, price);
         //Act
@@ -32,7 +32,7 @@ public class IngredientTest {
     }
 
     @Test
-    public void getTypeTest(){
+    public void getTypeTest() {
         //Arrange
         Ingredient ingredient = new Ingredient(type, name, price);
         //Act
