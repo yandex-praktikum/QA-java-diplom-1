@@ -20,17 +20,17 @@ public class IngredientTest {
     @Test
     public void testGetIngredientName() {
         String actualName = ingredient.getName();
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expectedName, actualName);
+        Assert.assertEquals("Неправильное Имя", expectedName, actualName);
 
     }
     @Test
     public void testGetIngredientPrice() {
         float actualPrice = ingredient.getPrice();
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expectedPrice,actualPrice,1);
+        Assert.assertEquals("Неккоректная цена", expectedPrice,actualPrice,1);
     }
     @Test
     public void testGetIngredientType() {
         IngredientType actualPrice = ingredient.getType();
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expectedType, actualPrice);
+        Assert.assertEquals("Тип ингредиента не совпадает", expectedType, actualPrice);
     }
 }

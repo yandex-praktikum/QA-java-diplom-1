@@ -3,7 +3,6 @@ import org.junit.Before;
 import org.junit.Test;
 import praktikum.Bun;
 
-import static org.junit.Assert.assertEquals;
 
 public class BunTest {
     Bun bun;
@@ -18,12 +17,12 @@ public class BunTest {
     @Test
     public void testGetName() {
         String actualName = bun.getName();
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expectedName, actualName);
+        Assert.assertEquals("Неправильное имя", expectedName, actualName);
 
     }
     @Test
     public void testGetPrice() {
         float actualPrice = bun.getPrice();
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expectedPrice, actualPrice,1);
+        Assert.assertEquals("Неправильная цена", expectedPrice, actualPrice,1);
     }
 }

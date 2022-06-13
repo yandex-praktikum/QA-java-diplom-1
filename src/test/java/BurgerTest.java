@@ -8,7 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import praktikum.IngredientType;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -32,20 +32,20 @@ public class BurgerTest {
     @Test
     public void testSetBuns() {
         burger.setBuns(bun);
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", burger.bun, bun);
+        Assert.assertEquals("Булочка не добавлена", burger.bun, bun);
     }
 
     @Test
     public void testAddIngredient() {
         burger.addIngredient(ingredient);
-        Assert.assertTrue("Ожидаемый результат не соответствует фактическому", burger.ingredients.contains(ingredient));
+        Assert.assertTrue("Ингредиент не был добавлен", burger.ingredients.contains(ingredient));
     }
 
     @Test
     public void testRemoveIngredient() {
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
-        Assert.assertFalse("Ожидаемый результат не соответствует фактическому", burger.ingredients.contains(ingredient));
+        Assert.assertFalse("Ингредиент не был удален", burger.ingredients.contains(ingredient));
     }
 
     @Test
@@ -53,7 +53,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredient);
         burger.moveIngredient(0, 1);
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", ingredient, burger.ingredients.get(1));
+        Assert.assertEquals("Индекс ингредиента не изменился", ingredient, burger.ingredients.get(1));
     }
 
     @Test
@@ -64,33 +64,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         float actualPrice = burger.getPrice();
         float expectedPrice = 250.0F;
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expectedPrice, actualPrice, 0);
+        Assert.assertEquals("Цена расчитана некорректно", expectedPrice, actualPrice, 0);
     }
-
-    @Test
-    public void testGetReceipt() {
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
-        String bunName = "Булочка";
-        IngredientType ingredientType = IngredientType.valueOf("SAUCE");
-        String ingredientName = "Сыр";
-        float expectedPrice = 200f;
-        Mockito.when(bun.getName()).thenReturn(bunName);
-        Mockito.when(ingredient.getType()).thenReturn(ingredientType);
-        Mockito.when(ingredient.getName()).thenReturn(ingredientName);
-        Mockito.when(bun.getPrice()).thenReturn(100f);
-
-        StringBuilder tmpReceipt = new StringBuilder(String.format("(==== %s ====)%n", bunName));
-        tmpReceipt.append(String.format("= %s %s =%n", ingredientType.toString().toLowerCase(), ingredientName));
-        tmpReceipt.append(String.format("(==== %s ====)%n", bunName));
-        tmpReceipt.append(String.format("%nPrice: %f%n", expectedPrice));
-        String expectedReceipt = tmpReceipt.toString();
-
-        String actualReceipt = burger.getReceipt();
-
-        Assert.assertEquals("Ожидаемый результат не соответствует фактическому", expectedReceipt, actualReceipt);
-
-    }
-
 
 }
