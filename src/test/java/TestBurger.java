@@ -1,4 +1,5 @@
 import org.junit.Test;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -18,6 +19,12 @@ public class TestBurger {
     @Mock
     Ingredient newIngredient;
     Burger burger = new Burger();
+
+    @After
+    public void resetTest() {
+        burger.ingredients.clear();
+        burger.bun = null;
+    }
 
     @Test
     public void checkSetBun() {
@@ -51,5 +58,26 @@ public class TestBurger {
         burger.moveIngredient(index, newIndex);
         Mockito.when(newIngredient.getName()).thenReturn(newIngredientName);
         Assert.assertEquals("Не добавлен ингридиент бургера", newIngredientName, burger.ingredients.get(newIndex).getName());
+    }
+
+    @Test
+    public void checkGetPrice() {
+        float bunPrice = 2.5F;
+        float ingredientPrice = 4.0F;
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient);
+        Mockito.when(bun.getPrice()).thenReturn(bunPrice);
+        Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
+        float burgerPrice = 2 * bunPrice;
+        for (Ingredient i: burger.ingredients) {
+            burgerPrice += ingredientPrice;
+        }
+        Assert.assertEquals("Цена бургера указана не верно", burgerPrice, burger.getPrice(), 0.01F);
+    }
+
+    @Test
+    public void checkGetReceipt() {
+
     }
 }
