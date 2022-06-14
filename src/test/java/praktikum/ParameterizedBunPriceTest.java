@@ -9,9 +9,9 @@ import org.junit.runners.Parameterized;
 public class ParameterizedBunPriceTest {
 
     private final String bunName;
-    private final float bunPrice;
+    private final Float bunPrice;
 
-    public ParameterizedBunPriceTest(String bunName, float bunPrice) {
+    public ParameterizedBunPriceTest(String bunName, Float bunPrice) {
         this.bunName = bunName;
         this.bunPrice = bunPrice;
     }
@@ -21,22 +21,20 @@ public class ParameterizedBunPriceTest {
 
     public static Object[][] bunTestData() {
         return new Object[][] {
-                { "regularBun", 15F},
-                { "regularBun", 0},
+                { "regularBun", 0F},
                 { "regularBun", -1.5f},
                 { "regularBun", 0.000001F},
                 { "regularBun", 1.456f},
-                //{ "regularBun", null}
+                { "regularBun", Float.MAX_VALUE},
+                { "regularBun", Float.MIN_VALUE},
         };
     }
 
     @Test
     public void getName() {
         Bun bun = new Bun(bunName, bunPrice);
-        float expected = bunPrice;
-        float actual = bun.getPrice();
-        assertEquals(expected, actual, 1.0);
-
-
+        Float expected = bunPrice;
+        Float actual = bun.getPrice();
+        assertEquals(expected, actual, 0.0000001F);
     }
 }

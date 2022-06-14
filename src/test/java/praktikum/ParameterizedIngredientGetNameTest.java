@@ -9,7 +9,7 @@ public class ParameterizedIngredientGetNameTest {
 
     private IngredientType ingredientType;
     private final String ingredientName;
-    private final float ingredientPrice;
+    private final Float ingredientPrice;
 
     public ParameterizedIngredientGetNameTest(IngredientType ingredientType, String ingredientName, Float ingredientPrice) {
         this.ingredientType = ingredientType;

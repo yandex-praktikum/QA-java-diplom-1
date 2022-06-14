@@ -2,7 +2,8 @@ package praktikum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 
@@ -18,7 +19,7 @@ public class BunTest {
     }
 
     @Test
-    public void getPrice() {
+    public void getPricePositiveTest() {
         String bunName = "testBunName";
         float bunPrice = 10F;
         Bun bun = new Bun(bunName, bunPrice);
@@ -26,4 +27,16 @@ public class BunTest {
         float actual = bun.getPrice();
         assertEquals(expected, actual, 1.0);
     }
+
+    @Test
+    public void getPriceNullNegativeTest() {
+        assertThrows(NullPointerException.class,
+                ()->{
+                    String bunName = "testBunName";
+                    Float bunPrice = null;
+                    Bun bun = new Bun(bunName, bunPrice);
+                    bun.getPrice();
+                });
+    }
+
 }
