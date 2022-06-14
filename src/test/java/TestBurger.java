@@ -8,6 +8,7 @@ import org.mockito.Mockito;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -26,6 +27,7 @@ public class TestBurger {
         burger.bun = null;
     }
 
+
     @Test
     public void checkSetBun() {
         burger.setBuns(bun);
@@ -33,7 +35,7 @@ public class TestBurger {
     }
 
     @Test
-    public void checkAddIngridient() {
+    public void checkAddIngredient() {
         int initialSize = burger.ingredients.size();
         burger.addIngredient(ingredient);
         Assert.assertEquals("Не добавлен ингридиент бургера", 1, burger.ingredients.size() - initialSize);
@@ -70,7 +72,7 @@ public class TestBurger {
         Mockito.when(bun.getPrice()).thenReturn(bunPrice);
         Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
         float burgerPrice = 2 * bunPrice;
-        for (Ingredient i: burger.ingredients) {
+        for (Ingredient i : burger.ingredients) {
             burgerPrice += ingredientPrice;
         }
         Assert.assertEquals("Цена бургера указана не верно", burgerPrice, burger.getPrice(), 0.01F);
@@ -78,6 +80,21 @@ public class TestBurger {
 
     @Test
     public void checkGetReceipt() {
-
+        String bunReceiptName = "Buñuelo";
+        String ingredientReceiptName = "secret sauce";
+        float burgerReceiptPrice = 2.0f;
+        IngredientType ingredientReceiptType = IngredientType.SAUCE;
+        burger.setBuns(bun);
+        String expectedReceipt = String.format("(==== %s ====)%n= %s %s =%n= %s %s =%n(==== %s ====)%n%nPrice: %f%n",
+                bunReceiptName, ingredientReceiptType.toString().toLowerCase(),
+                ingredientReceiptName, ingredientReceiptType.toString().toLowerCase(),
+                ingredientReceiptName, bunReceiptName, burgerReceiptPrice * 4.0f);
+        for (int i = 0; i < 2; i++) burger.addIngredient(ingredient);
+        Mockito.when(bun.getName()).thenReturn(bunReceiptName);
+        Mockito.when(ingredient.getName()).thenReturn(ingredientReceiptName);
+        Mockito.when(ingredient.getType()).thenReturn(ingredientReceiptType);
+        Mockito.when(bun.getPrice()).thenReturn(burgerReceiptPrice);
+        Mockito.when(ingredient.getPrice()).thenReturn(burgerReceiptPrice);
+        Assert.assertEquals(expectedReceipt, burger.getReceipt());
     }
 }
