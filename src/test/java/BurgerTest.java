@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
@@ -14,9 +15,14 @@ import java.util.Objects;
 
 public class BurgerTest {
 
+    @Mock
+    Ingredient ingredient;
+
+    @Mock
+    Bun bun;
+
     @Test
     public void setBunsDeterminesBun(){
-        Bun bun = new Bun("black bun", 100);
         Burger burger = new Burger();
         burger.setBuns(bun);
         Assert.assertEquals(bun, burger.bun);
@@ -25,7 +31,6 @@ public class BurgerTest {
     @Test
     public void addIngredientToListOfIngredients(){
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(IngredientType.FILLING, "cutlet", 100);
         burger.addIngredient(ingredient);
         Assert.assertEquals(ingredient, burger.ingredients.get(0));
     }
@@ -33,7 +38,6 @@ public class BurgerTest {
     @Test
     public void removeIngredientFromListOfIngredients(){
             Burger burger = new Burger();
-            Ingredient ingredient = new Ingredient(IngredientType.FILLING, "cutlet", 100);
             burger.addIngredient(ingredient);
             burger.removeIngredient(0);
             int expectedResult = 0;
@@ -53,14 +57,10 @@ public class BurgerTest {
     }
 
     @Test
-    public void returnPriceBurgerWithBlackBunHotSauceAndCutletReturnCorrectPrice(){
+    public void returnPriceBurgerWithBlackBunReturnCorrectPrice(){
         Burger burger = new Burger();
-        Bun bun = new Bun("black bun", 100);
+        bun = new Bun("200", 200);
         burger.setBuns(bun);
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "cutlet", 100);
-        Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
-        burger.addIngredient(ingredient1);
-        burger.addIngredient(ingredient2);
         float expectedResult = 400;
         float actualResult = burger.getPrice();
         Assert.assertEquals(expectedResult, actualResult, 0);
