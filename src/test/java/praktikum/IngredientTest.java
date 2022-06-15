@@ -1,6 +1,7 @@
 package praktikum;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class IngredientTest {
@@ -49,25 +50,25 @@ public class IngredientTest {
         Assert.assertEquals(message, priceExpected, actual, 0.00f);
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void constructorIngredientTypeNullExpectedException() {
         Assert.assertThrows("Тип отсутствует. Объект класса Bun создан.Ожидаемая ошибка отсутствует.", Exception.class, () -> new Ingredient(null, "Сыр", 100));
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void constructorIngredientNameEmptyExpectedException() {
         Assert.assertThrows("Название пустое. Объект класса Bun создан.Ожидаемая ошибка отсутствует.", Exception.class, () -> new Ingredient(IngredientType.SAUCE, "", 150));
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void constructorIngredientNameNullExpectedException() {
         Assert.assertThrows("Название отсутствует. Объект класса Bun создан.Ожидаемая ошибка отсутствует.", Exception.class, () -> new Ingredient(IngredientType.FILLING, null, 100));
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void constructorIngredientPriceNegativeNumberExpectedException() {
         Assert.assertThrows("Цена отрицательная. Объект класса Bun создан. Ожидаемая ошибка отсутствует.", Exception.class, () -> new Ingredient(IngredientType.SAUCE, "Сырный соус", -100));

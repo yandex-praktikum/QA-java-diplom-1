@@ -29,19 +29,19 @@ public class BunTest {
         Assert.assertEquals(message, priceExpected, actual, 0.00f);
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void constructorBunNameEmptyExpectedException() {
         Assert.assertThrows("Название пустое. Объект класса Bun создан.Ожидаемая ошибка отсутствует.", Exception.class, () -> new Bun("", 150));
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void constructorBunNameNullExpectedException() {
         Assert.assertThrows("Название отсутствует. Объект класса Bun создан.Ожидаемая ошибка отсутствует.", Exception.class, () -> new Bun(null, 100));
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void constructorBunPriceNegativeNumberExpectedException() {
         Assert.assertThrows("Цена отрицательная. Объект класса Bun создан. Ошибка отсутствует.", Exception.class, () -> new Bun("Булочка с кунжутом", -100));
