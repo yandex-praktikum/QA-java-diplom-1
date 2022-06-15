@@ -19,7 +19,7 @@ public class BunParameterizedTest {
     public static Object[][] createBun() {
         return new Object[][]{
                 {"Белая булочка", 100},
-                {"Ржаная булочка", 150f},
+                {"White bun", 150f},
                 {"Булочка с кунжутом", 150.50f},
                 {"Белая булочка", 1245001264454545451L},
                 {"test", 0},

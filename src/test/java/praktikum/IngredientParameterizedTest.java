@@ -24,8 +24,8 @@ public class IngredientParameterizedTest {
         return new Object[][]{
                 {IngredientType.SAUCE, "Кисло-сладкий", 150.50f},
                 {IngredientType.FILLING, "Сыр", 50.25f},
-                {IngredientType.SAUCE, "Сырный", 150},
-                {IngredientType.FILLING, "Котлета", 0},
+                {IngredientType.SAUCE, "sour cream", 150},
+                {IngredientType.FILLING, "cutlet", 0},
         };
     }
 
