@@ -10,26 +10,22 @@ public class IngredientTypeTest {
         int expected = 2;
         int actual = IngredientType.values().length;
 
-        Assert.assertEquals(expected,actual);
-        }
+        Assert.assertEquals("Фактическое количество типов ингредиентов отличается от ожидаемого", expected, actual);
+    }
 
     @Test
-    public void getIngredientTypeSauce() {
-
+    public void checkIngredientTypeSauce() {
         String expected = "SAUCE";
 
-        String actual= IngredientType.valueOf("SAUCE").toString();
-        Assert.assertEquals(expected,actual);
+        String actual = IngredientType.valueOf("SAUCE").toString();
+        Assert.assertEquals("Фактическое название типа ингредиента отличается от ожидаемого", expected, actual);
     }
 
     @Test
-    public void getIngredientTypeFilling() {
-
+    public void checkIngredientTypeFilling() {
         String expected = "FILLING";
 
-        String actual= IngredientType.valueOf("FILLING").toString();
-        Assert.assertEquals(expected,actual);
+        String actual = IngredientType.valueOf("FILLING").toString();
+        Assert.assertEquals("Фактическое название типа ингредиента отличается от ожидаемого", expected, actual);
     }
-
-
 }
