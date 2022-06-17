@@ -13,10 +13,14 @@ import praktikum.IngredientType;
 
 import java.util.Objects;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
     @Mock
     Ingredient ingredient;
+
+    @Mock
+    Ingredient ingredientSecond;
 
     @Mock
     Bun bun;
@@ -48,18 +52,22 @@ public class BurgerTest {
     @Test
     public void moveIngredientChangesPositionOfIngredientInIngredientList(){
         Burger burger = new Burger();
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "cutlet", 100);
-        Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
-        burger.addIngredient(ingredient1);
-        burger.addIngredient(ingredient2);
+        ingredient.type = IngredientType.FILLING;
+        ingredient.name = "cutlet";
+        ingredient.price = 100;
+        ingredientSecond.type = IngredientType.SAUCE;
+        ingredientSecond.name = "how sauce";
+        ingredientSecond.price = 100;
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredientSecond);
         burger.moveIngredient(1, 0);
-        Assert.assertEquals(ingredient2, burger.ingredients.get(0));
+        Assert.assertEquals(ingredientSecond, burger.ingredients.get(0));
     }
 
     @Test
     public void returnPriceBurgerWithBlackBunReturnCorrectPrice(){
+        Mockito.when(bun.getPrice()).thenReturn(200F);
         Burger burger = new Burger();
-        bun = new Bun("200", 200);
         burger.setBuns(bun);
         float expectedResult = 400;
         float actualResult = burger.getPrice();
@@ -69,12 +77,17 @@ public class BurgerTest {
     @Test
     public void getReceiptBurgerWithBlackBunHotSauceAndCutletReturnCorrectReceipt(){
         Burger burger = new Burger();
-        Bun bun = new Bun("black bun", 100);
+        Mockito.when(bun.getName()).thenReturn("black bun");
+        Mockito.when(bun.getPrice()).thenReturn(100F);
+        Mockito.when(ingredient.getName()).thenReturn("hot sauce");
+        Mockito.when(ingredient.getPrice()).thenReturn(100F);
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredientSecond.getName()).thenReturn("cutlet");
+        Mockito.when(ingredientSecond.getPrice()).thenReturn(100F);
+        Mockito.when(ingredientSecond.getType()).thenReturn(IngredientType.FILLING);
         burger.setBuns(bun);
-        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
-        Ingredient ingredient2 = new Ingredient(IngredientType.FILLING, "cutlet", 100);
-        burger.addIngredient(ingredient1);
-        burger.addIngredient(ingredient2);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredientSecond);
         String expectedResult = "(==== black bun ====)\n" +
                 "= sauce hot sauce =\n" +
                 "= filling cutlet =\n" +
