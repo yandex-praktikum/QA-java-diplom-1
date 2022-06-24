@@ -1,31 +1,24 @@
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-import praktikum.Bun;
+import praktikum.Ingredient;
+import praktikum.IngredientType;
 
-@RunWith(MockitoJUnitRunner.class)
-public class BunTest {
-
+public class IngredientTest {
     @Test
-    public void testBunGetName(){
+    public void testIngredientGetName() {
         String name = "name";
-        Bun bun = new Bun(name, 0);
-        String actual = bun.getName();
-
+        Ingredient ingredient = new Ingredient(null, name, 0);
+        String actual = ingredient.getName();
         String message = "Метод getName вернул некорректное значение: " + actual + ". Ожидаемый результат: " + name;
-        Assert.assertEquals(message, name, bun.getName());
+        Assert.assertEquals(message, name, actual);
     }
 
     @Test
-    public void testBunGetPrice(){
-        float price = 100.0F;
-        Bun bun = new Bun("", price);
-        float actual = bun.getPrice();
-
+    public void testIngredientGetPrice() {
+        float price = 5F;
+        Ingredient ingredient = new Ingredient(null, "", price);
+        float actual = ingredient.getPrice();
         String message = "Метод getPrice вернул некорректное значение: " + actual + ". Ожидаемый результат: " + price;
         Assert.assertEquals(message, price, actual, 0);
     }
-
 }
