@@ -19,4 +19,5 @@ public class DatabaseTest {
         List<Ingredient> currentListOfIngredients = database.availableIngredients();
         assertNotNull(currentListOfIngredients);
     }
+
 }

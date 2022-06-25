@@ -9,8 +9,6 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class IngredientTest {
 
-    private static final double DELTA = 1e-15;
-
     private IngredientType type;
     private String expectedName;
     private float expectedPrice;

@@ -13,4 +13,5 @@ public class IngredientTypeTest {
         String expected = Arrays.toString(new String [] {"SAUCE","FILLING"});
         assertEquals("The List of ingredient types is not correct or missing",expected,actual);
     }
+
 }

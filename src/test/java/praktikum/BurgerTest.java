@@ -11,7 +11,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    private static final double DELTA = 1e-15;
 
     @Mock
     Ingredient ingredient;
