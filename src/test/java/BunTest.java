@@ -13,7 +13,6 @@ public class BunTest {
         String name = "name";
         Bun bun = new Bun(name, 0);
         String actual = bun.getName();
-
         String message = "Метод getName вернул некорректное значение: " + actual + ". Ожидаемый результат: " + name;
         Assert.assertEquals(message, name, bun.getName());
     }

@@ -15,7 +15,7 @@ public class IngredientTest {
 
     @Test
     public void testIngredientGetPrice() {
-        float price = 5F;
+        float price = 5.F;
         Ingredient ingredient = new Ingredient(null, "", price);
         float actual = ingredient.getPrice();
         String message = "Метод getPrice вернул некорректное значение: " + actual + ". Ожидаемый результат: " + price;
