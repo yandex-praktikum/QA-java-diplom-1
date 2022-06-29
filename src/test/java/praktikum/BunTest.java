@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.Assert;
 
 public class BunTest {
-
     @Test
     public void testGetName() {
         Faker faker = new Faker();
@@ -25,5 +24,4 @@ public class BunTest {
         System.out.println(bun.getPrice());
         Assert.assertEquals(price, bun.getPrice(), 0);
     }
-
 }

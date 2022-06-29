@@ -17,8 +17,8 @@ public class IngredientParamTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters
-    public static Object[] ingredients(){
+    @Parameterized.Parameters(name = "Used ingredients and price: {0} {1} {2}")
+    public static Object[] ingredients() {
         return new Object[][]{
                 {IngredientType.SAUCE, "with sauce", 50},
                 {IngredientType.FILLING, "with filling", 99},
@@ -48,5 +48,4 @@ public class IngredientParamTest {
         System.out.println(ingredient.getType());
         Assert.assertEquals(type, ingredient.getType());
     }
-
 }

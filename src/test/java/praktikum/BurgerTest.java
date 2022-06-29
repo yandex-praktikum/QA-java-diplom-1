@@ -22,7 +22,7 @@ public class BurgerTest {
         Assert.assertEquals(bun, burger.bun);
     }
 
-    private void countIngredients(int count){
+    private void countIngredients(int count) {
         for (int i = 1; i <= count; i++) {
             ingredient.price = i;
             burger.addIngredient(ingredient);
@@ -30,14 +30,13 @@ public class BurgerTest {
     }
 
     @Test
-    public void testAddIngredient(){
+    public void testAddIngredient() {
         countIngredients(5);
         int expected = 5;
         int actual = burger.ingredients.size();
         System.out.println(burger.ingredients.size());
         Assert.assertEquals(expected, actual);
     }
-
 
     @Test
     public void testRemoveIngredient() {
@@ -97,5 +96,4 @@ public class BurgerTest {
         System.out.println(actual);
         Assert.assertEquals(expected.toString(), actual);
     }
-
 }
