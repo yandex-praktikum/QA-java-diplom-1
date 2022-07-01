@@ -1,5 +1,7 @@
 package praktikum;
 
+import java.util.Objects;
+
 /**
  * Модель булочки для бургера.
  * Булочке можно дать название и назначить цену.
@@ -20,6 +22,14 @@ public class Bun {
 
     public float getPrice() {
         return price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bun bun = (Bun) o;
+        return price == bun.price && Objects.equals(name, bun.name);
     }
 
 }
