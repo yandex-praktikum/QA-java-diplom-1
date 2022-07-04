@@ -5,6 +5,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.*;
 import static org.junit.Assert.*;
+import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -13,8 +14,8 @@ public class BurgerTest {
 
     Burger burger = new Burger();
     Bun bun = Mockito.spy(new Bun("black bun", 100f));
-    Ingredient burgerIngredient1 = new Ingredient(SAUCE, "hot sauce", 100f);
-    Ingredient burgerIngredient2 = new Ingredient(IngredientType.FILLING, "cutlet", 100f);
+    Ingredient burgerIngredient1 = Mockito.spy(new Ingredient(IngredientType.SAUCE, "hot sauce", 100f));
+    Ingredient burgerIngredient2 = Mockito.spy(new Ingredient(IngredientType.FILLING, "cutlet", 100f));
 
     @Test
     public void setBunsForBurger() {
@@ -54,6 +55,8 @@ public class BurgerTest {
         burger.addIngredient(burgerIngredient1);
         burger.addIngredient(burgerIngredient2);
         Mockito.when(bun.getPrice()).thenReturn(100f);
+        Mockito.when(burgerIngredient1.getPrice()).thenReturn(100f);
+        Mockito.when(burgerIngredient2.getPrice()).thenReturn(100f);
         float result = burger.getPrice();
         assertEquals("Актуальный результат отличается от ожидаемого", 400, result, 0);
     }
@@ -64,6 +67,10 @@ public class BurgerTest {
         burger.addIngredient(burgerIngredient1);
         burger.addIngredient(burgerIngredient2);
         Mockito.when(bun.getName()).thenReturn("black bun");
+        Mockito.when(burgerIngredient1.getType()).thenReturn(SAUCE);
+        Mockito.when(burgerIngredient2.getType()).thenReturn(FILLING);
+        Mockito.when(burgerIngredient1.getName()).thenReturn("hot sauce");
+        Mockito.when(burgerIngredient2.getName()).thenReturn("cutlet");
         String actual = burger.getReceipt();
         assertTrue(actual.contains(String.format("(==== %s ====)%n", bun.getName())));
         System.out.println(burger.getReceipt());
