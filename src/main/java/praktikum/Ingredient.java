@@ -29,4 +29,14 @@ public class Ingredient {
         return type;
     }
 
+    @Override
+    public boolean equals(Object o) {
+
+        Ingredient that = (Ingredient) o;
+
+        if (Float.compare(that.getPrice(), getPrice()) != 0) return false;
+        if (getType() != that.getType()) return false;
+        return getName().equals(that.getName());
+    }
+
 }

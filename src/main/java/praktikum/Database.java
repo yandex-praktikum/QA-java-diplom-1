@@ -33,4 +33,14 @@ public class Database {
         return ingredients;
     }
 
+    public boolean addBun(Bun bun) {
+        buns.add(bun);
+        return true;
+    }
+
+    public boolean addIngredient (Ingredient ingredient){
+        ingredients.add(ingredient);
+        return true;
+    }
+
 }
