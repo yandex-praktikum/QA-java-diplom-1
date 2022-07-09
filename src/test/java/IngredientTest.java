@@ -27,8 +27,8 @@ public class IngredientTest {
     public void setUp() {
         ingredient = new Ingredient(expectedIngredientType, expectedIngredientName, expectedIngredientPrice);
     }
-
-    @Parameterized.Parameters
+//Сделал в машине на скорую руку, если правильно понял о чём ты. Переделаю если что ))
+    @Parameterized.Parameters(name = "using expectedIngredientType {0} and actualIngredientType {1}")
     public static Object[][] testedIngredient() {
 
         return new Object[][] {

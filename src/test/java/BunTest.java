@@ -17,7 +17,7 @@ public class BunTest {
     public void bunGetNameTest() {
         String actualName = bun.getName();
         String expectedName = "black bun";
-        assertEquals(actualName, expectedName);
+        assertEquals(expectedName, actualName);
 
     }
 
@@ -25,6 +25,6 @@ public class BunTest {
     public void bunGetPriceTest() {
         Float actualPrice = bun.getPrice();
         Float expectedPrice = 100F;
-        assertEquals(actualPrice, expectedPrice);
+        assertEquals(expectedPrice, actualPrice);
     }
 }
