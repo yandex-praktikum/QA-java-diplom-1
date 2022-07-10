@@ -11,6 +11,7 @@ public class Bun {
 
     public Bun(String name, float price) {
         this.name = name;
+        //if (price < 0) throw new RuntimeException("price should be positive");
         this.price = price;
     }
 
