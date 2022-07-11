@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -16,6 +17,12 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class BurgerTest {
+
+    @Mock
+    Bun bun;
+
+    @Mock
+    List<Ingredient> ingredients;
 
     @Parameterized.Parameters(name = "Тестовые данные: {0} {1} {2}")
     public static Collection<Object[]> data() {
@@ -30,23 +37,22 @@ public class BurgerTest {
                     1},
                 {new Bun("white bun", 200),
                     new ArrayList(){{
-                            add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-                            add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
-                            add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
+                        add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+                        add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
+                        add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
                     }},
                     2,
                     0},
                 {new Bun("black bun", 100),
                     new ArrayList(){{
                         add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-                            add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
+                        add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
                     }},
                     1,
                     0}
         });
     }
-    private Bun bun;
-    private List<Ingredient> ingredients;
+
     private Burger burger;
     private int nowIndex;
     private int newIndex;
