@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,51 +16,71 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class BurgerTest {
+    private static final String BUN_NAME = "white bun";
+    //private static final String BUN_NAME_BLACK = "black bun";
+    private static final String INGREDIENT_NAME = "cutlet";
+    //private static final String INGREDIENT_NAME_SAUCE = "sauce";
+    private static final IngredientType INGREDIENT_TYPE = FILLING;
+    //private static final IngredientType INGREDIENT_TYPE_SAUCE = SAUCE;
+    //private static final String INGR_TYPE = "FILLING";
+    private static final float BUN_PRICE = 200f;
+    private static final float INGREDIENT_PRICE = 300f;
 
     @Mock
-    Bun bun;
-
+    static Bun whiteBun;
     @Mock
-    List<Ingredient> ingredients;
+    static Bun blackBun;
+    @Mock
+    static Ingredient sourCreamIngredient;
+    @Mock
+    static Ingredient cutletIngredient;
+    @Mock
+    static Ingredient chiliSauceIngredient;
 
     @Parameterized.Parameters(name = "Тестовые данные: {0} {1} {2}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {new Bun("black bun", 100),
+                {blackBun,
                     new ArrayList(){{
-                        add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-                        add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
-                        add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
+                        add(sourCreamIngredient);
+                        add(cutletIngredient);
+                        add(chiliSauceIngredient);
                     }},
                     2,
                     1},
-                {new Bun("white bun", 200),
+                {whiteBun,
                     new ArrayList(){{
-                        add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-                        add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
-                        add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
+                        add(sourCreamIngredient);
+                        add(cutletIngredient);
+                        add(chiliSauceIngredient);
                     }},
                     2,
                     0},
-                {new Bun("black bun", 100),
+                {blackBun,
                     new ArrayList(){{
-                        add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-                        add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
+                        add(sourCreamIngredient);
+                        add(chiliSauceIngredient);
                     }},
                     1,
                     0}
         });
     }
 
+    @Mock
+    private Bun bun;
+    private List<Ingredient> ingredients;
+
     private Burger burger;
     private int nowIndex;
     private int newIndex;
 
     public BurgerTest(Bun bun, List<Ingredient> ingredients, int nowIndex, int newIndex) {
-        createStubBun(bun);
+        createStubBun();
         createStubIngredients(ingredients);
         this.burger = new Burger();
         this.burger.ingredients.addAll(ingredients);
@@ -68,9 +90,11 @@ public class BurgerTest {
 
     @Before
     public void setUp(){
+        burger = new Burger();
         burger.setBuns(bun);
         burger.getIngredients().clear();
         burger.getIngredients().addAll(ingredients);
+
     }
 
     @Test
@@ -121,19 +145,19 @@ public class BurgerTest {
         assertEquals(receipt.toString(), burger.getReceipt());
     }
 
-    private void createStubBun(Bun bun) {
+    private void createStubBun() {
         this.bun = Mockito.mock(Bun.class);
-        Mockito.when(this.bun.getName()).thenReturn(bun.getName());
-        Mockito.when(this.bun.getPrice()).thenReturn(bun.getPrice());
+        Mockito.when(this.bun.getName()).thenReturn(BUN_NAME);
+        Mockito.when(this.bun.getPrice()).thenReturn(BUN_PRICE);
     }
 
     private void createStubIngredients(List<Ingredient> ingredients) {
         this.ingredients = new ArrayList<>();
         for (Ingredient ingredient : ingredients) {
             Ingredient mockIngredient = Mockito.mock(Ingredient.class);
-            Mockito.when(mockIngredient.getName()).thenReturn(ingredient.getName());
-            Mockito.when(mockIngredient.getPrice()).thenReturn(ingredient.getPrice());
-            Mockito.when(mockIngredient.getType()).thenReturn(ingredient.getType());
+            Mockito.when(mockIngredient.getName()).thenReturn(INGREDIENT_NAME);
+            Mockito.when(mockIngredient.getPrice()).thenReturn(INGREDIENT_PRICE);
+            Mockito.when(mockIngredient.getType()).thenReturn(INGREDIENT_TYPE);
             this.ingredients.add(mockIngredient);
         }
     }
