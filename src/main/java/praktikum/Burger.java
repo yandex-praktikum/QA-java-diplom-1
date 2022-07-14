@@ -30,6 +30,7 @@ public class Burger {
         ingredients.add(newIndex, ingredients.remove(index));
     }
 
+
     public float getPrice() {
         float price = bun.getPrice() * 2;
 
@@ -54,4 +55,9 @@ public class Burger {
         return receipt.toString();
     }
 
+    public static void main(String[] args) {
+        Burger burger = new Burger();
+        Bun bun =  new Bun("black bun", 100);
+        burger.setBuns(bun);
+        System.out.println(burger.getPrice());}
 }
