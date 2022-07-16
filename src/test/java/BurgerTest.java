@@ -24,8 +24,9 @@ public class BurgerTest {
     @Test
     public void setBunsTest() {
         Burger burger = new Burger();
-        Bun bun = new Bun("Black", 100);
+        Bun bun = Mockito.mock(Bun.class);
         burger.setBuns(bun);
+        Mockito.when(bun.getName()).thenReturn("Black");
         assertEquals( burger.bun.getName(),bun.getName());
     }
 
@@ -33,7 +34,7 @@ public class BurgerTest {
     @Test
     public void addIngredientTest() {
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(SAUCE, "Sweet", 100);
+        Ingredient ingredient = Mockito.mock(Ingredient.class);
         burger.addIngredient(ingredient);
         burger.ingredients.contains(ingredient);
     }
@@ -42,7 +43,7 @@ public class BurgerTest {
     @Test
     public void removeIngredientTest() {
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(SAUCE, "Sweet", 100);
+        Ingredient ingredient = Mockito.mock(Ingredient.class);
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
         burger.ingredients.isEmpty();
@@ -51,8 +52,8 @@ public class BurgerTest {
     @Test
     public void moveIngredientTest() {
         Burger burger = new Burger();
-        Ingredient ingredient1 = new Ingredient(SAUCE, "Sweet", 100);
-        Ingredient ingredient2 = new Ingredient(SAUCE, "Sweet", 200);
+        Ingredient ingredient1 = Mockito.mock(Ingredient.class);
+        Ingredient ingredient2 = Mockito.mock(Ingredient.class);
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
         burger.moveIngredient(0,1);
@@ -61,29 +62,27 @@ public class BurgerTest {
 
     @Test
     public void getBurgerPrice() {
-
         Burger burger = new Burger();
         Bun bun = Mockito.mock(Bun.class);
-        Ingredient firstBurgerIngredient1 = new Ingredient(SAUCE, "Sweet", 50f);
-        Ingredient secondBurgerIngredient2 = new Ingredient(FILLING, "FILLING", 50f);
+        Ingredient firstBurgerIngredient = Mockito.mock(Ingredient.class);
+        Ingredient secondBurgerIngredient = Mockito.mock(Ingredient.class);
 
         burger.setBuns(bun);
-        burger.addIngredient(firstBurgerIngredient1);
-        burger.addIngredient(secondBurgerIngredient2);
+        burger.addIngredient(firstBurgerIngredient);
+        burger.addIngredient(secondBurgerIngredient);
+
         Mockito.when(bun.getPrice()).thenReturn(100f);
         float result = burger.getPrice();
-        assertEquals("Актуальный результат отличается от ожидаемого", 300, result, 0);
+        assertEquals("Актуальный результат отличается от ожидаемого", 200f, result, 0);
     }
     @Test
     public void getReceiptTest() {
-        Ingredient ingredient = new Ingredient(SAUCE, "Sweet", 100);
-        Bun bun = new Bun("Black", 100);
+        Bun bun = Mockito.mock(Bun.class);
         Burger burger = new Burger();
 
         burger.setBuns(bun);
-        burger.addIngredient(ingredient);
 
-
+        Mockito.when(bun.getName()).thenReturn("Black");
         assertEquals(burger.getReceipt().startsWith("(==== "+bun.getName()+" ====)"), true);
     }
 }

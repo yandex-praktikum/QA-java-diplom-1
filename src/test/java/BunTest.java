@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 
 public class BunTest {
 
+    final int DELTA = 3;
     @Test
     public void getNameBun() {
         Bun bun = new Bun("Black", 100);
@@ -25,8 +26,7 @@ public class BunTest {
         Bun bun = new Bun("Black", 100);
         float actual = bun.getPrice();
         float expected = 100;
-        float delta = 0;
-        assertEquals(actual, expected, delta );
+        assertEquals(actual, expected, DELTA );
     }
 
 }
