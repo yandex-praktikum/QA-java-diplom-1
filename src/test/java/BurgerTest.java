@@ -14,6 +14,12 @@ public class BurgerTest {
     @Mock
     Bun bun;
 
+    @Mock
+    Ingredient ingredient;
+
+    @Mock
+    Ingredient ingredientTwo;
+
     @Test
     public void setBunsSetsBunValue() {
         Burger burger = new Burger();
@@ -43,12 +49,16 @@ public class BurgerTest {
     @Test
     public void moveIngredientMovesIngredientValue() {
         Burger burger = new Burger();
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
-        Ingredient actual = new Ingredient(IngredientType.FILLING, "cutlet", 100);
+        ingredient.type = IngredientType.FILLING;
+        ingredient.name = "cutlet";
+        ingredient.price = 100;
+        ingredientTwo.type = IngredientType.SAUCE;
+        ingredientTwo.name = "how sauce";
+        ingredientTwo.price = 100;
         burger.addIngredient(ingredient);
-        burger.addIngredient(actual);
+        burger.addIngredient(ingredientTwo);
         burger.moveIngredient(1, 0);
-        Assert.assertEquals("Не переместили игредиент", burger.ingredients.get(0), actual);
+        Assert.assertEquals(ingredientTwo, burger.ingredients.get(0));
     }
 
 }
