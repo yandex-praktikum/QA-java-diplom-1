@@ -18,21 +18,23 @@ public class BurgerTests {
     @Mock
     private Ingredient ingredient;
 
+    @Mock
+    private Ingredient ingredientSecond;
+
     @Before
     public void prepareTestData(){
         when(bun.getName()).thenReturn("Булка");
-        when(bun.getPrice()).thenReturn(50f);
-
-        when(ingredient.getName()).thenReturn("Сосиска");
-        when(ingredient.getPrice()).thenReturn(99f);
+        when(bun.getPrice()).thenReturn(100F);
+        when(ingredient.getName()).thenReturn("Соусец");
+        when(ingredient.getPrice()).thenReturn(100F);
         when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        when(ingredientSecond.getPrice()).thenReturn(100F);
     }
 
     @Test
     public void shouldBeEmptyArray(){
         Burger burger = new Burger();
-        Ingredient ingredientTestData = new Ingredient(ingredient.getType(), ingredient.getName(), ingredient.getPrice());
-        burger.addIngredient(ingredientTestData);
+        burger.addIngredient(ingredient);
         burger.removeIngredient(0);
         assertTrue("Почему количество ингредиентов поменялось?", burger.ingredients.isEmpty());
     }
@@ -40,10 +42,10 @@ public class BurgerTests {
     @Test
     public void shouldBeCorrectPriceOfBurger(){
         Burger burger = new Burger();
-        Ingredient ingredientTestData = new Ingredient(ingredient.getType(), ingredient.getName(), ingredient.getPrice());
-        burger.addIngredient(ingredientTestData);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredientSecond);
         burger.setBuns(bun);
-        float expectedPrice = bun.getPrice()*2 + ingredient.getPrice();
+        float expectedPrice = bun.getPrice()*2 + ingredient.getPrice() + ingredientSecond.getPrice();
         float actualPrice = burger.getPrice();
         assertEquals("Стоимость должна совпасть", expectedPrice, actualPrice, 0);
     }
@@ -51,17 +53,13 @@ public class BurgerTests {
     @Test
     public void shouldBeCorrectRecipe(){
         Burger burger = new Burger();
-        Ingredient ingredientTestData = new Ingredient(ingredient.getType(), ingredient.getName(), ingredient.getPrice());
-        burger.addIngredient(ingredientTestData);
+        burger.addIngredient(ingredient);
         burger.setBuns(bun);
         String expectedRecipe = String.format("(==== %s ====)%n", "Булка") +
-                String.format("= %s %s =%n", IngredientType.SAUCE.toString().toLowerCase(), ingredient.getName()) +
+                String.format("= %s %s =%n", ingredient.getType().toString().toLowerCase(), ingredient.getName()) +
                 String.format("(==== %s ====)%n", "Булка") +
                 String.format("%nPrice: %f%n", bun.getPrice()*2 + ingredient.getPrice());
         String actualRecipe = burger.getReceipt();
         assertEquals("Рецепт не совпадает", expectedRecipe, actualRecipe);
     }
-
-
-
 }
