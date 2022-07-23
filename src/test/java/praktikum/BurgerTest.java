@@ -1,8 +1,8 @@
 package praktikum;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 
 
 public class BurgerTest {
@@ -32,6 +32,4 @@ public class BurgerTest {
             Assert.assertTrue(burger.ingredients.contains(ingredient));
         }
     }
-
-
 }

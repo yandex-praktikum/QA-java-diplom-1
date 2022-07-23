@@ -1,8 +1,10 @@
 package praktikum;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -36,9 +38,9 @@ public class BurgerRemoveTest {
             testData[i][0] = i;
             testData[i][1] = db.availableIngredients().get(i);
         }
-
         return testData;
     }
+
     // Проверяем метод удаление ингредиентов
     @Test
     public void removeIngredient() {
@@ -46,46 +48,3 @@ public class BurgerRemoveTest {
         assertEquals(expected, burger.ingredients.contains(ingredient));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

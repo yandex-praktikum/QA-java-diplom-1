@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
 import static org.mockito.BDDMockito.given;
 
 public class BurgerPriceMockTest {
@@ -33,15 +34,12 @@ public class BurgerPriceMockTest {
     @Test
     public void getPriceWithMocks() {
         Burger burger = new Burger();
-
         burger.setBuns(mockBun);
         burger.addIngredient(mockIngredientFirst);
         burger.addIngredient(mockIngredientSecond);
-
         given(mockBun.getPrice()).willReturn(50F);
         Mockito.when(mockIngredientFirst.getPrice()).thenReturn(25F);
         Mockito.when(mockIngredientSecond.getPrice()).thenReturn(200F);
-
         Assert.assertEquals(325F, burger.getPrice(), 0.0f);
     }
 }

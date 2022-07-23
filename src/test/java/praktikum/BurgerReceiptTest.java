@@ -1,9 +1,11 @@
 package praktikum;
+
 import org.junit.Before;
 import org.junit.Test;
-import java.util.List;
-import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class BurgerReceiptTest {
@@ -24,13 +26,10 @@ public class BurgerReceiptTest {
     @Test
     public void burgerWithoutIngredients() {
         Bun bun = buns.get(0);
-
         burger.setBuns(bun);
-
         StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
-
         assertEquals(receipt.toString(), burger.getReceipt());
     }
 
@@ -39,16 +38,13 @@ public class BurgerReceiptTest {
     public void burgerOneIngredient() {
         Bun bun = buns.get(0);
         Ingredient ingredient = ingredients.get(3);
-
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-
         StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("= %s %s =%n", ingredient.getType().toString().toLowerCase(),
                 ingredient.getName()));
         receipt.append(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
-
         assertEquals(receipt.toString(), burger.getReceipt());
     }
 
@@ -60,7 +56,6 @@ public class BurgerReceiptTest {
         for (Ingredient ingredient : db.availableIngredients()) {
             burger.addIngredient(ingredient);
         }
-
         StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
         for (Ingredient ingredient : ingredients) {
             receipt.append(String.format("= %s %s =%n", ingredient.getType().toString().toLowerCase(),
@@ -68,7 +63,6 @@ public class BurgerReceiptTest {
         }
         receipt.append(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
-
         assertEquals(receipt.toString(), burger.getReceipt());
     }
 }

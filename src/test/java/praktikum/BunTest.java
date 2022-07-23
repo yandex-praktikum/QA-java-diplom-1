@@ -1,15 +1,17 @@
 package praktikum;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 
 public class BunTest {
-//Проверяем метод получения названия булочки
+    //Проверяем метод получения названия булочки
     @Test
     public void getName() {
-        Bun bun =new Bun("black bun", 100);
+        Bun bun = new Bun("black bun", 100);
         Assert.assertEquals("black bun", bun.getName());
     }
+
     //Проверяем метод получения цены булочки
     @Test
     public void getPrice() {

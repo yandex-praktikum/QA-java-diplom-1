@@ -1,10 +1,11 @@
 package praktikum;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import static org.junit.Assert.assertEquals;
 
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class BurgerMoveTest {
@@ -31,7 +32,7 @@ public class BurgerMoveTest {
     @Parameterized.Parameters
     public static Object[][] getIndex() {
         int size = db.availableIngredients().size();
-        Object[][] testData = new Object[size*size][3];
+        Object[][] testData = new Object[size * size][3];
         int k = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -43,10 +44,11 @@ public class BurgerMoveTest {
         }
         return testData;
     }
+
     // Проверяем метод изменения порядка ингредиентов
     @Test
     public void moveIngredient() {
-        burger.moveIngredient(index,newIndex);
+        burger.moveIngredient(index, newIndex);
         assertEquals(ingredient, burger.ingredients.get(newIndex));
     }
 }
