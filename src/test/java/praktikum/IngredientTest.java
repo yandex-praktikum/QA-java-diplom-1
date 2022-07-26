@@ -16,6 +16,7 @@ public class IngredientTest {
         Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, ingredientName1, expected );
         float actual = ingredient1.getPrice();
         assertEquals(expected, actual, 1.0F);
+
     }
 
     @Test
