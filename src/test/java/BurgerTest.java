@@ -13,9 +13,9 @@ import static praktikum.IngredientType.SAUCE;
 public class BurgerTest {
 
     Burger burger = new Burger();
-    Bun bun = Mockito.spy(new Bun("black bun", 100f));
-    Ingredient burgerIngredient1 = Mockito.spy(new Ingredient(IngredientType.SAUCE, "hot sauce", 100f));
-    Ingredient burgerIngredient2 = Mockito.spy(new Ingredient(IngredientType.FILLING, "cutlet", 100f));
+    Bun bun = Mockito.mock(Bun.class);
+    Ingredient burgerIngredient1 = Mockito.mock(Ingredient.class);
+    Ingredient burgerIngredient2 = Mockito.mock(Ingredient.class);
 
     @Test
     public void setBunsForBurger() {
@@ -71,6 +71,9 @@ public class BurgerTest {
         Mockito.when(burgerIngredient2.getType()).thenReturn(FILLING);
         Mockito.when(burgerIngredient1.getName()).thenReturn("hot sauce");
         Mockito.when(burgerIngredient2.getName()).thenReturn("cutlet");
+        Mockito.when(bun.getPrice()).thenReturn(100f);
+        Mockito.when(burgerIngredient1.getPrice()).thenReturn(100f);
+        Mockito.when(burgerIngredient2.getPrice()).thenReturn(100f);
         String actual = burger.getReceipt();
         assertTrue(actual.contains(String.format("(==== %s ====)%n", bun.getName())));
         System.out.println(burger.getReceipt());
