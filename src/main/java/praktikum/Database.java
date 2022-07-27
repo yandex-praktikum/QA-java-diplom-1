@@ -1,5 +1,9 @@
 package praktikum;
 
+import praktikum.Bun;
+import praktikum.Ingredient;
+import praktikum.IngredientType;
+
 import java.util.ArrayList;
 import java.util.List;
 
