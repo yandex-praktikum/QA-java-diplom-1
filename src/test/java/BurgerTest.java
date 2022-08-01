@@ -16,8 +16,6 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
-    @Mock
-    Bun bun;
 
     @Mock
     Ingredient ingredient;
@@ -30,6 +28,8 @@ public class BurgerTest {
 
     Burger burger = new Burger();
 
+    Bun bun = new Bun("BunName", 150.55f);
+
     @Test
     public void setBunInBurger() {
         burger.setBuns(bun);
@@ -38,10 +38,10 @@ public class BurgerTest {
 
     @Test
     public void checkAddIngredientInBurger() {
-        int ingredientsCountExpected = 1;
+        Ingredient expected = ingredient;
         burger.addIngredient(ingredient);
-
-        Assert.assertEquals(ingredientsCountExpected, burger.ingredients.size());
+        Ingredient actual = burger.ingredients.get(burger.ingredients.size() - 1);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -68,7 +68,6 @@ public class BurgerTest {
         burger.addIngredient(ingredient0);
         burger.addIngredient(ingredient1);
 
-        Mockito.when(bun.getPrice()).thenReturn(150.55f);
         Mockito.when(ingredient.getPrice()).thenReturn(50f);
         Mockito.when(ingredient0.getPrice()).thenReturn(99.85f);
         Mockito.when(ingredient1.getPrice()).thenReturn(43.25f);
