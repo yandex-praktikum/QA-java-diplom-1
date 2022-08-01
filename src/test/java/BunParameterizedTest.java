@@ -28,7 +28,9 @@ public class BunParameterizedTest {
     public static Object[][] getBunData() {
         return new Object[][]{
                 {"Bun", 1.95f, "Bun", 1.95f},
-                {"Bun", 0, "Bun", 0}
+                {"Bulka", 0, "Bulka", 0},
+                {"", 5, "", 5},
+                {"Bulo4ka", 99.99f, "Bulo4ka", 99.99f},
         };
     }
 
