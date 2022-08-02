@@ -64,9 +64,10 @@ public class BurgerTest {
             ingredientsList.add(randomIngredient);
         }
 
-        burger.moveIngredient(burger.ingredients.size() - 1, 5);
+        int newIndex = burger.ingredients.size() - 3;
+        burger.moveIngredient(newIndex, 5);
 
-        assertEquals(burger.ingredients.get(5), ingredientsList.get(5));
+        assertEquals(burger.ingredients.get(5), ingredientsList.get(newIndex));
     }
 
     @Test
