@@ -27,6 +27,6 @@ public class IngredientTypeTest {
 
     @Test
     public void getIngredientTypeNameTest() {
-        assertEquals("Неверное Имя типа ингредиента",name, type.name());
+        assertEquals("Неверное имя типа ингредиента",name, type.name());
     }
 }
