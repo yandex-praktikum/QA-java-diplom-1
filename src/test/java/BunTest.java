@@ -19,14 +19,14 @@ public class BunTest {
     public static Object[] buns() {
         return new Object[][] {
                 { "white bun", 50f },
-                { "black bun", 60f },
+                { "black bun", 299f },
+                { "red bun", 301f },
         };
     }
 
     @Test
     public void checkGetName() {
         Bun bun = new Bun(name, price);
-        System.out.println(bun.getName());
         Assert.assertEquals(name, bun.getName());
     }
 

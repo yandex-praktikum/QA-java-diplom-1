@@ -26,20 +26,19 @@ public class BurgerTest {
     Bun bun;
 
     @Test
-    public void checkBunReturnsCorrectValue() {
+    public void checkBun() {
         burger.setBuns(bun);
-        System.out.println(bun);
         Assert.assertEquals(bun, burger.getBuns());
     }
 
     @Test
-    public void testAddIngredient() {
+    public void checkAddIngredient() {
         burger.addIngredient(ingredient);
         assertTrue(burger.getIngredients().contains(ingredient));
     }
 
     @Test
-    public void testRemoveIngredient() {
+    public void checkRemoveIngredient() {
         burger.addIngredient(ingredient);
         assertTrue(burger.getIngredients().contains(ingredient));
         burger.removeIngredient(burger.getIngredients().size() - 1);
@@ -47,7 +46,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testMoveIngredient() {
+    public void checkMoveIngredient() {
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredientNew);
 
@@ -60,7 +59,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetPrice() {
+    public void checkGetPrice() {
         float expectedPrice = 99f;
 
         Mockito.when(bun.getPrice()).thenReturn(30f);
@@ -73,7 +72,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetReceipt() {
+    public void checkGetReceipt() {
         Mockito.when(bun.getName()).thenReturn("ingredient_name");
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
         Mockito.when(ingredient.getName()).thenReturn("filling_name");
