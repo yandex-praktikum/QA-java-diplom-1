@@ -22,7 +22,7 @@ public class IngredientTest {
     public void testGetPrice() {
         float actual = ingredient.getPrice();
         float expected = 123.453f;
-        assertEquals(expected, actual, 1e-15);
+        assertEquals(expected, actual, 0);
     }
 
     @Test

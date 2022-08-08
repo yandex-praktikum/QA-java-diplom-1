@@ -23,7 +23,7 @@ public class BunTest {
     public void testGetPrice() {
         float actual = bun.getPrice();
         float expected = 123.453f;
-        assertEquals(expected, actual, 1e-15);
+        assertEquals(expected, actual, 0);
     }
 
 }
