@@ -2,6 +2,7 @@ package praktikum;
 
 import java.util.List;
 
+@Generated
 public class Praktikum {
 
     public static void main(String[] args) {
