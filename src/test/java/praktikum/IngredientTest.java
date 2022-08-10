@@ -33,8 +33,4 @@ public class IngredientTest {
         assertEquals(expectedValue, ingredient.getName());
     }
 
-    @Test
-    public void getTypeShouldReturnCorrectIngredientTypeSauce() {
-        assertEquals(IngredientType.SAUCE, ingredient.getType());
-    }
 }
