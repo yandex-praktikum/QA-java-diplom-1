@@ -11,7 +11,6 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTests {
-    Database database = new Database();
     Burger burger;
     @Mock
     Bun bun;
