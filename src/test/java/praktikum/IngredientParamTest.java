@@ -9,13 +9,10 @@ import static org.junit.Assert.assertEquals;
 
     @RunWith(Parameterized.class)
     public class IngredientParamTest {
-
         private final IngredientType expectedValue;
-
         public IngredientParamTest(IngredientType expectedValue){
             this.expectedValue = expectedValue;
         }
-
         @Parameterized.Parameters
         public static Object[][] getType() {
             return new Object[][] {

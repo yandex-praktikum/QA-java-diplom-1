@@ -7,7 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class IngredientTest {
-
     Ingredient ingredient;
     String testName;
     float testPrice;
