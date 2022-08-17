@@ -8,9 +8,9 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
 
     @RunWith(Parameterized.class)
-    public class IngredientParamTest {
+    public class IngredientTypeParamTest {
         private final IngredientType expectedValue;
-        public IngredientParamTest(IngredientType expectedValue){
+        public IngredientTypeParamTest(IngredientType expectedValue){
             this.expectedValue = expectedValue;
         }
         @Parameterized.Parameters
