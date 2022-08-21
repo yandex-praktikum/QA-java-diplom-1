@@ -27,12 +27,12 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.5.1</version>
+            <version>4.7.0</version>
         </dependency>
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
-            <version>1.12.9</version>
+            <version>1.12.13</version>
         </dependency>
     </dependencies>
 
@@ -42,7 +42,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <aspectj.version>1.9.7</aspectj.version>
-        <allure.version>2.15.0</allure.version>
+        <allure.version>2.19.0</allure.version>
     </properties>
     <build>
         <plugins>
@@ -50,14 +50,20 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.8</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*Database.*</exclude>
+                        <exclude>**/Praktikum.*</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>prepare-agent</id>
-                        <phase>initialize</phase>
+                        <id>default-prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -73,8 +79,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    <argLine>${argLine} -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <properties>
                         <property>
