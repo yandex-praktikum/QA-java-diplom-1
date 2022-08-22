@@ -11,14 +11,11 @@ public class BunTest {
     Bun bun;
     String testName;
     float testPrice;
-    Faker faker;
-
 
     @Before
     public void setUp() {
-        faker = new Faker();
-        testName = faker.name().firstName();
-        testPrice = faker.number().numberBetween(1, 888);
+        testName = "black bun";
+        testPrice = 100;
         bun = new Bun(testName, testPrice);
     }
 
