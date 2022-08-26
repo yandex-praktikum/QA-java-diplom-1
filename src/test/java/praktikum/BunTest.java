@@ -4,30 +4,31 @@ import com.github.javafaker.Faker;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class BunTest {
 
     Bun bun;
-    String testName;
-    float testPrice;
 
     @Before
     public void setUp() {
-        testName = "black bun";
-        testPrice = 100;
-        bun = new Bun(testName, testPrice);
+       Database database = new Database();
+       final List<Bun> buns = database.availableBuns();
+       bun = buns.get(0);
     }
 
     @Test
     public void getNameShouldReturnCorrectName() {
-        String expectedValue = testName;
+        String expectedValue = "black bun";
         assertEquals(expectedValue, bun.getName());
     }
 
     @Test
     public void getPriceShouldReturnCorrectPrice() {
-        float expectedValue = testPrice;
+        float expectedValue = 100;
         assertEquals(expectedValue, bun.getPrice(), 0.0);
     }
 
