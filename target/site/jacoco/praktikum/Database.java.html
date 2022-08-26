@@ -7,33 +7,31 @@ import java.util.List;
  * Класс с методами по работе с базой данных.
  */
 public class Database {
+<span class="fc" id="L10">    private final List&lt;Bun&gt; buns = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L11">    private final List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();</span>
 
-    private final List&lt;Bun&gt; buns = new ArrayList&lt;&gt;();
-    private final List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();
+<span class="fc" id="L13">    public Database() {</span>
+<span class="fc" id="L14">        buns.add(new Bun(&quot;black bun&quot;, 100));</span>
+<span class="fc" id="L15">        buns.add(new Bun(&quot;white bun&quot;, 200));</span>
+<span class="fc" id="L16">        buns.add(new Bun(&quot;red bun&quot;, 300));</span>
 
-    @Generated
-    public Database() {
-        buns.add(new Bun(&quot;black bun&quot;, 100));
-        buns.add(new Bun(&quot;white bun&quot;, 200));
-        buns.add(new Bun(&quot;red bun&quot;, 300));
+<span class="fc" id="L18">        ingredients.add(new Ingredient(IngredientType.SAUCE, &quot;hot sauce&quot;, 100));</span>
+<span class="fc" id="L19">        ingredients.add(new Ingredient(IngredientType.SAUCE, &quot;sour cream&quot;, 200));</span>
+<span class="fc" id="L20">        ingredients.add(new Ingredient(IngredientType.SAUCE, &quot;chili sauce&quot;, 300));</span>
 
-        ingredients.add(new Ingredient(IngredientType.SAUCE, &quot;hot sauce&quot;, 100));
-        ingredients.add(new Ingredient(IngredientType.SAUCE, &quot;sour cream&quot;, 200));
-        ingredients.add(new Ingredient(IngredientType.SAUCE, &quot;chili sauce&quot;, 300));
-
-        ingredients.add(new Ingredient(IngredientType.FILLING, &quot;cutlet&quot;, 100));
-        ingredients.add(new Ingredient(IngredientType.FILLING, &quot;dinosaur&quot;, 200));
-        ingredients.add(new Ingredient(IngredientType.FILLING, &quot;sausage&quot;, 300));
-    }
+<span class="fc" id="L22">        ingredients.add(new Ingredient(IngredientType.FILLING, &quot;cutlet&quot;, 100));</span>
+<span class="fc" id="L23">        ingredients.add(new Ingredient(IngredientType.FILLING, &quot;dinosaur&quot;, 200));</span>
+<span class="fc" id="L24">        ingredients.add(new Ingredient(IngredientType.FILLING, &quot;sausage&quot;, 300));</span>
+<span class="fc" id="L25">    }</span>
 
 
     public List&lt;Bun&gt; availableBuns() {
-<span class="nc" id="L31">        return buns;</span>
+<span class="fc" id="L29">        return buns;</span>
     }
 
 
     public List&lt;Ingredient&gt; availableIngredients() {
-<span class="nc" id="L36">        return ingredients;</span>
+<span class="fc" id="L34">        return ingredients;</span>
     }
 
 }
