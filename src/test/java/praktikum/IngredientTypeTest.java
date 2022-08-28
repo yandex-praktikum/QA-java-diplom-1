@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static praktikum.IngredientType.*;
 
 public class IngredientTypeTest {
 
