@@ -27,7 +27,6 @@ public class BurgerTest {
 
     @Test
     public void testAddIngredientInBurger(){
-       // Burger burger = new Burger();
         int size =  burger.ingredients.size();
         burger.addIngredient(ingredient);
         assertEquals("Новый ингридиент не добавлен", burger.ingredients.size(), (size + 1));
