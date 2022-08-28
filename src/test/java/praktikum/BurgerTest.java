@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.*;
-import static praktikum.IngredientType.*
+import static praktikum.IngredientType.*;
 
 
 @RunWith(Parameterized.class)
