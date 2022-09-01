@@ -7,7 +7,6 @@ import org.junit.Test;
 import praktikum.Bun;
 
 public class BunTest {
-
     @Test
     @DisplayName("Bun creating test")
     @Description("Created bun must have correct name and price")

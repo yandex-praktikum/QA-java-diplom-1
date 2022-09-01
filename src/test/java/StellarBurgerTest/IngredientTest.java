@@ -14,7 +14,6 @@ import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
-
     private final IngredientType testType;
     private final String testName;
     private final float testPrice;
@@ -25,7 +24,7 @@ public class IngredientTest {
         this.testPrice = testPrice;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Test {index}, Test data: {0} - {1} - {2}")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {SAUCE, "cosmic_space", 1.15f},
