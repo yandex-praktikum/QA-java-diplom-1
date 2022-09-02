@@ -6,7 +6,7 @@ import org.junit.Test;
 public class BunTest {
 
     @Test
-    public void bunGetNameTest () {
+    public void bunGetNameTest() {
         String expectedName = "Булка";
         float expectedPrice = 0;
         Bun bun = new Bun(expectedName, expectedPrice);
@@ -15,7 +15,7 @@ public class BunTest {
     }
 
     @Test
-    public void bunGetPriceTest () {
+    public void bunGetPriceTest() {
         float expectedPrice = 100.0F;
         Bun bun = new Bun(null, expectedPrice);
         float actualBunGetPrice = bun.getPrice();
