@@ -31,10 +31,10 @@ public class Burger {
     }
 
     public float getPrice() {
-        float price = bun.getPrice() * 2;
+        float price = bun.getPrice() * 2;                        //stab
 
         for (Ingredient ingredient : ingredients) {
-            price += ingredient.getPrice();
+            price += ingredient.getPrice();                      //stab
         }
 
         return price;
