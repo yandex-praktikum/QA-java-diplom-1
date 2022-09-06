@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="18" failures="0" name="praktikum.BurgerTest" time="0.664" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="praktikum.BurgerTest" time="0.627" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.15+9-LTS"/>
     <property name="sun.boot.library.path" value="/Users/19542018/Library/Java/JavaVirtualMachines/corretto-11.0.15/Contents/Home/lib"/>
     <property name="gopherProxySet" value="false"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/19542018/Desktop/Diplom/Diplom_1"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/19542018/Desktop/ddd/Новая"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="RU"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/19542018/Desktop/Diplom/Diplom_1"/>
+    <property name="user.dir" value="/Users/19542018/Desktop/ddd/Новая"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="11.0.15+9-LTS"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
@@ -62,22 +62,16 @@
     <property name="java.vendor.version" value="Corretto-11.0.15.9.1"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="praktikum.BurgerTest" name="addIngredient[0]" time="0.622"/>
-  <testcase classname="praktikum.BurgerTest" name="removeIngredient[0]" time="0.001"/>
-  <testcase classname="praktikum.BurgerTest" name="moveIngredient[0]" time="0"/>
-  <testcase classname="praktikum.BurgerTest" name="getPrice[0]" time="0.002"/>
-  <testcase classname="praktikum.BurgerTest" name="setBuns[0]" time="0.028"/>
-  <testcase classname="praktikum.BurgerTest" name="getReceipt[0]" time="0.004"/>
-  <testcase classname="praktikum.BurgerTest" name="addIngredient[1]" time="0.001"/>
-  <testcase classname="praktikum.BurgerTest" name="removeIngredient[1]" time="0"/>
-  <testcase classname="praktikum.BurgerTest" name="moveIngredient[1]" time="0.001"/>
-  <testcase classname="praktikum.BurgerTest" name="getPrice[1]" time="0"/>
-  <testcase classname="praktikum.BurgerTest" name="setBuns[1]" time="0.001"/>
-  <testcase classname="praktikum.BurgerTest" name="getReceipt[1]" time="0.001"/>
-  <testcase classname="praktikum.BurgerTest" name="addIngredient[2]" time="0.001"/>
-  <testcase classname="praktikum.BurgerTest" name="removeIngredient[2]" time="0"/>
-  <testcase classname="praktikum.BurgerTest" name="moveIngredient[2]" time="0"/>
-  <testcase classname="praktikum.BurgerTest" name="getPrice[2]" time="0"/>
-  <testcase classname="praktikum.BurgerTest" name="setBuns[2]" time="0.001"/>
-  <testcase classname="praktikum.BurgerTest" name="getReceipt[2]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="addIngredient[Тестовые данные: 100 200]" time="0.608"/>
+  <testcase classname="praktikum.BurgerTest" name="removeIngredient[Тестовые данные: 100 200]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="moveIngredient[Тестовые данные: 100 200]" time="0.002"/>
+  <testcase classname="praktikum.BurgerTest" name="getPrice[Тестовые данные: 100 200]" time="0.002"/>
+  <testcase classname="praktikum.BurgerTest" name="setBuns[Тестовые данные: 100 200]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="getReceipt[Тестовые данные: 100 200]" time="0.005"/>
+  <testcase classname="praktikum.BurgerTest" name="addIngredient[Тестовые данные: 200 200]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="removeIngredient[Тестовые данные: 200 200]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="moveIngredient[Тестовые данные: 200 200]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="getPrice[Тестовые данные: 200 200]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="setBuns[Тестовые данные: 200 200]" time="0.001"/>
+  <testcase classname="praktikum.BurgerTest" name="getReceipt[Тестовые данные: 200 200]" time="0.003"/>
 </testsuite>

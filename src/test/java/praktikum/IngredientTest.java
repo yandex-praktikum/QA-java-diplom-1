@@ -3,7 +3,6 @@ package praktikum;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 public class IngredientTest {
     IngredientType ingredientType;
     Ingredient ingredient = new Ingredient(ingredientType.SAUCE, "chili sauce", 100);

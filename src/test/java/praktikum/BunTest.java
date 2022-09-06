@@ -3,7 +3,6 @@ package praktikum;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 public class BunTest {
     Bun bun = new Bun("black bun", 100);
 

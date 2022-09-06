@@ -3,9 +3,6 @@ package praktikum;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import static praktikum.IngredientType.*;
-
 public class IngredientTypeTest {
 
     @Test
@@ -14,6 +11,4 @@ public class IngredientTypeTest {
         String actual = String.valueOf(IngredientType.valueOf("SAUCE"));
         Assert.assertEquals(expected, actual);
     }
-
-
 }
