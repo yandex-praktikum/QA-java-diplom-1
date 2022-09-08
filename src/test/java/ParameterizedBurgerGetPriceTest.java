@@ -8,7 +8,6 @@ import org.mockito.MockitoAnnotations;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -42,11 +41,11 @@ public class ParameterizedBurgerGetPriceTest {
     }
 
     @Mock
-    Ingredient ingredient_1 = new Ingredient(IngredientType.FILLING, "sausage", 200);
+    Ingredient ingredient_1;
     @Mock
-    Ingredient ingredient_2 = new Ingredient(IngredientType.SAUCE, "hot sauce", 0);
+    Ingredient ingredient_2;
     @Mock
-    Bun bun = new Bun("black bun", 100);
+    Bun bun;
 
     @Test
     public void getPriceReturnsCorrectPrice() {
