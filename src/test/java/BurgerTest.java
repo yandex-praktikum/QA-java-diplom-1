@@ -1,6 +1,6 @@
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Spy;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
@@ -20,8 +20,8 @@ public class BurgerTest {
     public void setBunsChangesBun() {
         Burger burger = new Burger();
         Bun expected = bun;
-        burger.setBuns(expected);
 
+        burger.setBuns(expected);
         Bun actual = burger.bun;
 
         assertEquals("Bun is not equals expected bun", expected, actual);
@@ -31,8 +31,8 @@ public class BurgerTest {
     public void addIngredientAddCorrectIngredient() {
         Burger burger = new Burger();
         Ingredient expected = ingredient_1;
-        burger.addIngredient(expected);
 
+        burger.addIngredient(expected);
         Ingredient actual = burger.ingredients.get(0);
 
         assertEquals("Added ingredient is not expected ingredient", expected, actual);
@@ -44,11 +44,12 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.ingredients.add(ingredient_1);
         burger.ingredients.add(ingredient_2);
-        burger.removeIngredient(1);
 
+        burger.removeIngredient(1);
         List<Ingredient> actual = burger.ingredients;
 
         assertTrue("Ingredient is not removed", !actual.contains(ingredient_2));
+        assertTrue("Wrong ingredient is removed", actual.contains(ingredient_1));
     }
 
     @Test
@@ -61,5 +62,6 @@ public class BurgerTest {
         List<Ingredient> actual = burger.ingredients;
 
         assertTrue("Ingredient moved incorrect", actual.get(0).equals(ingredient_2));
+        assertTrue("One of ingredient is removed", actual.get(1).equals(ingredient_1));
     }
 }

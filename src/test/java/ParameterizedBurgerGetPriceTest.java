@@ -5,7 +5,6 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
@@ -38,13 +37,14 @@ public class ParameterizedBurgerGetPriceTest {
                 {100, 200, 300, 700},
                 {200, 0, 200, 600},
                 {1.02F, 10.5F, 10, 22.54F},
+                {0, 111, 100000, 100111},
         };
     }
 
     @Mock
     Ingredient ingredient_1 = new Ingredient(IngredientType.FILLING, "sausage", 200);
     @Mock
-    Ingredient ingredient_2 = new Ingredient(IngredientType.FILLING, "sausage", 0);
+    Ingredient ingredient_2 = new Ingredient(IngredientType.SAUCE, "hot sauce", 0);
     @Mock
     Bun bun = new Bun("black bun", 100);
 
