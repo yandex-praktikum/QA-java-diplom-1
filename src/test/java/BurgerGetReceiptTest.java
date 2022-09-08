@@ -48,7 +48,6 @@ public class BurgerGetReceiptTest {
         String expected = "(==== black bun ====)\r\n= sauce chili sauce =\r\n= filling cutlet =\r\n= filling sausage =\r\n(==== black bun ====)\r\n\r\nPrice: 10000,000000\r\n";
 
         String actual = burger.getReceipt();
-        System.out.println(burger.getReceipt());
 
         assertEquals("Returns incorrect receipt string", expected, actual);
     }
