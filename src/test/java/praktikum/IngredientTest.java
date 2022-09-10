@@ -7,8 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class IngredientTest {
     public float actualPrice = new Random().nextFloat();
     public String actualName = "KolyaevBun" + new Random().nextInt(10);
-
-    IngredientType type = IngredientType.SAUCE;
+    IngredientType type = IngredientType.values()[new Random().nextInt(IngredientType.values().length)];
 
     @Test
     public void checkGetPriceReturnsFloatFromParameters() {
@@ -28,7 +27,7 @@ public class IngredientTest {
     @Test
     public void checkGetTypeReturnsTypeFromParameters() {
         Ingredient ingredient = new Ingredient(type, actualName, actualPrice);
-        IngredientType expectedType = IngredientType.SAUCE;
+        IngredientType expectedType = ingredient.getType();
         assertEquals(expectedType, type);
     }
 }
