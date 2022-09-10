@@ -22,12 +22,4 @@ public class IngredientTest {
         String expectedName = ingredient.getName();
         assertEquals(expectedName, actualName);
     }
-
-//Это видимо нужно сделать с параметрами, потом переделаю
-    @Test
-    public void checkGetTypeReturnsTypeFromParameters() {
-        Ingredient ingredient = new Ingredient(type, actualName, actualPrice);
-        IngredientType expectedType = ingredient.getType();
-        assertEquals(expectedType, type);
-    }
 }
