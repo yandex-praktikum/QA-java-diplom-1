@@ -78,11 +78,11 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         String actual = burger.getReceipt();
-        String expected = "(==== black bun ====)\r\n" +
-                "= filling hot sauce =\r\n" +
-                "(==== black bun ====)\r\n" +
-                "\r\n" +
-                "Price: 300,000000\r\n";
+        String expected = String.format("(==== black bun ====)%n" +
+                "= filling hot sauce =%n" +
+                "(==== black bun ====)%n" +
+                "%n" +
+                "Price: 300,000000%n");
         Assert.assertEquals("Ожидаемый рецепт бургера - " + expected, expected, actual);
     }
 }

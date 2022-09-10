@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="praktikum.IngredientTest" time="0.011" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="praktikum.IngredientTest" time="0.025" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -57,10 +57,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase classname="praktikum.IngredientTest" name="getTypeIngredientTest[0]" time="0.005"/>
-  <testcase classname="praktikum.IngredientTest" name="getNameIngredientTest[0]" time="0"/>
-  <testcase classname="praktikum.IngredientTest" name="getPriceIngredientTest[0]" time="0"/>
-  <testcase classname="praktikum.IngredientTest" name="getTypeIngredientTest[1]" time="0.001"/>
-  <testcase classname="praktikum.IngredientTest" name="getNameIngredientTest[1]" time="0.003"/>
-  <testcase classname="praktikum.IngredientTest" name="getPriceIngredientTest[1]" time="0.002"/>
+  <testcase classname="praktikum.IngredientTest" name="getTypeIngredientTest[0]" time="0.012"/>
+  <testcase classname="praktikum.IngredientTest" name="getNameIngredientTest[0]" time="0.003"/>
+  <testcase classname="praktikum.IngredientTest" name="getPriceIngredientTest[0]" time="0.001"/>
+  <testcase classname="praktikum.IngredientTest" name="getTypeIngredientTest[1]" time="0"/>
+  <testcase classname="praktikum.IngredientTest" name="getNameIngredientTest[1]" time="0.009"/>
+  <testcase classname="praktikum.IngredientTest" name="getPriceIngredientTest[1]" time="0"/>
 </testsuite>

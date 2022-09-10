@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e13d7e8e-e25f-4fb1-9723-02f976b90c68" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="e13d7e8e-e25f-4fb1-9723-02f976b90c68" name="Changes" comment="Diplom_1_full_scope_first_commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/praktikum/BurgerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/praktikum/BurgerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/praktikum/BurgerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/praktikum/BurgerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +101,14 @@
       <option name="presentableId" value="Default" />
       <updated>1662576844319</updated>
     </task>
+    <task id="LOCAL-00001" summary="Diplom_1_full_scope_first_commit">
+      <created>1662833351849</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662833351849</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,5 +121,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Diplom_1_full_scope_first_commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diplom_1_full_scope_first_commit" />
   </component>
 </project>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="praktikum.BunTest" time="0.045" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="praktikum.BunTest" time="0.005" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -58,5 +58,5 @@
     <property name="sun.cpu.endian" value="little"/>
   </properties>
   <testcase classname="praktikum.BunTest" name="getNameBunTest" time="0"/>
-  <testcase classname="praktikum.BunTest" name="getPriceBunTest" time="0.045"/>
+  <testcase classname="praktikum.BunTest" name="getPriceBunTest" time="0.005"/>
 </testsuite>
