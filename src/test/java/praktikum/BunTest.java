@@ -7,7 +7,7 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 public class BunTest {
-    public Float actualPrice = new Random().nextFloat();
+    public float actualPrice = new Random().nextFloat();
     public String actualName = "KolyaevBun" + new Random().nextInt(10);
 
     @Test
@@ -20,7 +20,7 @@ public class BunTest {
     @Test
     public void checkGetPriceReturnsFloatFromParameters() {
         Bun bun = new Bun(actualName, actualPrice);
-        Float expectedPrice = bun.getPrice();
-        assertEquals(expectedPrice,actualPrice);
+        float expectedPrice = bun.getPrice();
+        assertEquals(expectedPrice,actualPrice, 0);
     }
 }
