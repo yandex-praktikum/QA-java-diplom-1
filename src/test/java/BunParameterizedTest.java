@@ -12,14 +12,12 @@ public class BunParameterizedTest {
     private final float bunPrice;
     private final String expectedBunName;
     private final float expectedBunPrice;
-
     public BunParameterizedTest(String bunName, float bunPrice, String expectedBunName, float expectedBunPrice) {
         this.bunName = bunName;
         this.bunPrice = bunPrice;
         this.expectedBunName = expectedBunName;
         this.expectedBunPrice = expectedBunPrice;
     }
-
     @Parameterized.Parameters
     public static Object[][] getBunData() {
         return new Object[][] {
@@ -29,7 +27,6 @@ public class BunParameterizedTest {
                 {"Bulo4ka", 99.99f, "Bulo4ka", 99.99f},
         };
     }
-
     @Test
     public void shouldBeCreateBunWithNameAndPrice() {
         Bun bun = new Bun(bunName, bunPrice);

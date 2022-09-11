@@ -15,9 +15,6 @@ public class IngredientParameterizedTest {
     private final String expectedType;
     private final String expectedName;
     private final float expectedPrice;
-
-
-
     public IngredientParameterizedTest(IngredientType type, String name, float price,
                                        String expectedType, String expectedName, float expectedPrice) {
         this.type = type;
@@ -39,7 +36,6 @@ public class IngredientParameterizedTest {
                 {IngredientType.FILLING, "", 100.01f, "FILLING", "", 100.01f},
         };
     }
-
     @Test
     public void shouldBeCreateIngredients() {
         Ingredient ingredient = new Ingredient(type, name, price);
