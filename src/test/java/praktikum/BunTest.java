@@ -1,5 +1,6 @@
 package praktikum;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -14,7 +15,7 @@ public class BunTest {
         Bun bun = new Bun("white", 3);
         String actualName = bun.getName();
         String expectedName = "white";
-        assertEquals("Bun name is incorrect", expectedName, actualName);
+        Assert.assertEquals("Bun name is incorrect", expectedName, actualName);
 
     }
 
@@ -24,7 +25,7 @@ public class BunTest {
         Bun bun = new Bun("white", 3);
         float actualPrice = bun.getPrice();
         float expectedPrice = 3;
-        assertThat("Bun price is incorrect", actualPrice, is(expectedPrice));
+        Assert.assertEquals("Bun price is incorrect", actualPrice, expectedPrice, 0);
 
     }
 
