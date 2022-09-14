@@ -20,4 +20,14 @@ public class IngredientTest {
         Assert.assertEquals("Ingredient price is incorrect", expectedPrice, actualPrice, 0);
     }
 
+    @Test
+    public void checkGetNameForIngredient(){
+
+        Ingredient ingredient = new Ingredient(type,"Onion", 33.0f);
+        String actualName = ingredient.getName();
+        String expectedName = "Onion";
+
+        Assert.assertEquals("Ingredient name is incorrect", expectedName, actualName);
+    }
+
 }
