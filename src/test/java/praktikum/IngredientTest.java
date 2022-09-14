@@ -9,7 +9,6 @@ public class IngredientTest {
     @Mock
     private IngredientType type;
 
-
     @Test
     public void checkGetPriceForIngredient(){
 
@@ -29,5 +28,4 @@ public class IngredientTest {
 
         Assert.assertEquals("Ingredient name is incorrect", expectedName, actualName);
     }
-
 }

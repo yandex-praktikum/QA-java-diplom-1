@@ -3,10 +3,6 @@ package praktikum;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-
 public class BunTest {
 
     @Test
@@ -16,7 +12,6 @@ public class BunTest {
         String actualName = bun.getName();
         String expectedName = "white";
         Assert.assertEquals("Bun name is incorrect", expectedName, actualName);
-
     }
 
     @Test
@@ -26,9 +21,5 @@ public class BunTest {
         float actualPrice = bun.getPrice();
         float expectedPrice = 3;
         Assert.assertEquals("Bun price is incorrect", actualPrice, expectedPrice, 0);
-
     }
-
-
-
 }
