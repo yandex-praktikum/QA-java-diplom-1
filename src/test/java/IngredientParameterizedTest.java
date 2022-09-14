@@ -26,7 +26,7 @@ public class IngredientParameterizedTest {
         this.expectedPrice = expectedPrice;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{index}: shouldBeCreateIngredients({0})={1}")
     public static Object[][] getIngredientData() {
         return new Object[][]{
                 {IngredientType.SAUCE, "Hot", 10.77f, "SAUCE", "Hot", 10.77f},

@@ -20,7 +20,7 @@ public class BunParameterizedTest {
         this.expectedBunPrice = expectedBunPrice;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{index}: shouldBeCreateBunWithNameAndPrice({0})={1}")
     public static Object[][] getBunData() {
         return new Object[][]{
                 {"Bun", 1.95f, "Bun", 1.95f},
