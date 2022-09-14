@@ -23,36 +23,41 @@ public class BurgerTest {
     @Mock
     Ingredient ingredient3;
     Burger burger = new Burger();
+
     @Test
-    public void shouldSetBunInBurger(){
+    public void shouldSetBunInBurger() {
         burger.setBuns(bun);
-        assertEquals(burger.bun, bun);
+        assertEquals(bun, burger.bun);
     }
+
     @Test
-    public void shouldAddIngredientsInBurger(){
+    public void shouldAddIngredientsInBurger() {
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
         burger.addIngredient(ingredient3);
-        assertEquals(burger.ingredients, List.of(ingredient1, ingredient2, ingredient3));
+        assertEquals(List.of(ingredient1, ingredient2, ingredient3), burger.ingredients);
     }
+
     @Test
-    public void shouldRemoveIngredientsInBurger(){
+    public void shouldRemoveIngredientsInBurger() {
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
         burger.addIngredient(ingredient3);
         burger.removeIngredient(1);
-        assertEquals(burger.ingredients, List.of(ingredient1, ingredient3));
+        assertEquals(List.of(ingredient1, ingredient3), burger.ingredients);
     }
+
     @Test
-    public void shouldMoveIngredientsInBurger(){
+    public void shouldMoveIngredientsInBurger() {
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
         burger.addIngredient(ingredient3);
         burger.moveIngredient(2, 0);
-        assertEquals(burger.ingredients, List.of(ingredient3, ingredient1, ingredient2));
+        assertEquals(List.of(ingredient3, ingredient1, ingredient2), burger.ingredients);
     }
+
     @Test
-    public void shouldGetPriceBurger(){
+    public void shouldGetPriceBurger() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
@@ -63,8 +68,9 @@ public class BurgerTest {
         Mockito.when(ingredient3.getPrice()).thenReturn(43.25f);
         assertEquals(burger.getPrice(), 494.2f, 0.0);
     }
+
     @Test
-    public void shouldGetReceiptBurger(){
+    public void shouldGetReceiptBurger() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
@@ -87,6 +93,6 @@ public class BurgerTest {
                 "(==== Ржаная с кунжутом ====)\r\n" +
                 "\r\n" +
                 "Price: 494,200012\r\n";
-        assertEquals(burger.getReceipt(), expectedReceipt);
+        assertEquals(expectedReceipt, burger.getReceipt());
     }
 }

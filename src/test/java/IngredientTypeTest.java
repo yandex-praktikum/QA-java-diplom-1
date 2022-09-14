@@ -10,14 +10,17 @@ public class IngredientTypeTest {
     public void checkIngredientTypeValuesCount() {
         assertEquals(IngredientType.values().length, 2);
     }
+
     @Test
     public void checkIngredientTypeSauce() {
-        assertEquals(IngredientType.SAUCE, IngredientType.valueOf("SAUCE"));
+        assertEquals(IngredientType.valueOf("SAUCE"), IngredientType.SAUCE);
     }
+
     @Test
     public void checkIngredientTypeFilling() {
-        assertEquals(IngredientType.FILLING, IngredientType.valueOf("FILLING"));
+        assertEquals(IngredientType.valueOf("FILLING"), IngredientType.FILLING);
     }
+
     @Test
     public void shouldBeExceptionIfWrongTypeValue() {
         assertThrows(IllegalArgumentException.class, () -> IngredientType.valueOf("WRONG"));
