@@ -17,7 +17,7 @@ public class BunTest {
     public void getNameBunTest() {
         String actual = "black bun";
         String expected = bun.getName();
-        Assert.assertEquals("Ожидаемое название булочки - " + expected, expected, actual);
+        Assert.assertEquals("Ожидаемое название булочки - ", expected, actual);
     }
 
     @Test

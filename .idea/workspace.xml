@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e13d7e8e-e25f-4fb1-9723-02f976b90c68" name="Changes" comment="Diplom_1_full_scope_first_commit_02">
+    <list default="true" id="e13d7e8e-e25f-4fb1-9723-02f976b90c68" name="Changes" comment="Diplom_1_commit_after_review_with_codeStyle_change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662834345794</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Diplom_1_commit_after_review_with_codeStyle_change">
+      <created>1663308320429</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663308320429</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Diplom_1_full_scope_first_commit" />
     <MESSAGE value="Diplom_1_full_scope_first_commit_02" />
-    <option name="LAST_COMMIT_MESSAGE" value="Diplom_1_full_scope_first_commit_02" />
+    <MESSAGE value="Diplom_1_commit_after_review_with_codeStyle_change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diplom_1_commit_after_review_with_codeStyle_change" />
   </component>
 </project>
