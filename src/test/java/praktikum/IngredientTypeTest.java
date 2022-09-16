@@ -3,17 +3,19 @@ package praktikum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
 import static org.junit.Assert.assertEquals;
-import static praktikum.IngredientType.*;
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class IngredientTypeTest {
 
-    private String name;
-    private  IngredientType type;
-    private float price;;
+    private final String name;
+    private final IngredientType type;
+    private final float price;
 
-    public IngredientTypeTest( IngredientType type, String name, float price) {
+    public IngredientTypeTest(IngredientType type, String name, float price) {
         this.type = type;
         this.name = name;
         this.price = price;

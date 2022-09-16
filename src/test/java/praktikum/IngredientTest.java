@@ -10,10 +10,10 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 public class IngredientTest {
 
-    Ingredient ingredient;
     private final IngredientType type;
     private final String name;
     private final float price;
+    Ingredient ingredient;
 
     public IngredientTest(IngredientType type, String name, float price) {
         this.type = type;
@@ -22,12 +22,13 @@ public class IngredientTest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] getBurgerData(){
-        return new Object[][] {
+    public static Object[][] getBurgerData() {
+        return new Object[][]{
                 {IngredientType.FILLING, "dinosaur", 200},
                 {IngredientType.SAUCE, "chili sauce", 300},
         };
     }
+
     @Before
     public void setUp() {
         ingredient = new Ingredient(type, name, price);

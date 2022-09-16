@@ -25,6 +25,7 @@ public class BurgerTest {
         when(bun.getPrice()).thenReturn(price);
         return bun;
     }
+
     @Before
     public void setUp() {
         burger = new Burger();
@@ -52,6 +53,7 @@ public class BurgerTest {
         burger.removeIngredient(0);
         Assert.assertTrue("Ожидается бургер без ингредиентов", burger.ingredients.isEmpty());
     }
+
     @Test
     public void moveIngredientTest() {
         Ingredient ingredient1 = getMockedIngredient(IngredientType.FILLING, "cutlet", 100);
@@ -71,6 +73,7 @@ public class BurgerTest {
         float actual = burger.getPrice();
         Assert.assertEquals("Ожидаемя цена за бургер - 300", 300, actual, 0);
     }
+
     @Test
     public void getReceiptTest() {
         Bun bun = getMockedBun("black bun", 100);

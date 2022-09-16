@@ -24,6 +24,6 @@ public class BunTest {
     public void getPriceBunTest() {
         float expected = 100L;
         float actual = bun.getPrice();
-        Assert.assertEquals("Ожидаемая цена булочки - " + expected, expected , actual, 0);
+        Assert.assertEquals("Ожидаемая цена булочки - " + expected, expected, actual, 0);
     }
 }
