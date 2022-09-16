@@ -6,9 +6,7 @@ import org.mockito.Mockito;
 import praktikum.*;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-
 import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.MockitoAnnotations.openMocks;
 
