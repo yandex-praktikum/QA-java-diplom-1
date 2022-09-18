@@ -30,19 +30,19 @@ public class IngredientTest {
     }
 
     @Test
-    public void getPrice() {
+    public void getPriceFloatSameFloatValue() {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(price, ingredient.getPrice(), 0.0f);
     }
 
     @Test
-    public void getName() {
+    public void getNameStringSameStringValue() {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(name, ingredient.getName());
     }
 
     @Test
-    public void getType() {
+    public void getTypeEnumSameEnumValue() {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(type, ingredient.getType());
     }

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class IngredientTypeTest {
 
     @Test
-    public void values() {
+    public void valuesReturnExpectedEnumLength() {
         IngredientType[] ingredientTypesValues = IngredientType.values();
 
         assertEquals(

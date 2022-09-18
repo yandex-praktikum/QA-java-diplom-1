@@ -17,6 +17,7 @@ public class BunTest {
         this.price = price;
     }
 
+    // Делаем параметризацию данных на случай использования констант в методах getName() и getPrice()
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][] {
@@ -26,13 +27,13 @@ public class BunTest {
     }
 
     @Test
-    public void getName() {
+    public void getNameStringSameStringValue() {
         Bun bun = new Bun(name, price);
         assertEquals("Название булки не должно изменяться в процессе готовки", name, bun.getName());
     }
 
     @Test
-    public void getPrice() {
+    public void getPriceFloatSameFloatValue() {
         Bun bun = new Bun(name, price);
         assertEquals("Цена булки не должна изменяться в процессе готовки", price, bun.getPrice(), 0.0f);
     }
