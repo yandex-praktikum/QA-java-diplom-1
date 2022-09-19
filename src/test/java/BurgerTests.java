@@ -16,11 +16,11 @@ import java.util.List;
 public class BurgerTests {
 
 @Mock
-Bun bun = new Bun("black bun", 100);
+Bun bun;
 @Mock
-Ingredient ingredient = new Ingredient(IngredientType.FILLING, "chicken", 200);
+Ingredient ingredient;
 @Mock
-Ingredient ingredientTwo = new Ingredient(IngredientType.SAUCE, "tabasco", 120);
+Ingredient ingredientTwo;
 
 Burger burger = new Burger();
 List<Ingredient> ingredients = burger.ingredients;

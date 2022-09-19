@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -27,7 +28,10 @@ public BunParamsTest(String bunName, float bunPrice) {
     @Test
     public void createBunWithAnyParamsTest(){
        Bun bun = new Bun(bunName, bunPrice);
-       System.out.println(bunName + " " +  bunPrice);
+       float actualPrice = bun.getPrice();
+        Assert.assertEquals(bunPrice, actualPrice, 0);
+       String actualName = bun.getName();
+       Assert.assertEquals(bunName, actualName);
 
         }
 
