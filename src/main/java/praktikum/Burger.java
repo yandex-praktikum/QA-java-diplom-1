@@ -12,6 +12,7 @@ import java.util.List;
 public class Burger {
 
     public Bun bun;
+
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
