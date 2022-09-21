@@ -11,30 +11,27 @@ public class IngredientTest {
     @Test
     public void getPriceReturnsCorrectType() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        IngredientType expected = type;
 
         IngredientType actual = ingredient.getType();
 
-        assertEquals("Returns incorrect ingredient type", expected, actual);
+        assertEquals("Returns incorrect ingredient type", type, actual);
     }
 
     @Test
     public void getNameReturnsName() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        String expected = name;
 
         String actual = ingredient.getName();
 
-        assertEquals("Returns incorrect name", expected, actual);
+        assertEquals("Returns incorrect name", name, actual);
     }
 
     @Test
-    public void getPricaReturnsPrice() {
+    public void getPriceReturnsPrice() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        float expected = price;
 
         float actual = ingredient.getPrice();
 
-        assertEquals("Returns incorrect price", expected, actual, 0);
+        assertEquals("Returns incorrect price", price, actual, 0);
     }
 }
