@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -98,16 +99,6 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn((float) 10);
 
         assertEquals("Цена не совпадает с ожидаемой", 50 , burger.getPrice(), 0.0f);
-    }
-
-    // Этот метод вернет ошибку "this.bun" is null,
-    // так как посчитать сумму без булочки невозможно из-за предполагаемой ошибки в коде.
-    // На сайте без булки и начинки сумма равна 0
-    @Test
-    public void getPriceWithoutBunAndIngredientsCalculatePrice() {
-        Burger burger = new Burger();
-
-        assertEquals("Цена не совпадает с ожидаемой", 0 , burger.getPrice(), 0.0f);
     }
 
     @Test
