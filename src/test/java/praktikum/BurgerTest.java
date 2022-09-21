@@ -85,7 +85,6 @@ public class BurgerTest {
                 "Список для проверки не совпадает с ожидаемым результатом",
                 ingredients,
                 field.get(burger));
-
     }
 
     @Test
@@ -96,28 +95,43 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
 
         Mockito.when(bun.getPrice()).thenReturn((float) 20);
-        Mockito.when(ingredient.getPrice()).thenReturn((float) 20);
+        Mockito.when(ingredient.getPrice()).thenReturn((float) 10);
 
-        assertEquals("Цена не совпадает с ожидаемой", 60 , burger.getPrice(), 0.0f);
+        assertEquals("Цена не совпадает с ожидаемой", 50 , burger.getPrice(), 0.0f);
+    }
+
+    // Этот метод вернет ошибку "this.bun" is null,
+    // так как посчитать сумму без булочки невозможно из-за предполагаемой ошибки в коде.
+    // На сайте без булки и начинки сумма равна 0
+    @Test
+    public void getPriceWithoutBunAndIngredientsCalculatePrice() {
+        Burger burger = new Burger();
+
+        assertEquals("Цена не совпадает с ожидаемой", 0 , burger.getPrice(), 0.0f);
     }
 
     @Test
     public void getReceiptWithBunIngredientGeneratePrice() {
+        String BUN_NAME = "Флюоресцентная булка R2-D3";
+        String INGREDIENT_NAME = "Мясо бессмертных моллюсков Protostomia";
+        String INGREDIENT_TYPE = "filling";
+
         Burger burger = new Burger();
 
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
 
-        Mockito.when(bun.getName()).thenReturn("Флюоресцентная булка R2-D3");
-        Mockito.when(ingredient.getName()).thenReturn("Мясо бессмертных моллюсков Protostomia");
+        Mockito.when(bun.getName()).thenReturn(BUN_NAME);
+        Mockito.when(ingredient.getName()).thenReturn(INGREDIENT_NAME);
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
         Mockito.when(burger.getPrice()).thenReturn((float) 20);
 
-        String expectedReceipt = "(==== Флюоресцентная булка R2-D3 ====)\n"
-                + "= filling Мясо бессмертных моллюсков Protostomia =\n"
-                + "(==== Флюоресцентная булка R2-D3 ====)\n"
+        String expectedReceipt = String.format("(==== %s ====)\n", BUN_NAME)
+                + String.format("= %s %s =\n", INGREDIENT_TYPE, INGREDIENT_NAME)
+                + String.format("(==== %s ====)\n", BUN_NAME)
                 + "\nPrice: 20,000000\n";
 
         assertEquals("Рецепт составлен неправильно", expectedReceipt, burger.getReceipt());
     }
+
 }
