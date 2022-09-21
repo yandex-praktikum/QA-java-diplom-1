@@ -9,6 +9,7 @@ import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
+import static java.lang.System.lineSeparator;
 import static org.junit.Assert.assertEquals;
 
 public class BurgerGetReceiptTest {
@@ -45,7 +46,7 @@ public class BurgerGetReceiptTest {
         Mockito.when(ingredient_2.getName()).thenReturn("cutlet");
         Mockito.when(ingredient_3.getType()).thenReturn(IngredientType.FILLING);
         Mockito.when(ingredient_3.getName()).thenReturn("sausage");
-        String expected = "(==== black bun ====)\r\n= sauce chili sauce =\r\n= filling cutlet =\r\n= filling sausage =\r\n(==== black bun ====)\r\n\r\nPrice: 10000,000000\r\n";
+        String expected = "(==== black bun ====)"+lineSeparator()+"= sauce chili sauce ="+ lineSeparator()+"= filling cutlet ="+ lineSeparator()+"= filling sausage ="+ lineSeparator()+"(==== black bun ====)"+ lineSeparator()+ lineSeparator()+"Price: 10000,000000"+ lineSeparator();
 
         String actual = burger.getReceipt();
 
