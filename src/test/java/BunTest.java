@@ -4,7 +4,7 @@ import praktikum.Bun;
 import static org.junit.Assert.assertEquals;
 
 public class BunTest {
-
+    
     @Test
     public void getNameCorrectMethodTest() {
         Bun bun = new Bun("black bun", 100);
@@ -20,7 +20,5 @@ public class BunTest {
         float actualPrice = bun.getPrice();
         assertEquals("Method incorrect", expectedPrice, actualPrice, 0);
     }
-
-
 }
 

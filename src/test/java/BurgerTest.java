@@ -81,6 +81,5 @@ public class BurgerTest {
                 "Price: 900,000000\r\n";
         assertEquals("Receipt incorrect", expectedReceipt, actualReceipt);
     }
-
 }
 
