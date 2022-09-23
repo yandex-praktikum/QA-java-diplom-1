@@ -5,6 +5,7 @@ import org.junit.runners.Parameterized;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
+// Some change to trigger pull request
 
 @RunWith(Parameterized.class)
 public class IngridientTest {

@@ -11,6 +11,8 @@ import praktikum.Ingredient;
 import static org.mockito.ArgumentMatchers.eq;
 import static praktikum.IngredientType.SAUCE;
 
+// Some change to trigger pull request
+
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerMockTest {
     // Предполагаем, что класс Burger не готов. Проверяем вызов его методов через моки.
