@@ -3,7 +3,7 @@ import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
-// Some change to trigger pull request
+//   Some change to trigger pull request
 
 public class BurgerTest {
     //Так как Jacoco не видит покрытие тествми двух функций черех моки, проводим боевое тестирование здесь.

@@ -10,7 +10,7 @@ import praktikum.Ingredient;
 
 import static praktikum.IngredientType.FILLING;
 
-// Some change to trigger pull request
+//   Some change to trigger pull request
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerStubTest {
     // Предполагаем, что классы Bun и Ingredient не готовы. Заменяем их методы заглушками.

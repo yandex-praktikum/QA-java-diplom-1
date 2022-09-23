@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Bun;
 
-// Some change to trigger pull request
+//   Some change to trigger pull request
 
 @RunWith(Parameterized.class)
 public class BunTest {
