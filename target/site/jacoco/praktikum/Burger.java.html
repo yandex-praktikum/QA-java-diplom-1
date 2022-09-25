@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Burger.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Diplom_1</a> &gt; <a href="index.source.html" class="el_package">praktikum</a> &gt; <span class="el_source">Burger.java</span></div><h1>Burger.java</h1><pre class="source lang-java linenums">package praktikum;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Модель бургера.
+ * Бургер состоит из булочек и ингредиентов (начинка или соус).
+ * Ингредиенты можно перемещать и удалять.
+ * Можно распечать чек с информацией о бургере.
+ */
+<span class="fc" id="L12">public class Burger {</span>
+
+    //поля класса
+    public Bun bun;
+<span class="fc" id="L16">    public List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();</span>
+
+    //сеттер для булочки
+    public void setBuns(Bun bun) {
+<span class="fc" id="L20">        this.bun = bun;</span>
+<span class="fc" id="L21">    }</span>
+
+    //объявлен метод, добавляющего ингредиент в список
+    public void addIngredient(Ingredient ingredient) {
+<span class="fc" id="L25">        ingredients.add(ingredient);</span>
+<span class="fc" id="L26">    }</span>
+
+    //объявлен метод, удаляющего ингредиент из списка
+    public void removeIngredient(int index) {
+<span class="fc" id="L30">        ingredients.remove(index);</span>
+<span class="fc" id="L31">    }</span>
+
+    //объявлен метод, позволяющего заменить ингредиент в списке
+    public void moveIngredient(int index, int newIndex) {
+<span class="fc" id="L35">        ingredients.add(newIndex, ingredients.remove(index));</span>
+<span class="fc" id="L36">    }</span>
+
+    //объявлен метод, подсчитывающий стоимость бургера
+    public float getPrice() {
+        //две булки, тк это бургер
+<span class="fc" id="L41">        float price = bun.getPrice() * 2;</span>
+        //к стоимости булок добавляем стоимость всех ингредиентов
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L44">            price += ingredient.getPrice();</span>
+<span class="fc" id="L45">        }</span>
+<span class="fc" id="L46">        return price;</span>
+    }
+
+    //объявлен метод для получения чека
+    public String getReceipt() {
+        //создан экземпляр класса StringBuilder (параметры конструктора: отформатировать чек и получить имя булки))
+<span class="fc" id="L52">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+
+        //в чек добавлена информация: тип ингредиентов, имена ингредиентов
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L56">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
+<span class="fc" id="L57">                    ingredient.getName()));</span>
+<span class="fc" id="L58">        }</span>
+
+        //добавить имя булки в чек
+<span class="fc" id="L61">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+        //добавить стоимость в чек
+<span class="fc" id="L63">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
+        //возвращает готовый чек
+<span class="fc" id="L65">        return receipt.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
