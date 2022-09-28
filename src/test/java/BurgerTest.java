@@ -17,6 +17,8 @@ public class BurgerTest {
     private Bun bunMock;
     @Mock
     private Ingredient ingredientMock;
+    @Mock
+    private Ingredient ingredientMock2;
 
     Bun bun = new Bun("black bun", 100);
     Burger burger = new Burger();
@@ -61,14 +63,16 @@ public class BurgerTest {
 
     @Test
     public void moveIngredient(){
-        //добавить ингредиенты
-        burger.addIngredient(database.availableIngredients().get(0));
-        burger.addIngredient(database.availableIngredients().get(1));
+        //Задать параметры для ингредиент-мока
+        Mockito.when(ingredientMock.getName()).thenReturn("hot sauce");
+        Mockito.when(ingredientMock2.getName()).thenReturn("sour cream");
+        //добавить ингредиент-мок
+        burger.addIngredient(ingredientMock);
+        burger.addIngredient(ingredientMock2);
         //поменяем местами два ингредиента
         burger.moveIngredient(0, 1);
-        //проверка, что элементы поменялись местами'
-        Assert.assertEquals(database.availableIngredients().get(1).name, burger.ingredients.get(0).name);
-        Assert.assertEquals(database.availableIngredients().get(0).name, burger.ingredients.get(1).name);
+        Assert.assertEquals("sour cream", burger.ingredients.get(0).getName());
+        Assert.assertEquals("hot sauce", burger.ingredients.get(1).getName());
     }
 
     @Test
