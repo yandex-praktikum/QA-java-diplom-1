@@ -24,33 +24,39 @@ public class BurgerTest {
 
     @Test
     public void setBunTest() {
-        //установить булочку для бургера
-        burger.setBuns(bun);
+        //установить булочку-мок для бургера
+        Mockito.when(bunMock.getName()).thenReturn("black bun");
+        Mockito.when(bunMock.getPrice()).thenReturn(100f);
+        burger.setBuns(bunMock);
         //убедиться, что в бургере нужная булочка
-        Assert.assertEquals("black bun", database.availableBuns().get(0).name);
-        Assert.assertEquals(100, database.availableBuns().get(0).price,0);
+        Assert.assertEquals("(==== black bun ====)\n" +
+                "(==== black bun ====)\n" +
+                "\n" +
+                "Price: 200,000000\n", burger.getReceipt());
     }
 
     @Test
     public void addIngredientTest(){
-        //взять ингредиент из базы данных и добавить его в бургер
-        burger.addIngredient(database.availableIngredients().get(0));
+        //Задать параметры для ингредиент-мока
+        Mockito.when(ingredientMock.getPrice()).thenReturn(100f);
+        Mockito.when(ingredientMock.getType()).thenReturn(SAUCE);
+        Mockito.when(ingredientMock.getName()).thenReturn("hot sauce");
+        //добавить ингредиент-мок
+        burger.addIngredient(ingredientMock);
         //убедиться, в бургер добавлен нужный ингредиент
-        Assert.assertEquals("hot sauce", burger.ingredients.get(0).name);
+        Assert.assertEquals("hot sauce", burger.ingredients.get(0).getName());
+        Assert.assertEquals(SAUCE, burger.ingredients.get(0).getType());
+        Assert.assertEquals(100f, burger.ingredients.get(0).getPrice(),0);
     }
 
     @Test
     public void removeIngredientTest(){
-        //взять ингредиент из базы данных и добавить его в бургер
-        burger.addIngredient(database.availableIngredients().get(0));
-        //посчитать количество ингредиентов в бургере
-        int quantityBeforeDeleting = burger.ingredients.size();
+        //добавить ингредиент-мок
+        burger.addIngredient(ingredientMock);
         //удалить ингредиент
         burger.removeIngredient(0);
-        //посчитать количество ингредиентов в бургере
-        int quantityAfterDeleting = burger.ingredients.size();
-        //убедиться, что количество элементов не совпадает
-        Assert.assertNotEquals(quantityBeforeDeleting, quantityAfterDeleting);
+        //убедиться, что ингредиентов в бургере нет
+        Assert.assertEquals(0, burger.ingredients.size());
     }
 
     @Test

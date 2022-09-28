@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="BurgerTest" time="0.681" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="BurgerTest" time="0.894" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.3+6-LTS"/>
     <property name="sun.boot.library.path" value="/Users/anna/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/anna/Desktop/мои файлы/DIPLOM/Diplom_1"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/anna/Desktop/Diplom_Anna_Nikolenko_09/Diplom_1"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -14,7 +14,7 @@
     <property name="user.country" value="RU"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/anna/Desktop/мои файлы/DIPLOM/Diplom_1"/>
+    <property name="user.dir" value="/Users/anna/Desktop/Diplom_Anna_Nikolenko_09/Diplom_1"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="17.0.3+6-LTS"/>
     <property name="os.arch" value="x86_64"/>
@@ -60,10 +60,10 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="BurgerTest" name="getPriceOfBunAndIngredient" time="0.673"/>
-  <testcase classname="BurgerTest" name="addIngredientTest" time="0.001"/>
-  <testcase classname="BurgerTest" name="setBunTest" time="0"/>
-  <testcase classname="BurgerTest" name="removeIngredientTest" time="0.001"/>
-  <testcase classname="BurgerTest" name="moveIngredient" time="0.001"/>
-  <testcase classname="BurgerTest" name="getReceipt" time="0.005"/>
+  <testcase classname="BurgerTest" name="getPriceOfBunAndIngredient" time="0.882"/>
+  <testcase classname="BurgerTest" name="addIngredientTest" time="0.002"/>
+  <testcase classname="BurgerTest" name="setBunTest" time="0.004"/>
+  <testcase classname="BurgerTest" name="removeIngredientTest" time="0"/>
+  <testcase classname="BurgerTest" name="moveIngredient" time="0"/>
+  <testcase classname="BurgerTest" name="getReceipt" time="0.006"/>
 </testsuite>
