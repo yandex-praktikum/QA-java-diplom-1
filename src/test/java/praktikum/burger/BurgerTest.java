@@ -1,4 +1,4 @@
-package praktikum;
+package praktikum.burger;
 
 import com.github.javafaker.Faker;
 import org.junit.BeforeClass;
@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import praktikum.*;
 
 import java.util.ArrayList;
 import java.util.List;
