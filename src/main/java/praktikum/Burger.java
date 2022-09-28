@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Burger {
 
-    public Bun bun;
+     Bun bun;
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
@@ -31,7 +31,7 @@ public class Burger {
     }
 
     public float getPrice() {
-        float price = bun.getPrice() * 2;
+      float price = bun.getPrice() * 2;
 
         for (Ingredient ingredient : ingredients) {
             price += ingredient.getPrice();

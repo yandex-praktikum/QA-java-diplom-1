@@ -8,6 +8,6 @@ public class TestIngredientType {
     @Test
     public void testIngredientType() {
         Ingredient ingredient = new Ingredient(FILLING, "Булочка", 5.05F);
-        assertEquals(ingredient.getType(), FILLING);
+        assertEquals(String.valueOf(ingredient.getType()), String.valueOf(FILLING));
     }
 }

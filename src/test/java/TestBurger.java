@@ -1,74 +1,75 @@
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
-
-import java.util.ArrayList;
-import java.util.List;
+import praktikum.*;
 
 import static org.junit.Assert.assertEquals;
-import static praktikum.IngredientType.SAUCE;
 
-@RunWith(MockitoJUnitRunner.Silent.class)
+
+@RunWith(MockitoJUnitRunner.class)
 public class TestBurger {
-
-    List<Ingredient> ingredients = new ArrayList<>();
+    @Spy
+    Burger burger;
     @Mock
-    private Burger burger;
-
+    Bun bun;
+    @Mock
+    Ingredient ingredient;
+    @Test
+    public void setBunsTest() {
+        burger.setBuns(bun);
+        burger.setBuns(bun);
+        Mockito.verify(burger, Mockito.times(2)).setBuns(bun);
+    }
     @Test
     public void testAddIngredientInputData() {
-        Ingredient ingredient = new Ingredient(SAUCE, "Птицы", 6);
-        burger.addIngredient(ingredient);
-        Mockito.verify(burger).addIngredient(ingredient);
-
+        burger.addIngredient(new Database().availableIngredients().get(0));
+        int actual = burger.ingredients.size();
+        assertEquals(1, actual);
     }
-
     @Test
     public void testRemoveIngredient() {
-        Ingredient ingredient = new Ingredient(SAUCE, "Птицы", 6);
+        burger.ingredients.add(new Database().availableIngredients().get(0));
+        burger.ingredients.add(new Database().availableIngredients().get(1));
         burger.removeIngredient(0);
-        Mockito.verify(burger).removeIngredient(0);
+        int actual = burger.ingredients.size();
+        assertEquals(1, actual);
     }
-
     @Test
     public void testMoveIngredientIndexVerify() {
-        burger.moveIngredient(5, 6);
-        Mockito.verify(burger).moveIngredient(5, 6);
+        burger.ingredients.add(new Database().availableIngredients().get(0));
+        burger.ingredients.add(new Database().availableIngredients().get(1));
+        Object expected = burger.ingredients.get(1);
+        burger.ingredients.add(new Database().availableIngredients().get(2));
+        burger.ingredients.add(new Database().availableIngredients().get(3));
+        burger.moveIngredient(1, 3);
+        Object actual = burger.ingredients.get(3);
+        assertEquals(expected, actual);
     }
-
-    @Test
-    public void testMoveIngredient() {
-        ingredients.add(0, new Ingredient(SAUCE, "Птицы", 6));
-        burger.moveIngredient(0, 1);
-        Mockito.verify(burger).moveIngredient(0, 1);
-    }
-
     @Test
     public void testGetPrice() {
-        Bun bun = new Bun("Кунжутная", 8.5F);
-        Ingredient ingredient = new Ingredient(SAUCE, "Птицы", 6);
-        Burger burger2 = new Burger();
-        burger2.addIngredient(ingredient);
-        burger2.setBuns(bun);
-        float result = burger2.getPrice();
-        assertEquals(result, 23.0F, 0.0f);
+        burger.setBuns(bun);
+        burger.ingredients.add(ingredient);
+        burger.ingredients.add(ingredient);
+        burger.ingredients.add(ingredient);
+        Mockito.when(bun.getPrice()).thenReturn(100f);
+        Mockito.when(ingredient.getPrice()).thenReturn(200f);
+        float expected = 800f;
+        float actual = burger.getPrice();
+        assertEquals(expected, actual, 0.1);
     }
-
     @Test
     public void testGetReceipt() {
-        Bun bun = new Bun("Кунжутная", 8.5F);
-        Ingredient ingredient = new Ingredient(SAUCE, "Птицы", 6);
-        burger.addIngredient(ingredient);
-        Mockito.when(burger.getReceipt()).thenReturn("dfsdfsd");
-        String expectedPrice = "dfsdfsd";
-        Assert.assertEquals(expectedPrice, burger.getReceipt());
-
+        burger.setBuns(bun);
+        burger.ingredients.add(ingredient);
+        Mockito.when(bun.getName()).thenReturn("black bun");
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(ingredient.getName()).thenReturn("cutlet");
+        Mockito.when(burger.getPrice()).thenReturn(300f);
+        String expected = "(==== black bun ====)\r\n= filling cutlet =\r\n(==== black bun ====)\r\n\r\nPrice: 300,000000\r\n";
+        String actual = burger.getReceipt();
+        assertEquals(expected, actual);
     }
-
 }
