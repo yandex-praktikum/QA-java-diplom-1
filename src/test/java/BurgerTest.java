@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
-import praktikum.Database;
 import praktikum.Ingredient;
 import static praktikum.IngredientType.SAUCE;
 
@@ -22,7 +21,6 @@ public class BurgerTest {
 
     Bun bun = new Bun("black bun", 100);
     Burger burger = new Burger();
-    Database database = new Database();
 
     @Test
     public void setBunTest() {
@@ -31,10 +29,8 @@ public class BurgerTest {
         Mockito.when(bunMock.getPrice()).thenReturn(100f);
         burger.setBuns(bunMock);
         //убедиться, что в бургере нужная булочка
-        Assert.assertEquals("(==== black bun ====)\n" +
-                "(==== black bun ====)\n" +
-                "\n" +
-                "Price: 200,000000\n", burger.getReceipt());
+        Assert.assertEquals("black bun", burger.bun.getName());
+        Assert.assertEquals(100f, burger.bun.getPrice(), 0);
     }
 
     @Test

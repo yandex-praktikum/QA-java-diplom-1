@@ -19,7 +19,8 @@ public class Burger {
     public void setBuns(Bun bun) {
         this.bun = bun;
     }
-
+    public Burger() {
+    }
     //объявлен метод, добавляющего ингредиент в список
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);

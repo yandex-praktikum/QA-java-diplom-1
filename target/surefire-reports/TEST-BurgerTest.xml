@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="BurgerTest" time="0.894" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="BurgerTest" time="0.684" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -60,10 +60,10 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="BurgerTest" name="getPriceOfBunAndIngredient" time="0.882"/>
-  <testcase classname="BurgerTest" name="addIngredientTest" time="0.002"/>
-  <testcase classname="BurgerTest" name="setBunTest" time="0.004"/>
+  <testcase classname="BurgerTest" name="getPriceOfBunAndIngredient" time="0.677"/>
+  <testcase classname="BurgerTest" name="addIngredientTest" time="0.001"/>
+  <testcase classname="BurgerTest" name="setBunTest" time="0.001"/>
   <testcase classname="BurgerTest" name="removeIngredientTest" time="0"/>
-  <testcase classname="BurgerTest" name="moveIngredient" time="0"/>
-  <testcase classname="BurgerTest" name="getReceipt" time="0.006"/>
+  <testcase classname="BurgerTest" name="moveIngredient" time="0.001"/>
+  <testcase classname="BurgerTest" name="getReceipt" time="0.004"/>
 </testsuite>

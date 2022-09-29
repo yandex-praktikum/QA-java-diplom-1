@@ -5,6 +5,7 @@ package praktikum;
  * Булочке можно дать название и назначить цену.
  */
 public class Bun {
+
     //объявили поля класса
     public String name;
     public float price;

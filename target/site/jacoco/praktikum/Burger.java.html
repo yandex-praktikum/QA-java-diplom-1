@@ -9,7 +9,7 @@ import java.util.List;
  * Ингредиенты можно перемещать и удалять.
  * Можно распечать чек с информацией о бургере.
  */
-<span class="fc" id="L12">public class Burger {</span>
+public class Burger {
 
     //поля класса
     public Bun bun;
@@ -19,50 +19,51 @@ import java.util.List;
     public void setBuns(Bun bun) {
 <span class="fc" id="L20">        this.bun = bun;</span>
 <span class="fc" id="L21">    }</span>
-
+<span class="fc" id="L22">    public Burger() {</span>
+<span class="fc" id="L23">    }</span>
     //объявлен метод, добавляющего ингредиент в список
     public void addIngredient(Ingredient ingredient) {
-<span class="fc" id="L25">        ingredients.add(ingredient);</span>
-<span class="fc" id="L26">    }</span>
+<span class="fc" id="L26">        ingredients.add(ingredient);</span>
+<span class="fc" id="L27">    }</span>
 
     //объявлен метод, удаляющего ингредиент из списка
     public void removeIngredient(int index) {
-<span class="fc" id="L30">        ingredients.remove(index);</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L31">        ingredients.remove(index);</span>
+<span class="fc" id="L32">    }</span>
 
     //объявлен метод, позволяющего заменить ингредиент в списке
     public void moveIngredient(int index, int newIndex) {
-<span class="fc" id="L35">        ingredients.add(newIndex, ingredients.remove(index));</span>
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L36">        ingredients.add(newIndex, ingredients.remove(index));</span>
+<span class="fc" id="L37">    }</span>
 
     //объявлен метод, подсчитывающий стоимость бургера
     public float getPrice() {
         //две булки, тк это бургер
-<span class="fc" id="L41">        float price = bun.getPrice() * 2;</span>
+<span class="fc" id="L42">        float price = bun.getPrice() * 2;</span>
         //к стоимости булок добавляем стоимость всех ингредиентов
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
-<span class="fc" id="L44">            price += ingredient.getPrice();</span>
-<span class="fc" id="L45">        }</span>
-<span class="fc" id="L46">        return price;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L45">            price += ingredient.getPrice();</span>
+<span class="fc" id="L46">        }</span>
+<span class="fc" id="L47">        return price;</span>
     }
 
     //объявлен метод для получения чека
     public String getReceipt() {
         //создан экземпляр класса StringBuilder (параметры конструктора: отформатировать чек и получить имя булки))
-<span class="fc" id="L52">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L53">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
 
         //в чек добавлена информация: тип ингредиентов, имена ингредиентов
-<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
-<span class="fc" id="L56">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
-<span class="fc" id="L57">                    ingredient.getName()));</span>
-<span class="fc" id="L58">        }</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L57">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
+<span class="fc" id="L58">                    ingredient.getName()));</span>
+<span class="fc" id="L59">        }</span>
 
         //добавить имя булки в чек
-<span class="fc" id="L61">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L62">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
         //добавить стоимость в чек
-<span class="fc" id="L63">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
+<span class="fc" id="L64">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
         //возвращает готовый чек
-<span class="fc" id="L65">        return receipt.toString();</span>
+<span class="fc" id="L66">        return receipt.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
