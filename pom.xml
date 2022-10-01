@@ -43,6 +43,13 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/Database.class</exclude>
+                        <exclude>**/Praktikum.class</exclude>
+                        <exclude>**/config/*</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <!--id выбираешь самостоятельно-->
@@ -56,7 +63,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
