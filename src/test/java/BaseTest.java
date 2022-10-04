@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import praktikum.Bun;
+import praktikum.Ingredient;
 
 public class BaseTest {
     @Before
@@ -11,4 +12,7 @@ public class BaseTest {
 
     @Mock
     Bun bun;
+
+    @Mock
+    Ingredient ingredient;
 }

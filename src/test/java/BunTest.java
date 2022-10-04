@@ -5,18 +5,18 @@ import static org.junit.Assert.assertEquals;
 
 public class BunTest extends BaseTest {
 
-    String bunName = "BUN";
-    float bunPrice = 450;
+    private final String BUN_NAME = "BUN";
+    private final float BUN_PRICE = 450.5F;
 
     @Test
     public void getBunName() {
-        bun = new Bun(bunName, bunPrice);
-        assertEquals(bunName, bun.getName());
+        bun = new Bun(BUN_NAME, BUN_PRICE);
+        assertEquals(BUN_NAME, bun.getName());
     }
 
     @Test
     public void getBunPrice() {
-        bun = new Bun(bunName, bunPrice);
-        assertEquals(bunPrice, bun.getPrice(), 0);
+        bun = new Bun(BUN_NAME, BUN_PRICE);
+        assertEquals(BUN_PRICE, bun.getPrice(), 0);
     }
 }
