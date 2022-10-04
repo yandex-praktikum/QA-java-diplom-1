@@ -8,4 +8,6 @@ public class BaseTest {
 
     @Mock
     Ingredient ingredient;
+    Ingredient secondIngredient;
+    Ingredient thirdIngredient;
 }
