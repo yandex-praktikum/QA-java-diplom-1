@@ -2,7 +2,7 @@ package praktikum;
 
 import java.util.List;
 
-public class CreateBurgerForTests {
+public class CreateBurger {
     Burger burger = new Burger();
     Database database = new Database();
     List<Ingredient> ingredients = database.availableIngredients();
