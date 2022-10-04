@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 
 public class BunTest extends BaseTest {
 
-    private final String BUN_NAME = "BUN";
-    private final float BUN_PRICE = 450.5F;
+    private final String BUN_NAME = "Флюоресцентная булка R2-D3";
+    private final float BUN_PRICE = 988F;
 
     @Test
     public void getBunName() {
