@@ -2,4 +2,4 @@
 /.idea/
 !/target/
 /target/**
-!/target/site
+!/target/site/
