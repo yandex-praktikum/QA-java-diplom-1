@@ -6,8 +6,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.security.spec.ECField;
-
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -196,8 +194,90 @@ public class TestBurger {
         assertEquals(4, burger.getPrice(), 0.01);
     }
 
-    /*
-    getReceipt!!!!!
-     */
+    @Test(expected = Exception.class)
+    public void testGetReceiptNoBun() throws Exception{
+        burger = new Burger();
+        burger.addIngredient(ingredient);
+        try {
+            burger.getReceipt();
+        } catch (Exception e) {
+            throw new Exception(e);
+        }
+    }
+
+    @Test
+    public void testGetReceiptNoIngredient(){
+        burger = new Burger();
+        Mockito.when(bun.getPrice()).thenReturn(1f);
+        Mockito.when(bun.getName()).thenReturn("Bun Name");
+        burger.setBuns(bun);
+
+        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
+                String.format("(==== Bun Name ====)%n") +
+                String.format("%nPrice: %f%n", 2f);
+
+        assertEquals(expectedReceipt, burger.getReceipt());
+    }
+
+    @Test
+    public void testGetReceiptZeroPrices(){
+        burger = new Burger();
+        Mockito.when(bun.getPrice()).thenReturn(0f);
+        Mockito.when(bun.getName()).thenReturn("Bun Name");
+        Mockito.when(ingredient.getPrice()).thenReturn(0f);
+        Mockito.when(ingredient.getName()).thenReturn("Ingredient Name");
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+
+        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
+                String.format("= sauce Ingredient Name =%n") +
+                String.format("(==== Bun Name ====)%n") +
+                String.format("%nPrice: %f%n", 0f);
+
+        assertEquals(expectedReceipt, burger.getReceipt());
+    }
+
+    @Test
+    public void testGetReceiptBunAndOneIngredient(){
+        burger = new Burger();
+        Mockito.when(bun.getPrice()).thenReturn(1f);
+        Mockito.when(bun.getName()).thenReturn("Bun Name");
+        Mockito.when(ingredient.getPrice()).thenReturn(5f);
+        Mockito.when(ingredient.getName()).thenReturn("Ingredient Name");
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+
+        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
+                String.format("= sauce Ingredient Name =%n") +
+                String.format("(==== Bun Name ====)%n") +
+                String.format("%nPrice: %f%n", 7f);
+
+        assertEquals(expectedReceipt, burger.getReceipt());
+    }
+
+    @Test
+    public void testGetReceiptBunAndSomeIngredients(){
+        burger = new Burger();
+        Mockito.when(bun.getPrice()).thenReturn(1f);
+        Mockito.when(bun.getName()).thenReturn("Bun Name");
+        Mockito.when(ingredient.getPrice()).thenReturn(5f);
+        Mockito.when(ingredient.getName()).thenReturn("Ingredient Name");
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient);
+
+        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
+                String.format("= sauce Ingredient Name =%n") +
+                String.format("= sauce Ingredient Name =%n") +
+                String.format("= sauce Ingredient Name =%n") +
+                String.format("(==== Bun Name ====)%n") +
+                String.format("%nPrice: %f%n", 17f);
+
+        assertEquals(expectedReceipt, burger.getReceipt());
+    }
 
 }
