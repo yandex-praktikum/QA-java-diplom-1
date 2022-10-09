@@ -239,7 +239,7 @@ public class TestBurger {
     }
 
     @Test
-    public void testGetReceiptBunAndOneIngredient(){
+    public void testGetReceiptBunAndOneIngredientSauce(){
         burger = new Burger();
         Mockito.when(bun.getPrice()).thenReturn(1f);
         Mockito.when(bun.getName()).thenReturn("Bun Name");
@@ -251,6 +251,25 @@ public class TestBurger {
 
         String expectedReceipt = String.format("(==== Bun Name ====)%n") +
                 String.format("= sauce Ingredient Name =%n") +
+                String.format("(==== Bun Name ====)%n") +
+                String.format("%nPrice: %f%n", 7f);
+
+        assertEquals(expectedReceipt, burger.getReceipt());
+    }
+
+    @Test
+    public void testGetReceiptBunAndOneIngredientFilling(){
+        burger = new Burger();
+        Mockito.when(bun.getPrice()).thenReturn(1f);
+        Mockito.when(bun.getName()).thenReturn("Bun Name");
+        Mockito.when(ingredient.getPrice()).thenReturn(5f);
+        Mockito.when(ingredient.getName()).thenReturn("Ingredient Name");
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+
+        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
+                String.format("= filling Ingredient Name =%n") +
                 String.format("(==== Bun Name ====)%n") +
                 String.format("%nPrice: %f%n", 7f);
 
