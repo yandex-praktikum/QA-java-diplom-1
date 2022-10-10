@@ -60,4 +60,20 @@ public class BurgerTest {
         burger.moveIngredient(1, 0);
         assertEquals(ingredientMock, burger.ingredients.get(1));
     }
+    @Test
+    public void shouldGetReceipt() {
+        burgerMock.ingredients.add(ingredientMock);
+        burgerMock.ingredients.add(ingredientMock);
+        burgerMock.bun = bunMock;
+        Mockito.when(ingredientMock.getType()).thenReturn(ingredientType);
+        Mockito.when(ingredientMock.getName()).thenReturn("test ingredient name");
+        Mockito.when(bunMock.getName()).thenReturn("test bun name");
+        Mockito.when(burgerMock.getPrice()).thenReturn(13.37f);
+        String receipt = burgerMock.getReceipt();
+        Mockito.verify(ingredientMock, Mockito.times(2)).getType();
+        Mockito.verify(ingredientMock, Mockito.times(2)).getName();
+        Mockito.verify(bunMock, Mockito.times(2)).getName();
+        Mockito.verify(burgerMock).getPrice();
+        assertFalse(receipt.isEmpty());
+    }
 }
