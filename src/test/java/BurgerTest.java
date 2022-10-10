@@ -79,10 +79,19 @@ public class BurgerTest extends BaseTest {
 
     @Test
     public void getReceipt() {
+
         burger.addIngredient(ingredient);
         burger.addIngredient(secondIngredient);
         burger.addIngredient(thirdIngredient);
 
-        System.out.println(burger.getReceipt());
+        String result = "(==== " + BUN_NAME + " ====)\r\n" +
+                "= filling " + burger.ingredients.get(0).getName() + " =\r\n" +
+                "= sauce " + burger.ingredients.get(1).getName() + " =\r\n" +
+                "= filling " + burger.ingredients.get(2).getName() + " =\r\n" +
+                "(==== " + BUN_NAME + " ====)\r\n" +
+                "\r\n" +
+                "Price: " + String.format("%.6f", burger.getPrice()) + "\r\n";
+
+        assertEquals(result, burger.getReceipt());
     }
 }
