@@ -45,17 +45,17 @@ import java.util.List;
     }
 
     public String getReceipt() {
-<span class="nc" id="L48">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L48">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
 
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        for (Ingredient ingredient : ingredients) {</span>
-<span class="nc" id="L51">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
-<span class="nc" id="L52">                    ingredient.getName()));</span>
-<span class="nc" id="L53">        }</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L51">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
+<span class="fc" id="L52">                    ingredient.getName()));</span>
+<span class="fc" id="L53">        }</span>
 
-<span class="nc" id="L55">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
-<span class="nc" id="L56">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
+<span class="fc" id="L55">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L56">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
 
-<span class="nc" id="L58">        return receipt.toString();</span>
+<span class="fc" id="L58">        return receipt.toString();</span>
     }
 
 }

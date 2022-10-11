@@ -1,5 +1,6 @@
 package praktikum;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -8,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Random;
 
+import static org.hamcrest.CoreMatchers.endsWith;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -63,5 +65,16 @@ public class BurgerIngredientTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         assertEquals((randomPrice * 3), burger.getPrice(), 0);
+    }
+
+    @Test
+    public void checkGetReceiptTest() {
+        float randomPrice = new Random().nextFloat();
+        this.bun = new Bun("KolyaevBun", randomPrice);
+        this.burger = new Burger();
+        this.ingredient = new Ingredient(IngredientType.SAUCE, "KolyaevIngredient", randomPrice);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        Assert.assertThat(burger.getReceipt(), endsWith(String.format("%.6f%n", (randomPrice * 3))));
     }
 }
