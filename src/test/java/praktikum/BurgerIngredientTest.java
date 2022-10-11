@@ -6,6 +6,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
+
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerIngredientTest {
 
@@ -39,5 +43,25 @@ public class BurgerIngredientTest {
         burger.addIngredient(anotherIngredient);
         burger.moveIngredient(0,1);
         Mockito.verify(burger).moveIngredient(0, 1);
+    }
+
+    @Test
+    public void checkGetPriceBunsOnlyTest() {
+        float randomPrice = new Random().nextFloat();
+        this.bun = new Bun("", randomPrice);
+        this.burger = new Burger();
+        burger.setBuns(bun);
+        assertEquals((randomPrice * 2), burger.getPrice(), 0);
+    }
+
+    @Test
+    public void checkGetPriceBunsAndIngredientTest() {
+        float randomPrice = new Random().nextFloat();
+        this.bun = new Bun("", randomPrice);
+        this.burger = new Burger();
+        this.ingredient = new Ingredient(IngredientType.SAUCE, "", randomPrice);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        assertEquals((randomPrice * 3), burger.getPrice(), 0);
     }
 }
