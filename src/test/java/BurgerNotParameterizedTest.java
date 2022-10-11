@@ -6,11 +6,10 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
-import praktikum.Database;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 import java.text.DecimalFormat;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,23 +18,19 @@ import static org.junit.Assert.assertEquals;
 public class BurgerNotParameterizedTest {
 
     Burger burger;
-    Database database;
     @Mock
     Bun bun;
-    List<Ingredient> ingredients;
     String burgerPrice;
 
 
     private final String fillingType = "cutlet";
     private final String sauceType = "hot sauce";
-    private final int fillingIndex = 3;
-    private final int sauceIndex = 0;
+    private final Ingredient sauce = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
+    private final Ingredient filling = new Ingredient(IngredientType.FILLING, "cutlet", 100);
 
 
     @Before
     public void setUp(){
-        database = new Database();
-        ingredients = database.availableIngredients();
         burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("Mock bun");
         burger.setBuns(bun);
@@ -43,7 +38,7 @@ public class BurgerNotParameterizedTest {
 
     @Test
     public void addIngredientToBurger() {
-        burger.addIngredient(ingredients.get(sauceIndex));
+        burger.addIngredient(sauce);
         burgerPrice = new DecimalFormat("#0.000000").format(burger.getPrice());
         assertEquals("(==== Mock bun ====)\n= sauce " +
                 sauceType + " =\n(==== Mock bun ====)\n\nPrice: " + burgerPrice + "\n", burger.getReceipt());
@@ -51,8 +46,8 @@ public class BurgerNotParameterizedTest {
 
     @Test
     public void moveBurgerIngredients() {
-        burger.addIngredient(ingredients.get(sauceIndex));
-        burger.addIngredient(ingredients.get(fillingIndex));
+        burger.addIngredient(sauce);
+        burger.addIngredient(filling);
         burger.moveIngredient(1, 0);
         burgerPrice = new DecimalFormat("#0.000000").format(burger.getPrice());
         assertEquals("(==== Mock bun ====)\n= filling " + fillingType + " =\n= sauce " +
@@ -62,9 +57,9 @@ public class BurgerNotParameterizedTest {
 
     @Test
     public void removeBurgerIngredients() {
-        burger.addIngredient(ingredients.get(sauceIndex));
-        burger.removeIngredient(sauceIndex);
-        burger.addIngredient(ingredients.get(fillingIndex));
+        burger.addIngredient(sauce);
+        burger.removeIngredient(0);
+        burger.addIngredient(filling);
         burgerPrice = new DecimalFormat("#0.000000").format(burger.getPrice());
         assertEquals("(==== Mock bun ====)\n= filling " + fillingType + " =\n" +
                 "(==== Mock bun ====)\n\nPrice: " + burgerPrice + "\n", burger.getReceipt());
