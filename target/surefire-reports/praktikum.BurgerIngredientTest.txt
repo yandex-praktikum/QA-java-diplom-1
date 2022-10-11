@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: praktikum.IngredientTest
+Test set: praktikum.BurgerIngredientTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.26 sec
