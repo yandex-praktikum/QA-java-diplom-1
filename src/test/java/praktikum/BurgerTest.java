@@ -18,51 +18,49 @@ public class BurgerTest extends TestCase {
     @Mock
     Ingredient mockIngredient; // создали мок
     @Mock
+    Ingredient mockIngredient2; // создали мок
+    @Mock
     Bun mockBun; // создали мок
 
     Burger burger = new Burger();
 
     @Test
     public void testAddFewIngredients() {
-        addIngredientToBurger(IngredientType.SAUCE, "ketchup", 100);
-        addIngredientToBurger(IngredientType.FILLING, "cucumber", 200);
-        Assert.assertEquals(List.of("ketchup", "cucumber"), getListNamesFromIngredients());
-    }
-
-    private void addIngredientToBurger(IngredientType type, String name, int price) {
-        Ingredient ingredient = new Ingredient(type, name, price);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(mockIngredient);
+        burger.addIngredient(mockIngredient2);
+        Assert.assertEquals(List.of("Pelmehka", "Pelmehka2"), getListNamesFromIngredients());
     }
 
     private List getListNamesFromIngredients() {
+        Mockito.when(mockIngredient.getName()).thenReturn("Pelmehka");
+        Mockito.when(mockIngredient2.getName()).thenReturn("Pelmehka2");
         List myList = new ArrayList();
-        for (Ingredient burgerIngredient : burger.ingredients) {
-            myList.add(burgerIngredient.getName());
+        for (Ingredient ingredient : burger.ingredients) {
+            myList.add(ingredient.getName());
         }
         return myList;
     }
 
     @Test
     public void testRemoveIngredient() {
-        addIngredientToBurger(IngredientType.SAUCE, "ketchup", 100);
-        addIngredientToBurger(IngredientType.FILLING, "cucumber", 200);
+        burger.addIngredient(mockIngredient);
+        burger.addIngredient(mockIngredient2);
         burger.removeIngredient(1);
-        Assert.assertEquals(List.of("ketchup"), getListNamesFromIngredients());
+        Assert.assertEquals(List.of("Pelmehka"), getListNamesFromIngredients());
     }
 
     @Test
     public void testMoveIngredient() {
-        addIngredientToBurger(IngredientType.SAUCE, "ketchup", 100);
-        addIngredientToBurger(IngredientType.FILLING, "cucumber", 200);
+        burger.addIngredient(mockIngredient);
+        burger.addIngredient(mockIngredient2);
         burger.moveIngredient(0, 1);
-        Assert.assertEquals(List.of("cucumber", "ketchup"), getListNamesFromIngredients());
+        Assert.assertEquals(List.of("Pelmehka2", "Pelmehka"), getListNamesFromIngredients());
     }
 
     @Test
     public void testSetNameBun() {
-        Bun bun = new Bun("white", 100);
-        burger.setBuns(bun);
-        Assert.assertEquals(bun, burger.bun);
+        burger.setBuns(mockBun);
+        Assert.assertEquals(mockBun, burger.bun);
     }
 
     @Test
@@ -77,7 +75,6 @@ public class BurgerTest extends TestCase {
 
     @Test
     public void testGetReceipt() {
-        StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", mockBun.getName()));
         Mockito.when(mockBun.getName()).thenReturn("black");
         Mockito.when(mockIngredient.getType()).thenReturn(IngredientType.FILLING).toString().toLowerCase();
         Mockito.when(mockIngredient.getName()).thenReturn("ketchup");
