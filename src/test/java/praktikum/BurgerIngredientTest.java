@@ -33,8 +33,7 @@ public class BurgerIngredientTest {
     // Описываем действия которые будут происходить перед каждым тестом
     @Before
     public void createBurger() {
-        // Создаем случайные значения индексов для получения тестовых данных
-        // из базы данных
+        // Создаем случайные значения индексов для получения тестовых данных из БД
         int bunIndex = new Random().nextInt(buns.size());
         int ingredientIndex = new Random().nextInt(ingredients.size());
 
