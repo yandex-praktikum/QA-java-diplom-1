@@ -212,11 +212,8 @@ public class TestBurger {
         Mockito.when(bun.getName()).thenReturn("Bun Name");
         burger.setBuns(bun);
 
-        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
-                String.format("(==== Bun Name ====)%n") +
-                String.format("%nPrice: %f%n", 2f);
-
-        assertEquals(expectedReceipt, burger.getReceipt());
+        assertTrue(burger.getReceipt().contains("Bun Name"));
+        assertTrue(burger.getReceipt().contains(String.format("%nPrice: %f%n", 2f)));
     }
 
     @Test
@@ -230,12 +227,9 @@ public class TestBurger {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
 
-        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
-                String.format("= sauce Ingredient Name =%n") +
-                String.format("(==== Bun Name ====)%n") +
-                String.format("%nPrice: %f%n", 0f);
-
-        assertEquals(expectedReceipt, burger.getReceipt());
+        assertTrue(burger.getReceipt().contains("Bun Name"));
+        assertTrue(burger.getReceipt().contains("sauce Ingredient Name"));
+        assertTrue(burger.getReceipt().contains(String.format("%nPrice: %f%n", 0f)));
     }
 
     @Test
@@ -249,12 +243,9 @@ public class TestBurger {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
 
-        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
-                String.format("= sauce Ingredient Name =%n") +
-                String.format("(==== Bun Name ====)%n") +
-                String.format("%nPrice: %f%n", 7f);
-
-        assertEquals(expectedReceipt, burger.getReceipt());
+        assertTrue(burger.getReceipt().contains("Bun Name"));
+        assertTrue(burger.getReceipt().contains("sauce Ingredient Name"));
+        assertTrue(burger.getReceipt().contains(String.format("%nPrice: %f%n", 7f)));
     }
 
     @Test
@@ -268,12 +259,9 @@ public class TestBurger {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
 
-        String expectedReceipt = String.format("(==== Bun Name ====)%n") +
-                String.format("= filling Ingredient Name =%n") +
-                String.format("(==== Bun Name ====)%n") +
-                String.format("%nPrice: %f%n", 7f);
-
-        assertEquals(expectedReceipt, burger.getReceipt());
+        assertTrue(burger.getReceipt().contains("Bun Name"));
+        assertTrue(burger.getReceipt().contains("filling Ingredient Name"));
+        assertTrue(burger.getReceipt().contains(String.format("%nPrice: %f%n", 7f)));
     }
 
     @Test
@@ -296,7 +284,9 @@ public class TestBurger {
                 String.format("(==== Bun Name ====)%n") +
                 String.format("%nPrice: %f%n", 17f);
 
-        assertEquals(expectedReceipt, burger.getReceipt());
+        assertTrue(burger.getReceipt().contains("Bun Name"));
+        assertTrue(burger.getReceipt().contains("sauce Ingredient Name"));
+        assertTrue(burger.getReceipt().contains(String.format("%nPrice: %f%n", 17f)));
     }
 
 }
