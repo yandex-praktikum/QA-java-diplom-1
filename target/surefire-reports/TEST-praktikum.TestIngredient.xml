@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="72" failures="0" name="praktikum.TestIngredient" time="0.011" errors="0" skipped="0">
+<testsuite tests="72" failures="0" name="praktikum.TestIngredient" time="0" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -70,7 +70,7 @@
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[1]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[1]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[1]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetPrice[2]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetPrice[2]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[2]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[2]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[3]" time="0"/>
@@ -78,11 +78,11 @@
   <testcase classname="praktikum.TestIngredient" name="testGetType[3]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[4]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[4]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetType[4]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetType[4]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[5]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[5]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[5]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetPrice[6]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetPrice[6]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[6]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[6]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[7]" time="0"/>
@@ -92,7 +92,7 @@
   <testcase classname="praktikum.TestIngredient" name="testGetName[8]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[8]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[9]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetName[9]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetName[9]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[9]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[10]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[10]" time="0"/>
@@ -109,9 +109,9 @@
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[14]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[14]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[14]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetPrice[15]" time="0.001"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetName[15]" time="0.001"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetType[15]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetPrice[15]" time="0"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetName[15]" time="0"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetType[15]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[16]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[16]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[16]" time="0"/>
@@ -120,11 +120,11 @@
   <testcase classname="praktikum.TestIngredient" name="testGetType[17]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[18]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[18]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetType[18]" time="0.001"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetPrice[19]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetType[18]" time="0"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetPrice[19]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[19]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[19]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetPrice[20]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetPrice[20]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[20]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[20]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[21]" time="0"/>
@@ -133,7 +133,7 @@
   <testcase classname="praktikum.TestIngredient" name="testGetPrice[22]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[22]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[22]" time="0"/>
-  <testcase classname="praktikum.TestIngredient" name="testGetPrice[23]" time="0.001"/>
+  <testcase classname="praktikum.TestIngredient" name="testGetPrice[23]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetName[23]" time="0"/>
   <testcase classname="praktikum.TestIngredient" name="testGetType[23]" time="0"/>
 </testsuite>

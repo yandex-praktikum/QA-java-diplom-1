@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="24" failures="0" name="praktikum.TestBun" time="0.009" errors="0" skipped="0">
+<testsuite tests="24" failures="0" name="praktikum.TestBun" time="0" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,7 +64,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="praktikum.TestBun" name="testGetPrice[0]" time="0.006"/>
+  <testcase classname="praktikum.TestBun" name="testGetPrice[0]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[0]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetPrice[1]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[1]" time="0"/>
@@ -74,11 +74,11 @@
   <testcase classname="praktikum.TestBun" name="testGetName[3]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetPrice[4]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[4]" time="0"/>
-  <testcase classname="praktikum.TestBun" name="testGetPrice[5]" time="0.001"/>
+  <testcase classname="praktikum.TestBun" name="testGetPrice[5]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[5]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetPrice[6]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[6]" time="0"/>
-  <testcase classname="praktikum.TestBun" name="testGetPrice[7]" time="0.001"/>
+  <testcase classname="praktikum.TestBun" name="testGetPrice[7]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[7]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetPrice[8]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[8]" time="0"/>
@@ -87,5 +87,5 @@
   <testcase classname="praktikum.TestBun" name="testGetPrice[10]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetName[10]" time="0"/>
   <testcase classname="praktikum.TestBun" name="testGetPrice[11]" time="0"/>
-  <testcase classname="praktikum.TestBun" name="testGetName[11]" time="0.001"/>
+  <testcase classname="praktikum.TestBun" name="testGetName[11]" time="0"/>
 </testsuite>

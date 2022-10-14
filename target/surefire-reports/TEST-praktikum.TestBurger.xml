@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="22" failures="0" name="praktikum.TestBurger" time="1.703" errors="0" skipped="0">
+<testsuite tests="23" failures="0" name="praktikum.TestBurger" time="1.875" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,26 +64,27 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="praktikum.TestBurger" name="testAddIngredientOneIngredient" time="1.498"/>
-  <testcase classname="praktikum.TestBurger" name="testGetReceiptZeroPrices" time="0.108"/>
-  <testcase classname="praktikum.TestBurger" name="testRemoveIngredientSomeIngredients" time="0.001"/>
-  <testcase classname="praktikum.TestBurger" name="testMoveIngredientMoveFromNonExistingIngredientShouldBeException" time="0.001"/>
-  <testcase classname="praktikum.TestBurger" name="testGetReceiptBunAndOneIngredient" time="0.006"/>
-  <testcase classname="praktikum.TestBurger" name="testGetPriceNoBunAndNoIngredientsShouldBeException" time="0.001"/>
-  <testcase classname="praktikum.TestBurger" name="testGetReceiptNoIngredient" time="0.025"/>
+  <testcase classname="praktikum.TestBurger" name="testAddIngredientOneIngredient" time="1.641"/>
+  <testcase classname="praktikum.TestBurger" name="testGetReceiptZeroPrices" time="0.125"/>
+  <testcase classname="praktikum.TestBurger" name="testRemoveIngredientSomeIngredients" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testMoveIngredientMoveFromNonExistingIngredientShouldBeException" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testGetPriceNoBunAndNoIngredientsShouldBeException" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testGetReceiptNoIngredient" time="0.031"/>
   <testcase classname="praktikum.TestBurger" name="testAddIngredientSomeIngredients" time="0"/>
-  <testcase classname="praktikum.TestBurger" name="testGetReceiptBunAndSomeIngredients" time="0.045"/>
-  <testcase classname="praktikum.TestBurger" name="testRemoveIngredientNoIngredientsShouldBeException" time="0.001"/>
-  <testcase classname="praktikum.TestBurger" name="testMoveIngredientSomeIngredients" time="0.001"/>
-  <testcase classname="praktikum.TestBurger" name="testGetPriceZeroPrice" time="0.005"/>
-  <testcase classname="praktikum.TestBurger" name="testGetReceiptNoBun" time="0.001"/>
+  <testcase classname="praktikum.TestBurger" name="testGetReceiptBunAndOneIngredientSauce" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testGetReceiptBunAndSomeIngredients" time="0.047"/>
+  <testcase classname="praktikum.TestBurger" name="testRemoveIngredientNoIngredientsShouldBeException" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testGetReceiptBunAndOneIngredientFilling" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testMoveIngredientSomeIngredients" time="0.016"/>
+  <testcase classname="praktikum.TestBurger" name="testGetPriceZeroPrice" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testGetReceiptNoBun" time="0"/>
   <testcase classname="praktikum.TestBurger" name="testMoveIngredientMoveToNonExistingIngredientShouldBeException" time="0"/>
-  <testcase classname="praktikum.TestBurger" name="testGetPriceOneBunAndNoIngredients" time="0.002"/>
-  <testcase classname="praktikum.TestBurger" name="testAddIngredientNoIngredients" time="0.001"/>
+  <testcase classname="praktikum.TestBurger" name="testGetPriceOneBunAndNoIngredients" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testAddIngredientNoIngredients" time="0"/>
   <testcase classname="praktikum.TestBurger" name="testSetBuns" time="0"/>
-  <testcase classname="praktikum.TestBurger" name="testGetPriceOneBunAndTwoIngredients" time="0.003"/>
-  <testcase classname="praktikum.TestBurger" name="testRemoveIngredientRemoveNonExistingIngredientShouldBeException" time="0"/>
-  <testcase classname="praktikum.TestBurger" name="testGetPriceNegativePrice" time="0.002"/>
-  <testcase classname="praktikum.TestBurger" name="testGetPriceNoBunAndOneIngredientShouldBeException" time="0.001"/>
-  <testcase classname="praktikum.TestBurger" name="testMoveIngredientNoIngredientsShouldBeException" time="0.001"/>
+  <testcase classname="praktikum.TestBurger" name="testGetPriceOneBunAndTwoIngredients" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testRemoveIngredientRemoveNonExistingIngredientShouldBeException" time="0.015"/>
+  <testcase classname="praktikum.TestBurger" name="testGetPriceNegativePrice" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testGetPriceNoBunAndOneIngredientShouldBeException" time="0"/>
+  <testcase classname="praktikum.TestBurger" name="testMoveIngredientNoIngredientsShouldBeException" time="0"/>
 </testsuite>
