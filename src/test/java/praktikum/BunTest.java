@@ -14,14 +14,14 @@ public class BunTest {
     }
 
     @Test
-    public void initializeBunCheckName() {
+    public void initializeBunCheckNameTrue() {
         String actual = bun.getName();
         String expected = "black bun";
         assertEquals(expected, actual);
     }
 
     @Test
-    public void initializeBunCheckPrice() {
+    public void initializeBunCheckPriceTrue() {
         float actual = bun.getPrice();
         float expected = 100.1f;
         assertEquals(expected, actual, 0);
