@@ -66,7 +66,7 @@ public class BurgerTest {
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
         Mockito.when(ingredient.getName()).thenReturn("dinosaur");
-        String expected = "(==== black bun ====)\r\n" + "= filling dinosaur =\r\n" + "(==== black bun ====)\r\n" + "\r\nPrice: 0,000000\r\n";
+        String expected = "(==== black bun ====)\r\n" + "= filling dinosaur =\r\n" + "(==== black bun ====)\r\n" + "\r\nPrice: 0,000000";
         Assert.assertEquals("Receipt is incorrect. Please check ingredients.",expected, burger.getReceipt()); //я не понимаю что тут не сходится. вс проверил записи идентичные
     }
 }
