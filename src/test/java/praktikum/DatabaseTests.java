@@ -11,7 +11,6 @@ public class DatabaseTests {
     Database database = new Database();
     private List<Bun> testBuns = database.availableBuns();
     private List<Ingredient> testIngredients = database.availableIngredients();
-    private boolean isExists;
 
     @Test
     public void testDatabaseFilled() {
