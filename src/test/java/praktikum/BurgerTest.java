@@ -7,10 +7,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static praktikum.IngredientType.FILLING;
-import static praktikum.IngredientType.SAUCE;
+
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -40,19 +39,19 @@ public class BurgerTest {
     @Test
     public void removeIngredientFromBurger() {
         ingredient = Mockito.mock(Ingredient.class);
-        Ingredient ingredientMock = new Ingredient(SAUCE, "testSauce", 100f);
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
         assertEquals(0, burger.ingredients.size());
     }
 
     @Test
-    public void moveIngredientFromBurger() {
+    public void moveIngredientInBurger() {
         ingredient = Mockito.mock(Ingredient.class);
+        Ingredient ingredientTest =  Mockito.mock(Ingredient.class);
         burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
-        burger.moveIngredient(0, 1);
-        assertNotNull(burger.ingredients.get(1));
+        burger.addIngredient(ingredientTest);
+        burger.moveIngredient(1, 0);
+        assertEquals(ingredientTest,burger.ingredients.get(0));
     }
 
     @Test
