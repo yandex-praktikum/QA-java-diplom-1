@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 public class BunTest {
     Bun bun = new Bun("BunNameTest", 100.00F);
+    private static final float delta = 0.0f;
 
     @Test
     public void getNameBurgerTest(){
@@ -17,6 +18,6 @@ public class BunTest {
     public void getPriceBurgerTest(){
         float actualBurgerPrice = bun.getPrice();
         float expectedBurgerPrice = 100.00F;
-        assertEquals(expectedBurgerPrice, actualBurgerPrice, 0.0f);
+        assertEquals(expectedBurgerPrice, actualBurgerPrice, delta);
     }
 }

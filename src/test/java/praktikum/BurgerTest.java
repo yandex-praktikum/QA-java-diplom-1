@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
+import static praktikum.ExpectedReceiptsConstant.EXPECTED_RECEIPT;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest extends CreateBurger{
@@ -15,6 +16,7 @@ public class BurgerTest extends CreateBurger{
 
     @Mock
     Ingredient ingredient;
+    private static final float delta = 0.0f;
 
     @Test
     public void burgerAddIngredientsTest(){
@@ -49,13 +51,24 @@ public class BurgerTest extends CreateBurger{
         float price = 200f;
         Mockito.when(bun.getPrice()).thenReturn(price);
         Mockito.when(ingredient.getPrice()).thenReturn(price);
-        assertEquals(price * 2 + price, burger.getPrice(), 0);
+        assertEquals(price * 2 + price, burger.getPrice(), delta);
     }
 
     @Test
-    public void getReceiptTest(){
-        createBurgerWithAllAction();
-        String actualReceipt = burger.getReceipt();
-        assertEquals(ExpectedReceiptsConstant.EXPECTED_RECEIPT, actualReceipt);
+    public void burgerGetReceiptTest(){
+        Burger burger = new Burger();
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+
+        Mockito.when(bun.getName()).thenReturn("black bun");
+        Mockito.when(bun.getPrice()).thenReturn(100f);
+
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(ingredient.getName()).thenReturn("cutlet");
+        Mockito.when(ingredient.getPrice()).thenReturn(200f);
+
+        assertEquals(EXPECTED_RECEIPT, burger.getReceipt());
+
+        System.out.println(burger.getReceipt());
     }
 }
