@@ -3,25 +3,28 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import praktikum.Bun;
+import praktikum.Database;
 
 public class BunTest {
     @Mock
     Bun bun;
-    String actualName = "Burger";
-    float actualPrice = 156;
+    String actualName = "black bun";
+    float actualPrice = 100;
+    Database database;
 
     @Before
     public void setUp() {
+        database = new Database();
         bun = new Bun(actualName, actualPrice);
     }
 
     @Test
     public void testGetName() {
-        Assert.assertEquals(bun.getName(), actualName);
+        Assert.assertEquals(database.availableBuns().get(0).name, actualName);
     }
 
     @Test
     public void testGetPrice() {
-        Assert.assertEquals(bun.getPrice(), actualPrice, 0.0f);
+        Assert.assertEquals(database.availableBuns().get(0).price, actualPrice, 0.0f);
     }
 }

@@ -2,10 +2,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
+import praktikum.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,35 +11,41 @@ public class BurgerTest {
     @Mock
     Burger burger;
     List<Ingredient> ingredients;
-    Ingredient ingredient;
+    Ingredient ingredient1;
+    Ingredient ingredient2;
     Bun bun;
+    Database database;
+
 
     @Before
     public void setUp() {
+        database = new Database();
         burger = new Burger();
         ingredients = new ArrayList<>();
-        ingredient = new Ingredient(IngredientType.FILLING, "Sauce", 54);
+        ingredient1 = new Ingredient(database.availableIngredients().get(0).type,
+                database.availableIngredients().get(0).name, database.availableIngredients().get(0).price);
+        ingredient2 = new Ingredient(database.availableIngredients().get(1).type,
+                database.availableIngredients().get(1).name, database.availableIngredients().get(1).price);
+        bun = database.availableBuns().get(0);
     }
 
     @Test
     public void testAddIngredient() {
-        ingredients.add(ingredient);
-        burger.addIngredient(ingredient);
-        Assert.assertEquals(ingredient, ingredients.get(0));
+        ingredients.add(ingredient1);
+        burger.addIngredient(ingredient1);
+        Assert.assertEquals(ingredient1, ingredients.get(0));
     }
 
     @Test
     public void testRemoveIngredient() {
-        ingredients.add(ingredient);
-        burger.addIngredient(ingredient);
+        ingredients.add(ingredient1);
+        burger.addIngredient(ingredient1);
         burger.removeIngredient(0);
         Assert.assertEquals(0, burger.ingredients.size());
     }
 
     @Test
     public void testMoveIngredient() {
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "f", 54);
-        Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "И", 74);
         ingredients.add(ingredient1);
         ingredients.add(ingredient2);
         burger.addIngredient(ingredient1);
@@ -53,9 +56,6 @@ public class BurgerTest {
 
     @Test
     public void testGetPrice() {
-        bun = new Bun("Пончик", 57);
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "f", 54);
-        Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "И", 74);
         float actual = (bun.getPrice() * 2) + ingredient1.getPrice() + ingredient2.getPrice();
         ingredients.add(ingredient1);
         ingredients.add(ingredient2);
