@@ -21,6 +21,7 @@ import praktikum.BunAndIngredientsPrices;
 
 public class BurgerTest {
 
+    @Mock
     private Bun bun;
 
     private Ingredient ingredient_1;
@@ -85,7 +86,6 @@ public class BurgerTest {
     public void checkGetReceiptMethod() {
         createBurgerWith1BunAnd3Ingredients();
         String burgerReceipt = burger.getReceipt();
-        System.out.println(burgerReceipt + "\n");
         assertThat(burgerReceipt, containsString("sauce hot sauce"));
         assertThat(burgerReceipt, containsString("filling cutlet"));
         assertThat(burgerReceipt, containsString("filling dinosaur"));

@@ -21,7 +21,14 @@ public class BunTest {
     }
 
     @Test
-    public void initializeBunCheckPriceTrue() {
+    public void initializeBunWithFloatCheckPriceTrue() {
+        float actual = bun.getPrice();
+        float expected = 100.1f;
+        assertEquals(expected, actual, 0);
+    }
+
+    @Test
+    public void initializeBunWithIntegerCheckPriceFalse() {
         float actual = bun.getPrice();
         float expected = 100.1f;
         assertEquals(expected, actual, 0);
