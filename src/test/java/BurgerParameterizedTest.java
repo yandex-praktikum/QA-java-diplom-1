@@ -36,7 +36,7 @@ public class BurgerParameterizedTest {
         this.fillingType = fillingType;
     }
 
-    @Parameterized.Parameters // добавили аннотацию
+    @Parameterized.Parameters
     public static Object[][] getSumData() {
         return new Object[][]{
                 {0, 0, 3, "black", "hot sauce", "cutlet"},

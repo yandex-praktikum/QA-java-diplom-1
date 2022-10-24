@@ -7,11 +7,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import praktikum.IngredientType;
 
 import java.text.DecimalFormat;
 
 import static org.junit.Assert.assertEquals;
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -20,19 +21,28 @@ public class BurgerNotParameterizedTest {
     Burger burger;
     @Mock
     Bun bun;
+    @Mock
+    Ingredient sauce;
+    @Mock
+    Ingredient filling;
     String burgerPrice;
 
 
-    private final String fillingType = "cutlet";
-    private final String sauceType = "hot sauce";
-    private final Ingredient sauce = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
-    private final Ingredient filling = new Ingredient(IngredientType.FILLING, "cutlet", 100);
+    private final String sauceName = "hot sauce";
+    private final String fillingName = "cutlet";
+    private final String bunName = "Mock bun";
 
 
     @Before
     public void setUp(){
         burger = new Burger();
-        Mockito.when(bun.getName()).thenReturn("Mock bun");
+        Mockito.when(bun.getName()).thenReturn(bunName);
+        Mockito.when(sauce.getType()).thenReturn(SAUCE);
+        Mockito.when(sauce.getName()).thenReturn(sauceName);
+        Mockito.when(sauce.getPrice()).thenReturn(100F);
+        Mockito.when(filling.getType()).thenReturn(FILLING);
+        Mockito.when(filling.getName()).thenReturn(fillingName);
+        Mockito.when(filling.getPrice()).thenReturn(100F);
         burger.setBuns(bun);
     }
 
@@ -40,8 +50,8 @@ public class BurgerNotParameterizedTest {
     public void addIngredientToBurger() {
         burger.addIngredient(sauce);
         burgerPrice = new DecimalFormat("#0.000000").format(burger.getPrice());
-        assertEquals("(==== Mock bun ====)\n= sauce " +
-                sauceType + " =\n(==== Mock bun ====)\n\nPrice: " + burgerPrice + "\n", burger.getReceipt());
+        assertEquals("(==== " + bunName + " ====)\n= sauce " +
+                sauceName + " =\n(==== " + bunName + " ====)\n\nPrice: " + burgerPrice + "\n", burger.getReceipt());
     }
 
     @Test
@@ -50,8 +60,8 @@ public class BurgerNotParameterizedTest {
         burger.addIngredient(filling);
         burger.moveIngredient(1, 0);
         burgerPrice = new DecimalFormat("#0.000000").format(burger.getPrice());
-        assertEquals("(==== Mock bun ====)\n= filling " + fillingType + " =\n= sauce " +
-                        sauceType + " =\n(==== Mock bun ====)\n\nPrice: " + burgerPrice + "\n",
+        assertEquals("(==== " + bunName + " ====)\n= filling " + fillingName + " =\n= sauce " +
+                        sauceName + " =\n(==== " + bunName + " ====)\n\nPrice: " + burgerPrice + "\n",
                 burger.getReceipt());
     }
 
@@ -61,7 +71,7 @@ public class BurgerNotParameterizedTest {
         burger.removeIngredient(0);
         burger.addIngredient(filling);
         burgerPrice = new DecimalFormat("#0.000000").format(burger.getPrice());
-        assertEquals("(==== Mock bun ====)\n= filling " + fillingType + " =\n" +
-                "(==== Mock bun ====)\n\nPrice: " + burgerPrice + "\n", burger.getReceipt());
+        assertEquals("(==== " + bunName + " ====)\n= filling " + fillingName + " =\n" +
+                "(==== " + bunName + " ====)\n\nPrice: " + burgerPrice + "\n", burger.getReceipt());
     }
 }
