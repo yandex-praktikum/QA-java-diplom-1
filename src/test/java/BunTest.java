@@ -19,7 +19,7 @@ public class BunTest {
         this.expected2 = expected2;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{index}: sort[{0}]={1}")
     public static Object[][] parameterizedTest() {
         return new Object[][] {
                 {"Черная булка", 50f, "Черная булка", 50f},
@@ -30,12 +30,12 @@ public class BunTest {
     @Test
     public void getNameReturnsNameOfBun() {
         Bun bun = new Bun(name, price);
-        assertEquals(bun.getName(), expected1);
+        assertEquals(expected1, bun.getName());
     }
 
     @Test
     public void getPriceReturnsPriceOfBun() {
         Bun bun = new Bun(name, price);
-        assertEquals(bun.getPrice(), expected2, 0);
+        assertEquals(expected2, bun.getPrice(), 0);
     }
 }
