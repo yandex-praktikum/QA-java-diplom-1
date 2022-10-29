@@ -16,13 +16,13 @@ public class IngredientTest {
     }
     @Test
     public void getNameReturnRightName(){
-        String expectedResult = ingredient.getName();
-        assertEquals("hot sauce", expectedResult);
+        String actualResult = ingredient.getName();
+        assertEquals("hot sauce", actualResult);
     }
     @Test
     public void getTypeReturnRightType(){
-        IngredientType expectedResult = ingredient.getType();
-        assertEquals(IngredientType.SAUCE, expectedResult);
+        IngredientType actualResult = ingredient.getType();
+        assertEquals(IngredientType.SAUCE, actualResult);
     }
 
 }
