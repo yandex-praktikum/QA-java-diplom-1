@@ -11,8 +11,8 @@ public class IngredientTest {
 
     @Test
     public void getPriceReturnRightPrice(){
-        float expectedResult = ingredient.getPrice();
-        assertEquals(100, expectedResult, 0);
+        float actualResult = ingredient.getPrice();
+        assertEquals(100, actualResult, 0);
     }
     @Test
     public void getNameReturnRightName(){
