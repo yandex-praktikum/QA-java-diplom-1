@@ -14,7 +14,7 @@ public class BunTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{0},{1}")
     public static Object[][] getData() {
         return new Object[][]{
                 {"Белая Булка", 100f},
