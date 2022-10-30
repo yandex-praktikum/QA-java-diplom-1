@@ -9,17 +9,19 @@ public class IngredientTest {
     Bun bun;
 
     @Test
-    public void getPriceIngredientTest(){
+    public void getPriceIngredientTest() {
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "sour cream", 200f);
-        Assert.assertEquals("Price is incorrect", 200f, ingredient.getPrice(),0);
+        Assert.assertEquals("Price is incorrect", 200f, ingredient.getPrice(), 0);
     }
+
     @Test
-    public void getNameIngredientTest(){
+    public void getNameIngredientTest() {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, "sausage", 300f);
         Assert.assertEquals("Name is incorrect", "sausage", ingredient.getName());
     }
+
     @Test
-    public void getIngredientTypeTest(){
+    public void getIngredientTypeTest() {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, "dinosaur", 200f);
         Assert.assertEquals("Type is incorrect", IngredientType.FILLING, ingredient.getType());
     }

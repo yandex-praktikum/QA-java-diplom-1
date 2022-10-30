@@ -11,7 +11,7 @@ public class IngredientTypeTest {
     private final String name;
     private final float price;
 
-    public IngredientTypeTest(IngredientType type, String name, float price){
+    public IngredientTypeTest(IngredientType type, String name, float price) {
         this.type = type;
         this.name = name;
         this.price = price;
@@ -19,7 +19,7 @@ public class IngredientTypeTest {
 
     @Parameterized.Parameters(name = "{0},{1},{2}")
     public static Object[][] getType() {
-        return new Object[][] {
+        return new Object[][]{
                 {IngredientType.SAUCE, "chili sauce", 300},
                 {IngredientType.FILLING, "dinosaur", 200f},
                 {IngredientType.SAUCE, "hot sauce", 100},
@@ -28,9 +28,8 @@ public class IngredientTypeTest {
     }
 
     @Test
-    public void getFillingTypeTest(){
-    Ingredient ingredient = new Ingredient(type, name, price);
+    public void getFillingTypeTest() {
+        Ingredient ingredient = new Ingredient(type, name, price);
         Assert.assertEquals("Type is incorrect", type, ingredient.getType());
     }
-
 }
