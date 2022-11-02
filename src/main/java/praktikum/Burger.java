@@ -18,6 +18,10 @@ public class Burger {
         this.bun = bun;
     }
 
+    //добавил вручную чтобы была возможность протестировать сеттер setBuns
+    //не уверен, что это в рамках правил, но на реальном проекте я бы сделал именно так
+    public Bun getBuns() { return bun;}
+
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
     }
