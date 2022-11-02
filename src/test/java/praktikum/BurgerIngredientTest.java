@@ -2,6 +2,7 @@ package praktikum;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.List;
 import java.util.Random;
 
@@ -68,7 +69,7 @@ public class BurgerIngredientTest {
         this.anotherIngredient = ingredients.get(new Random().nextInt(ingredients.size()));
         burger.addIngredient(ingredient);
         burger.addIngredient(anotherIngredient);
-        burger.moveIngredient(0,1);
+        burger.moveIngredient(0, 1);
         // Название перемещенного ингредиента должно отображаться в составе последними, перед нижней булкой
         assertThat(burger.getReceipt(), containsString(String.format("%s =%n(", ingredient.getName())));
     }
@@ -78,14 +79,14 @@ public class BurgerIngredientTest {
     public void checkGetPriceWithIngredient() {
         burger.addIngredient(ingredient);
         // Цена равна сумме цен 2 шт булок и 1 шт ингредиента
-        assertEquals(bun.getPrice() *2 + ingredient.getPrice(), burger.getPrice(), 0);
+        assertEquals(bun.getPrice() * 2 + ingredient.getPrice(), burger.getPrice(), 0);
     }
 
     // Проверяем что можно получить корректную цену бургера, если есть только булка
     @Test
     // Цена равна сумме цен 2 шт булок
     public void checkGetPriceWithoutIngredient() {
-        assertEquals(bun.getPrice() *2, burger.getPrice(), 0);
+        assertEquals(bun.getPrice() * 2, burger.getPrice(), 0);
     }
 
     // Проверяем что состав бургера отображается корректно, если есть и булка и ингредиент

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="praktikum.BurgerIngredientTest" time="0" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="praktikum.IngredientTypeTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -64,11 +64,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="praktikum.BurgerIngredientTest" name="checkGetPriceWithoutIngredient" time="0"/>
-  <testcase classname="praktikum.BurgerIngredientTest" name="checkRemoveIngredient" time="0"/>
-  <testcase classname="praktikum.BurgerIngredientTest" name="checkGetReceiptWithoutIngredient" time="0"/>
-  <testcase classname="praktikum.BurgerIngredientTest" name="checkMoveIngredient" time="0"/>
-  <testcase classname="praktikum.BurgerIngredientTest" name="checkAddIngredient" time="0"/>
-  <testcase classname="praktikum.BurgerIngredientTest" name="checkGetPriceWithIngredient" time="0"/>
-  <testcase classname="praktikum.BurgerIngredientTest" name="checkGetReceiptWithIngredient" time="0"/>
+  <testcase classname="praktikum.IngredientTypeTest" name="checkIngredientTypeContainsValue[0]" time="0"/>
+  <testcase classname="praktikum.IngredientTypeTest" name="checkIngredientTypeContainsValue[1]" time="0"/>
 </testsuite>

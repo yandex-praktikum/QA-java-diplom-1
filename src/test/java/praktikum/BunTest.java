@@ -19,7 +19,7 @@ public class BunTest {
     public void checkGetNameReturnsStringFromParameters() {
         Bun bun = new Bun(actualName, actualPrice);
         String expectedName = bun.getName();
-        assertEquals(expectedName,actualName);
+        assertEquals(expectedName, actualName);
     }
 
     // Проверяем, что геттер getPrice возвращает цену булки
@@ -27,6 +27,6 @@ public class BunTest {
     public void checkGetPriceReturnsFloatFromParameters() {
         Bun bun = new Bun(actualName, actualPrice);
         float expectedPrice = bun.getPrice();
-        assertEquals(expectedPrice,actualPrice, 0);
+        assertEquals(expectedPrice, actualPrice, 0);
     }
 }
