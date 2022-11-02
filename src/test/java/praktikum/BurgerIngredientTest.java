@@ -2,6 +2,9 @@ package praktikum;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 import java.util.Random;
@@ -13,6 +16,7 @@ import static org.junit.Assert.*;
  * Юнит-тесты класса Burger
  * (кроме сеттера)
  */
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerIngredientTest {
     // Инициализируем базу данных
     Database database = new Database();
@@ -27,8 +31,11 @@ public class BurgerIngredientTest {
     Burger burger = new Burger();
 
     // Объявляем объекты классов которые будут использоваться в юнит-тестах
+    @Mock
     Bun bun;
+    @Mock
     Ingredient ingredient;
+    @Mock
     Ingredient anotherIngredient;
 
     // Описываем действия которые будут происходить перед каждым тестом
