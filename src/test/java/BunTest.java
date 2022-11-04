@@ -9,7 +9,6 @@ import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class BunTest {
-
     private final String name;
     private final float price;
 
@@ -37,7 +36,7 @@ public class BunTest {
     public void getPriceTest() {
         Bun bun = new Bun(name, price);
         float actualPrice = bun.getPrice();
-        Assert.assertEquals(actualPrice, price, 0.0001);
+        Assert.assertEquals(actualPrice, price, TestConstants.delta);
     }
 }
 

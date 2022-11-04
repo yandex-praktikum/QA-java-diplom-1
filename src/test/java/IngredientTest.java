@@ -10,7 +10,7 @@ public class IngredientTest {
     public void getPriceTest() {
         Ingredient ingredient = new Ingredient(SAUCE, "hot sauce", 100);
         float price = ingredient.getPrice();
-        Assert.assertEquals(price, 100, 0.0001);
+        Assert.assertEquals(price, 100, TestConstants.delta);
     }
 
     @Test
