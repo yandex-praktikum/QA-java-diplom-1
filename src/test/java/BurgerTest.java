@@ -1,3 +1,4 @@
+import config.TestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -7,20 +8,13 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Database;
 import praktikum.Ingredient;
-
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
-import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerTest {
-
-
-
-
+public class BurgerTest extends TestConfig {
 
     @Mock
     private Bun bun;
@@ -29,8 +23,7 @@ public class BurgerTest {
     private Ingredient ingredient;
 
     @Mock
-    private Burger burger;
-
+    private Database database;
 
     @Test
     public void getPriceTest() {
@@ -39,8 +32,7 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        float expected = 700f;
-        assertEquals(expected, burger.getPrice(), 0.0f);
+        assertEquals(GET_PRICE_EXPECTED, burger.getPrice(), 0.0f);
     }
 
     @Test
@@ -53,11 +45,35 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        String expected = "(==== black bun ====)\r\n" +
-                          "= filling cutlet =\r\n" +
-                          "(==== black bun ====)\r\n" +
-                          "\r\n" +
-                          "Price: 200,000000\r\n";
-        assertEquals(expected, burger.getReceipt());
+        assertEquals(GET_RECEIPT_EXPECTED, burger.getReceipt());
+    }
+
+    @Test
+    public void removeIngredientTest() {
+        Database database = new Database();
+        Burger burger = new Burger();
+        List<Bun> buns = database.availableBuns();
+        List<Ingredient> ingredients = database.availableIngredients();
+        burger.setBuns(buns.get(0));
+        burger.addIngredient(ingredients.get(1));
+        burger.addIngredient(ingredients.get(4));
+        burger.addIngredient(ingredients.get(3));
+        burger.addIngredient(ingredients.get(5));
+        burger.removeIngredient(0);
+        assertEquals(REMOVE_INGREDIENT_EXPECTED, burger.getReceipt());
+    }
+
+    @Test
+    public void moveIngredientTest() {
+
+        Burger burger = new Burger();
+        List<Bun> buns = database.availableBuns();
+        List<Ingredient> ingredients = database.availableIngredients();
+        burger.setBuns(buns.get(0));
+        burger.addIngredient(ingredients.get(1));
+        burger.addIngredient(ingredients.get(4));
+        burger.moveIngredient(0,1);
+        assertEquals(MOVE_INGREDIENT_EXPECTED, burger.getReceipt());
+
     }
 }
