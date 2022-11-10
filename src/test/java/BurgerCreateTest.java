@@ -4,17 +4,15 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Database;
-import praktikum.Ingredient;
+import praktikum.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerTest extends TestConfig {
+public class BurgerCreateTest extends TestConfig {
 
     @Mock
     private Bun bun;
@@ -23,7 +21,10 @@ public class BurgerTest extends TestConfig {
     private Ingredient ingredient;
 
     @Mock
-    private Database database;
+    List<Ingredient> ingredients = new ArrayList<>();
+
+    @Mock
+    List<Bun> buns = new ArrayList<>();
 
     @Test
     public void getPriceTest() {
@@ -50,30 +51,27 @@ public class BurgerTest extends TestConfig {
 
     @Test
     public void removeIngredientTest() {
-        Database database = new Database();
+        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+        Mockito.when(ingredients.get(2)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
+        Mockito.when(buns.get(0)).thenReturn(new Bun("black bun", 100));
         Burger burger = new Burger();
-        List<Bun> buns = database.availableBuns();
-        List<Ingredient> ingredients = database.availableIngredients();
-        burger.setBuns(buns.get(0));
         burger.addIngredient(ingredients.get(1));
-        burger.addIngredient(ingredients.get(4));
-        burger.addIngredient(ingredients.get(3));
-        burger.addIngredient(ingredients.get(5));
+        burger.addIngredient(ingredients.get(2));
+        burger.setBuns(buns.get(0));
         burger.removeIngredient(0);
         assertEquals(REMOVE_INGREDIENT_EXPECTED, burger.getReceipt());
     }
 
     @Test
     public void moveIngredientTest() {
-
+        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+        Mockito.when(ingredients.get(2)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
+        Mockito.when(buns.get(0)).thenReturn(new Bun("black bun", 100));
         Burger burger = new Burger();
-        List<Bun> buns = database.availableBuns();
-        List<Ingredient> ingredients = database.availableIngredients();
-        burger.setBuns(buns.get(0));
         burger.addIngredient(ingredients.get(1));
-        burger.addIngredient(ingredients.get(4));
-        burger.moveIngredient(0,1);
+        burger.addIngredient(ingredients.get(2));
+        burger.setBuns(buns.get(0));
+        burger.moveIngredient(0, 1);
         assertEquals(MOVE_INGREDIENT_EXPECTED, burger.getReceipt());
-
     }
 }
