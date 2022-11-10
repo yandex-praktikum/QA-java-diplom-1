@@ -2,6 +2,8 @@ package config;
 
 public class TestConfig {
 
+    protected final static float GET_PRICE_EXPECTED = 700f;
+
     protected final static String GET_RECEIPT_EXPECTED = "(==== black bun ====)\r\n" +
             "= filling cutlet =\r\n" +
             "(==== black bun ====)\r\n" +
@@ -26,11 +28,33 @@ public class TestConfig {
             "(==== black bun ====)\r\n" +
             "\r\n" +
             "Price: 200,000000\r\n";
-
     protected final static String GET_RECEIPT_PARAM_2_EXPECTED = "(==== black bun ====)\r\n" +
+            "= sauce sour cream =\r\n" +
+            "(==== black bun ====)\r\n" +
+            "\r\n" +
+            "Price: 300,000000\r\n";
+
+    protected final static String GET_RECEIPT_PARAM_3_EXPECTED ="(==== black bun ====)\r\n" +
+            "= sauce chili sauce =\r\n" +
+            "(==== black bun ====)\r\n" +
+            "\r\n" +
+            "Price: 400,000000\r\n";
+
+    protected final static String GET_RECEIPT_PARAM_4_EXPECTED = "(==== black bun ====)\r\n" +
             "= filling cutlet =\r\n" +
             "(==== black bun ====)\r\n" +
             "\r\n" +
             "Price: 200,000000\r\n";
-    protected final static float GET_PRICE_EXPECTED = 700f;
+
+    protected final static String GET_RECEIPT_PARAM_5_EXPECTED = "(==== black bun ====)\r\n" +
+            "= filling dinosaur =\r\n" +
+            "(==== black bun ====)\r\n" +
+            "\r\n" +
+            "Price: 300,000000\r\n";
+
+    protected final static String GET_RECEIPT_PARAM_6_EXPECTED = "(==== black bun ====)\r\n" +
+            "= filling sausage =\r\n" +
+            "(==== black bun ====)\r\n" +
+            "\r\n" +
+            "Price: 400,000000\r\n";
 }

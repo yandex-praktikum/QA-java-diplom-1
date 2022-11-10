@@ -49,7 +49,11 @@ public class BurgerCreateTestParameterized extends TestConfig {
     public static Object[][] ingredientData() {
         return new Object[][]{
                 { SAUCE, "hot sauce", 100f, GET_RECEIPT_PARAM_1_EXPECTED },
-                { FILLING, "cutlet", 100f, GET_RECEIPT_PARAM_2_EXPECTED }
+                { SAUCE, "sour cream", 200f, GET_RECEIPT_PARAM_2_EXPECTED },
+                { SAUCE, "chili sauce", 300f, GET_RECEIPT_PARAM_3_EXPECTED },
+                { FILLING, "cutlet", 100f, GET_RECEIPT_PARAM_4_EXPECTED },
+                { FILLING, "dinosaur", 200f, GET_RECEIPT_PARAM_5_EXPECTED },
+                { FILLING, "sausage", 300f, GET_RECEIPT_PARAM_6_EXPECTED }
         };
     }
 
