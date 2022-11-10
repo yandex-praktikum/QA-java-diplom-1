@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TestConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">praktikum</a> &gt; <a href="index.source.html" class="el_package">config</a> &gt; <span class="el_source">TestConfig.java</span></div><h1>TestConfig.java</h1><pre class="source lang-java linenums">package config;
+
+<span class="fc" id="L3">public class TestConfig {</span>
+
+    protected final static float GET_PRICE_EXPECTED = 700f;
+
+    protected final static String GET_RECEIPT_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= filling cutlet =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 200,000000\r\n&quot;;
+
+    protected final static String REMOVE_INGREDIENT_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= filling cutlet =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 300,000000\r\n&quot;;
+
+    protected final static String MOVE_INGREDIENT_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= filling cutlet =\r\n&quot; +
+            &quot;= sauce sour cream =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 500,000000\r\n&quot;;
+
+    protected final static String GET_RECEIPT_PARAM_1_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= sauce hot sauce =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 200,000000\r\n&quot;;
+    protected final static String GET_RECEIPT_PARAM_2_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= sauce sour cream =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 300,000000\r\n&quot;;
+
+    protected final static String GET_RECEIPT_PARAM_3_EXPECTED =&quot;(==== black bun ====)\r\n&quot; +
+            &quot;= sauce chili sauce =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 400,000000\r\n&quot;;
+
+    protected final static String GET_RECEIPT_PARAM_4_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= filling cutlet =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 200,000000\r\n&quot;;
+
+    protected final static String GET_RECEIPT_PARAM_5_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= filling dinosaur =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 300,000000\r\n&quot;;
+
+    protected final static String GET_RECEIPT_PARAM_6_EXPECTED = &quot;(==== black bun ====)\r\n&quot; +
+            &quot;= filling sausage =\r\n&quot; +
+            &quot;(==== black bun ====)\r\n&quot; +
+            &quot;\r\n&quot; +
+            &quot;Price: 400,000000\r\n&quot;;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
