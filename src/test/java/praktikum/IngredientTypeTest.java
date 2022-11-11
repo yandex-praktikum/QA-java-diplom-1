@@ -4,9 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class IngredientTypeTest {
-    public IngredientTypeTest() {
-    }
-
     @Test
     public void checkIngredients() {
         Assert.assertEquals("SAUCE", String.valueOf(IngredientType.SAUCE));
