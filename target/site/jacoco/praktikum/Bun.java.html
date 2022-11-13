@@ -14,12 +14,20 @@ public class Bun {
 <span class="fc" id="L14">        this.price = price;</span>
 <span class="fc" id="L15">    }</span>
 
+    @Override
+    public String toString() {
+<span class="nc" id="L19">        return &quot;Bun{&quot; +</span>
+                &quot;name='&quot; + name + '\'' +
+                &quot;, price=&quot; + price +
+                '}';
+    }
+
     public String getName() {
-<span class="fc" id="L18">        return name;</span>
+<span class="nc" id="L26">        return name;</span>
     }
 
     public float getPrice() {
-<span class="fc" id="L22">        return price;</span>
+<span class="nc" id="L30">        return price;</span>
     }
 
 }
