@@ -26,9 +26,6 @@ public class BurgerCreateTest extends TestConfig {
     @Mock
     List<Bun> buns = new ArrayList<>();
 
-    @Mock
-    private Burger burger;
-
     @Test
     public void getPriceTest() {
         Mockito.when(bun.getPrice()).thenReturn(200f);

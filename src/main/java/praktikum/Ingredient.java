@@ -36,8 +36,6 @@ public class Ingredient {
         return Float.compare(that.price, price) == 0 && type == that.type && Objects.equals(name, that.name);
     }
 
-
-
     public float getPrice() {
         return price;
     }
@@ -49,5 +47,4 @@ public class Ingredient {
     public IngredientType getType() {
         return type;
     }
-
 }
