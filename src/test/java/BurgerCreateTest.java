@@ -26,6 +26,9 @@ public class BurgerCreateTest extends TestConfig {
     @Mock
     List<Bun> buns = new ArrayList<>();
 
+    @Mock
+    private Burger burger;
+
     @Test
     public void getPriceTest() {
         Mockito.when(bun.getPrice()).thenReturn(200f);
@@ -51,27 +54,29 @@ public class BurgerCreateTest extends TestConfig {
 
     @Test
     public void removeIngredientTest() {
-        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-        Mockito.when(ingredients.get(2)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
+        Mockito.when(ingredients.get(0)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
         Mockito.when(buns.get(0)).thenReturn(new Bun("black bun", 100));
         Burger burger = new Burger();
-        burger.addIngredient(ingredients.get(1));
-        burger.addIngredient(ingredients.get(2));
         burger.setBuns(buns.get(0));
+        burger.addIngredient(ingredients.get(0));
+        burger.addIngredient(ingredients.get(1));
         burger.removeIngredient(0);
-        assertEquals(REMOVE_INGREDIENT_EXPECTED, burger.getReceipt());
+        Ingredient actual = burger.ingredients.get(0);
+        assertEquals(REMOVE_INGREDIENT_EXPECTED, actual);
     }
 
     @Test
     public void moveIngredientTest() {
-        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-        Mockito.when(ingredients.get(2)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
+        Mockito.when(ingredients.get(0)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
         Mockito.when(buns.get(0)).thenReturn(new Bun("black bun", 100));
         Burger burger = new Burger();
-        burger.addIngredient(ingredients.get(1));
-        burger.addIngredient(ingredients.get(2));
         burger.setBuns(buns.get(0));
+        burger.addIngredient(ingredients.get(0));
+        burger.addIngredient(ingredients.get(1));
         burger.moveIngredient(0, 1);
-        assertEquals(MOVE_INGREDIENT_EXPECTED, burger.getReceipt());
+        Ingredient actual = burger.ingredients.get(1);
+        assertEquals(MOVE_INGREDIENT_EXPECTED, actual);
     }
 }

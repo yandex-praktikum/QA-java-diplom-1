@@ -1,5 +1,7 @@
 package praktikum;
 
+import java.util.Objects;
+
 /**
  * Модель ингредиента.
  * Ингредиент: начинка или соус.
@@ -16,6 +18,25 @@ public class Ingredient {
         this.name = name;
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "type=" + type +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient that = (Ingredient) o;
+        return Float.compare(that.price, price) == 0 && type == that.type && Objects.equals(name, that.name);
+    }
+
+
 
     public float getPrice() {
         return price;

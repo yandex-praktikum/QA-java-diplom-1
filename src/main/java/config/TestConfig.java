@@ -1,6 +1,12 @@
 package config;
 
+import praktikum.Ingredient;
+import praktikum.IngredientType;
+
+import static praktikum.IngredientType.FILLING;
+
 public class TestConfig {
+
 
     protected final static float GET_PRICE_EXPECTED = 700f;
 
@@ -10,18 +16,10 @@ public class TestConfig {
             "\r\n" +
             "Price: 200,000000\r\n";
 
-    protected final static String REMOVE_INGREDIENT_EXPECTED = "(==== black bun ====)\r\n" +
-            "= filling cutlet =\r\n" +
-            "(==== black bun ====)\r\n" +
-            "\r\n" +
-            "Price: 300,000000\r\n";
+    protected final static Ingredient REMOVE_INGREDIENT_EXPECTED =  new Ingredient(IngredientType.FILLING, "cutlet", 100);
 
-    protected final static String MOVE_INGREDIENT_EXPECTED = "(==== black bun ====)\r\n" +
-            "= filling cutlet =\r\n" +
-            "= sauce sour cream =\r\n" +
-            "(==== black bun ====)\r\n" +
-            "\r\n" +
-            "Price: 500,000000\r\n";
+    protected final static Ingredient MOVE_INGREDIENT_EXPECTED =  new Ingredient(IngredientType.SAUCE, "sour cream", 200);
+
 
     protected final static String GET_RECEIPT_PARAM_1_EXPECTED = "(==== black bun ====)\r\n" +
             "= sauce hot sauce =\r\n" +
