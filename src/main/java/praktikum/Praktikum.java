@@ -1,7 +1,6 @@
 package praktikum;
 
 import java.util.List;
-
 public class Praktikum {
 
     public static void main(String[] args) {
