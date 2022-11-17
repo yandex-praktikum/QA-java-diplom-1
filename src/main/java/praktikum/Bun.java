@@ -6,8 +6,8 @@ package praktikum;
  */
 public class Bun {
 
-    public String name;
-    public float price;
+    private final String name;
+    private final float price;
 
     public Bun(String name, float price) {
         this.name = name;
@@ -21,5 +21,4 @@ public class Bun {
     public float getPrice() {
         return price;
     }
-
 }
