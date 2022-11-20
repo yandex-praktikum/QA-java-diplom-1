@@ -3,15 +3,13 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import praktikum.*;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerReceiptTest {
-
-    @Mock
-    Database database;
 
     @Mock
     Bun bun;
