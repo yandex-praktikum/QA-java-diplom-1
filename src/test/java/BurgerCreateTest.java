@@ -20,11 +20,11 @@ public class BurgerCreateTest extends TestConfig {
     @Mock
     private Ingredient ingredient;
 
-    @Mock
-    List<Ingredient> ingredients = new ArrayList<>();
 
-    @Mock
-    List<Bun> buns = new ArrayList<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
+
+
+    private List<Bun> buns = new ArrayList<>();
 
     @Test
     public void getPriceTest() {
@@ -51,9 +51,9 @@ public class BurgerCreateTest extends TestConfig {
 
     @Test
     public void removeIngredientTest() {
-        Mockito.when(ingredients.get(0)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
-        Mockito.when(buns.get(0)).thenReturn(new Bun("black bun", 100));
+        ingredients.add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+        ingredients.add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
+        buns.add(new Bun("black bun", 100));
         Burger burger = new Burger();
         burger.setBuns(buns.get(0));
         burger.addIngredient(ingredients.get(0));
@@ -65,9 +65,9 @@ public class BurgerCreateTest extends TestConfig {
 
     @Test
     public void moveIngredientTest() {
-        Mockito.when(ingredients.get(0)).thenReturn(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-        Mockito.when(ingredients.get(1)).thenReturn(new Ingredient(FILLING, "cutlet", 100));
-        Mockito.when(buns.get(0)).thenReturn(new Bun("black bun", 100));
+        ingredients.add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+        ingredients.add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
+        buns.add(new Bun("black bun", 100));
         Burger burger = new Burger();
         burger.setBuns(buns.get(0));
         burger.addIngredient(ingredients.get(0));
