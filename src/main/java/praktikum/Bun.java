@@ -14,6 +14,14 @@ public class Bun {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Bun{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     public String getName() {
         return name;
     }
