@@ -14,7 +14,7 @@ public class IngredientTypeTest {
         assertEquals("IngredientType SAUCE not equal SAUCE", expected, IngredientType.SAUCE.toString());
      }
     @Test
-    public void shouldBeEnumFilllingNotNull(){
+    public void shouldBeEnumFillingNotNull(){
         MatcherAssert.assertThat(IngredientType.FILLING, notNullValue());
     }
 }

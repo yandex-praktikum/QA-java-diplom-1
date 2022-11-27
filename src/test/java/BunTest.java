@@ -1,34 +1,33 @@
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-@RunWith(MockitoJUnitRunner.class)
 public class BunTest {
 
-        @Mock
-        Bun bun;
+        @Test
+        public void checkBunPrice_Positive(){
+                Bun bun = new Bun("bun number 1", 100.0F);
+                float expected = 100.0F;
+                float actual = bun.getPrice();
+                assertEquals("Price for bun is incorrect", expected, actual, 0.0001F);
+        }
 
         @Test
-        public void getName_PositiveTest() {
-//            проверить что getName вызывается
-//            Cat cat = new Cat(feline);
-//            String expected = "Мяу";
-//            String actual = cat.getSound();
-//            assertEquals(expected, actual);
+        public void checkBunName_Positive(){
+                Bun bun = new Bun("bun number 1", 100.0F);
+                String expected = "bun number 1";
+                String actual = bun.getName();
+                assertEquals("Name for bun is incorrect", expected, actual);
         }
-        // 2
-//        @Test
-//        public void getFood_PositiveTest() throws Exception {
-//            Cat cat = new Cat(feline);
-//            List<String> expected = List.of();
-//            List<String> actual = cat.getFood();
-//            assertEquals(expected, actual);
-//        }
+
+        @Test
+        public void checkBunName_Negative(){
+                Bun bun = new Bun("bun number 2", 200);
+                String expected = "bun number 1";
+                String actual = bun.getName();
+                assertNotEquals("Name for bun is incorrect", expected, actual);
+        }
 
     }
