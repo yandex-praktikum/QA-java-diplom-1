@@ -1,8 +1,10 @@
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
@@ -22,6 +24,35 @@ public class IngredientTest {
         this.expectedType = expectedType;
         this.expectedName = expectedName;
         this.expectedPrice = expectedPrice;
+    }
+    @Parameterized.Parameters
+    public static Object[][] setupIngredients() {
+        return new Object[][] {
+                {IngredientType.SAUCE, "hot sauce", 100},
+                {IngredientType.SAUCE, "sour cream", 200},
+                {IngredientType.SAUCE, "chili sauce", 300},
+                {IngredientType.FILLING, "cutlet", 100},
+                {IngredientType.FILLING, "dinosaur", 200},
+                {IngredientType.FILLING, "sausage", 300}
+        };
+    }
+
+    @Test
+    public void checkGetType_Positive(){
+        IngredientType actual = ingredient.getType();
+        assertEquals(expectedType, actual);
+    }
+
+    @Test
+    public void checkGetName_Positive(){
+        String actualIngredientName = ingredient.getName();
+        assertEquals(expectedName, actualIngredientName);
+    }
+
+    @Test
+    public void checkGetPrice_Positive(){
+        float actual = ingredient.getPrice();
+        assertEquals(expectedPrice, actual, 0.0001F);
     }
 
 }
