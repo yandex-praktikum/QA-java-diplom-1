@@ -98,6 +98,7 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         burger.addIngredient(secondIngredient);
+        System.out.println(burger.getReceipt());
         Mockito.verify(bun, Mockito.times(2)).getName();
         Mockito.verify(ingredient, Mockito.times(1)).getType();
         Mockito.verify(ingredient, Mockito.times(1)).getName();
