@@ -6,14 +6,13 @@ import static org.junit.Assert.assertEquals;
 
 public class IngredientTypeTest {
 
-    // param?
     @Test
-    public void shouldBeEnumEqual(){
+    public void checkEnumEqual(){
         String expected = "SAUCE";
         assertEquals("IngredientType SAUCE not equal SAUCE", expected, IngredientType.SAUCE.toString());
      }
     @Test
-    public void shouldBeEnumFillingNotNull(){
+    public void checkEnumFillingNotNull(){
         MatcherAssert.assertThat(IngredientType.FILLING, notNullValue());
     }
 }
