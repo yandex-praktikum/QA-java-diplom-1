@@ -38,16 +38,15 @@ public class IngredientTest {
 
         @Test
         public void getPriceTest() {
-            Assert.assertEquals(this.price, ingredient.getPrice(), 0.000001);
+            Assert.assertEquals(price, ingredient.getPrice(), 0.000001);
         }
         @Test
         public void getNameTest() {
-            Assert.assertEquals(this.name, ingredient.getName());
+            Assert.assertEquals(name, ingredient.getName());
         }
         @Test
         public void getTypeTest() {
-            Assert.assertEquals(this.type, ingredient.getType());
+            Assert.assertEquals(type, ingredient.getType());
         }
-
 
 }

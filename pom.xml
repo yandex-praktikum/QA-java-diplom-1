@@ -11,8 +11,8 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-
     </properties>
+
     <dependencies>
 
         <dependency>
@@ -28,12 +28,21 @@
             <version>4.8.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!--
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.11.16</version>
+        </dependency>
+        -->
+
     </dependencies>
 
     <build>
        <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
-
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -43,7 +52,7 @@
                     <target>11</target>
                 </configuration>
             </plugin>
-
+            -->
 
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -72,6 +81,4 @@
 
         </plugins>
     </build>
-
-
 </project>
