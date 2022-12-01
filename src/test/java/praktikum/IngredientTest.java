@@ -22,6 +22,6 @@ public class IngredientTest extends BaseTestData{
 
     @Test
     public void getType() {
-        assertEquals(IngredientType.FILLING, onion.type);
+        assertEquals(IngredientType.FILLING, onion.getType());
     }
 }
