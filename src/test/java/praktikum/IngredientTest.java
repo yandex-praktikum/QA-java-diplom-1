@@ -6,17 +6,17 @@ import static org.junit.Assert.*;
 
 public class IngredientTest extends BaseTestData{
 
-    Ingredient onion = new Ingredient(IngredientType.FILLING, testIngredientName1, testIngredientPrice1);
-    Ingredient mayo = new Ingredient(IngredientType.SAUCE, testIngredientName2, testIngredientPrice2);
+    Ingredient onion = new Ingredient(IngredientType.FILLING, testFillingName, testFillingPrice);
+    Ingredient mayo = new Ingredient(IngredientType.SAUCE, testSauceName, testSaucePrice);
 
     @Test
     public void getPrice() {
-        assertEquals(testIngredientPrice1, onion.getPrice(), 0);
+        assertEquals(testFillingPrice, onion.getPrice(), 0);
     }
 
     @Test
     public void getName() {
-        assertEquals(testIngredientName1, onion.getName());
+        assertEquals(testFillingName, onion.getName());
 
     }
 

@@ -6,10 +6,9 @@ public class BaseTestData {
     float testBunPrice = 176.49f;
 
 //    Ingredient test data
-    String testIngredientName1 = "onion";
-    String testIngredientName2 = "mayo";
-    float testIngredientPrice1 = 0.97f;
-    float testIngredientPrice2 = 0.13f;
-
+    String testFillingName = "onion";
+    String testSauceName = "mayo";
+    float testFillingPrice = 0.97f;
+    float testSaucePrice = 0.13f;
 
 }
