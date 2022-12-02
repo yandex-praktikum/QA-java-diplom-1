@@ -50,7 +50,7 @@ public class BurgerTest {
     public void checkCanMoveIngredient(){
         Burger burger = new Burger();
      burger.addIngredient(ingredient);
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "Mayo", 10));
+        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "Mayo", 1000.00F));
      burger.moveIngredient(0, 1);
      Assert.assertEquals(ingredient, burger.ingredients.get(1));
 
@@ -63,7 +63,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         Mockito.when(bun.getPrice()).thenReturn(100.00F);
         Mockito.when(ingredient.getPrice()).thenReturn(200.00F);
-        float expected= 400;
+        float expected= 400.00F;
         assertEquals(expected, burger.getPrice());
     }
 

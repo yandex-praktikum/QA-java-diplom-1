@@ -9,11 +9,11 @@ import static junit.framework.TestCase.assertTrue;
 
 @RunWith(Parameterized.class)
 
-    public class IngredientTypeTest {
+public class IngredientTypeTest {
 
-        IngredientType ingredientType;
+IngredientType ingredientType;
 
-        public IngredientTypeTest(IngredientType ingredientType) {
+public IngredientTypeTest(IngredientType ingredientType) {
             this.ingredientType = ingredientType;
         }
 
