@@ -13,18 +13,16 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
-
-    @Mock
-    private Ingredient ingredient1;
+    Burger burger = new Burger();
 
     @Mock
     private Bun bun;
 
     @Mock
+    private Ingredient ingredient1;
+
+    @Mock
     private Ingredient ingredient2;
-
-    Burger burger = new Burger();
-
 
     //Проверяем метод addIngredient(Ingredient ingredient)
     @Test
@@ -64,6 +62,34 @@ public class BurgerTest {
         float expectedResult = 550F;
         float actualResult = burger.getPrice();
         assertEquals("Total price is incorrect",expectedResult, actualResult, 0);
+    }
+
+    //Проверяем метод getReceipt()
+    @Test
+    public void getReceiptCheck() {
+
+        StringBuilder expectedResult = new StringBuilder(String.format("(==== %s ====)%n", "bunName"));
+        expectedResult.append(String.format("= %s %s =%n", IngredientType.SAUCE.toString().toLowerCase(),  "cutlet1"));
+        expectedResult.append(String.format("= %s %s =%n", IngredientType.FILLING.toString().toLowerCase(),  "cutlet2"));
+        expectedResult.append(String.format("(==== %s ====)%n", "bunName"));
+        expectedResult.append(String.format("%nPrice: %f%n", 500.000000));
+
+        burger.setBuns(bun);
+        Mockito.when(bun.getName()).thenReturn("bunName");
+        Mockito.when(bun.getPrice()).thenReturn(200F);
+
+        burger.addIngredient(ingredient1);
+        Mockito.when(ingredient1.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredient1.getName()).thenReturn("cutlet1");
+        Mockito.when(ingredient1.getPrice()).thenReturn(50F);
+
+        burger.addIngredient(ingredient2);
+        Mockito.when(ingredient2.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(ingredient2.getName()).thenReturn("cutlet2");
+        Mockito.when(ingredient2.getPrice()).thenReturn(50F);
+
+        String actualResult = burger.getReceipt();
+        assertEquals("Receipt is incorrect", expectedResult.toString(), actualResult);
     }
 
 

@@ -1,22 +1,17 @@
 package praktikum;
+
 import org.junit.Test;
-import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
-
-    // Инициализируем базу данных для тестов
-    Database database = new Database();
-
-    // Считаем список доступных ингредиентов из базы данных
-    List<Ingredient> ingredient = database.availableIngredients();
-
+    Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
 
     //Проверяем метод getPrice()
     @Test
     public void getPriceCheck() {
         float expectedResult = 100;
-        float actualResult = ingredient.get(0).getPrice();
+        float actualResult = ingredient.getPrice();
         assertEquals("Price is incorrect", expectedResult, actualResult, 0);
     }
 
@@ -24,7 +19,7 @@ public class IngredientTest {
     @Test
     public void getNameCheck() {
         String expectedResult = "hot sauce";
-        String actualResult = ingredient.get(0).getName();
+        String actualResult = ingredient.getName();
         assertEquals("String is incorrect", expectedResult, actualResult);
     }
 
@@ -32,7 +27,7 @@ public class IngredientTest {
     @Test
     public void getTypeCheck() {
         IngredientType expectedResult = IngredientType.SAUCE;
-        IngredientType actualResult = ingredient.get(0).getType();
+        IngredientType actualResult = ingredient.getType();
         assertEquals("IngredientType is incorrect", expectedResult, actualResult);
     }
 }
