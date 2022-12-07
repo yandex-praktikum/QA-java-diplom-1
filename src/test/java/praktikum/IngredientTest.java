@@ -1,13 +1,10 @@
 package praktikum;
-
-import org.junit.Before;
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
+
     // Инициализируем базу данных для тестов
     Database database = new Database();
 
