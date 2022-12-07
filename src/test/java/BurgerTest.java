@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
@@ -23,7 +22,6 @@ public class BurgerTest {
 
     @Before
     public void init(){
-        //MockitoAnnotations.initMocks(this);
         burger = new Burger();
     }
 
@@ -69,13 +67,6 @@ public class BurgerTest {
         receiptExpected.append(String.format("%nPrice: %f%n", 300f));
         Assert.assertEquals(receiptExpected.toString(), burger.getReceipt());
     }
-
-    @Test
-    public void moveIngredientTest(){
-       // (int index, int newIndex)
-       //  ingredients.add(newIndex, ingredients.remove(index));
-    }
-
 }
 
 
