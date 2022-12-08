@@ -33,7 +33,7 @@ public class BurgerGetReceiptTest {
     }
 
     @Test
-    public void getReceipt_PositiveTest(){
+    public void getReceiptPositiveTest(){
         Bun bun = Mockito.mock(Bun.class);
         Ingredient ingredient = Mockito.mock(Ingredient.class);
         Burger burger = Mockito.spy(Burger.class);

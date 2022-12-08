@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 public class BunTest {
 
         @Test
-        public void checkBunPrice_Positive(){
+        public void checkBunPricePositive(){
                 Bun bun = new Bun("bun number 1", 100.0F);
                 float expected = 100.0F;
                 float actual = bun.getPrice();
@@ -14,7 +14,7 @@ public class BunTest {
         }
 
         @Test
-        public void checkBunName_Positive(){
+        public void checkBunNamePositive(){
                 Bun bun = new Bun("bun number 1", 100.0F);
                 String expected = "bun number 1";
                 String actual = bun.getName();
@@ -22,7 +22,7 @@ public class BunTest {
         }
 
         @Test
-        public void checkBunName_Negative(){
+        public void checkBunNameNegative(){
                 Bun bun = new Bun("bun number 2", 200);
                 String expected = "bun number 1";
                 String actual = bun.getName();

@@ -38,19 +38,19 @@ public class IngredientTest {
     }
 
     @Test
-    public void checkGetType_Positive(){
+    public void checkGetTypePositive(){
         IngredientType actual = ingredient.getType();
         assertEquals(expectedType, actual);
     }
 
     @Test
-    public void checkGetName_Positive(){
+    public void checkGetNamePositive(){
         String actualIngredientName = ingredient.getName();
         assertEquals(expectedName, actualIngredientName);
     }
 
     @Test
-    public void checkGetPrice_Positive(){
+    public void checkGetPricePositive(){
         float actual = ingredient.getPrice();
         assertEquals(expectedPrice, actual, 0.0001F);
     }
