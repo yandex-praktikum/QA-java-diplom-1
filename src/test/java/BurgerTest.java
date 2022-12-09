@@ -8,14 +8,12 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
-
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
