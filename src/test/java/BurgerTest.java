@@ -64,7 +64,6 @@ public class BurgerTest {
         burger.removeIngredient(1);
         int ingredientSize = burger.ingredients.size();
         assertEquals("invalid number of ingredients", 2, ingredientSize);
-
     }
 
     @Test
