@@ -7,7 +7,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import praktikum.IngredientType;
+
 
 import java.util.ArrayList;
 import java.util.List;
