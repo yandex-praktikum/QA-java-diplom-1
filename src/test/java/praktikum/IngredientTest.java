@@ -2,6 +2,7 @@ package praktikum;
 
 import junitparams.JUnitParamsRunner;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -10,7 +11,12 @@ import static praktikum.Generator.*;
 @RunWith(JUnitParamsRunner.class)
 public class IngredientTest {
 
-    Ingredient ingredientTest = Generator.getDefaultIngredient();
+    Ingredient ingredientTest;
+
+    @Before
+    public void setUp() {
+        ingredientTest = Generator.getDefaultIngredient();
+    }
 
     @Test
     public void getPriceReturnsValidValue() {
@@ -20,11 +26,13 @@ public class IngredientTest {
 
     @Test
     public void getNameReturnsValidValue() {
-        Assert.assertEquals("Некорректное возвращаемое имя", INGREDIENT_TEST_NAME, ingredientTest.getName());
+        Assert.assertEquals("Некорректное возвращаемое имя",
+                INGREDIENT_TEST_NAME, ingredientTest.getName());
     }
 
     @Test
     public void getTypeReturnsValidValue() {
-        Assert.assertEquals("Некорректный возвращаемый тип", INGREDIENT_TEST_TYPE, ingredientTest.getType());
+        Assert.assertEquals("Некорректный возвращаемый тип",
+                INGREDIENT_TEST_TYPE, ingredientTest.getType());
     }
 }

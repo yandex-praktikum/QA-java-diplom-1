@@ -2,6 +2,7 @@ package praktikum;
 
 import junitparams.JUnitParamsRunner;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -12,7 +13,12 @@ import static praktikum.Generator.BUN_TEST_PRICE;
 @RunWith(JUnitParamsRunner.class)
 public class BunTest {
 
-    Bun bunTest = Generator.getDefaultBun();
+    Bun bunTest;
+
+    @Before
+    public void setUp(){
+        bunTest = Generator.getDefaultBun();
+    }
 
     @Test
     public void getNameReturnsValidValue() {
