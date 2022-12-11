@@ -3,15 +3,9 @@ package praktikum;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Модель бургера.
- * Бургер состоит из булочек и ингредиентов (начинка или соус).
- * Ингредиенты можно перемещать и удалять.
- * Можно распечать чек с информацией о бургере.
- */
 public class Burger {
 
-    public Bun bun;
+    public static Bun bun;
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
