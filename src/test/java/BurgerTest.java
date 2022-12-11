@@ -41,7 +41,7 @@ public class BurgerTest {
         IngredientType actualType = burger.ingredients.get(1).type;
         assertEquals(expected,actual);
         assertEquals("Должны совпадать","cutlet",actualName);
-        assertEquals("Цена должна одинакова", 100,actualPrice,3);
+        assertEquals("Цена должна одинакова", 100,actualPrice,0.01);
         assertEquals("Тип должен совпадать" ,SAUCE,actualType);
     }
     @Test
@@ -72,7 +72,7 @@ public class BurgerTest {
         burger.setBuns(mockBun);
         Float actual = burger.getPrice();
         Float expected = 1666.8f;
-        assertEquals("Должна быть равна",expected,actual,2);
+        assertEquals("Должна быть равна",expected,actual,0.01);
     }
     @Test
     public void checkGetReceipt(){

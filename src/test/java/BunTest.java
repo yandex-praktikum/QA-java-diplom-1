@@ -41,7 +41,7 @@ public class BunTest {
     @Test
     public void  checkGetPrice_shouldBePrice(){
         Float actual = bun.getPrice();
-        Assert.assertEquals("Цена дожна совпадать",price,actual, 2);
+        Assert.assertEquals("Цена дожна совпадать",price,actual, 0.01);
 
 
     }

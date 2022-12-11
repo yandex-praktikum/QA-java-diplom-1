@@ -40,7 +40,7 @@ public class IngredientTest {
     @Test
     public void checkGetPriceIngredient(){
         Float actual = ingredient.getPrice();
-        Assert.assertEquals("Цена дожна совпадать",price,actual, 2);
+        Assert.assertEquals("Цена дожна совпадать",price,actual, 0.01);
     }
     @Test
     public void checkGetNameIngredient(){
