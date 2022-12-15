@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Burger {
 
-    public static Bun bun;
+    public Bun bun;
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
@@ -47,5 +47,4 @@ public class Burger {
 
         return receipt.toString();
     }
-
 }
