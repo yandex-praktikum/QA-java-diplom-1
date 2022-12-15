@@ -11,16 +11,13 @@ public class BurgerTest {
      */
     @Test
     public void addIngredientsTest() {
-        // Arrange
         Burger burger = new Burger();
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "cutlet", 100));
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
 
-        // Act
         int actualCount = burger.ingredients.size();
 
-        // Assert
         int expectedCount = 3;
         assertEquals(expectedCount, actualCount);
     }
@@ -30,17 +27,14 @@ public class BurgerTest {
      */
     @Test
     public void removeIngredientsTest() {
-        // Arrange
         Burger burger = new Burger();
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "cutlet", 100));
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         burger.removeIngredient(0);
 
-        // Act
         int actualCount = burger.ingredients.size();
 
-        // Assert
         int expectedCount = 2;
         assertEquals(expectedCount, actualCount);
     }
@@ -50,17 +44,14 @@ public class BurgerTest {
      */
     @Test
     public void moveIngredientsTest() {
-        // Arrange
         Burger burger = new Burger();
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "cutlet", 100));
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         burger.moveIngredient(0, 2);
 
-        // Act
         int actualCount = burger.ingredients.size();
 
-        // Assert
         int expectedCount = 3;
         assertEquals(expectedCount, actualCount);
     }

@@ -22,16 +22,13 @@ public class BurgerReceiptTest {
      */
     @Test
     public void OnlyBunTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
         burger.setBuns(bun);
 
-        // Act
         String actualReceipt = burger.getReceipt();
 
-        // Assert
         String expectedReceipt = "(==== black bun ====)\r\n" +
                 "(==== black bun ====)\r\n" +
                 "\r\n" +
@@ -44,7 +41,6 @@ public class BurgerReceiptTest {
      */
     @Test
     public void OneIngredientTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -55,10 +51,8 @@ public class BurgerReceiptTest {
         Mockito.when(ingredient.getPrice()).thenReturn(50F);
         burger.addIngredient(ingredient);
 
-        // Act
         String actualReceipt = burger.getReceipt();
 
-        // Assert
         String expectedReceipt = "(==== black bun ====)\r\n" +
                 "= sauce hot sauce =\r\n" +
                 "(==== black bun ====)\r\n" +
@@ -72,7 +66,6 @@ public class BurgerReceiptTest {
      */
     @Test
     public void MultipleIngredientsTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -82,10 +75,8 @@ public class BurgerReceiptTest {
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
 
-        // Act
         String actualReceipt = burger.getReceipt();
 
-        // Assert
         String expectedReceipt = "(==== black bun ====)\r\n" +
                 "= filling cutlet =\r\n" +
                 "= sauce sour cream =\r\n" +
@@ -101,7 +92,6 @@ public class BurgerReceiptTest {
      */
     @Test
     public void RemoveIngredientsTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -112,10 +102,8 @@ public class BurgerReceiptTest {
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         burger.removeIngredient(2);
 
-        // Act
         String actualReceipt = burger.getReceipt();
 
-        // Assert
         String expectedReceipt = "(==== black bun ====)\r\n" +
                 "= filling cutlet =\r\n" +
                 "= sauce sour cream =\r\n" +
@@ -130,7 +118,6 @@ public class BurgerReceiptTest {
      */
     @Test
     public void MoveIngredientsTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -141,10 +128,8 @@ public class BurgerReceiptTest {
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         burger.moveIngredient(0, 2);
 
-        // Act
         String actualReceipt = burger.getReceipt();
 
-        // Assert
         String expectedReceipt = "(==== black bun ====)\r\n" +
                 "= sauce sour cream =\r\n" +
                 "= filling sausage =\r\n" +

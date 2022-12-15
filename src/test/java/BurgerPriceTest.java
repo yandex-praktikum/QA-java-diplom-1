@@ -21,16 +21,13 @@ public class BurgerPriceTest {
      */
     @Test
     public void OnlyBunTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
         burger.setBuns(bun);
 
-        // Act
         float actualPrice = burger.getPrice();
 
-        // Assert
         float expectedPrice = 200;
         assertEquals(expectedPrice, actualPrice, 0.05);
     }
@@ -40,7 +37,6 @@ public class BurgerPriceTest {
      */
     @Test
     public void OneIngredientTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -51,10 +47,8 @@ public class BurgerPriceTest {
         Mockito.when(ingredient.getPrice()).thenReturn(50F);
         burger.addIngredient(ingredient);
 
-        // Act
         float actualPrice = burger.getPrice();
 
-        // Assert
         float expectedPrice = 250;
         assertEquals(expectedPrice, actualPrice, 0.05);
     }
@@ -64,7 +58,6 @@ public class BurgerPriceTest {
      */
     @Test
     public void MultipleIngredientsTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -74,10 +67,8 @@ public class BurgerPriceTest {
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
 
-        // Act
         float actualPrice = burger.getPrice();
 
-        // Assert
         float expectedPrice = 800;
         assertEquals(expectedPrice, actualPrice, 0.05);
     }
@@ -87,7 +78,6 @@ public class BurgerPriceTest {
      */
     @Test
     public void RemoveIngredientsTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -98,10 +88,8 @@ public class BurgerPriceTest {
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         burger.removeIngredient(2);
 
-        // Act
         float actualPrice = burger.getPrice();
 
-        // Assert
         float expectedPrice = 500;
         assertEquals(expectedPrice, actualPrice, 0.05);
     }
@@ -111,7 +99,6 @@ public class BurgerPriceTest {
      */
     @Test
     public void MoveIngredientsTest(){
-        // Arrange
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("black bun");
         Mockito.when(bun.getPrice()).thenReturn(100F);
@@ -122,10 +109,8 @@ public class BurgerPriceTest {
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         burger.moveIngredient(0, 2);
 
-        // Act
         float actualPrice = burger.getPrice();
 
-        // Assert
         float expectedPrice = 800;
         assertEquals(expectedPrice, actualPrice, 0.05);
     }
