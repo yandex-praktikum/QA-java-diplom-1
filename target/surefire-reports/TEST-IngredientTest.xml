@@ -21,7 +21,7 @@
     <property name="java.runtime.version" value="11.0.13+8-LTS"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="os.arch" value="amd64"/>
-    <property name="visualvm.id" value="3630669454000"/>
+    <property name="visualvm.id" value="56724583281000"/>
     <property name="java.io.tmpdir" value="C:\Users\CD86~1\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -47,7 +47,7 @@
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2022.1\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.4 -P coverage clean package jacoco:report"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.1.4 clean test"/>
     <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk11.0.13_8"/>
     <property name="user.language" value="ru"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
