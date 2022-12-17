@@ -35,6 +35,6 @@ public class BunTest {
     public void bunCreateTest() {
         Bun actualBun = new Bun(name, price);
         assertEquals(expectBun.getName(), actualBun.getName());
-        assertTrue(Math.abs(expectBun.getPrice() - actualBun.getPrice()) < 0.00001);
+        assertEquals(true, Math.abs(expectBun.getPrice() - actualBun.getPrice()) < 0.00001);
     }
 }

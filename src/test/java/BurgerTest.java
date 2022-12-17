@@ -73,7 +73,7 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(100F);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        assertTrue(Math.abs((bun.getPrice() * 2 + ingredient.getPrice())
+        assertEquals(true,Math.abs((bun.getPrice() * 2 + ingredient.getPrice())
                 - burger.getPrice()) < 0.00001);
     }
 
