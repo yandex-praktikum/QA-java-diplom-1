@@ -10,7 +10,7 @@ public class BunTest {
     @Test
     public void getBunNameReturnsCorrectValueTest(){
         Bun bun = new Bun("bulka", 0.0f);
-        Assert.assertEquals("Incorrect bun's name", bun.getName(), "bulka");
+        Assert.assertEquals("Incorrect bun's name ", bun.getName(), "bulka");
     }
 
     @Test
