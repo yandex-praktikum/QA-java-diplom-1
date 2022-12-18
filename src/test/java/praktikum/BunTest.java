@@ -23,4 +23,3 @@ public class BunTest {
             assertEquals(actual, bun.getPrice(),0);
         }
     }
-}
