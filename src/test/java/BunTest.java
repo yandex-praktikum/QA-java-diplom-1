@@ -1,4 +1,4 @@
-import org.junit.*;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,15 +8,16 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class BunTest {
-    private String name;
-    private float price;
+    private final String name;
+    private final float price;
+    private Bun bun;
 
-    public BunTest(String name, float price){
+    public BunTest(String name, float price) {
         this.name = name;
         this.price = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] getCredentials() {
         return new Object[][]{
                 {"black bun", 100},
@@ -25,21 +26,19 @@ public class BunTest {
         };
     }
 
-    private Bun bun;
-
     @Before
-    public void setUp(){
+    public void setUp() {
         bun = new Bun(name, price);
     }
 
     @Test
-    public void returnNameOfBun(){
+    public void returnNameOfBun() {
         String result = bun.getName();
         assertEquals(name, result);
     }
 
     @Test
-    public void returnPriceOfBun(){
+    public void returnPriceOfBun() {
         Float result1 = bun.getPrice();
         assertEquals(price, result1, 0);
     }
