@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -56,7 +57,7 @@ public class BurgerTest {
         burger.ingredients.addAll(Arrays.asList(ingredient, ingredient2));
         List<Ingredient> actual = new ArrayList<>(Arrays.asList(ingredient2, ingredient));
         burger.moveIngredient(0, 1);
-        assertEquals(actual, burger.ingredients);
+        assertEquals(burger.ingredients, actual);
     }
 
     @Test // проверка получения цены бургера

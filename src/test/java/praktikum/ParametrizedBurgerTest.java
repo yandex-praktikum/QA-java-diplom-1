@@ -5,6 +5,7 @@ import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,8 +32,9 @@ public class ParametrizedBurgerTest {
     @Test // параметризованный тест перемещения ингредиентов
     public void shouldMoveIngredients(int index, int newIndex, List<Ingredient> ingredients) {
         burger.moveIngredient(index, newIndex);
-        assertEquals(burger.ingredients, ingredients);
+        assertEquals(ingredients, burger.ingredients);
     }
+
     private Object[][] parametersForShouldMoveIngredients() {
         return new Object[][]{
                 {0, 1, List.of(ingredient2, ingredient1, ingredient3)},
@@ -47,8 +49,9 @@ public class ParametrizedBurgerTest {
     @Test // параметризованный тест удаления ингредиентов
     public void shouldRemoveIngredient(int index, List<Ingredient> ingredients) throws Exception {
         burger.removeIngredient(index);
-        assertEquals(burger.ingredients, ingredients);
+        assertEquals(ingredients, burger.ingredients);
     }
+
     private Object[][] parametersForShouldRemoveIngredient() {
         return new Object[][]{
                 {0, List.of(ingredient2, ingredient3)},
