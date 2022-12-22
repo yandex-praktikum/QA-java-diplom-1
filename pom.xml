@@ -27,6 +27,11 @@
             <version>3.12.4</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.11.16</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -35,6 +40,12 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/praktikum/Praktikum.*</exclude>
+                        <exclude>**/praktikum/Database.*</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
