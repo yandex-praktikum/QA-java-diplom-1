@@ -8,14 +8,12 @@ public class BunTest {
 
     @Before
     public void setUp() {
-
         bun = new Bun("pancake", 12.5f);
     }
 
     @Test
     public void getNameBun() {
         Assert.assertEquals("pancake", bun.getName());
-
     }
 
     @Test
