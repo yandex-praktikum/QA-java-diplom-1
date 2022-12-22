@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(Parameterized.class)
 public class IngredientTypeTest {
 
-	private final IngredientType ingredientType;
+	private IngredientType ingredientType;
 
 	public IngredientTypeTest(IngredientType ingredientType){
 		this.ingredientType = ingredientType;
