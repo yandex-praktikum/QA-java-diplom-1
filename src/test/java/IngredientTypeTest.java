@@ -14,7 +14,7 @@ public class IngredientTypeTest {
 
 	private IngredientType ingredientType;
 
-	public IngredientTypeTest(IngredientType ingredientType){
+	public IngredientTypeTest(IngredientType ingredientType) {
 		this.ingredientType = ingredientType;
 	}
 
@@ -22,12 +22,14 @@ public class IngredientTypeTest {
 	public static ArrayList data() {
 		IngredientType[] values = IngredientType.values();
 		ArrayList data = new ArrayList(values.length);
-		for (IngredientType ingredientType : values) { data.add(new Object[] { ingredientType }); }
+		for (IngredientType ingredientType : values) {
+			data.add(new Object[]{ingredientType});
+		}
 		return data;
 	}
 
 	@Test
-	public void ingredientTypeTest(){
+	public void ingredientTypeTest() {
 		assertThat(Arrays.asList(IngredientType.values()), hasItem(ingredientType));
 	}
 }

@@ -8,17 +8,17 @@ public class BunTest {
 	private Bun bun;
 
 	@Before
-	public void setUp(){
+	public void setUp() {
 		bun = new Bun("Круассан", 11.5f);
 	}
 
 	@Test
-	public void getNameTest(){
+	public void getNameTest() {
 		Assert.assertEquals("Круассан", bun.getName());
 	}
 
 	@Test
-	public void getPriceTest(){
+	public void getPriceTest() {
 		Assert.assertEquals(11.5f, bun.getPrice(), 0);
 	}
 }

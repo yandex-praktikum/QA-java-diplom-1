@@ -17,7 +17,7 @@ public class BurgerTest {
 	Ingredient ingredient = new Ingredient(IngredientType.FILLING, ingredientName, ingredientPrice);
 
 	@Before
-	public void createBurger(){
+	public void createBurger() {
 		burger = new Burger();
 	}
 
@@ -25,13 +25,13 @@ public class BurgerTest {
 	Bun bun;
 
 	@Test
-	public void addIngredientTest(){
+	public void addIngredientTest() {
 		burger.addIngredient(ingredient);
 		Assert.assertEquals(ingredient, burger.ingredients.get(0));
 	}
 
 	@Test
-	public void removeIngredientTest(){
+	public void removeIngredientTest() {
 		int sizeExpected = 0;
 
 		burger.addIngredient(ingredient);
@@ -40,7 +40,7 @@ public class BurgerTest {
 	}
 
 	@Test
-	public void moveIngredientTest(){
+	public void moveIngredientTest() {
 		Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Рогалик", 0.1f);
 
 		burger.addIngredient(ingredient);

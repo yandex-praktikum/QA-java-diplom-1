@@ -29,22 +29,22 @@ public class IngredientTest {
 	}
 
 	@Before
-	public void setUp(){
+	public void setUp() {
 		ingredient = new Ingredient(IngredientType.valueOf(ingredientType), name, price);
 	}
 
 	@Test
-	public void getPriceTest(){
+	public void getPriceTest() {
 		Assert.assertEquals(price, ingredient.getPrice(), 10);
 	}
 
 	@Test
-	public void getNameTest(){
+	public void getNameTest() {
 		Assert.assertEquals(name, ingredient.getName());
 	}
 
 	@Test
-	public void getTypeTest(){
+	public void getTypeTest() {
 		Assert.assertEquals(IngredientType.valueOf(ingredientType), ingredient.getType());
 	}
 }
