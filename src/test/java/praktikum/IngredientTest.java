@@ -17,10 +17,10 @@ public class IngredientTest {
     private final float price = new Random().nextFloat();
     private final IngredientType type = mock(IngredientType.class);
 
+    private final Ingredient ingredient = new Ingredient(type, name, price);
+
     @Test
     public void ingredientGetTypeTest() {
-
-        Ingredient ingredient = new Ingredient(type, name, price);
 
         assertEquals(type, ingredient.getType());
     }
@@ -28,15 +28,11 @@ public class IngredientTest {
     @Test
     public void ingredientGetNameTest() {
 
-        Ingredient ingredient = new Ingredient(type, name, price);
-
         assertEquals(name, ingredient.getName());
     }
 
     @Test
     public void ingredientGetPriceTest() {
-
-        Ingredient ingredient = new Ingredient(type, name, price);
 
         assertEquals(price, ingredient.getPrice(), 0.0f);
     }

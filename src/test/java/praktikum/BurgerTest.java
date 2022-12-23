@@ -12,6 +12,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(Parameterized.class)
 public class BurgerTest {
@@ -40,9 +41,8 @@ public class BurgerTest {
     }
 
     @Before
-    public void init() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
-
         burger.setBuns(bun);
     }
 
@@ -65,16 +65,16 @@ public class BurgerTest {
         String bunName = "bunName";
         String ingredientName = "ingredientName";
 
-        Mockito.when(bun.getPrice()).thenReturn(bunPrice);
-        Mockito.when(bun.getName()).thenReturn(bunName);
+        when(bun.getPrice()).thenReturn(bunPrice);
+        when(bun.getName()).thenReturn(bunName);
 
         IngredientType ingredientType = mock(IngredientType.class);
 
         for (int i = 0; i < ingredientsPrice.size(); i++) {
             burger.ingredients.add(mock(Ingredient.class));
-            Mockito.when(burger.ingredients.get(i).getType()).thenReturn(ingredientType);
-            Mockito.when(burger.ingredients.get(i).getName()).thenReturn(ingredientName);
-            Mockito.when(burger.ingredients.get(i).getPrice()).thenReturn(ingredientsPrice.get(i));
+            when(burger.ingredients.get(i).getType()).thenReturn(ingredientType);
+            when(burger.ingredients.get(i).getName()).thenReturn(ingredientName);
+            when(burger.ingredients.get(i).getPrice()).thenReturn(ingredientsPrice.get(i));
         }
 
         String receipt = burger.getReceipt();
