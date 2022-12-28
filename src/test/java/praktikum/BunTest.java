@@ -6,16 +6,16 @@ public class BunTest {
 
     @Before
     public void setUp() {
-        bun = new Bun("Булка", 22.55f);
+        bun = new Bun("TestBurger", 22.55f);
     }
 
     @Test
     public void getNameTest() {
-        Assert.assertEquals("Булка", bun.getName());
+        Assert.assertEquals("TestBurger", bun.getName());
     }
 
     @Test
     public void getPriceTest() {
-        Assert.assertEquals(22.55f, bun.getPrice(), 0);
+        Assert.assertEquals(22.55f, bun.getPrice(), 0.01);
     }
 }
