@@ -15,7 +15,6 @@ import java.util.Arrays;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-
     @Mock
     Bun bunMock;
 
@@ -29,7 +28,7 @@ public class BurgerTest {
     Ingredient ingredientMock3;
 
     @Test
-    public void getBurgerPriceTest(){
+    public void getBurgerPriceTest() {
         Mockito.when(bunMock.getPrice()).thenReturn(500.0f);
         Burger burger = new Burger();
         burger.setBuns(bunMock);
@@ -39,7 +38,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getBurgerPriceWithIngredientTest(){
+    public void getBurgerPriceWithIngredientTest() {
         Mockito.when(bunMock.getPrice()).thenReturn(10.3f);
         Mockito.when(ingredientMock1.getPrice()).thenReturn(5.0f);
         Mockito.when(ingredientMock2.getPrice()).thenReturn(4.0f);
@@ -56,35 +55,32 @@ public class BurgerTest {
     }
 
     @Test
-    public void addIngredientBurgerTest(){
+    public void addIngredientBurgerTest() {
         Burger burger = new Burger();
         burger.addIngredient(ingredientMock1);
         burger.addIngredient(ingredientMock2);
         burger.addIngredient(ingredientMock3);
         Assert.assertEquals(3, burger.ingredients.size());
-        System.out.println("Добавились " + burger.ingredients);
     }
 
     @Test
-    public void removeIngredientBurgerTest(){
+    public void removeIngredientBurgerTest() {
         Burger burger = new Burger();
         burger.ingredients = new ArrayList<>(Arrays.asList(ingredientMock1, ingredientMock2, ingredientMock3));
         burger.removeIngredient(1);
-        Assert.assertEquals(2,burger.ingredients.size());
-        System.out.println("Удалили Ingredient2 " + burger.ingredients);
+        Assert.assertEquals(2, burger.ingredients.size());
     }
 
     @Test
-    public void moveIngredientBurgerTest(){
+    public void moveIngredientBurgerTest() {
         Burger burger = new Burger();
         burger.ingredients = new ArrayList<>(Arrays.asList(ingredientMock1, ingredientMock2, ingredientMock3));
-        burger.moveIngredient(2,0);
-        Assert.assertEquals( new ArrayList<>(Arrays.asList(ingredientMock3, ingredientMock1, ingredientMock2)), burger.ingredients);
-        System.out.println("Переставили Ingredient3 на первое место " + burger.ingredients);
+        burger.moveIngredient(2, 0);
+        Assert.assertEquals(new ArrayList<>(Arrays.asList(ingredientMock3, ingredientMock1, ingredientMock2)), burger.ingredients);
     }
 
     @Test
-    public void getReceiptBurgerTest(){
+    public void getReceiptBurgerTest() {
         Burger burger = new Burger();
         Bun bun = new Bun("Булка с кунжутом", 2.45f);
         Ingredient filling = new Ingredient(IngredientType.FILLING, "Говяжья котлетка", 31.90f);
@@ -92,7 +88,6 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(filling);
         burger.addIngredient(sauce);
-        System.out.println(burger.getReceipt());
         Assert.assertEquals(396.7, burger.getPrice(), 0.001);
     }
 }

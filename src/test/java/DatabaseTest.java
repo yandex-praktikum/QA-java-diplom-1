@@ -48,7 +48,5 @@ public class DatabaseTest {
             Assert.assertEquals(ingredients.get(i).getType(), database.availableIngredients().get(i).getType());
         }
     }
-
-
 }
 

@@ -14,7 +14,7 @@ public class IngredientMockTest {
     Ingredient ingredientMock;
 
     @Test
-    public void getPriceIngredientTest(){
+    public void getPriceIngredientTest() {
         ingredientMock.getPrice();
         ingredientMock.getPrice();
         ingredientMock.getPrice();
@@ -23,34 +23,33 @@ public class IngredientMockTest {
     }
 
     @Test
-    public void getPriceIngredientStabTest(){
+    public void getPriceIngredientStabTest() {
         Mockito.when(ingredientMock.getPrice()).thenReturn(378.6f);
         Assert.assertEquals(378.6f, ingredientMock.getPrice(), 0);
     }
 
     @Test
-    public void getNameIngredientTest(){
+    public void getNameIngredientTest() {
         ingredientMock.getName();
         Mockito.verify(ingredientMock, Mockito.times(1)).getName();
     }
 
     @Test
-    public void getNameIngredientStabTest(){
+    public void getNameIngredientStabTest() {
         Mockito.when(ingredientMock.getName()).thenReturn("Лист салата");
         Assert.assertEquals("Лист салата", ingredientMock.getName());
     }
 
     @Test
-    public void getTypeIngredientTest(){
+    public void getTypeIngredientTest() {
         ingredientMock.getType();
         ingredientMock.getType();
         Mockito.verify(ingredientMock, Mockito.times(2)).getType();
     }
 
     @Test
-    public void getTypeIngredientStabTest(){
+    public void getTypeIngredientStabTest() {
         Mockito.when(ingredientMock.getType()).thenReturn(IngredientType.FILLING);
         Assert.assertEquals(IngredientType.FILLING, ingredientMock.getType());
     }
-
 }

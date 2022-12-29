@@ -13,20 +13,20 @@ public class BunMockTest {
     Bun bunMock;
 
     @Test
-    public void getNameBunTest(){
+    public void getNameBunTest() {
         bunMock.getName();
         bunMock.getName();
         Mockito.verify(bunMock, Mockito.times(2)).getName();
     }
 
     @Test
-    public void getNameBunStabTest(){
+    public void getNameBunStabTest() {
         Mockito.when(bunMock.getName()).thenReturn("Круассан");
         Assert.assertEquals("Круассан", bunMock.getName());
     }
 
     @Test
-    public void getPriceBunTest(){
+    public void getPriceBunTest() {
         bunMock.getPrice();
         bunMock.getPrice();
         bunMock.getPrice();
@@ -34,7 +34,7 @@ public class BunMockTest {
     }
 
     @Test
-    public void getPriceBunStabTest(){
+    public void getPriceBunStabTest() {
         Mockito.when(bunMock.getPrice()).thenReturn(5000.0f);
         Assert.assertEquals(5000.0f, bunMock.getPrice(), 0);
     }
