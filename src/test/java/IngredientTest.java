@@ -10,9 +10,9 @@ import praktikum.IngredientType;
 public class IngredientTest {
 
     private Ingredient ingredient;
-    private IngredientType type;
-    private String name = "Юнит-тестовая начинка";
-    private float price = 10f;
+    private final IngredientType type;
+    private final String name = "Юнит-тестовая начинка";
+    private final float price = 10f;
 
     public IngredientTest(IngredientType type) {
         this.type = type;
