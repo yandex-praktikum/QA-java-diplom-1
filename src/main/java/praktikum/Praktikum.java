@@ -2,7 +2,9 @@ package praktikum;
 
 import java.util.List;
 
+@JacocoGeneratedExclude
 public class Praktikum {
+
 
     public static void main(String[] args) {
         // Инициализируем базу данных

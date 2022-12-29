@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * Класс с методами по работе с базой данных.
  */
+
+@JacocoGeneratedExclude
 public class Database {
 
     private final List<Bun> buns = new ArrayList<>();
