@@ -23,7 +23,7 @@ public class BurgerMoveIngredientsTest {
     }
 
     @Test
-    public void BurgerMoveIngredientTest() {
+    public void burgerMoveIngredientTest() {
 
         burger.moveIngredient(0, 1);
 
@@ -32,7 +32,7 @@ public class BurgerMoveIngredientsTest {
     }
 
     @Test
-    public void BurgerRemoveIngredientTest() {
+    public void burgerRemoveIngredientTest() {
 
         burger.removeIngredient(0);
 
