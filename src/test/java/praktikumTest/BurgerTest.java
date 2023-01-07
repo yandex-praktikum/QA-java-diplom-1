@@ -3,53 +3,63 @@ package praktikumTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import praktikum.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
     private Burger burger;
+    private List<Bun> buns = new ArrayList<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
+
+    @Mock
+    Database db;
 
     @Before
     public void createInstanceOfBunAndIngredients() {
         burger = new Burger();
-        Bun bun = new Bun("wheat bun", 2.45f);
-        Ingredient ingredient1 = new Ingredient(FILLING, "salad", 0.54f);
-        Ingredient ingredient2 = new Ingredient(SAUCE, "mustard", 0.24f);
-        Ingredient ingredient3 = new Ingredient(FILLING, "cucumber", 0.14f);
-        Ingredient ingredient4 = new Ingredient(FILLING, "beef ", 2.21f);
-        Ingredient ingredient5 = new Ingredient(SAUCE, "ketchup", 0.04f);
+        buns.add(new Bun("wheat bun", 2.45f));
+        buns.add(new Bun("rice bread", 1.09f));
+        ingredients.add(new Ingredient(FILLING, "salad", 0.54f));
+        ingredients.add(new Ingredient(SAUCE, "mustard", 0.24f));
+        ingredients.add(new Ingredient(FILLING, "cucumber", 0.14f));
+        ingredients.add(new Ingredient(FILLING, "beef ", 2.21f));
+        ingredients.add(new Ingredient(SAUCE, "ketchup", 0.04f));
+        ingredients.add(new Ingredient(FILLING, "hen", 1.68f));
+        Mockito.when(db.availableBuns()).thenReturn(buns);
+        Mockito.when(db.availableIngredients()).thenReturn(ingredients);
 
-
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient1); //salad
-        burger.addIngredient(ingredient4); //beef
-        burger.addIngredient(ingredient2); //mustard
-        burger.addIngredient(ingredient3); //cucumber
-        burger.addIngredient(ingredient5); //ketchup
+        burger.setBuns(db.availableBuns().get(0));
+        burger.addIngredient(db.availableIngredients().get(0)); //salad
+        burger.addIngredient(db.availableIngredients().get(3)); //beef
+        burger.addIngredient(db.availableIngredients().get(1)); //mustard
+        burger.addIngredient(db.availableIngredients().get(2)); //cucumber
+        burger.addIngredient(db.availableIngredients().get(4)); //ketchup
     }
 
     @Test
     public void setBunTest() {
         Burger burger2 = new Burger();
-        Bun bun2 = new Bun("rice bread", 1.09f);
-        burger2.setBuns(bun2);
+        Mockito.when(db.availableBuns()).thenReturn(buns);
+        burger2.setBuns(db.availableBuns().get(1));
         Assert.assertEquals("rice bread", burger2.bun.getName());
     }
     @Test
     public void getBurgerPriceTest() {
-
         Assert.assertEquals(8.07f, burger.getPrice(), 0.0);
     }
     @Test
     public void addIngredientTest() {
-        Ingredient ingredient6 = new Ingredient(FILLING, "hen", 1.68f);
-        burger.addIngredient(ingredient6);
-
+        burger.addIngredient(db.availableIngredients().get(5));
         Assert.assertEquals("hen", burger.ingredients.get(5).getName());
     }
     @Test
