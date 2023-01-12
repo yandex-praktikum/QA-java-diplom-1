@@ -39,7 +39,6 @@ public class BurgerTest {
         boolean actual = ingredientSize > 0;
 
         assertTrue("В собранном бургере отсутсвуют ингридиенты, добавь хотябы 1", actual);
-
     }
 
     @Test
@@ -73,7 +72,6 @@ public class BurgerTest {
 
     @Test
     public void checkMoveIngredients() {
-        Burger burger = new Burger();
 
         Ingredient ingredient_0 = new Ingredient(SAUCE, "hot sauce", 100);
         Ingredient ingredient_1 = new Ingredient(SAUCE, "sour cream", 200);
@@ -95,7 +93,6 @@ public class BurgerTest {
 
     @Test
     public void checkGetValidReceipt() {
-        burger = new Burger();
 
         Mockito.when(mockIngredient.getName()).thenReturn("cutlet");
         Mockito.when(mockIngredient.getType()).thenReturn(FILLING);
