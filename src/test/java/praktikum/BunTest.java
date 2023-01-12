@@ -2,14 +2,11 @@ package praktikum;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Random;
 
 import static org.junit.Assert.*;
 
-@RunWith(MockitoJUnitRunner.class)
 public class BunTest {
 
     private final String name = RandomStringUtils.randomAlphabetic(1, 5);
