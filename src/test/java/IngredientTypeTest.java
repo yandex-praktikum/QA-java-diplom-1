@@ -55,6 +55,5 @@ public class IngredientTypeTest {
     @Test
     public void checkGetValidType() {
         assertEquals("invalid type", type, ingredient.getType());
-
     }
 }

@@ -41,7 +41,6 @@ public class BunTest {
     @Test
     public void checkGetNameValid() {
         assertEquals("Имя - name, не валидное", name, bun.getName());
-
     }
 
     @Test
