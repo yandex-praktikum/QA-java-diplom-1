@@ -1,23 +1,17 @@
 package praktikum;
 
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.Assert;
+import org.junit.Test;
 
-@RunWith(MockitoJUnitRunner.class)
-public class BunTest {
+public class BunTest{
+    Bun bun = new Bun("Bulochka", 10);
 
-    @Mock
-    Bun bun;
-
-   /* @org.junit.Test
+    @Test
     public void getName() {
-    bun.getName("Флюоресцентная булка R2-D3");
-        Mockito.verify(bun).getName(Mockito.anyString());
-    }*/
-
-    @org.junit.Test
+        Assert.assertEquals("Bulochka", bun.getName());
+    }
+    @Test
     public void getPrice() {
+        Assert.assertEquals(10, bun.getPrice(),0);
     }
 }
