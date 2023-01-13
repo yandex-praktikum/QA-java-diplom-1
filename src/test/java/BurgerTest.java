@@ -12,6 +12,7 @@ import static org.mockito.Mockito.when;
 public class BurgerTest {
     Burger burger;
 
+
     final String SAUCE = "hot sauce";
     final int SAUCE_PRICE = 100;
     final String FILLING = "dinosaur";
