@@ -12,7 +12,7 @@ import praktikum.Burger;
 import praktikum.Ingredient;
 
 @RunWith(Parameterized.class)
-public class BurgerTest {
+public class BurgerPriceTest {
     private final float bunPrice;
     private final float ingredientPrice;
     private final float expectedBurgerPrice;
@@ -23,7 +23,7 @@ public class BurgerTest {
     @Mock
     private Bun bun;
 
-    public BurgerTest(float bunPrice, float ingredientPrice, float expectedBurgerPrice) {
+    public BurgerPriceTest(float bunPrice, float ingredientPrice, float expectedBurgerPrice) {
         this.bunPrice = bunPrice;
         this.ingredientPrice = ingredientPrice;
         this.expectedBurgerPrice = expectedBurgerPrice;
