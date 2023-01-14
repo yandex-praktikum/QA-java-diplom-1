@@ -6,19 +6,19 @@ import praktikum.IngredientType;
 
 public class IngredientTest {
     @Test
-    public void checkThatIngredientGetsName(){
+    public void checkThatIngredientGetsName() {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, Data.STEAK, Data.STEAK_PRICE);
         Assert.assertEquals(Data.STEAK, ingredient.getName());
     }
 
     @Test
-    public void checkThatIngredientGetsPrice(){
+    public void checkThatIngredientGetsPrice() {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, Data.STEAK, Data.STEAK_PRICE);
         Assert.assertEquals(Data.STEAK_PRICE, ingredient.getPrice(), 0.0f);
     }
 
     @Test
-    public void checkThatIngredientGetsType(){
+    public void checkThatIngredientGetsType() {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, Data.STEAK, Data.STEAK_PRICE);
         Assert.assertEquals(IngredientType.FILLING, ingredient.getType());
     }
