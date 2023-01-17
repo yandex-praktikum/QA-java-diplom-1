@@ -15,9 +15,15 @@ public class BunTest {
     }
 
     @Test
-    public void getNameBunTest() {
+    public void getBunNameTest() {
         String actualBunName = "fluorescent bun";
         String expectedBunName = bun.getName();
         Assert.assertEquals("Expected bun name - fluorescent bun", expectedBunName, actualBunName);
+    }
+    @Test
+    public void getBunPriceTest() {
+        float expectedBunPrice = 988;
+        float actualBunPrice = bun.getPrice();
+        Assert.assertEquals("Expected bun price - 988", expectedBunPrice, actualBunPrice, 0);
     }
 }
