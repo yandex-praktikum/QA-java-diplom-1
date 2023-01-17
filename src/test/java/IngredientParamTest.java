@@ -27,7 +27,6 @@ public class IngredientParamTest {
                 {"FILLING","test",2.5f, IngredientType.FILLING},
         };
     }
-
     @Test
     public void IngredientConstructorTest(){
         Ingredient ingredient = new Ingredient(type, name, price);
