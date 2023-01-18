@@ -16,7 +16,7 @@ public class BurgerTest {
     final float bunPrice = 988;
     final String burgerSauce = "spicy";
     final int saucePrice = 90;
-    final String burgerFilling = "meat";
+    final String burgerFilling = "black meat";
     final int fillingPrice = 3000;
 
 
@@ -71,5 +71,29 @@ public class BurgerTest {
         burger.addIngredient(secondIngredient);
         burger.moveIngredient(0, 1);
         Assert.assertEquals(firstIngredient.name, burger.ingredients.get(1).name);
+    }
+
+    @Test
+    public void getPriceTest() {
+        Bun bun = getMockedBun(bunName, bunPrice);
+        Ingredient ingredient = getMockedIngredient(IngredientType.FILLING, burgerFilling, fillingPrice);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        float actual = burger.getPrice();
+        Assert.assertEquals(4976, actual, 0);
+    }
+    @Test
+    public void getReceiptTest() {
+        Bun bun = getMockedBun(bunName, bunPrice);
+        Ingredient ingredient = getMockedIngredient(IngredientType.FILLING, burgerFilling, fillingPrice);
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        String actual = burger.getReceipt();
+        String expected = String.format("(==== fluorescent bun ====)%n" +
+                "= filling black meat =%n" +
+                "(==== fluorescent bun ====)%n" +
+                "%n" +
+                "Price: 4976,000000%n");
+        Assert.assertEquals(expected, expected, actual);
     }
 }
