@@ -1,6 +1,5 @@
 package praktikum;
 
-import jdk.jfr.Description;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +31,7 @@ public class IngredientParamTest {
     }
 
     @Test
-    @Description("Проверка успешного создание Ingredient с набором параметров")
+    //"Проверка успешного создание Ingredient с набором параметров"
     public void IngredientParamTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
         Assert.assertEquals(type, ingredient.getType());

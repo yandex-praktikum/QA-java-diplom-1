@@ -1,6 +1,5 @@
 package praktikum;
 
-import jdk.jfr.Description;
 import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,14 +7,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.List;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
-
     @Mock
     Bun bun;
 
@@ -23,7 +19,7 @@ public class BurgerTest {
     Ingredient ingredient;
 
     @Test
-    @Description("Количество ингредиентов увеличивается при добавлении")
+    //"Количество ингредиентов увеличивается при добавлении".
     public void addIngredient() {
         Burger burger = new Burger();
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
@@ -31,7 +27,7 @@ public class BurgerTest {
     }
 
     @Test
-    @Description("Количество ингредиентов уменьшается при удалении")
+    //"Количество ингредиентов уменьшается при удалении"
     public void removeIngredient() {
         Burger burger = new Burger();
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
@@ -42,7 +38,7 @@ public class BurgerTest {
     }
 
     @Test
-    @Description("Цена подсчитывается корректно")
+    //"Цена подсчитывается корректно"
     public void getPrice() {
         Burger burger = new Burger();
         burger.setBuns(bun);
@@ -54,7 +50,7 @@ public class BurgerTest {
     }
 
     @Test
-    @Description("Рецепт строится корректно")
+    //"Рецепт строится корректно"
     public void getReceipt() {
         Burger burger = new Burger();
         burger.setBuns(bun);
