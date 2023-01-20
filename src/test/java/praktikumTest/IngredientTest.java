@@ -45,27 +45,5 @@ public class IngredientTest {
         Ingredient ingredient = new Ingredient(ingredientType, name, price);
         Assert.assertEquals(price, ingredient.getPrice(), 0.0);
     }
-
-/**
- * По аналогии с другими классами цена не может быть отрицательной либо нулевой величиной.
- * Наименование также не может быть пустым.
- */
-//    @Test
-//    public void setNegativePriceIngredient() {
-//        Ingredient ingredient = new Ingredient(SAUCE, "example_name", -4.23f);
-//        Assert.assertTrue(ingredient.getPrice() > 0);
-//    }
-//
-//    @Test
-//    public void setZeroPriceIngredient() {
-//        Ingredient ingredient = new Ingredient(SAUCE, "example_name", 0);
-//        Assert.assertTrue(ingredient.getPrice() > 0);
-//    }
-//
-//    @Test
-//    public void setBlancOrSpaceName() {
-//        Ingredient ingredient = new Ingredient(FILLING, "", 3);
-//        Assert.assertTrue(ingredient.getName().trim().length() > 0);
-//    }
 }
 
