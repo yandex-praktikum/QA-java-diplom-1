@@ -17,15 +17,16 @@ public class IngredientTypeTest {
         this.stringIngredientType = stringIngredientType;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Ingredient type: {0}")
     public static Object[][] getParameters() {
-        return new Object[][] {
+        return new Object[][]{
                 {IngredientType.SAUCE, "SAUCE"},
                 {IngredientType.FILLING, "FILLING"}
         };
     }
+
     @Test
     public void valueOfReturnCorrectEnum() {
-        Assert.assertEquals("Результат не корректный, ожидалось: " + ingredientType.toString(),ingredientType, IngredientType.valueOf(stringIngredientType));
+        Assert.assertEquals("Результат не корректный, ожидалось: " + ingredientType.toString(), ingredientType, IngredientType.valueOf(stringIngredientType));
     }
 }
