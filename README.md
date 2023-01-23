@@ -12,3 +12,7 @@ JUnit 4, Mockito, Apache Commons Lang3
 
 ## Plugins
 JaCoCo
+
+## Generate report
+Use following command from project directory:
+`mvn clean verify`
