@@ -7,14 +7,17 @@ import static org.junit.Assert.assertEquals;
 public class IngredientTypeTest {
 
     @Test
-    public void values() {
-        assertEquals("SAUCE", IngredientType.SAUCE.name());
-        assertEquals("FILLING", IngredientType.FILLING.name());
+    public void ingredientTypeSauceTest() {
+        assertEquals(IngredientType.valueOf("SAUCE"), IngredientType.SAUCE);
     }
 
     @Test
-    public void valueOfIngredientType() {
-        IngredientType.valueOf("SAUCE");
-        IngredientType.valueOf("FILLING");
+    public void ingredientTypeFillingTest() {
+        assertEquals(IngredientType.valueOf("FILLING"), IngredientType.FILLING);
+    }
+
+    @Test
+    public void ingredientTypeEnumCount() {
+        assertEquals(2, IngredientType.values().length);
     }
 }

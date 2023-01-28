@@ -16,6 +16,6 @@ public class BunTest {
     @Test
     public void getPrice() {
         bun = new Bun("white bun", 200);
-        Assert.assertEquals(100, bun.getPrice(), 0);
+        Assert.assertEquals(200, bun.getPrice(), 0);
     }
 }
