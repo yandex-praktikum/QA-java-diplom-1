@@ -5,16 +5,13 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 @RunWith(MockitoJUnitRunner.class)
 public class BunTest {
+    Bun bun = new Bun("white bun", 200);
     @Test
     public void getNameTest(){
-        Bun bun = new Bun("kfkf", 200);
-        //Assert.assertEquals(200, bun.getPrice(), 0);
-        Assert.assertEquals("kfkf", bun.getName());
+        Assert.assertEquals("white bun", bun.getName());
     }
     @Test
     public void getPriceTest(){
-        Bun bun = new Bun("kfkf", 200);
         Assert.assertEquals(200, bun.getPrice(), 0);
-        //Assert.assertEquals("kfkf", bun.getName());
     }
 }
