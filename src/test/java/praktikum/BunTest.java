@@ -18,25 +18,21 @@ public class BunTest {
     @Test (expected = Exception.class)
     public void testGetBunNameIsNull()  throws  Exception{
             bun = new Bun(null, 100.F);
-            bun.getName();
         }
 
     @Test (expected = Exception.class)
     public void testGetBunNameIsSpace()  throws  Exception{
             bun = new Bun("   ", 100.F);
-            bun.getName();
         }
 
     @Test (expected = Exception.class)
     public void testGetBunNameIsBlank() throws Exception {
         bun = new Bun("", 100.F);
-        bun.getName();
     }
 
     @Test (expected = Exception.class)
-    public void testGetBunPriceIsNegative() throws Exception {
+    public void testGetBunPriceIsNegative() {
         bun = new Bun("black bun", -0.01F);
-        bun.getPrice();
     }
 
 }

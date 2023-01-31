@@ -1,19 +1,24 @@
 package praktikum;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
-@RunWith(MockitoJUnitRunner.class)
+import static org.junit.Assert.assertEquals;
+
 public class BurgerTest {
-    @Mock
     Bun bun;
 
 
     @Test
     public void setBuns() {
+        String name = "black bun";
+        float price = 100F;
+        Burger burger = new Burger();
+        bun = new Bun(name, price);
+
+        burger.setBuns(bun);
+
+        assertEquals(name,bun.getName());
+        assertEquals(price,bun.getPrice(), 0);
     }
 
     @Test

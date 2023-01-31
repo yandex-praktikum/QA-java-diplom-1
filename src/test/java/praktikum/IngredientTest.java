@@ -13,7 +13,7 @@ public class IngredientTest {
         ingredient = new Ingredient(IngredientType.SAUCE,"name", 10);
     }
     @Test
-    public void getPrice() {
+    public void testIngredientgetPrice() {
         assertEquals(10, ingredient.getPrice(),0);
     }
 
@@ -25,6 +25,11 @@ public class IngredientTest {
     @Test
     public void getTypeSauce() {
         assertEquals(IngredientType.SAUCE, ingredient.getType());
+    }
+    @Test
+    public void TypeIsNullValue() {
+        ingredient = new Ingredient(null,"name", 10);
+
     }
 
 }
