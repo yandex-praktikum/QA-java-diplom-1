@@ -1,20 +1,30 @@
 package praktikum;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class IngredientTest {
+    Ingredient ingredient;
 
+    @Before
+    public void setUp() {
+        ingredient = new Ingredient(IngredientType.SAUCE,"name", 10);
+    }
     @Test
     public void getPrice() {
+        assertEquals(10, ingredient.getPrice(),0);
     }
 
     @Test
     public void getName() {
+        assertEquals("name", ingredient.getName());
     }
 
     @Test
-    public void getType() {
+    public void getTypeSauce() {
+        assertEquals(IngredientType.SAUCE, ingredient.getType());
     }
+
 }
