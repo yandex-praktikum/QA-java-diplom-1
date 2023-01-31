@@ -15,25 +15,25 @@ public class BunTests {
 
     }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetBunNameIsNull() {
-            try {
-                bun = new Bun(null, 100.F);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try {
+            bun = new Bun(null, 100.F);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetBunNameIsSpace() {
-            try {
-                bun = new Bun("   ", 100.F);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try {
+            bun = new Bun("   ", 100.F);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetBunNameIsBlank() {
         try {
             bun = new Bun("", 100.F);
@@ -42,7 +42,7 @@ public class BunTests {
         }
     }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testGetBunPriceIsNegative() {
         try {
             bun = new Bun("black bun", -0.01F);

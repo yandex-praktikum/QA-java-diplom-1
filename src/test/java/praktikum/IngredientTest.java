@@ -3,18 +3,19 @@ package praktikum;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
     Ingredient ingredient;
 
     @Before
     public void setUp() {
-        ingredient = new Ingredient(IngredientType.SAUCE,"name", 10);
+        ingredient = new Ingredient(IngredientType.SAUCE, "name", 10);
     }
+
     @Test
     public void testIngredientGetPrice() {
-        assertEquals(10, ingredient.getPrice(),0);
+        assertEquals(10, ingredient.getPrice(), 0);
     }
 
     @Test
@@ -30,42 +31,42 @@ public class IngredientTest {
     @Test(expected = Exception.class)
     public void testIngredientTypeIsNullValueExpectedException() {
         try {
-            ingredient = new Ingredient(null,"name", 10);
+            ingredient = new Ingredient(null, "name", 10);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    @Test (expected = Exception.class)
+    @Test(expected = Exception.class)
     public void testNameIsNullValueExpectedException() {
         try {
-            ingredient = new Ingredient(IngredientType.SAUCE,null, 10);
+            ingredient = new Ingredient(IngredientType.SAUCE, null, 10);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-    @Test (expected = Exception.class)
-    public void testNameIsEmptyValueExpectedException()  throws  Exception {
+
+    @Test(expected = Exception.class)
+    public void testNameIsEmptyValueExpectedException() {
         try {
-            ingredient = new Ingredient(IngredientType.SAUCE,"", 10);
+            ingredient = new Ingredient(IngredientType.SAUCE, "", 10);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    @Test (expected = Exception.class)
-    public void testPriceIsNegativeExpectedException()  throws  Exception {
+    @Test(expected = Exception.class)
+    public void testPriceIsNegativeExpectedException() {
         try {
-            ingredient = new Ingredient(IngredientType.SAUCE,"name", -10);
+            ingredient = new Ingredient(IngredientType.SAUCE, "name", -10);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
 
 
 }

@@ -17,8 +17,8 @@ public class BurgerTest {
 
         burger.setBuns(bun);
 
-        assertEquals(name,bun.getName());
-        assertEquals(price,bun.getPrice(), 0);
+        assertEquals(name, bun.getName());
+        assertEquals(price, bun.getPrice(), 0);
     }
 
     @Test

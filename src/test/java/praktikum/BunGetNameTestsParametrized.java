@@ -9,9 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class BunGetNameTestsParametrized {
+    Bun bun;
     private String name;
     private String expectedName;
-    Bun bun;
 
     public BunGetNameTestsParametrized(String name, String expectedName) {
         this.name = name;
@@ -21,7 +21,7 @@ public class BunGetNameTestsParametrized {
 
     @Parameterized.Parameters(name = "name : {0}, expectedName : {1}")
     public static Object[][] getTestData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"black bun", "black bun"},
                 {"white bun", "white bun"},
                 {"red bun", "red bun"},
@@ -35,6 +35,7 @@ public class BunGetNameTestsParametrized {
     public void setUp() {
         bun = new Bun(name, 20.0F);
     }
+
     @Test
     public void testBun() {
         assertEquals(expectedName, bun.getName());
