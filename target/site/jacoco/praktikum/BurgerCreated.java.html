@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BurgerCreated.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">praktikum</a> &gt; <a href="index.source.html" class="el_package">praktikum</a> &gt; <span class="el_source">BurgerCreated.java</span></div><h1>BurgerCreated.java</h1><pre class="source lang-java linenums">package praktikum;
+
+import static praktikum.IngredientType.SAUCE;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L7">public class BurgerCreated {</span>
+<span class="fc" id="L8">    public static Burger burgerCreate = new Burger();</span>
+<span class="fc" id="L9">    public static List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();</span>
+
+    public static Burger create() {
+<span class="fc" id="L12">        burgerCreate.setBuns(new Bun(&quot;black bun&quot;, 100));</span>
+<span class="fc" id="L13">        burgerCreate.addIngredient(new Ingredient(SAUCE, &quot;chili sauce&quot;, 300));</span>
+<span class="fc" id="L14">        burgerCreate.addIngredient(new Ingredient(SAUCE, &quot;sour cream&quot;, 200));</span>
+<span class="fc" id="L15">        return burgerCreate;</span>
+    }
+
+    public static void delete() {
+<span class="fc" id="L19">            burgerCreate.ingredients.clear();</span>
+<span class="fc" id="L20">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

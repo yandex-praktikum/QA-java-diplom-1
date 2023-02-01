@@ -13,9 +13,11 @@ public class Praktikum {
 
         // Считаем список доступных булок из базы данных
         List<Bun> buns = database.availableBuns();
+        System.out.println(buns.size());
 
         // Считаем список доступных ингредиентов из базы данных
         List<Ingredient> ingredients = database.availableIngredients();
+        System.out.println(ingredients.size());
 
         // Соберём бургер
         burger.setBuns(buns.get(0));
@@ -30,6 +32,7 @@ public class Praktikum {
 
         // Удалим ингредиент
         burger.removeIngredient(3);
+
 
         // Распечатаем рецепт бургера
         System.out.println(burger.getReceipt());
