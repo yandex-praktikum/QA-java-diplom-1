@@ -82,7 +82,7 @@ public class BurgerTest {
         Assert.assertEquals(expectedPrice, actualPrice,0);
     }
 
-    //чек бургера
+    //чек для бургера
     @Test
     public void getReceiptReturn() {
         Mockito.when(bunMock.getName()).thenReturn("green bun");
