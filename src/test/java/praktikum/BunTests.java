@@ -34,7 +34,7 @@ public class BunTests {
         String nameExpected = "черная булочка c маком";
         bun = new Bun(nameExpected, 100F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя на кириллице", nameExpected, nameActual);
+        assertEquals("Должен видеть имя из 3 букв и более с пробелами между словами", nameExpected, nameActual);
 
     }
 
@@ -69,18 +69,17 @@ public class BunTests {
     @Test(expected = OutOfMemoryError.class)
     public void getNameMaxLengthShowsOutOfMemoryError() {
         //Следует добавить ограничение на максимально возможную строку в имени булочки
-        int maxNumber = Integer.MAX_VALUE;
-        String nameExpected = RandomStringUtils.randomAlphabetic(maxNumber);
+        int textLength = Integer.MAX_VALUE;
+        String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
         bun = new Bun(nameExpected, 100F);
-        String nameActual = bun.getName();
 
     }
 
     @Test
     public void getNameLengthIsMoreThan40000LettersShowsName() {
         //Следует добавить ограничение на максимально возможную строку в имени булочки
-        int maxNumber = (int) Math.sqrt(Integer.MAX_VALUE);
-        String nameExpected = RandomStringUtils.randomAlphabetic(maxNumber);
+        int textLength = (int) Math.sqrt(Integer.MAX_VALUE);
+        String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
         bun = new Bun(nameExpected, 100F);
         String nameActual = bun.getName();
         assertEquals("Должен видеть имя из 46340 букв", nameExpected, nameActual);
@@ -132,7 +131,7 @@ public class BunTests {
         String nameExpected = "black  bun";
         bun = new Bun(nameExpected, 100.F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя состоящее из пробелов", nameExpected, nameActual);
+        assertEquals("Должен видеть имя c более 1 пробелом в середине", nameExpected, nameActual);
 
     }
 
@@ -152,7 +151,7 @@ public class BunTests {
         String nameExpected = "black bun ";
         bun = new Bun(nameExpected, 100.F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя, которое начинается с пробела", nameExpected, nameActual);
+        assertEquals("Должен видеть имя, которое заканчивается пробелом", nameExpected, nameActual);
 
     }
 
