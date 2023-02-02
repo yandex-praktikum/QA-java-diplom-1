@@ -1,73 +1,22 @@
-package praktikum;
+package praktikum.bunTests;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
+import praktikum.Bun;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+/**
+ * В основном негативные или специфические тесты с рекомендациями по улучшению
+ */
 public class BunTests {
     Bun bun;
 
-    @Test
-    public void getNameEnglishLettersShowName() {
-        String nameExpected = "black bun";
-        bun = new Bun(nameExpected, 100F);
-        String nameActual = bun.getName();
-        assertEquals("Должен видеть имя английскими буквами", nameExpected, nameActual);
-
-    }
-
-    @Test
-    public void getNameCyrillicLettersShowName() {
-        String nameExpected = "черная булочка";
-        bun = new Bun(nameExpected, 100F);
-        String nameActual = bun.getName();
-        assertEquals("Должен видеть имя на кириллице", nameExpected, nameActual);
-
-    }
-
-    @Test
-    public void getNameMoreThanTwoWordsShowName() {
-        String nameExpected = "черная булочка c маком";
-        bun = new Bun(nameExpected, 100F);
-        String nameActual = bun.getName();
-        assertEquals("Должен видеть имя из 3 букв и более с пробелами между словами", nameExpected, nameActual);
-
-    }
-
-    @Test
-    public void getNameNoGapsShowName() {
-        String nameExpected = "blackbun";
-        bun = new Bun(nameExpected, 100F);
-        String nameActual = bun.getName();
-        assertEquals("Должен видеть имя без пробелов", nameExpected, nameActual);
-
-    }
-
-    @Test
-    public void getNameUpperCaseShowName() {
-        float priceExpected = 100F;
-        String nameExpected = "BLACKBUN";
-        bun = new Bun(nameExpected, priceExpected);
-        String nameActual = bun.getName();
-        assertEquals("Должен видеть имя с буквами на верхнем регистре", nameExpected, nameActual);
-
-    }
-
-    @Test
-    public void getName1letterShowName() {
-        String nameExpected = "B";
-        bun = new Bun(nameExpected, 100F);
-        String nameActual = bun.getName();
-        assertEquals("Должен видеть имя из 1 буквы", nameExpected, nameActual);
-
-    }
-
     @Test(expected = OutOfMemoryError.class)
-    public void getNameMaxLengthShowsOutOfMemoryError() {
+    public void getNameMaxLengthReturnOutOfMemoryError() {
         //Следует добавить ограничение на максимально возможную строку в имени булочки
         int textLength = Integer.MAX_VALUE;
         String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
@@ -76,7 +25,7 @@ public class BunTests {
     }
 
     @Test
-    public void getNameLengthIsMoreThan40000LettersShowsName() {
+    public void getNameLengthIsMoreThan40000LettersReturnBunName() {
         //Следует добавить ограничение на максимально возможную строку в имени булочки
         int textLength = (int) Math.sqrt(Integer.MAX_VALUE);
         String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
@@ -87,7 +36,7 @@ public class BunTests {
     }
 
     @Test
-    public void getNameSpecificSymbolsShowsName() {
+    public void getNameSpecificSymbolsReturnBunName() {
         //Следует добавить ограничение на допустимые символы в имени булочки
         String nameExpected = RandomStringUtils.randomAscii(5);
         bun = new Bun(nameExpected, 100F);
@@ -97,7 +46,7 @@ public class BunTests {
     }
 
     @Test
-    public void getNameNullValueShowsName() {
+    public void getNameNullValueReturnBunName() {
         //следует ограничить возможность создания объекта Bun, если имя булочки null
         bun = new Bun(null, 100.F);
         String nameActual = bun.getName();
@@ -106,7 +55,7 @@ public class BunTests {
     }
 
     @Test
-    public void getNameEmptyValueShowsName() {
+    public void getNameEmptyValueReturnBunName() {
         //следует ограничить возможность создания объекта Bun, если имя булочки пустое
         String nameExpected = "";
         bun = new Bun(nameExpected, 100.F);
@@ -116,7 +65,7 @@ public class BunTests {
     }
 
     @Test
-    public void getNameGapsOnlyValueShowsName() {
+    public void getNameGapsOnlyValueReturnBunName() {
         //следует ограничить возможность создания объекта Bun, если имя булочки содержит только пробелы
         String nameExpected = "     ";
         bun = new Bun(nameExpected, 100.F);
@@ -126,7 +75,7 @@ public class BunTests {
     }
 
     @Test
-    public void getNameMoreThanOneGapInAMiddleShowsName() {
+    public void getNameMoreThanOneGapInAMiddleReturnBunName() {
         //следует ограничить возможность создания объекта Bun, если имя булочки содерижт более 1 пробела между словами
         String nameExpected = "black  bun";
         bun = new Bun(nameExpected, 100.F);
@@ -136,7 +85,7 @@ public class BunTests {
     }
 
     @Test
-    public void getNameStartsWithGapShowsName() {
+    public void getNameStartsWithGapReturnBunName() {
         //следует ограничить возможность создания объекта Bun, если имя булочки начинается с пробела
         String nameExpected = " black bun";
         bun = new Bun(nameExpected, 100.F);
@@ -146,7 +95,7 @@ public class BunTests {
     }
 
     @Test
-    public void getEndsWithGapShowsName() {
+    public void getEndsWithGapReturnBunName() {
         //следует ограничить возможность создания объекта Bun, если имя булочки заканчивается пробелом
         String nameExpected = "black bun ";
         bun = new Bun(nameExpected, 100.F);
@@ -156,23 +105,7 @@ public class BunTests {
     }
 
     @Test
-    public void getPricePositiveIntegerNumberPositivePrice() {
-        int expectedPrice = 100;
-        bun = new Bun("black bun", expectedPrice);
-        float actualPrice = bun.getPrice();
-        assertEquals("Должен видеть цену с положительным целым числом", expectedPrice, actualPrice, 0);
-    }
-
-    @Test
-    public void getPricePositiveFloatNumberShowsPositivePrice() {
-        float expectedPrice = 100.01F;
-        bun = new Bun("black bun", expectedPrice);
-        float actualPrice = bun.getPrice();
-        assertEquals("Должен видеть цену с положительным дробным числом", expectedPrice, actualPrice, 0);
-    }
-
-    @Test
-    public void getPriceNegativeNumberShowsNegativePrice() {
+    public void getPriceNegativeNumberReturnBunNegativePrice() {
         //следует ограничить возможность создания объекта Bun с отрицательной ценой
         float negativePrice = -0.01F;
         bun = new Bun("black bun", negativePrice);
@@ -180,12 +113,12 @@ public class BunTests {
     }
 
     @Test
-    public void getPriceZeroNumberShowsZeroPrice() {
+    public void getPriceMaxFloatNumberReturnBunPrice() {
         //следует ограничить возможность создания объекта Bun с нулевой ценой
-        float expectedZeroPrice = 0F;
-        bun = new Bun("black bun", expectedZeroPrice);
+        float expectedMaxFloatNumber = Float.MAX_VALUE;
+        bun = new Bun("black bun", expectedMaxFloatNumber);
         float actualPrice = bun.getPrice();
-        assertEquals("Должен видеть цену 0", actualPrice, expectedZeroPrice, 0);
+        assertEquals("Должен видеть максимальное число типа float", actualPrice, expectedMaxFloatNumber, 0);
     }
 
 
