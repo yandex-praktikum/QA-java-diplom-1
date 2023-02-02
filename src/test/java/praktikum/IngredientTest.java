@@ -1,7 +1,6 @@
 package praktikum;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -49,6 +48,7 @@ public class IngredientTest {
         assertEquals("Должен видеть имя с буквами на верхнем регистре", nameExpected, nameActual);
 
     }
+
     @Test
     public void getName1letterShowName() {
         String nameExpected = "m";
@@ -130,7 +130,7 @@ public class IngredientTest {
 
     @Test
     public void getEndsWithGapShowsName() {
-        //следует ограничить возможность создания объекта Ingridient, если имя заканчивается пробелом
+        //следует ограничить возможность создания объекта Ingredient, если имя заканчивается пробелом
         String nameExpected = "горчица ";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
@@ -165,7 +165,7 @@ public class IngredientTest {
     public void getTypeNullShowsNull() {
         //следует ограничить возможность создания объекта Ingredient, если тип null
         ingredient = new Ingredient(null, "горчица", 200F);
-        assertThat("Должен видеть тип с null", ingredient.getType(), is(nullValue()));;
+        assertThat("Должен видеть тип с null", ingredient.getType(), is(nullValue()));
 
     }
 
@@ -201,8 +201,6 @@ public class IngredientTest {
         float actualPrice = ingredient.getPrice();
         assertEquals("Должен видеть цену 0", actualPrice, expectedZeroPrice, 0);
     }
-
-
 
 
 }
