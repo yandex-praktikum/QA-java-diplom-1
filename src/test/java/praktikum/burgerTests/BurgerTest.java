@@ -3,102 +3,127 @@ package praktikum.burgerTests;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import praktikum.IngredientType;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    private Bun bun;
     Burger burger;
+    @Mock
+    private Bun bunMock;
+    @Mock
+    private Ingredient ingredientMock;
+    private Bun bunReal;
 
     @Before
     public void setUp() {
         burger = new Burger();
+        Mockito.when(bunMock.getPrice()).thenReturn(100.0F);
+        Mockito.when(ingredientMock.getPrice()).thenReturn(50.0F);
+        Mockito.when(bunMock.getName()).thenReturn("white bun");
+
     }
 
+    @Test
+    public void setBunReturnsBun() {
+        bunMock = new Bun("black bun", 100F);
+        burger.setBuns(bunMock);
+
+        assertEquals(bunMock, burger.bun);
+    }
 
     @Test
-    public void setBunValidValuesReturnsValidBun() {
-        bun = new Bun("black bun", 100F);
-        burger.setBuns(bun);
-        assertEquals(bun, burger.bun);
+    public void setBunReturnsValidBunName() {
+        burger.setBuns(bunMock);
 
+        String expectedName = "white bun";
+        String actualName = burger.bun.getName();
+
+        assertEquals(expectedName, actualName);
+
+    }
+
+    @Test
+    public void setBunReturnsValidBunPrice() {
+        burger.setBuns(bunMock);
+
+        float expectedPrice = 100.0F;
+        float actualPrice = burger.bun.getPrice();
+
+        assertEquals(expectedPrice, actualPrice, 0);
     }
 
     @Test
     public void setBunNullReturnsNullBun() {
         //следует ограничить возможность устанавливать булки с null
-        burger.setBuns(bun);
-        assertThat("Должен видеть объект null", bun, is(nullValue()));
+        burger.setBuns(bunReal);
+
+        assertThat("Должен видеть объект null", bunReal, is(nullValue()));
 
     }
 
     @Test(expected = NullPointerException.class)
-    public void getPriceNoBunShowsException() {
+    public void getPriceNoBunNoIngredientsShowsException() {
         burger.getPrice();
     }
 
     @Test
-    public void shouldNotSeePriceWithoutBun1() {
-        float bunPrice = 100F; //todo подумать над наименованиями
-        float actualPrice = 200F;
-        bun = new Bun("some name", bunPrice);
-        burger.setBuns(bun);
+    public void getPriceBunOnlyReturnBurgerPrice() {
+        burger.setBuns(bunMock);
 
-        assertThat("Should see price with bun", burger.getPrice(), is(actualPrice));
+        float expectedPrice = 200.0F; //bunPrice * 2
+        float actualPrice = burger.getPrice();
 
-    }
-
-    @Test
-    public void shouldNotSeePriceWithoutBun2() {
-        float bunPrice = 100F; //todo подумать над наименованиями
-        float actualPrice = 200F;
-
-        bun = new Bun("some name", bunPrice);
-        burger.setBuns(bun);
-
-        assertThat("Should see price with bun", burger.getPrice(), is(actualPrice));
-
-    }
-
-
-    @Test
-    public void addIngredient() {
-        List<Ingredient> ingredientList = new ArrayList<Ingredient>();
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "name", 100));
-    }
-
-    @Test
-    public void removeIngredient() {
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "name", 100));
-    }
-
-    @Test
-    public void moveIngredient() {
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "name", 100));
-    }
-
-    @Test
-    public void getPrice() {
-        bun = new Bun("Name1", 100F);
-
-        burger.ingredients.add(new Ingredient(IngredientType.SAUCE, "name", 50));
-        assertEquals(250, burger.getPrice());
+        assertEquals("Ожидается цена с учетом булки", expectedPrice, actualPrice, 0);
 
     }
 
     @Test
-    public void getReceipt() {
+    public void getPriceBunAndOneIngredientReturnBurgerPrice() {
+        burger.setBuns(bunMock);
+        burger.addIngredient(ingredientMock);
+
+        float expectedPrice = 250.0F; //bunPrice * 2 + each ingredientPrice
+        float actualPrice = burger.getPrice();
+
+        assertEquals("Ожидается цена с учетом булки и 1 ингридиента", expectedPrice, actualPrice, 0);
+
     }
+
+    @Test
+    public void getPriceBunAndMoreThan1IngredientReturnBurgerPrice() {
+        burger.setBuns(bunMock);
+        burger.addIngredient(ingredientMock);
+        burger.addIngredient(ingredientMock);
+
+        float expectedPrice = 300.0F; //bunPrice * 2 + each ingredientPrice
+        float actualPrice = burger.getPrice();
+
+        assertEquals("Ожидается цена с учетом булки и более 1 ингридиента", expectedPrice, actualPrice, 0);
+
+    }
+
+    @Test
+    public void getPriceBunAnd1IngredientRemovedReturnBurgerPrice() {
+        burger.setBuns(bunMock);
+        burger.addIngredient(ingredientMock);
+        burger.removeIngredient(0);
+
+        float expectedPrice = 200.0F; //bunPrice * 2 + each ingredientPrice - price of removed ingredient
+        float actualPrice = burger.getPrice();
+
+        assertEquals("Ожидается цена с учетом булки и удаленного ингридиента", expectedPrice, actualPrice, 0);
+
+    }
+
 }
