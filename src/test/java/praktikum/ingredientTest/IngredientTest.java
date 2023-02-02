@@ -1,7 +1,8 @@
-package praktikum;
+package praktikum.ingredientTest;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
+import praktikum.Ingredient;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
