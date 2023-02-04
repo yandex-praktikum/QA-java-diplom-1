@@ -46,6 +46,13 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>praktikum/Database.class</exclude>
+                        <exclude>praktikum/Praktikum.class</exclude>
+                    </excludes>
+                </configuration>
+
                 <executions>
                     <execution>
                         <!--id выбираешь самостоятельно-->
