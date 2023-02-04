@@ -15,7 +15,7 @@ import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerReceiptTests {
+public class BurgerReceiptTest {
     Burger burger = new Burger();
     @Mock
     private Bun bunMock;

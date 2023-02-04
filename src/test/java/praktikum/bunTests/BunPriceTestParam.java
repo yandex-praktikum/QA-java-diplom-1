@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
  */
 
 @RunWith(Parameterized.class)
-public class BunPriceTestsParam {
+public class BunPriceTestParam {
     @Parameterized.Parameter(0)
     public String comment;
     @Parameterized.Parameter(1)

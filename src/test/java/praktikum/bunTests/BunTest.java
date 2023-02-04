@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 /**
  * В основном негативные или специфические тесты с рекомендациями по улучшению
  */
-public class BunTests {
+public class BunTest {
     Bun bun;
 
     @Test(expected = OutOfMemoryError.class)

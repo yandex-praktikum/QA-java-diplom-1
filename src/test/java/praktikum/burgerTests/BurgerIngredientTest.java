@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerIngredientTests {
+public class BurgerIngredientTest {
 
 
     private final Ingredient ingredientMock1 = mock(Ingredient.class);
