@@ -90,7 +90,7 @@ public class BurgerIngredientTests {
         int expectedListSize = 3;
         int actualListSize = burger.ingredients.size();
 
-        assertEquals("Ожидается длина списка не изменилась", expectedListSize, actualListSize);
+        assertEquals("Ожидается, что длина списка не изменилась", expectedListSize, actualListSize);
         assertEquals("Ожидается, что ингридиент №3 перемещен в начало списка", burger.ingredients.get(0), ingredientMock3);
 
     }
