@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 
 import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
@@ -16,8 +17,8 @@ import static org.junit.Assert.assertEquals;
 public class BurgerTest {
 
     Database database = new Database();
-    @Mock
-    private Burger burger;
+    //@Mock
+    private Burger burger = new Burger();
     @Mock
     private Bun bun;
     @Mock
@@ -28,49 +29,44 @@ public class BurgerTest {
 
     @Test
     public void setBunsTest() {
-        burger.bun = bun;
-        burger.setBuns(buns.get(1));
-        Mockito.verify(burger, Mockito.times(1)).setBuns(buns.get(1));
-        assertNotNull(burger.bun);
-
+        Bun b = buns.get(0);
+        burger.setBuns(b);
+        assertEquals(b, burger.bun);
     }
+
     @Test
     public void removeIngredientTest() {
-        burger.ingredients = ingredients;
         burger.addIngredient(ingredients.get(0));
         burger.removeIngredient(0);
-        Mockito.verify(burger, Mockito.times(1)).removeIngredient(0);
-        System.out.println(ingredients.isEmpty());
-        assertTrue(ingredients.isEmpty());
-        //assertTrue("ингридиент удален, пусто", ingredients.isEmpty());
-        //System.out.println(ingredients.isEmpty());
-        //assertFalse("Not Empty", ingredients.isEmpty());
+        assertTrue("ингридиент НЕ удален, НЕ пусто", burger.ingredients.isEmpty());
     }
+
     @Test
     public void addIngredientTest() {
-        burger.ingredients = ingredients;
-        burger.addIngredient(ingredients.get(1));
-        assertNotNull(burger.ingredients);
-        Mockito.verify(burger, Mockito.times(1)).addIngredient(ingredients.get(1));
+        Ingredient i = ingredients.get(0);
+        burger.addIngredient(i);
+        assertEquals(i, burger.ingredients.get(burger.ingredients.size() - 1));
     }
+
+
+
     @Test
     public void moveIngredientTest() {
         burger.ingredients = ingredients;
-        burger.addIngredient(ingredient);
-        burger.moveIngredient(0,1);
-        Mockito.verify(burger, Mockito.times(1)).moveIngredient(0,1);
-        assertFalse(ingredients.isEmpty());
+        int index = burger.ingredients.size() - 1;
+        int newIndex = burger.ingredients.size() - 2;
+        Ingredient ingredientToMove = burger.ingredients.get(index);
+        burger.moveIngredient(index, newIndex);
+        Ingredient movedIngredient = burger.ingredients.get(newIndex);
+        assertEquals(ingredientToMove, movedIngredient);
     }
+
     @Test
     public void getPriceOfBurgerTest() {
-
         Burger burger = new Burger();
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
-        Mockito.when(bun.getPrice()).thenReturn(100F);
-        Mockito.when(ingredient.getPrice()).thenReturn(400F);
-        assertEquals("Метод должен возвращать цену 1000",1000, burger.getPrice(), 0);
-
+        burger.setBuns(buns.get(0));
+        burger.addIngredient(ingredients.get(0));
+        burger.addIngredient(ingredients.get(1));
+        assertEquals(500.0, burger.getPrice(), 0);
     }
 }
