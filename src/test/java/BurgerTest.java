@@ -30,7 +30,6 @@ public class BurgerTest {
         boolean actual = ingredientSize > 0;
         assertTrue("Expected ingredient list size more than 0", actual);
     }
-
     @Test
 
     public void ingredientCanBeRemoved() {
