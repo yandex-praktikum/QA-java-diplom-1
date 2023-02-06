@@ -31,7 +31,7 @@ public class IngredientTest {
     @Test
     public void testIngredient(){
         ingredient =  new Ingredient(type, name, price);
-        assertEquals(price, ingredient.getPrice(), 0.001);
+        assertEquals(price, ingredient.getPrice(), 0.00);
         assertEquals(name, ingredient.getName());
         assertEquals(type, ingredient.getType());
     }
