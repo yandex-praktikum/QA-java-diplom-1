@@ -3,7 +3,6 @@ package praktikum.burgerTests;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
@@ -11,6 +10,8 @@ import praktikum.Ingredient;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
@@ -30,7 +31,7 @@ public class BurgerReceiptTest {
     }
 
     @Test
-    public void getReceiptBunNullNoIngredientsShowsEmptyReceipt() {
+    public void getReceiptNullBunNoIngredientsShowsNullBunAndReceiptPrice() {
         burger.setBuns(bunMock);
 
         String expectedReceipt = "(==== null ====)\n" + "(==== null ====)\n" + "\nPrice: 0,000000\n";
@@ -41,13 +42,11 @@ public class BurgerReceiptTest {
     }
 
     @Test
-    public void getReceiptBunNoIngredientsShowsBunNameAndBurgerPriceInReceipt() {
+    public void getReceiptEmptyBunNoIngredientsShowsEmptyBunAndZeroReceiptPrice() {
+        when(bunMock.getName()).thenReturn("");
         burger.setBuns(bunMock);
 
-        Mockito.when(bunMock.getPrice()).thenReturn(0.00F);
-        Mockito.when(bunMock.getName()).thenReturn("red bun");
-
-        String expectedReceipt = "(==== red bun ====)\n" + "(==== red bun ====)\n" + "\nPrice: 0,000000\n";
+        String expectedReceipt = "(====  ====)\n" + "(====  ====)\n" + "\nPrice: 0,000000\n";
         String actualReceipt = burger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
         assertThat(expectedReceipt, equalTo(actualReceipt));
@@ -55,31 +54,46 @@ public class BurgerReceiptTest {
     }
 
     @Test
-    public void getReceipt() {
+    public void getReceiptBunNoIngredientsShowsBunNameAndBurgerPrice() {
+        Burger newBurger = spy(Burger.class);
 
-        Mockito.when(bunMock.getPrice()).thenReturn(0.00F);
-        Mockito.when(bunMock.getName()).thenReturn("red bun");
+        when(bunMock.getName()).thenReturn("red bun");
+        newBurger.setBuns(bunMock);
+        when(newBurger.getPrice()).thenReturn(100F);
 
-        Mockito.when(ingredientMock1.getType()).thenReturn(FILLING);
-        Mockito.when(ingredientMock1.getName()).thenReturn("meat");
-        Mockito.when(ingredientMock1.getPrice()).thenReturn(5.05F);
+        String expectedReceipt = "(==== red bun ====)\n" + "(==== red bun ====)\n" + "\nPrice: 100,000000\n";
+        String actualReceipt = newBurger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
-        Mockito.when(ingredientMock2.getType()).thenReturn(SAUCE);
-        Mockito.when(ingredientMock2.getName()).thenReturn("mustard");
-        Mockito.when(ingredientMock2.getPrice()).thenReturn(4.05F);
+        assertThat(expectedReceipt, equalTo(actualReceipt));
 
-        burger.setBuns(bunMock);
-        burger.addIngredient(ingredientMock1);
-        burger.addIngredient(ingredientMock2);
+    }
 
+    @Test
+    public void getReceiptBunAndIngredientsShowsBunNameIngredientsAndBurgerPrice() {
+        Burger newBurger = spy(Burger.class);
+
+        when(bunMock.getName()).thenReturn("red bun");
+        newBurger.setBuns(bunMock);
+        when(newBurger.getPrice()).thenReturn(100F);
+
+        when(bunMock.getName()).thenReturn("red bun");
+
+        when(ingredientMock1.getType()).thenReturn(FILLING);
+        when(ingredientMock1.getName()).thenReturn("meat");
+
+        when(ingredientMock2.getType()).thenReturn(SAUCE);
+        when(ingredientMock2.getName()).thenReturn("mustard");
+
+        newBurger.addIngredient(ingredientMock1);
+        newBurger.addIngredient(ingredientMock2);
 
         String expectedReceipt = "(==== red bun ====)\n"
                 + "= filling meat =\n"
                 + "= sauce mustard =\n"
                 + "(==== red bun ====)\n"
-                + "\nPrice: 9,100000\n";
+                + "\nPrice: 100,000000\n";
 
-        String actualReceipt = burger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
+        String actualReceipt = newBurger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
         assertThat(expectedReceipt, equalTo(actualReceipt));
 
