@@ -19,7 +19,16 @@ public class BunTest {
         return new Object[][]{
                 {"black bun", 100},
                 {"white bun", 200},
+                {"", 200},
+                {"sdgdgsdgdsgdsgdsgdsgdsgdsgdsgsdgsdgsdgsdgdsgsdgsdgdsgsdgsdgdsg ", 200},
+                {"null", 200},
+                {"$%#^@&$$(%^^)Ffffgsdg", 200},
+                {"white bun", -4},
+                {"white bun", 0},
+                {"white bun", 1.3},
+                {"white bun", 235325325},
                 {"red bun", 300}
+
         };
     }
 
