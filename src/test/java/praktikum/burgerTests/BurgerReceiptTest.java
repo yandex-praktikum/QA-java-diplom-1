@@ -10,8 +10,7 @@ import praktikum.Ingredient;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
@@ -55,14 +54,14 @@ public class BurgerReceiptTest {
 
     @Test
     public void getReceiptBunNoIngredientsShowsBunNameAndBurgerPrice() {
-        Burger newBurger = spy(Burger.class);
+        Burger burgerSpy = spy(Burger.class);
 
         when(bunMock.getName()).thenReturn("red bun");
-        newBurger.setBuns(bunMock);
-        when(newBurger.getPrice()).thenReturn(100F);
+        burgerSpy.setBuns(bunMock);
+        doReturn(100F).when(burgerSpy).getPrice();
 
         String expectedReceipt = "(==== red bun ====)\n" + "(==== red bun ====)\n" + "\nPrice: 100,000000\n";
-        String actualReceipt = newBurger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
+        String actualReceipt = burgerSpy.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
         assertThat(expectedReceipt, equalTo(actualReceipt));
 
@@ -70,11 +69,11 @@ public class BurgerReceiptTest {
 
     @Test
     public void getReceiptBunAndIngredientsShowsBunNameIngredientsAndBurgerPrice() {
-        Burger newBurger = spy(Burger.class);
+        Burger burgerSpy = spy(Burger.class);
 
         when(bunMock.getName()).thenReturn("red bun");
-        newBurger.setBuns(bunMock);
-        when(newBurger.getPrice()).thenReturn(100F);
+        burgerSpy.setBuns(bunMock);
+        doReturn(100F).when(burgerSpy).getPrice();
 
         when(bunMock.getName()).thenReturn("red bun");
 
@@ -84,8 +83,8 @@ public class BurgerReceiptTest {
         when(ingredientMock2.getType()).thenReturn(SAUCE);
         when(ingredientMock2.getName()).thenReturn("mustard");
 
-        newBurger.addIngredient(ingredientMock1);
-        newBurger.addIngredient(ingredientMock2);
+        burgerSpy.addIngredient(ingredientMock1);
+        burgerSpy.addIngredient(ingredientMock2);
 
         String expectedReceipt = "(==== red bun ====)\n"
                 + "= filling meat =\n"
@@ -93,7 +92,7 @@ public class BurgerReceiptTest {
                 + "(==== red bun ====)\n"
                 + "\nPrice: 100,000000\n";
 
-        String actualReceipt = newBurger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
+        String actualReceipt = burgerSpy.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
         assertThat(expectedReceipt, equalTo(actualReceipt));
 
