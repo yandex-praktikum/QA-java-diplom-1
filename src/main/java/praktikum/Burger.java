@@ -30,6 +30,10 @@ public class Burger {
         ingredients.add(newIndex, ingredients.remove(index));
     }
 
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
     public float getPrice() {
         float price = bun.getPrice() * 2;
 

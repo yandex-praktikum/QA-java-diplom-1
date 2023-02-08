@@ -25,9 +25,9 @@ public class TestBun {
     @Parameterized.Parameters
     public static Object[][] getTestData() {
         return new Object[][]{
-                {"black bun", 100.5f, "black bun", 100.5f},
-                {"white bun", 200.7f, "white bun", 200.7f},
-                {"red bun", 300.8f, "red bun", 300.8f}
+                {"black bun", 100.0f, "black bun", 100.0f},
+                {"white bun", 200.0f, "white bun", 200.0f},
+                {"red bun", 300.0f, "red bun", 300.0f}
         };
     }
 
