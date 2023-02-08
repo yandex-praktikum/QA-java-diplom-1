@@ -8,6 +8,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -45,9 +47,9 @@ public class BurgerTest {
 
     @Test
     public void checkGetPrice() {
-        Mockito.when(bun.getPrice()).thenReturn(100f);
-        Mockito.when(ingredientSauce.getPrice()).thenReturn(100f);
-        Mockito.when(ingredientFilling.getPrice()).thenReturn(100f);
+        when(bun.getPrice()).thenReturn(100f);
+        when(ingredientSauce.getPrice()).thenReturn(100f);
+        when(ingredientFilling.getPrice()).thenReturn(100f);
         assertEquals(400f, burger.getPrice(), 0.00);
 
     }
@@ -59,4 +61,19 @@ public class BurgerTest {
 
     }
 
+    @Test
+    public void testGetReceipt() {
+        when(bun.getName()).thenReturn("Bun");
+        when(ingredientSauce.getType()).thenReturn(IngredientType.FILLING);
+        when(ingredientSauce.getName()).thenReturn("ingredientSauce");
+        when(ingredientFilling.getType()).thenReturn(IngredientType.SAUCE);
+        when(ingredientFilling.getName()).thenReturn("ingredientFilling");
+        String expected = "(==== Bun ====)\n" +
+                "= filling ingredientSauce =\n" +
+                "= sauce ingredientFilling =\n" +
+                "(==== Bun ====)\n" +
+                "\nPrice: 0,000000\n";
+        String actual = burger.getReceipt();
+        assertEquals(expected, actual);
+    }
 }
