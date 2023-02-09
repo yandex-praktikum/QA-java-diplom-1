@@ -4,7 +4,6 @@ import praktikum.Ingredient;
 import praktikum.IngredientType;
 
 public class IngredientTest {
-    //забабахать параметризацию для IngredientType
     Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 200);
     @Test
     public void getPriceTest(){
