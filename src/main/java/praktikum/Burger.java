@@ -18,8 +18,16 @@ public class Burger {
         this.bun = bun;
     }
 
+    public Bun getBun() {
+        return bun;
+    }
+
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 
     public void removeIngredient(int index) {
