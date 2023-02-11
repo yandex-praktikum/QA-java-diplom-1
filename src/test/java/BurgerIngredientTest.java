@@ -50,5 +50,4 @@ public class BurgerIngredientTest {
         String actual = burger.ingredients.get(burger.ingredients.size() - 1).getName();
         assertEquals("Ингредиенты должны совпадать", expected, actual);
     }
-
 }

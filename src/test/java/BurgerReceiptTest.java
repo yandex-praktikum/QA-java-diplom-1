@@ -16,17 +16,18 @@ import static org.mockito.Mockito.spy;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerReceiptTest {
-    @Mock
-    Bun bun;
 
     Ingredient filling;
     Ingredient sauce;
+
+    Bun bun;
     @Spy
     Burger burgerSpy;
 
     @Before
     public void setUp() {
         burgerSpy = spy(Burger.class);
+        bun = new Bun("black bun", 100);
         filling = new Ingredient(IngredientType.FILLING, "cutlet", 100);
         sauce = new Ingredient(IngredientType.SAUCE, "sour cream", 200);
         burgerSpy.addIngredient(sauce);
@@ -36,7 +37,6 @@ public class BurgerReceiptTest {
     @Test
     public void getReceiptBunSauceFillingTrue() {
         burgerSpy.setBuns(bun);
-        Mockito.when(bun.getName()).thenReturn("black bun");
         doReturn(500F).when(burgerSpy).getPrice();
         String expected = "(==== black bun ====)\r\n= sauce sour cream =" + "\r\n= filling cutlet =\r\n(==== black bun ====)\r\n\r\nPrice: 500,000000\r\n";
         String actual = burgerSpy.getReceipt();
