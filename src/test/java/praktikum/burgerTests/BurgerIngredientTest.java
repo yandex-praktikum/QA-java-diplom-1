@@ -90,6 +90,7 @@ public class BurgerIngredientTest {
         assertThat("Ожидается, что из списка удален только 2 игридиент", burger.ingredients, not(hasItem(ingredientMock2)));
 
     }
+
     @Test(expected = IndexOutOfBoundsException.class)
     public void removeIngredientWhenMissingItemExpectedException() {
         burger.addIngredient(ingredientMock1);

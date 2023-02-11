@@ -4,7 +4,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import praktikum.Bun;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
