@@ -17,11 +17,11 @@ public class BunNameTestParam {
     @Parameterized.Parameter(0)
     public String comment;
     @Parameterized.Parameter(1)
-    public String nameProvided;
+    public String nameExpected;
     @Parameterized.Parameter(2)
     public String nameActual;
 
-    @Parameterized.Parameters(name = "comment : {0}, nameProvided : {1}, nameActual : {2}")
+    @Parameterized.Parameters(name = "comment : {0}, nameExpected : {1}, nameActual : {2}")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {"English", "black bun", "black bun"},
@@ -35,9 +35,9 @@ public class BunNameTestParam {
 
     @Test
     public void getNameValidValueReturnValidBunName() {
-        Bun bun = new Bun(nameProvided, 100F);
+        Bun bun = new Bun(nameExpected, 100F);
         nameActual = bun.getName();
-        assertEquals(nameActual, nameProvided);
+        assertEquals(nameActual, nameExpected);
 
     }
 

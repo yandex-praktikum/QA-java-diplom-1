@@ -16,11 +16,11 @@ public class BunPriceTestParam {
     @Parameterized.Parameter(0)
     public String comment;
     @Parameterized.Parameter(1)
-    public float priceProvided;
+    public float priceExpected;
     @Parameterized.Parameter(2)
     public float priceActual;
 
-    @Parameterized.Parameters(name = "comment : {0}, priceProvided : {1}, priceActual : {2}")
+    @Parameterized.Parameters(name = "comment : {0}, priceExpected : {1}, priceActual : {2}")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {"Положительное целое число", 100, 100},
@@ -32,9 +32,9 @@ public class BunPriceTestParam {
 
     @Test
     public void getPriceValidValueReturnValidBunPrice() {
-        Bun bun = new Bun("black bun", priceProvided);
+        Bun bun = new Bun("black bun", priceExpected);
         priceActual = bun.getPrice();
-        assertEquals(priceActual, priceProvided, 0);
+        assertEquals(priceActual, priceExpected, 0);
 
     }
 
