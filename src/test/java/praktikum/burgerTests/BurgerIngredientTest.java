@@ -14,7 +14,6 @@ import static org.mockito.Mockito.mock;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerIngredientTest {
 
-
     private final Ingredient ingredientMock1 = mock(Ingredient.class);
     private final Ingredient ingredientMock2 = mock(Ingredient.class);
     private final Ingredient ingredientMock3 = mock(Ingredient.class);
@@ -27,7 +26,7 @@ public class BurgerIngredientTest {
     }
 
     @Test
-    public void addIngredientOneItemShowsItemAdded() {
+    public void addIngredientWhenOneItemResultOneItemAdded() {
         burger.addIngredient(ingredientMock1);
 
         int expectedListSize = 1;
@@ -39,14 +38,27 @@ public class BurgerIngredientTest {
     }
 
     @Test
-    public void addIngredientSeveralItemsShowsItemsAdded() {
+    public void addIngredientWhenSeveralItemsShowsAllItemsAdded() {
         burger.addIngredient(ingredientMock1);
         burger.addIngredient(ingredientMock2);
+        burger.addIngredient(ingredientMock3);
+        int expectedListSize = 3;
+        int actualListSize = burger.ingredients.size();
+
+        assertEquals("Ожидается длина списка больше 1", expectedListSize, actualListSize);
+        assertThat("Ожидается, что в списке есть ингридиенты 1, 2, 3", burger.ingredients, hasItems(ingredientMock1, ingredientMock2, ingredientMock3));
+
+    }
+
+    @Test
+    public void addIngredientWhenSameItemAddedTwiceShowsListWithTwoItems() {
+        burger.addIngredient(ingredientMock1);
+        burger.addIngredient(ingredientMock1);
         int expectedListSize = 2;
         int actualListSize = burger.ingredients.size();
 
         assertEquals("Ожидается длина списка больше 1", expectedListSize, actualListSize);
-        assertThat("Ожидается, что в списке есть ингридиенты 1 и 2", burger.ingredients, hasItems(ingredientMock1, ingredientMock2));
+        assertThat("Ожидается, что в списке есть 2 ингридиента №1", burger.ingredients, hasItems(ingredientMock1, ingredientMock1));
 
     }
 
@@ -78,10 +90,16 @@ public class BurgerIngredientTest {
         assertThat("Ожидается, что из списка удален только 2 игридиент", burger.ingredients, not(hasItem(ingredientMock2)));
 
     }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeIngredientWhenMissingItemExpectedException() {
+        burger.addIngredient(ingredientMock1);
+        burger.removeIngredient(1);
+
+    }
 
 
     @Test
-    public void moveIngredient() {
+    public void moveIngredientResultItemsChangedPosition() {
         burger.addIngredient(ingredientMock1);
         burger.addIngredient(ingredientMock2);
         burger.addIngredient(ingredientMock3);
@@ -92,6 +110,14 @@ public class BurgerIngredientTest {
 
         assertEquals("Ожидается, что длина списка не изменилась", expectedListSize, actualListSize);
         assertEquals("Ожидается, что ингридиент №3 перемещен в начало списка", burger.ingredients.get(0), ingredientMock3);
+
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void moveIngredientWhenMissingItemExpectedException() {
+        burger.addIngredient(ingredientMock1);
+        burger.addIngredient(ingredientMock2);
+        burger.moveIngredient(2, 0);
 
     }
 
