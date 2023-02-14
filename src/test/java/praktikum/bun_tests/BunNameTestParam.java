@@ -13,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class BunNameTestParam {
-
     @Parameterized.Parameter(0)
     public String comment;
     @Parameterized.Parameter(1)
@@ -38,8 +37,7 @@ public class BunNameTestParam {
     public void getNameValidValueReturnValidBunName() {
         Bun bun = new Bun(nameExpected, defaultPrice);
         nameActual = bun.getName();
-
-        assertEquals(comment,nameExpected, nameActual);
+        assertEquals(comment, nameExpected, nameActual);
 
     }
 

@@ -81,7 +81,7 @@ public class IngredientTest {
 
     @Test
     public void getNameSpecificSymbolsShowsName() {
-        //Следует добавить ограничение на допустимые символы в имени ингридиента
+        //Следует добавить ограничение на допустимые символы в имени ингредиента
         String nameExpected = RandomStringUtils.randomAscii(5);
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();

@@ -38,7 +38,6 @@ public class BurgerTest {
     public void setBunReturnsBun() {
         bunMock = new Bun("black bun", 100F);
         burger.setBuns(bunMock);
-
         assertEquals(bunMock, burger.bun);
     }
 
@@ -67,7 +66,6 @@ public class BurgerTest {
     public void setBunNullReturnsNullBun() {
         //следует ограничить возможность устанавливать булки с null
         burger.setBuns(bunReal);
-
         assertThat("Должен видеть объект null", bunReal, is(nullValue()));
 
     }

@@ -21,7 +21,6 @@ public class BunTest {
         int textLength = Integer.MAX_VALUE;
         String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
         bun = new Bun(nameExpected, 100F);
-
     }
 
     @Test

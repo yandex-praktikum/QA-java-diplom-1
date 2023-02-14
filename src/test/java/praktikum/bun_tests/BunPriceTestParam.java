@@ -35,8 +35,7 @@ public class BunPriceTestParam {
     public void getPriceValidValueReturnValidBunPrice() {
         Bun bun = new Bun(defaultName, priceExpected);
         priceActual = bun.getPrice();
-
-        assertEquals(comment,priceActual, priceExpected, 0);
+        assertEquals(comment, priceActual, priceExpected, 0);
 
     }
 

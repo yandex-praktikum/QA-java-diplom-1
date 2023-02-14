@@ -93,7 +93,6 @@ public class BurgerReceiptTest {
                 + "\nPrice: 100,000000\n";
 
         String actualReceipt = burgerSpy.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
-
         assertThat(expectedReceipt, equalTo(actualReceipt));
 
     }

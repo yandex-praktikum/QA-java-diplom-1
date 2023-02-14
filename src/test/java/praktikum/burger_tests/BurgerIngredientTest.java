@@ -42,6 +42,7 @@ public class BurgerIngredientTest {
         burger.addIngredient(ingredientMock1);
         burger.addIngredient(ingredientMock2);
         burger.addIngredient(ingredientMock3);
+
         int expectedListSize = 3;
         int actualListSize = burger.ingredients.size();
 
@@ -54,6 +55,7 @@ public class BurgerIngredientTest {
     public void addIngredientWhenSameItemAddedTwiceShowsListWithTwoItems() {
         burger.addIngredient(ingredientMock1);
         burger.addIngredient(ingredientMock1);
+
         int expectedListSize = 2;
         int actualListSize = burger.ingredients.size();
 
@@ -72,7 +74,6 @@ public class BurgerIngredientTest {
     public void removeIngredientOneItemListResultListEmpty() {
         burger.addIngredient(ingredientMock1);
         burger.removeIngredient(0);
-
         assertTrue("Ожидается пустой список", burger.ingredients.isEmpty());
 
     }
