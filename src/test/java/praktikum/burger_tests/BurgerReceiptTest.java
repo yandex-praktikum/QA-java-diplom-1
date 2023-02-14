@@ -16,7 +16,7 @@ import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerReceiptTest {
-    Burger burger = new Burger();
+    private final Burger burger = new Burger();
     @Mock
     private Bun bunMock;
     @Mock
@@ -36,8 +36,7 @@ public class BurgerReceiptTest {
         String expectedReceipt = "(==== null ====)\n" + "(==== null ====)\n" + "\nPrice: 0,000000\n";
         String actualReceipt = burger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
-        assertThat(expectedReceipt, equalTo(actualReceipt));
-
+        assertThat("Ожидается булка null и цена в рецепте ", expectedReceipt, equalTo(actualReceipt));
     }
 
     @Test
@@ -48,8 +47,7 @@ public class BurgerReceiptTest {
         String expectedReceipt = "(====  ====)\n" + "(====  ====)\n" + "\nPrice: 0,000000\n";
         String actualReceipt = burger.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
-        assertThat(expectedReceipt, equalTo(actualReceipt));
-
+        assertThat("Ожидается пустая булка и цена в рецепте", expectedReceipt, equalTo(actualReceipt));
     }
 
     @Test
@@ -63,8 +61,7 @@ public class BurgerReceiptTest {
         String expectedReceipt = "(==== red bun ====)\n" + "(==== red bun ====)\n" + "\nPrice: 100,000000\n";
         String actualReceipt = burgerSpy.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
 
-        assertThat(expectedReceipt, equalTo(actualReceipt));
-
+        assertThat("Ожидается непустая булка и цена в рецепте", expectedReceipt, equalTo(actualReceipt));
     }
 
     @Test
@@ -93,8 +90,8 @@ public class BurgerReceiptTest {
                 + "\nPrice: 100,000000\n";
 
         String actualReceipt = burgerSpy.getReceipt().replace("\r", ""); //из-за разницы в сепараторах
-        assertThat(expectedReceipt, equalTo(actualReceipt));
 
+        assertThat("Ожидается непустая булка, тип ингредиента, имя ингридиент и цена в рецепте", expectedReceipt, equalTo(actualReceipt));
     }
 
 }

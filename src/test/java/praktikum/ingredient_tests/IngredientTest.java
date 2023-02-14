@@ -4,10 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import praktikum.Ingredient;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
@@ -19,8 +16,8 @@ public class IngredientTest {
         String nameExpected = "mustard";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя английскими буквами", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя английскими буквами", nameExpected, nameActual);
     }
 
     @Test
@@ -28,8 +25,8 @@ public class IngredientTest {
         String nameExpected = "горчица";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя на кириллице", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя на кириллице", nameExpected, nameActual);
     }
 
     @Test
@@ -37,8 +34,8 @@ public class IngredientTest {
         String nameExpected = "горчица yellow";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя с пробелом", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя с пробелом", nameExpected, nameActual);
     }
 
     @Test
@@ -46,8 +43,8 @@ public class IngredientTest {
         String nameExpected = "MUSTARD";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя с буквами на верхнем регистре", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя с буквами на верхнем регистре", nameExpected, nameActual);
     }
 
     @Test
@@ -55,8 +52,8 @@ public class IngredientTest {
         String nameExpected = "m";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя из 1 буквы", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя из 1 буквы", nameExpected, nameActual);
     }
 
     @Test(expected = OutOfMemoryError.class)
@@ -65,7 +62,6 @@ public class IngredientTest {
         int textLength = Integer.MAX_VALUE;
         String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
-
     }
 
     @Test
@@ -75,8 +71,8 @@ public class IngredientTest {
         String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя из 46340 букв", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя из 46340 букв", nameExpected, nameActual);
     }
 
     @Test
@@ -85,8 +81,8 @@ public class IngredientTest {
         String nameExpected = RandomStringUtils.randomAscii(5);
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя со спецсимволами", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя со спецсимволами", nameExpected, nameActual);
     }
 
     @Test
@@ -95,8 +91,8 @@ public class IngredientTest {
         String nameExpected = RandomStringUtils.randomAscii(5);
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя со спецсимволами", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя со спецсимволами", nameExpected, nameActual);
     }
 
     @Test
@@ -105,8 +101,8 @@ public class IngredientTest {
         String nameExpected = "     ";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя состоящее из пробелов", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя состоящее из пробелов", nameExpected, nameActual);
     }
 
     @Test
@@ -115,8 +111,8 @@ public class IngredientTest {
         String nameExpected = "горчица  yellow";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя c более 1 пробелом в середине", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя c более 1 пробелом в середине", nameExpected, nameActual);
     }
 
     @Test
@@ -125,8 +121,8 @@ public class IngredientTest {
         String nameExpected = " горчица";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя, которое начинается с пробела", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя, которое начинается с пробела", nameExpected, nameActual);
     }
 
     @Test
@@ -135,8 +131,8 @@ public class IngredientTest {
         String nameExpected = "горчица ";
         ingredient = new Ingredient(SAUCE, nameExpected, 200F);
         String nameActual = ingredient.getName();
-        assertEquals("Должен видеть имя, которое заканчивается пробелом", nameExpected, nameActual);
 
+        assertEquals("Должен видеть имя, которое заканчивается пробелом", nameExpected, nameActual);
     }
 
     @Test
@@ -144,30 +140,30 @@ public class IngredientTest {
         //следует ограничить возможность создания объекта Ingredient, если имя null
         ingredient = new Ingredient(SAUCE, null, 200F);
         String nameActual = ingredient.getName();
-        assertThat("Должен видеть имя с null", nameActual, is(nullValue()));
 
+        assertNull("Должен видеть имя с null", nameActual);
     }
 
     @Test
     public void getTypeFillingShowsFilling() {
         ingredient = new Ingredient(FILLING, "горчица", 200F);
-        assertEquals("Должен видеть имя, которое заканчивается пробелом", FILLING, ingredient.getType());
 
+        assertEquals("Должен видеть имя, которое заканчивается пробелом", FILLING, ingredient.getType());
     }
 
     @Test
     public void getTypeSauceShowsSauce() {
         ingredient = new Ingredient(SAUCE, "горчица", 200F);
-        assertEquals("Должен видеть имя, которое заканчивается пробелом", SAUCE, ingredient.getType());
 
+        assertEquals("Должен видеть имя, которое заканчивается пробелом", SAUCE, ingredient.getType());
     }
 
     @Test
     public void getTypeNullShowsNull() {
         //следует ограничить возможность создания объекта Ingredient, если тип null
         ingredient = new Ingredient(null, "горчица", 200F);
-        assertThat("Должен видеть тип с null", ingredient.getType(), is(nullValue()));
 
+        assertNull("Должен видеть тип с null", ingredient.getType());
     }
 
     @Test
@@ -175,6 +171,7 @@ public class IngredientTest {
         int expectedPrice = 100;
         ingredient = new Ingredient(SAUCE, "горчица", expectedPrice);
         float actualPrice = ingredient.getPrice();
+
         assertEquals("Должен видеть цену с положительным целым числом", expectedPrice, actualPrice, 0);
     }
 
@@ -183,6 +180,7 @@ public class IngredientTest {
         float expectedPrice = 100.01F;
         ingredient = new Ingredient(SAUCE, "горчица", expectedPrice);
         float actualPrice = ingredient.getPrice();
+
         assertEquals("Должен видеть цену с положительным дробным числом", expectedPrice, actualPrice, 0);
     }
 
@@ -191,7 +189,8 @@ public class IngredientTest {
         //следует ограничить возможность создания объекта с отрицательной ценой
         float negativePrice = -0.01F;
         ingredient = new Ingredient(SAUCE, "горчица", negativePrice);
-        assertThat("Должен видеть отрицательную цену", ingredient.getPrice(), is(negativePrice));
+
+        assertTrue("Должен видеть отрицательную цену", ingredient.getPrice() < 0);
     }
 
     @Test
@@ -200,6 +199,7 @@ public class IngredientTest {
         float expectedZeroPrice = 0F;
         ingredient = new Ingredient(SAUCE, "горчица", expectedZeroPrice);
         float actualPrice = ingredient.getPrice();
+
         assertEquals("Должен видеть цену 0", actualPrice, expectedZeroPrice, 0);
     }
 

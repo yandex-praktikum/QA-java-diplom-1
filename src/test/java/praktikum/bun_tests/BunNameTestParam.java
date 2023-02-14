@@ -37,8 +37,8 @@ public class BunNameTestParam {
     public void getNameValidValueReturnValidBunName() {
         Bun bun = new Bun(nameExpected, defaultPrice);
         nameActual = bun.getName();
-        assertEquals(comment, nameExpected, nameActual);
 
+        assertEquals(comment, nameExpected, nameActual);
     }
 
 

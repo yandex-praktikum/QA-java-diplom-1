@@ -4,9 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import praktikum.Bun;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -30,8 +28,20 @@ public class BunTest {
         String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
         bun = new Bun(nameExpected, 100F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя из 46340 букв", nameExpected, nameActual);
 
+        assertThat("Должен видеть имя из 46340 букв", nameExpected, equalTo(nameActual));
+    }
+
+    @Test
+    public void getNameLengthIsMoreThan40000LettersReturnBunNameSameLength() {
+        //Следует добавить ограничение на максимально возможную строку в имени булочки
+        int textLength = (int) Math.sqrt(Integer.MAX_VALUE);
+        String nameExpected = RandomStringUtils.randomAlphabetic(textLength);
+        bun = new Bun(nameExpected, 100F);
+        int textLengthActual = bun.getName().length();
+        int textLengthExpected = 46340;
+
+        assertThat("Должен вернуть имя той же длины", textLengthExpected, equalTo(textLengthActual));
     }
 
     @Test
@@ -40,8 +50,8 @@ public class BunTest {
         String nameExpected = RandomStringUtils.randomAscii(5);
         bun = new Bun(nameExpected, 100F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя со спецсимволами", nameExpected, nameActual);
 
+        assertThat("Должен видеть имя со спецсимволами", nameExpected, equalTo(nameActual));
     }
 
     @Test
@@ -49,8 +59,8 @@ public class BunTest {
         //следует ограничить возможность создания объекта Bun, если имя булочки null
         bun = new Bun(null, 100.F);
         String nameActual = bun.getName();
-        assertThat("Должен видеть имя с null", nameActual, is(nullValue()));
 
+        assertThat("Должен видеть имя с null", nameActual, is(nullValue()));
     }
 
     @Test
@@ -59,8 +69,8 @@ public class BunTest {
         String nameExpected = "";
         bun = new Bun(nameExpected, 100.F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть пустое имя", nameExpected, nameActual);
 
+        assertThat("Должен видеть пустое имя", nameExpected, equalTo(nameActual));
     }
 
     @Test
@@ -69,8 +79,8 @@ public class BunTest {
         String nameExpected = "     ";
         bun = new Bun(nameExpected, 100.F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя состоящее из пробелов", nameExpected, nameActual);
 
+        assertThat("Должен видеть имя состоящее из пробелов", nameExpected, equalTo(nameActual));
     }
 
     @Test
@@ -79,8 +89,8 @@ public class BunTest {
         String nameExpected = "black  bun";
         bun = new Bun(nameExpected, 100.F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя c более 1 пробелом в середине", nameExpected, nameActual);
 
+        assertThat("Должен видеть имя c более 1 пробелом в середине", nameExpected, equalTo(nameActual));
     }
 
     @Test
@@ -89,8 +99,8 @@ public class BunTest {
         String nameExpected = " black bun";
         bun = new Bun(nameExpected, 100.F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя, которое начинается с пробела", nameExpected, nameActual);
 
+        assertThat("Должен видеть имя, которое начинается с пробела", nameExpected, equalTo(nameActual));
     }
 
     @Test
@@ -99,8 +109,8 @@ public class BunTest {
         String nameExpected = "black bun ";
         bun = new Bun(nameExpected, 100.F);
         String nameActual = bun.getName();
-        assertEquals("Должен видеть имя, которое заканчивается пробелом", nameExpected, nameActual);
 
+        assertThat("Должен видеть имя, которое заканчивается пробелом", nameExpected, equalTo(nameActual));
     }
 
     @Test
@@ -108,6 +118,7 @@ public class BunTest {
         //следует ограничить возможность создания объекта Bun с отрицательной ценой
         float negativePrice = -0.01F;
         bun = new Bun("black bun", negativePrice);
+
         assertThat("Должен видеть отрицательную цену", bun.getPrice(), is(negativePrice));
     }
 
@@ -117,7 +128,8 @@ public class BunTest {
         float expectedMaxFloatNumber = Float.MAX_VALUE;
         bun = new Bun("black bun", expectedMaxFloatNumber);
         float actualPrice = bun.getPrice();
-        assertEquals("Должен видеть максимальное число типа float", actualPrice, expectedMaxFloatNumber, 0);
+
+        assertThat("Должен видеть максимальное число типа float", actualPrice, equalTo(expectedMaxFloatNumber));
     }
 
 

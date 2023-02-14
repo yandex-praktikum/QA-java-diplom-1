@@ -10,10 +10,8 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertNull;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -31,13 +29,13 @@ public class BurgerTest {
         Mockito.when(bunMock.getPrice()).thenReturn(100.0F);
         Mockito.when(ingredientMock.getPrice()).thenReturn(50.0F);
         Mockito.when(bunMock.getName()).thenReturn("white bun");
-
     }
 
     @Test
     public void setBunReturnsBun() {
         bunMock = new Bun("black bun", 100F);
         burger.setBuns(bunMock);
+
         assertEquals(bunMock, burger.bun);
     }
 
@@ -49,7 +47,6 @@ public class BurgerTest {
         String actualName = burger.bun.getName();
 
         assertEquals(expectedName, actualName);
-
     }
 
     @Test
@@ -66,8 +63,8 @@ public class BurgerTest {
     public void setBunNullReturnsNullBun() {
         //следует ограничить возможность устанавливать булки с null
         burger.setBuns(bunReal);
-        assertThat("Должен видеть объект null", bunReal, is(nullValue()));
 
+        assertNull("Должен видеть объект null", bunReal);
     }
 
     @Test(expected = NullPointerException.class)
@@ -83,7 +80,6 @@ public class BurgerTest {
         float actualPrice = burger.getPrice();
 
         assertEquals("Ожидается цена с учетом булки", expectedPrice, actualPrice, 0);
-
     }
 
     @Test
@@ -95,7 +91,6 @@ public class BurgerTest {
         float actualPrice = burger.getPrice();
 
         assertEquals("Ожидается цена с учетом булки и 1 ингридиента", expectedPrice, actualPrice, 0);
-
     }
 
     @Test
@@ -108,7 +103,6 @@ public class BurgerTest {
         float actualPrice = burger.getPrice();
 
         assertEquals("Ожидается цена с учетом булки и более 1 ингридиента", expectedPrice, actualPrice, 0);
-
     }
 
     @Test
@@ -121,7 +115,6 @@ public class BurgerTest {
         float actualPrice = burger.getPrice();
 
         assertEquals("Ожидается цена с учетом булки и удаленного ингридиента", expectedPrice, actualPrice, 0);
-
     }
 
 }
