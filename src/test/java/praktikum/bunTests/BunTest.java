@@ -114,7 +114,7 @@ public class BunTest {
 
     @Test
     public void getPriceMaxFloatNumberReturnBunPrice() {
-        //следует ограничить возможность создания объекта Bun с нулевой ценой
+        //следует ограничить возможность создания объекта Bun с макс ценой ценой
         float expectedMaxFloatNumber = Float.MAX_VALUE;
         bun = new Bun("black bun", expectedMaxFloatNumber);
         float actualPrice = bun.getPrice();
