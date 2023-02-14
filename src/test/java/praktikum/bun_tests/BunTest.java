@@ -1,4 +1,4 @@
-package praktikum.bunTests;
+package praktikum.bun_tests;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;

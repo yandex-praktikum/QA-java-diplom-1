@@ -1,4 +1,4 @@
-package praktikum.bunTests;
+package praktikum.bun_tests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

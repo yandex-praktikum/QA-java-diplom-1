@@ -1,4 +1,4 @@
-package praktikum.ingredientTest;
+package praktikum.ingredient_tests;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
