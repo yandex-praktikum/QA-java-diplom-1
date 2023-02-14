@@ -19,25 +19,27 @@ public class BunNameTestParam {
     @Parameterized.Parameter(1)
     public String nameExpected;
     @Parameterized.Parameter(2)
+    public float defaultPrice;
     public String nameActual;
 
-    @Parameterized.Parameters(name = "comment : {0}, nameExpected : {1}, nameActual : {2}")
+    @Parameterized.Parameters(name = "comment : {0}, nameExpected : {1}")
     public static Object[][] getTestData() {
         return new Object[][]{
-                {"English", "black bun", "black bun"},
-                {"Кириллица", "черная булочка", "черная булочка"},
-                {"Более 3 слов с пробелами внутри", "черная булочка c маком", "черная булочка c маком"},
-                {"Без пробелов", "blackbun", "blackbun"},
-                {"Верхний регистр", "BLACKBUN", "BLACKBUN"},
-                {"1 буквы", "B", "B"}
+                {"Ожидается имя на English", "black bun", 100.0F},
+                {"Ожидается имя на Кириллице", "черная булочка", 100.0F},
+                {"Ожидается имя из более 3 слов с пробелами внутри", "черная булочка c маком", 100.0F},
+                {"Ожидается имя без пробелов", "blackbun", 100.0F},
+                {"Ожидается имя в верхнем регистр", "BLACKBUN", 100.0F},
+                {"Ожидается имя из 1 буквы", "B", 100.0F}
         };
     }
 
     @Test
     public void getNameValidValueReturnValidBunName() {
-        Bun bun = new Bun(nameExpected, 100F);
+        Bun bun = new Bun(nameExpected, defaultPrice);
         nameActual = bun.getName();
-        assertEquals(nameActual, nameExpected);
+
+        assertEquals(comment,nameExpected, nameActual);
 
     }
 
