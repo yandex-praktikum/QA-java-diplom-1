@@ -18,23 +18,25 @@ public class BunPriceTestParam {
     @Parameterized.Parameter(1)
     public float priceExpected;
     @Parameterized.Parameter(2)
-    public float priceActual;
+    public String defaultName;
+    private float priceActual;
 
-    @Parameterized.Parameters(name = "comment : {0}, priceExpected : {1}, priceActual : {2}")
+    @Parameterized.Parameters(name = "comment : {0}, priceExpected : {1}")
     public static Object[][] getTestData() {
         return new Object[][]{
-                {"Положительное целое число", 100, 100},
-                {"Положительное дробное число", 100.1F, 100.01F},
-                {"Ноль", 0, 0},
-                {"Ноль с точкой", 0.0F, 0.0F},
+                {"Положительное целое число", 100, "black bun"},
+                {"Положительное дробное число", 100.1F, "black bun"},
+                {"Ноль", 0, "black bun"},
+                {"Ноль с точкой", 0.0F, "black bun"},
         };
     }
 
     @Test
     public void getPriceValidValueReturnValidBunPrice() {
-        Bun bun = new Bun("black bun", priceExpected);
+        Bun bun = new Bun(defaultName, priceExpected);
         priceActual = bun.getPrice();
-        assertEquals(priceActual, priceExpected, 0);
+
+        assertEquals(comment,priceActual, priceExpected, 0);
 
     }
 
