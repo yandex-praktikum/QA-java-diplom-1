@@ -22,7 +22,7 @@ public class TestBun {
         this.expectedPrice = expectedPrice;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} = {3}, {1} = {4}")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {"black bun", 100.0f, "black bun", 100.0f},
@@ -37,13 +37,13 @@ public class TestBun {
    }
 
     @Test
-    public void TestReturnCorrectBunsName() {
+    public void testReturnCorrectBunsName() {
         String actualBunName = bun.getName();
         assertEquals(expectedName, actualBunName);
     }
 
     @Test
-    public void TestReturnCorrectBunsPrice() {
+    public void testReturnCorrectBunsPrice() {
         float actualBunPrice = bun.getPrice();
         int delta = 2;
         assertEquals(expectedPrice, actualBunPrice, delta);

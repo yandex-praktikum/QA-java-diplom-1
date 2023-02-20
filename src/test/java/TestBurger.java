@@ -8,6 +8,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
+
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
@@ -20,11 +22,25 @@ public class TestBurger {
     Burger burger;
     List<Ingredient> ingredients;
 
+    @Mock
+    private Ingredient ingredient;
+    @Mock
+    private Bun bun;
+
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+        burger = new Burger();
+    }
+
     @Test
-    public void TestIngredientAddedInBurger() {
+    public void testIngredientAddedInBurger() {
+
         burger = new Burger();
         ingredients = new ArrayList<>();
-        Ingredient ingredient = new Ingredient(SAUCE, "hot sauce", 100.0f);
+
+        ingredient = new Ingredient(SAUCE, "hot sauce", 100.0f);
 
         burger.addIngredient(ingredient);
         ingredients.add(ingredient);
@@ -36,7 +52,7 @@ public class TestBurger {
     }
 
     @Test
-    public void TestIngredientCanBeRemove() {
+    public void testIngredientCanBeRemove() {
 
         burger = new Burger();
         ingredients = new ArrayList<>();
@@ -54,7 +70,7 @@ public class TestBurger {
     }
 
     @Test
-    public void TestIngredientCanBeMove() {
+    public void testIngredientCanBeMove() {
 
         burger = new Burger();
         ingredients = new ArrayList<>();
@@ -77,19 +93,8 @@ public class TestBurger {
 
     }
 
-    @Mock
-    private Bun bun;
-
-    @Mock
-    private Ingredient ingredient;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
-
     @Test
-    public void TestGetPriceForBurger() {
+    public void testGetPriceForBurger() {
         burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
@@ -106,7 +111,7 @@ public class TestBurger {
     }
 
     @Test
-    public void TestGetReceiptBurger() {
+    public void testGetReceiptBurger() {
         burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ingredient);

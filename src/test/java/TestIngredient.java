@@ -51,20 +51,20 @@ public class TestIngredient {
     }
 
     @Test
-    public void TestReturnCorrectTypeOfIngredient() {
+    public void testGiveTypeOfIngredient() {
         IngredientType actualIngredientType = ingredient.getType();
         assertEquals(expectedType, actualIngredientType);
     }
 
     @Test
-    public void TestReturnCorrectPriceOfIngredient() {
+    public void testGivePriceOfIngredient() {
         float actualIngredientPrice = ingredient.getPrice();
         int delta = 2;
         assertEquals(expectedPrice, actualIngredientPrice, delta);
     }
 
     @Test
-    public void TestReturnCorrectNameOfIngredient() {
+    public void testGiveNameOfIngredient() {
         String actualIngredientName = ingredient.getName();
         assertEquals(expectedName, actualIngredientName);
     }
