@@ -3,10 +3,12 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
+
 import static org.junit.Assert.assertEquals;
 
 public class BurgerTest {
@@ -15,6 +17,11 @@ public class BurgerTest {
 
     @Mock
     private Bun bun;
+    private Ingredient ingredient;
+    private Ingredient ingredient_2;
+
+    @Spy
+    private Ingredient ingredient_3 = new Ingredient(IngredientType.SAUCE, "cosmo", 100500F);
 
     @Before
     public void setUp() {
@@ -23,7 +30,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void checkingSetBunsName(){
+    public void checkingSetBunsName() {
         burger.setBuns(bun);
 
         Mockito.when(bun.getName()).thenReturn("Name");
@@ -33,19 +40,17 @@ public class BurgerTest {
     }
 
     @Test
-    public void checkingSetBunsPrice(){
+    public void checkingSetBunsPrice() {
         burger.setBuns(bun);
 
         Mockito.when(bun.getPrice()).thenReturn(100500F);
 
         float expectedResult = 100500F;
-        assertEquals(expectedResult, burger.bun.getPrice(),0.0F);
+        assertEquals(expectedResult, burger.bun.getPrice(), 0.0F);
     }
 
     @Test
-    public void checkingAddIngredient(){
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE,"Космобулка",100500F);
-
+    public void checkingAddIngredient() {
         burger.addIngredient(ingredient);
 
         Ingredient actualResult = burger.ingredients.get(0);
@@ -53,9 +58,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void checkingRemoveIngredient(){
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE,"Космобулка",100500F);
-
+    public void checkingRemoveIngredient() {
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
 
@@ -64,42 +67,35 @@ public class BurgerTest {
     }
 
     @Test
-    public void checkingMoveIngredient(){
-        Ingredient ingredient_1 = new Ingredient(IngredientType.SAUCE,"Космобулка",100500F);
-        Ingredient ingredient_2 = new Ingredient(IngredientType.FILLING,"Космомясо",200500F);
-
-        burger.addIngredient(ingredient_1);
+    public void checkingMoveIngredient() {
+        burger.addIngredient(ingredient);
         burger.addIngredient(ingredient_2);
-        burger.moveIngredient(0,1);
+        burger.moveIngredient(0, 1);
 
         assertEquals(ingredient_2, burger.ingredients.get(0));
     }
 
     @Test
-    public void checkingGetPrice(){
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE,"Космобулка",100500F);
-
+    public void checkingGetPrice() {
         burger.setBuns(bun);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient_3);
 
         Mockito.when(bun.getPrice()).thenReturn(100F);
 
         float expectedResult = 100700F;
         float actualResult = burger.getPrice();
-        assertEquals(expectedResult,actualResult,0.0F);
+        assertEquals(expectedResult, actualResult, 0.0F);
     }
 
     @Test
     public void checkingGetReceipt() {
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE,"cosmo",51015);
-
         burger.setBuns(bun);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient_3);
 
         Mockito.when(bun.getName()).thenReturn("bun");
         Mockito.when(bun.getPrice()).thenReturn(100500F);
 
-        String expectedResult = "(==== bun ====)\r\n= sauce cosmo =\r\n(==== bun ====)\r\n\r\nPrice: 252015,000000\r\n";
+        String expectedResult = "(==== bun ====)\r\n= sauce cosmo =\r\n(==== bun ====)\r\n\r\nPrice: 301500,000000\r\n";
         String actualResult = burger.getReceipt();
         assertEquals(expectedResult, actualResult);
     }

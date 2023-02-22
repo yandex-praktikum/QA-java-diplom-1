@@ -9,10 +9,10 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class IngredientParamTest {
 
-    private Ingredient ingredient;
     private final IngredientType type;
     private final String name;
     private final float price;
+    private Ingredient ingredient;
 
 
     public IngredientParamTest(IngredientType type, String name, float price) {
@@ -32,7 +32,7 @@ public class IngredientParamTest {
     }
 
     @Test
-    public void checkingTheMethodGetName(){
+    public void checkingTheMethodGetName() {
         ingredient = new Ingredient(type, name, price);
 
         String expectedResult = name;
@@ -41,7 +41,7 @@ public class IngredientParamTest {
     }
 
     @Test
-    public void checkingTheMethodGetPrice(){
+    public void checkingTheMethodGetPrice() {
         ingredient = new Ingredient(type, name, price);
 
         float expectedResult = price;
@@ -50,7 +50,7 @@ public class IngredientParamTest {
     }
 
     @Test
-    public void checkingTheMethodGetType(){
+    public void checkingTheMethodGetType() {
         ingredient = new Ingredient(type, name, price);
 
         IngredientType expectedResult = type;
