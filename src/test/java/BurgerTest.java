@@ -41,7 +41,6 @@ public class BurgerTest {
 
    @Test
    public void checkAddBunTest(){
-       // Mockito.when(bun.getName()).thenReturn(BUN_NAME);
         burger.setBuns(bun);
         assertEquals("Нужная булочка отсутствует в бургере!", bun, burger.bun);
    }
