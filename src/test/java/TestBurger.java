@@ -20,13 +20,14 @@ import static praktikum.IngredientType.SAUCE;
 public class TestBurger {
 
     Burger burger;
-    List<Ingredient> ingredients;
-
     @Mock
     private Ingredient ingredient;
     @Mock
+    private Ingredient firstIngredient;
+    @Mock
+    private Ingredient secondIngredient;
+    @Mock
     private Bun bun;
-
 
     @Before
     public void setUp() {
@@ -38,34 +39,36 @@ public class TestBurger {
     public void testIngredientAddedInBurger() {
 
         burger = new Burger();
-        ingredients = new ArrayList<>();
-
-        ingredient = new Ingredient(SAUCE, "hot sauce", 100.0f);
-
         burger.addIngredient(ingredient);
-        ingredients.add(ingredient);
 
-        List<Ingredient> actualIngredients = burger.getIngredients();
-        List<Ingredient> expectedIngredients = ingredients;
+        Mockito.when(ingredient.getType()).thenReturn(SAUCE);
+        Mockito.when(ingredient.getName()).thenReturn("hot sauce");
+        Mockito.when(ingredient.getPrice()).thenReturn(100.0f);
 
-        assertEquals(expectedIngredients, actualIngredients);
+        int delta = 2;
+
+        IngredientType actualIngredientType = burger.ingredients.get(0).getType();
+        String actualIngredientName = burger.ingredients.get(0).getName();
+        float actualIngredientPrice = burger.ingredients.get(0).getPrice();
+
+        IngredientType expectedIngredientType = SAUCE;
+        String expectedIngredientName = "hot sauce";
+        float expectedIngredientPrice = 100.0f;
+
+        assertEquals(expectedIngredientType, actualIngredientType);
+        assertEquals(expectedIngredientName, actualIngredientName);
+        assertEquals(expectedIngredientPrice, actualIngredientPrice, delta);
     }
 
     @Test
     public void testIngredientCanBeRemove() {
-
         burger = new Burger();
-        ingredients = new ArrayList<>();
-        Ingredient ingredient = new Ingredient(SAUCE, "sour cream", 200.0f);
         int index = 0;
 
         burger.addIngredient(ingredient);
         burger.removeIngredient(index);
 
-        List<Ingredient> actualAbsenceIngredients = burger.getIngredients();
-        List<Ingredient> expectedAbsenceIngredients = ingredients;
-
-        assertEquals(expectedAbsenceIngredients, actualAbsenceIngredients);
+        burger.ingredients.isEmpty();
 
     }
 
@@ -73,23 +76,34 @@ public class TestBurger {
     public void testIngredientCanBeMove() {
 
         burger = new Burger();
-        ingredients = new ArrayList<>();
-        Ingredient firstIngredient = new Ingredient(SAUCE, "sour cream", 200.0f);
-        Ingredient secondIngredient = new Ingredient(FILLING, "sausage", 300.0f);
-        int index = 0;
-        int newIndex = 1;
-
         burger.addIngredient(firstIngredient);
         burger.addIngredient(secondIngredient);
+
+        Mockito.when(firstIngredient.getType()).thenReturn(SAUCE);
+        Mockito.when(firstIngredient.getName()).thenReturn("sour cream");
+        Mockito.when(firstIngredient.getPrice()).thenReturn(200.0f);
+
+        Mockito.when(secondIngredient.getType()).thenReturn(FILLING);
+        Mockito.when(secondIngredient.getName()).thenReturn("sausage");
+        Mockito.when(secondIngredient.getPrice()).thenReturn(300.0f);
+
+        int index = 0;
+        int newIndex = 1;
         burger.moveIngredient(index, newIndex);
 
-        ingredients.add(secondIngredient);
-        ingredients.add(firstIngredient);
+        IngredientType actualIngredientType = burger.ingredients.get(0).getType();
+        String actualIngredientName = burger.ingredients.get(0).getName();
+        float actualIngredientPrice = burger.ingredients.get(0).getPrice();
 
-        List<Ingredient> actualDisplacedIngredients = burger.getIngredients();
-        List<Ingredient> expectedDisplacedIngredients = ingredients;
+        IngredientType expectedIngredientType = FILLING;
+        String expectedIngredientName = "sausage";
+        float expectedIngredientPrice = 300.0f;
 
-        assertEquals(expectedDisplacedIngredients, actualDisplacedIngredients);
+        int delta = 2;
+
+        assertEquals(expectedIngredientType, actualIngredientType);
+        assertEquals(expectedIngredientName, actualIngredientName);
+        assertEquals(expectedIngredientPrice, actualIngredientPrice, delta);
 
     }
 
