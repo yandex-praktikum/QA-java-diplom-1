@@ -1,17 +1,14 @@
 package praktikum_tests;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 import praktikum.Bun;
 import praktikum.Database;
 import praktikum.Ingredient;
-
 import java.util.List;
+import static org.junit.Assert.assertNotNull;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
-public class ClassDatabaseTest {
+public class DatabaseTest {
     private Database database;
 
     @Before
@@ -23,14 +20,14 @@ public class ClassDatabaseTest {
     @Test
     public void checkAvailableBunsReturnsListOfBuns() {
         List<Bun> buns =  database.availableBuns();
-        assertThat(buns, CoreMatchers.notNullValue());
+        assertNotNull("The method availableBuns returns list of buns which is not empty",buns);
 
     }
 
     @Test
     public void checkAvailableIngredientsReturnsListOfIngredients() {
         List<Ingredient> ingredients  =  database.availableIngredients();
-        assertThat(ingredients, CoreMatchers.notNullValue());
+       assertNotNull("The method availableIngredients returns list of ingredients which is not empty",ingredients);
 
     }
 }
