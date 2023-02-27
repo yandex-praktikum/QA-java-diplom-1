@@ -1,4 +1,4 @@
-package praktikum_tests;
+package praktikum.tests;
 
 import jdk.jfr.Description;
 import org.junit.Assert;

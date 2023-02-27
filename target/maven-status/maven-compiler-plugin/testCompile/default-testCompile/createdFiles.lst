@@ -1,4 +1,6 @@
-praktikum_tests\BurgerTest.class
-praktikum_tests\BunGetNameParameterizedTest.class
-praktikum_tests\DatabaseTest.class
-praktikum_tests\BunTest.class
+praktikum\tests\BunTest.class
+praktikum\tests\BunGetNameParameterizedTest.class
+praktikum\tests\BurgerTest.class
+praktikum\tests\IngredientTypeTests.class
+praktikum\tests\DatabaseTest.class
+praktikum\tests\IngredientTest.class
