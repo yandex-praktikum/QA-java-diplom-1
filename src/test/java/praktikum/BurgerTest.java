@@ -36,7 +36,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckAddIngredientTest() {
+    public void checkAddIngredientTest() {
         burger.addIngredient(ingredient);
         List<Ingredient> expected = List.of(ingredient);
         List<Ingredient> actual = burger.ingredients;
@@ -44,7 +44,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckRemoveIngredientTest() {
+    public void checkRemoveIngredientTest() {
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
         List<Ingredient> actual = burger.ingredients;
@@ -52,7 +52,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckMoveIngredientTest() {
+    public void checkMoveIngredientTest() {
         burger.addIngredient(filling);
         burger.addIngredient(sauce);
         burger.moveIngredient(0, 1);
@@ -61,7 +61,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckGetReceiptTest() {
+    public void checkGetReceiptTest() {
         Mockito.when(bun.getName()).thenReturn("original");
         Mockito.when(bun.getPrice()).thenReturn(200.0f);
         burger.setBuns(bun);
@@ -72,8 +72,7 @@ public class BurgerTest {
         StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
         List<Ingredient> ingredients = burger.ingredients;
         for (Ingredient ingredient : ingredients) {
-            receipt.append(String.format("= %s %s =%n", ingredient.getType().name().toLowerCase(),
-                    ingredient.getName()));
+            receipt.append(String.format("= %s %s =%n", ingredient.getType().name().toLowerCase(), ingredient.getName()));
         }
         receipt.append(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));

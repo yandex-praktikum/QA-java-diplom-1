@@ -5,7 +5,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import static org.junit.Assert.assertEquals;
 
 public class BunTest {
@@ -14,10 +13,10 @@ public class BunTest {
     private Float bunPrice;
 
     @Before
-    public void createInstance(){
+    public void createInstance() {
         bunName = RandomStringUtils.randomAlphabetic(15);
-        testBun = new Bun(bunName, bunPrice);
         bunPrice = (float) Math.random();
+        testBun = new Bun(bunName, bunPrice);
     }
 
     @Test

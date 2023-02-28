@@ -9,22 +9,15 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class BurgerParameterizedTest {
+    private final String name;
+    private final float price;
     private Burger burger;
     private Ingredient sauce;
     private Ingredient filling;
-    private final String name;
-    private final float price;
 
     public BurgerParameterizedTest(String name, float price) {
         this.name = name;
         this.price = price;
-    }
-
-    @Before
-    public void createInstance() {
-        sauce = new Ingredient(IngredientType.SAUCE, "chili", 20.0f);
-        filling = new Ingredient(IngredientType.FILLING, "cheese", 15.5f);
-        burger = new Burger();
     }
 
     @Parameterized.Parameters(name = "{index} : price = {1}")
@@ -35,8 +28,15 @@ public class BurgerParameterizedTest {
         };
     }
 
+    @Before
+    public void createInstance() {
+        sauce = new Ingredient(IngredientType.SAUCE, "chili", 20.0f);
+        filling = new Ingredient(IngredientType.FILLING, "cheese", 15.5f);
+        burger = new Burger();
+    }
+
     @Test
-    public void getPriceTest() {
+    public void checkGetPriceTest() {
         Bun bun = new Bun(name, price);
         burger.setBuns(bun);
         burger.addIngredient(sauce);
