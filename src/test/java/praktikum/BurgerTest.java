@@ -12,14 +12,14 @@ public class BurgerTest {
     Ingredient ingredient3 = new Ingredient(IngredientType.SAUCE, "Помидорище", 15.00f);
     float expectedPrice = bun1.getPrice() * 2 + ingredient1.getPrice() + ingredient2.getPrice() + ingredient3.getPrice();
     String expectedReceipt =
-            "(==== Бутер 2 ====)\n" +
-            "= sauce Томатный =\n" +
-            "= sauce Салатище =\n" +
-            "= sauce Помидорище =\n" +
-            "(==== Бутер 2 ====)\n" +
-            "\n" +
+            "(==== Бутер 2 ====)\r\n" +
+            "= sauce Томатный =\r\n" +
+            "= sauce Салатище =\r\n" +
+            "= sauce Помидорище =\r\n" +
+            "(==== Бутер 2 ====)\r\n" +
+            "\r\n" +
             "Price: 50,000000" +
-            "\n";
+            "\r\n";
 
 
     @Test
