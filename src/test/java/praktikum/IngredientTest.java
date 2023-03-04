@@ -16,14 +16,14 @@ public class IngredientTest {
     }
 
     @Test
-    public void checkGetNameTest() {
+    public void getNameTest() {
         String actual = ingredient.getName();
-        assertEquals(name, actual);
+        assertEquals("Верное название ингредиента",name, actual);
     }
 
     @Test
-    public void checkGetPriceTest() {
+    public void getPriceTest() {
         float actual = ingredient.getPrice();
-        assertEquals(price, actual, 0f);
+        assertEquals("Неверный тип ингридиента",price, actual, 0f);
     }
 }

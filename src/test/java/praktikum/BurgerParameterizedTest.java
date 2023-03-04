@@ -36,13 +36,13 @@ public class BurgerParameterizedTest {
     }
 
     @Test
-    public void checkGetPriceTest() {
+    public void getPriceTest() {
         Bun bun = new Bun(name, price);
         burger.setBuns(bun);
         burger.addIngredient(sauce);
         burger.addIngredient(filling);
         float expected = bun.price * 2 + sauce.getPrice() + filling.getPrice();
         float actual = burger.getPrice();
-        assertEquals(expected, actual, 0);
+        assertEquals("Стоимость бургера неверно посчитана",expected, actual, 0);
     }
 }

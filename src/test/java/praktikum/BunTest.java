@@ -20,12 +20,12 @@ public class BunTest {
     }
 
     @Test
-    public void checkBunGetNameTest() {
-        assertEquals(bunName, testBun.getName());
+    public void bunGetNameTest() {
+        assertEquals("Неверное название булки",bunName, testBun.getName());
     }
 
     @Test
-    public void checkBunGetPriceTest() {
-        assertEquals(bunPrice, testBun.getPrice(), 0.0f);
+    public void bunGetPriceTest() {
+        assertEquals("Неверная стоимость булки",bunPrice, testBun.getPrice(), 0.0f);
     }
 }

@@ -29,35 +29,35 @@ public class BurgerTest {
     }
 
     @Test
-    public void checkSetBunsTest() {
+    public void setBunsTest() {
         burger.setBuns(bun);
         Bun actual = burger.bun;
-        assertEquals(bun, actual);
+        assertEquals("Неверная булка",bun, actual);
     }
 
     @Test
-    public void checkAddIngredientTest() {
+    public void addIngredientTest() {
         burger.addIngredient(ingredient);
         List<Ingredient> expected = List.of(ingredient);
         List<Ingredient> actual = burger.ingredients;
-        assertEquals(expected, actual);
+        assertEquals("Ингридиенты не добавлены",expected, actual);
     }
 
     @Test
-    public void checkRemoveIngredientTest() {
+    public void removeIngredientTest() {
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
         List<Ingredient> actual = burger.ingredients;
-        assertEquals(0, actual.size());
+        assertEquals("Ингредиент не удален",0, actual.size());
     }
 
     @Test
-    public void checkMoveIngredientTest() {
+    public void moveIngredientTest() {
         burger.addIngredient(filling);
         burger.addIngredient(sauce);
         burger.moveIngredient(0, 1);
         Ingredient actual = burger.ingredients.get(1);
-        assertEquals(filling, actual);
+        assertEquals("Ингредиент не перемещен",filling, actual);
     }
 
     @Test
@@ -78,6 +78,6 @@ public class BurgerTest {
         receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
         String expected = receipt.toString();
         String actual = burger.getReceipt();
-        assertEquals(expected, actual);
+        assertEquals("В рецепте неверные данные",expected, actual);
     }
 }

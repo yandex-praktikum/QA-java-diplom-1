@@ -31,6 +31,6 @@ public class IngredientParameterizedTest {
     public void getTypeTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
         IngredientType actual = ingredient.getType();
-        assertEquals(type, actual);
+        assertEquals("Неверный тип ингридиента",type, actual);
     }
 }
