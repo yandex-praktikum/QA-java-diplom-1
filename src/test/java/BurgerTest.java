@@ -48,7 +48,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetPriceReturnReceipt() {
+    public void testGetPriceReturn13() {
         Burger burger = new Burger();
         bun = Mockito.mock(Bun.class);
         ingredient = Mockito.mock(Ingredient.class);
@@ -60,7 +60,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetReceiptReturn13() {
+    public void testGetReceiptReturnReceipt() {
         Burger burger = new Burger();
         bun = Mockito.mock(Bun.class);
         ingredient = Mockito.mock(Ingredient.class);
