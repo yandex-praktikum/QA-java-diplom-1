@@ -1,4 +1,4 @@
-package Praktikum;
+package praktikum;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,12 +6,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
-
-import java.awt.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -26,14 +20,15 @@ public class BurgerTest {
     }
     @Mock
     Bun bun;
+
+    @Mock
+    Ingredient ingredient;
     @Test
     public void checkSetBuns(){
         burger.setBuns(bun);
         assertEquals ("Установлено не верное название и цена булочки",bun,burger.bun);
     }
 
-    @Mock
-    Ingredient ingredient;
     @Test
     public void checkAddIngredient(){
         burger.addIngredient(ingredient);

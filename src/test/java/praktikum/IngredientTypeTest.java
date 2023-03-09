@@ -1,18 +1,17 @@
-package Praktikum;
+package praktikum;
 
 import org.junit.Test;
-import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
 
 public class IngredientTypeTest {
     @Test
-    public void TestGetSauceTypeIsCorrect(){
+    public void testGetSauceTypeIsCorrect(){
         assertEquals(IngredientType.valueOf("SAUCE"),IngredientType.SAUCE);
     }
 
     @Test
-    public void TestGetFillingTypeIsCorrect(){
+    public void testGetFillingTypeIsCorrect(){
         assertEquals(IngredientType.valueOf("FILLING"),IngredientType.FILLING);
     }
 }
