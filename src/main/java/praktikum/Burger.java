@@ -52,6 +52,7 @@ public class Burger {
         receipt.append(String.format("%nPrice: %f%n", getPrice()));
 
         return receipt.toString();
+
     }
 
 }
