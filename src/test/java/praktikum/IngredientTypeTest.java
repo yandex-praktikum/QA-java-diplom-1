@@ -9,16 +9,16 @@ import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
-public class IngredientGetTypeParameterizedTest {
+public class IngredientTypeTest {
 
 
-    private final IngredientType expected;
+    private final IngredientType ingredientType;
     private final Ingredient ingredient;
 
-    public IngredientGetTypeParameterizedTest(Ingredient ingredient,
-                                              IngredientType expected) {
+    public IngredientTypeTest(Ingredient ingredient,
+                              IngredientType ingredientType) {
         this.ingredient = ingredient;
-        this.expected = expected;
+        this.ingredientType = ingredientType;
     }
 
 
@@ -26,14 +26,14 @@ public class IngredientGetTypeParameterizedTest {
     public static Object[][] getData() {
         return new Object[][]{
                 {new Ingredient(SAUCE, "barbecue", 111), SAUCE},
-                {new Ingredient(FILLING, "meat", 222), FILLING}
+                {new Ingredient(FILLING, "meat", 222), FILLING},
+                {new Ingredient(SAUCE, "cheese", 333), SAUCE},
+                {new Ingredient(FILLING, "fish", 444), FILLING}
         };
     }
 
     @Test
     public void getTypeTest() {
-
-//        IngredientType actual = ingredient.getType();
-        assertEquals("ingredient type is correct", expected, ingredient.getType());
+        assertEquals("Type is correct", ingredientType, ingredient.getType());
     }
 }
