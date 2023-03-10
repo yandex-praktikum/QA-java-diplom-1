@@ -16,11 +16,11 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
-    Faker faker = new Faker();
+    private final Faker faker = new Faker();
 
-    Database database = new Database();
-    List<Bun> buns = database.availableBuns();
-    List<Ingredient> ingredients = database.availableIngredients();
+    private final Database database = new Database();
+    private final List<Bun> buns = database.availableBuns();
+    private final List<Ingredient> ingredients = database.availableIngredients();
 
     @Test
     public void setBunsForNameTest() {

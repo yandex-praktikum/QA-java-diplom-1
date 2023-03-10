@@ -8,8 +8,8 @@ import praktikum.Bun;
 import java.util.Random;
 
 public class BunTest {
-    Faker faker = new Faker();
-    Random random = new Random();
+    private final Faker faker = new Faker();
+    private final Random random = new Random();
     private final String name = faker.space().galaxy();
     private final float price = random.nextFloat() + random.nextInt();
 
