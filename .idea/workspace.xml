@@ -44,7 +44,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/adven/Diplom/QA-java-diplom-1"
+    "last_opened_file_path": "C:/Users/adven/Diplom/QA-java-diplom-1",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RunAnythingCache">
@@ -55,65 +58,65 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.praktikum in praktikum">
-    <configuration name="IngredientTypeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BurgerTest.addIngredientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="praktikum" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="practikum.*" />
+          <option name="PATTERN" value="ru.praktikum.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="practikum" />
-      <option name="MAIN_CLASS_NAME" value="practikum.IngredientTypeTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IngredientTypeTest.fillingNotNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="praktikum" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="practikum.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="practikum" />
-      <option name="MAIN_CLASS_NAME" value="practikum.IngredientTypeTest" />
-      <option name="METHOD_NAME" value="fillingNotNullTest" />
+      <option name="PACKAGE_NAME" value="ru.praktikum" />
+      <option name="MAIN_CLASS_NAME" value="ru.praktikum.BurgerTest" />
+      <option name="METHOD_NAME" value="addIngredientTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IngredientTypeTest.sauce" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BurgerTest.getPriceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="praktikum" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="practikum.*" />
+          <option name="PATTERN" value="ru.praktikum.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="practikum" />
-      <option name="MAIN_CLASS_NAME" value="practikum.IngredientTypeTest" />
-      <option name="METHOD_NAME" value="sauce" />
+      <option name="PACKAGE_NAME" value="ru.praktikum" />
+      <option name="MAIN_CLASS_NAME" value="ru.praktikum.BurgerTest" />
+      <option name="METHOD_NAME" value="getPriceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IngredientTypeTest.setBunsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BurgerTest.moveIngredientAnyIntTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="praktikum" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="practikum.*" />
+          <option name="PATTERN" value="ru.praktikum.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="practikum" />
-      <option name="MAIN_CLASS_NAME" value="practikum.IngredientTypeTest" />
-      <option name="METHOD_NAME" value="setBunsTest" />
+      <option name="PACKAGE_NAME" value="ru.praktikum" />
+      <option name="MAIN_CLASS_NAME" value="ru.praktikum.BurgerTest" />
+      <option name="METHOD_NAME" value="moveIngredientAnyIntTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BurgerTest.removeIngredientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="praktikum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.praktikum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.praktikum" />
+      <option name="MAIN_CLASS_NAME" value="ru.praktikum.BurgerTest" />
+      <option name="METHOD_NAME" value="removeIngredientTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,7 +125,7 @@
     <configuration name="praktikum in praktikum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="praktikum" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/praktikum" />
+      <dir value="$PROJECT_DIR$/src/test/java/ru/praktikum" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,10 +133,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.praktikum in praktikum" />
-        <item itemvalue="JUnit.IngredientTypeTest.fillingNotNullTest" />
-        <item itemvalue="JUnit.IngredientTypeTest" />
-        <item itemvalue="JUnit.IngredientTypeTest.setBunsTest" />
-        <item itemvalue="JUnit.IngredientTypeTest.sauce" />
+        <item itemvalue="JUnit.BurgerTest.moveIngredientAnyIntTest" />
+        <item itemvalue="JUnit.BurgerTest.getPriceTest" />
+        <item itemvalue="JUnit.BurgerTest.removeIngredientTest" />
+        <item itemvalue="JUnit.BurgerTest.addIngredientTest" />
       </list>
     </recent_temporary>
   </component>
