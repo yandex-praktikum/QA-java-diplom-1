@@ -1,4 +1,4 @@
-package practicumTest;
+package site.nomoreparties.stellarburgers;
 
 import com.github.javafaker.Faker;
 import org.junit.Assert;
@@ -12,7 +12,6 @@ import praktikum.*;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -22,6 +21,11 @@ public class BurgerTest {
     private final List<Bun> buns = database.availableBuns();
     private final List<Ingredient> ingredients = database.availableIngredients();
 
+    @Mock
+    Bun bun;
+    @Mock
+    Ingredient ingredient;
+
     @Test
     public void setBunsForNameTest() {
         Bun bun = buns.get(faker.number().numberBetween(0, 2));
@@ -30,7 +34,7 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.setBuns(bun);
 
-        assertEquals("Set a name is not correct", name, bun.getName());
+        Assert.assertEquals("Set a name is not correct", name, bun.getName());
     }
 
     @Test
@@ -41,7 +45,7 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.setBuns(bun);
 
-        assertTrue("Set a price is not correct", price == bun.getPrice());
+        Assert.assertEquals("Set a price is not correct", price, bun.getPrice(), 0.01);
     }
 
     @Test
@@ -51,7 +55,7 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
 
-        assertEquals("The list of ingredients is not correct", ingredient, burger.ingredients.get(0));
+        Assert.assertEquals("The list of ingredients is not correct", ingredient, burger.ingredients.get(0));
     }
 
 
@@ -79,29 +83,22 @@ public class BurgerTest {
 
         burger.moveIngredient(5, newIndex);
 
-        Assert.assertTrue("The list of ingredients has not been changed", burger.ingredients.get(newIndex) == expected);
+        Assert.assertEquals("The list of ingredients has not been changed", burger.ingredients.get(newIndex), expected);
     }
 
-    @Mock
-    Bun bun;
-
     @Test
-    public void getPriceTest() { //TODO: придумать вариант с имеющимся списком ингридиентов для подсчетацены
+    public void getPriceWithMockTest() {
         Burger burger = new Burger();
         burger.setBuns(bun);
 
         Mockito.when(bun.getPrice()).thenReturn(100F);
+        Mockito.when(ingredient.getPrice()).thenReturn(300F);
 
-        for (int i = 0; i < 6; i++) {
-            burger.addIngredient(ingredients.get(i));
-        }
+        burger.addIngredient(ingredient);
 
-        float expected = bun.getPrice() * 2;
-        for (int i = 0; i < 6; i++) {
-            expected += burger.ingredients.get(i).getPrice();
-        }
+        float expected = 500F;
 
-        Assert.assertTrue("The price of the burger is not correctly", expected == burger.getPrice());
+        Assert.assertEquals("The price of the burger is not correctly", expected, burger.getPrice(), 0.01);
     }
 
     @Test
@@ -118,7 +115,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
 
         float price = burger.getPrice();
-        String expected = String.format("(==== %s ====)", bunName) + "\n" + "= filling " + ingredientName + " =\n" + String.format("(==== %s ====)", bunName) + "\n" + "\n"+ String.format("Price: %,6f", price) + "\n";
+        String expected = String.format("(==== %s ====)", bunName) + "\n" + "= filling " + ingredientName + " =\n" + String.format("(==== %s ====)", bunName) + "\n" + "\n" + String.format("Price: %,6f", price) + "\n";
 
         assertEquals("The receipt is not correctly", expected, burger.getReceipt().replaceAll("\r", ""));
     }

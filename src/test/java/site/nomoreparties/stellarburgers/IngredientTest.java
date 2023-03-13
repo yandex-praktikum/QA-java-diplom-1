@@ -1,4 +1,4 @@
-package practicumTest;
+package site.nomoreparties.stellarburgers;
 
 import com.github.javafaker.Faker;
 import org.junit.Assert;
@@ -34,20 +34,20 @@ public class IngredientTest {
 
 
     @Test
-    public void setIngredientTypeTest() {
+    public void installIngredientTypeViaConstructorTest() {
         Ingredient integer = new Ingredient(type, name, price);
         Assert.assertEquals("Set a ingredient type is not correct", type, integer.getType());
     }
 
     @Test
-    public void setNameTest() {
+    public void installNameViaConstructorTest() {
         Ingredient integer = new Ingredient(type, name, price);
         Assert.assertEquals("Set a name is not correct", name, integer.getName());
     }
 
     @Test
-    public void setPriceTest() {
+    public void installPriceViaConstructorTest() {
         Ingredient integer = new Ingredient(type, name, price);
-        Assert.assertTrue("Set a price is not correct", price == integer.getPrice());
+        Assert.assertEquals("Set a price is not correct", price, integer.getPrice(), 0.01);
     }
 }
