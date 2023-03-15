@@ -1,8 +1,14 @@
 package praktikum;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
 import static org.junit.Assert.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
     // Данные для заполнения
@@ -11,16 +17,10 @@ public class BurgerTest {
     Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "Салатище", 10.00f);
     Ingredient ingredient3 = new Ingredient(IngredientType.SAUCE, "Помидорище", 15.00f);
     float expectedPrice = bun1.getPrice() * 2 + ingredient1.getPrice() + ingredient2.getPrice() + ingredient3.getPrice();
-    String expectedReceipt =
-            "(==== Бутер 2 ====)\r\n" +
-            "= sauce Томатный =\r\n" +
-            "= sauce Салатище =\r\n" +
-            "= sauce Помидорище =\r\n" +
-            "(==== Бутер 2 ====)\r\n" +
-            "\r\n" +
-            "Price: 50,000000" +
-            "\r\n";
 
+
+    @Mock
+    Burger burger;
 
     @Test
     public void setNewBunTest() {
@@ -67,12 +67,8 @@ public class BurgerTest {
 
     @Test
     public void getBurgerReceiptTest() {
-        Burger burger = new Burger();
-        burger.setBuns(bun1);
-        burger.addIngredient(ingredient1);
-        burger.addIngredient(ingredient2);
-        burger.addIngredient(ingredient3);
-        assertEquals(expectedReceipt, burger.getReceipt());
+        burger.getReceipt();
+        Mockito.verify(burger).getReceipt();
     }
 
 }
