@@ -14,7 +14,7 @@ public class BunTests {
         this.PRICE_EXPECTED = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Булка. Тестовые данные: {0} {1} {2} {3} {4}")
     public static Object[][] data() {
         return new Object[][] {
                 {"", 0},
