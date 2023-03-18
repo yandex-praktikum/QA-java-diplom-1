@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static praktikum.IngredientType.FILLING;
 
-public class TestBurgerGetPrice {
+public class BurgerTest {
     Bun testBun = new Bun("test_bun", 12.90F);
     Ingredient testIngredient = new Ingredient(FILLING, "test_ingredient", 15.00F);
     Float expectedPrice = 40.80F;
