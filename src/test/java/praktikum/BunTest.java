@@ -17,8 +17,8 @@ public class BunTest {
     public static Object[][] dataForTest() {
         return new Object[][] {
                 {"black bun", 50F},
-                {23, 15},
-                {"@#$%^$", 15.500},
+                {"булка", 15},
+                {"@#$%^$", 150},
                 {"", 1F}
         };
     }

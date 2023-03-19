@@ -18,7 +18,7 @@ public class IngredientTest {
         return new Object[][] {
                 {"белый", 50F},
                 {"ketchup", 15},
-                {"@#$%^$", 15.500},
+                {"@#$%^$", 150},
                 {"", 3}
         };
     }
