@@ -14,13 +14,13 @@ import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
-public class DatabaseSauceTests {
+public class DatabaseSauceTest {
 
     private IngredientType type;
     private String name;
     private float price;
 
-    public DatabaseSauceTests(IngredientType type, String name, int price) {
+    public DatabaseSauceTest(IngredientType type, String name, int price) {
         this.type = type;
         this.name = name;
         this.price = price;

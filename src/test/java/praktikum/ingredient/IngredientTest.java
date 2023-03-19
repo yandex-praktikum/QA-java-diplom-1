@@ -11,7 +11,7 @@ import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
-public class IngredientTests {
+public class IngredientTest {
 
     private IngredientType type;
     private String name;
@@ -26,7 +26,7 @@ public class IngredientTests {
         };
     }
 
-    public IngredientTests(IngredientType type, String name, float price) {
+    public IngredientTest(IngredientType type, String name, float price) {
         this.type = type;
         this.name = name;
         this.price = price;

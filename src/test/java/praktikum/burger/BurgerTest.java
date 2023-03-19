@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerTests {
+public class BurgerTest {
     @Mock
     private Bun bun;
     @Mock
