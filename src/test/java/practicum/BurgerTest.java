@@ -27,13 +27,11 @@ public class BurgerTest {
     @Before
     public void setUp() {
         burger = new Burger();
-        for (int i = 0; i <= 3; i++) {
-            if (i == 2) {
-                burger.ingredients.add(anotherIngredient);
-            } else {
-                burger.ingredients.add(ingredient);
-            }
-        }
+        burger.ingredients.add(ingredient);
+        burger.ingredients.add(ingredient);
+        burger.ingredients.add(anotherIngredient);
+        burger.ingredients.add(ingredient);
+
     }
 
     @Test
