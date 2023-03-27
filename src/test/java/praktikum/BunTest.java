@@ -1,31 +1,46 @@
 package praktikum;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.Before;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import java.util.concurrent.ThreadLocalRandom;
-
-import static org.junit.Assert.assertEquals;
-
+@RunWith(JUnitParamsRunner.class)
 public class BunTest {
+    private final String VALID_NAME = "Кратор";
+    private final float VALID_PRICE = 777.7f;
 
-    Bun bun;
-    String name = RandomStringUtils.randomAlphabetic(10);
-    float price = ThreadLocalRandom.current().nextFloat();
-
-    @Before
-    public void setUp() {
-        bun = new Bun(name, price);
+    @Test
+    public void getNameTest() {
+        Bun bun = new Bun(VALID_NAME, VALID_PRICE);
+        Assert.assertEquals(VALID_NAME, bun.getName());
     }
 
     @Test
-    public void getNameShouldReturnValidName() {
-        assertEquals(name, bun.getName());
+    public void getPriceTest() {
+        Bun bun = new Bun(VALID_NAME, VALID_PRICE);
+        Assert.assertEquals(VALID_PRICE, bun.getPrice(), 0);
     }
 
     @Test
-    public void getPriceShouldReturnValidPrice() {
-        assertEquals(price, bun.getPrice(), 0);
+    @Parameters({"Булка",
+            "БулкаБулкаБулкаБулка",
+            "BulkaBulka",
+            "Булка Булка"})
+    public void positiveCreateBunNameParams(String name) {
+        Bun bun = new Bun(name, VALID_PRICE);
+        Assert.assertEquals(name, bun.getName());
+        Assert.assertEquals(VALID_PRICE, bun.getPrice(), 0);
+    }
+
+    @Test
+    @Parameters({"0.01",
+            "500.1",
+            "10000"})
+    public void positiveCreateBunPriceParams(float price) {
+        Bun bun = new Bun(VALID_NAME, price);
+        Assert.assertEquals(VALID_NAME, bun.getName());
+        Assert.assertEquals(price, bun.getPrice(), 0);
     }
 }

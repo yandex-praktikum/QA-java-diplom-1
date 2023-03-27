@@ -1,38 +1,49 @@
 package praktikum;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.Before;
 import org.junit.Test;
-
-import java.util.concurrent.ThreadLocalRandom;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.assertEquals;
-
+@RunWith(Parameterized.class)
 public class IngredientTest {
 
-    Ingredient ingredient;
-    IngredientType[] ingredientTypes = IngredientType.values();
-    IngredientType randomIngredientType = ingredientTypes[ThreadLocalRandom.current().nextInt(1, 2)];
-    String randomName = RandomStringUtils.randomAlphabetic(5);
-    float randomPrice = ThreadLocalRandom.current().nextFloat();
+    final IngredientType type;
+    final String name;
+    final float price;
 
-    @Before
-    public void setUp() {
-        ingredient = new Ingredient(randomIngredientType, randomName, randomPrice);
+    public IngredientTest(IngredientType type, String name, float price) {
+        this.type = type;
+        this.name = name;
+        this.price = price;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] ingredientTestData() {
+        return new Object[][] {
+                {IngredientType.SAUCE, "hot sauce", 100F},
+                {IngredientType.FILLING, "dinosaur", 200F},
+        };
     }
 
     @Test
-    public void getNameShouldReturnValidName() {
-        assertEquals(randomName, ingredient.getName());
+    public void doesGetTypeReturnValidValue() {
+        Ingredient ingredient = new Ingredient(type, name, price);
+        IngredientType actualType  = ingredient.getType();
+        assertEquals("Тип ингредиента отличается:", actualType, type);
     }
 
     @Test
-    public void getPriceShouldReturnValidPrice() {
-        assertEquals(randomPrice, ingredient.getPrice(), 0);
+    public void doesGetNameReturnValidValue() {
+        Ingredient ingredient = new Ingredient(type, name, price);
+        String actualName  = ingredient.getName();
+        assertEquals("Название ингредиента отличается:", actualName, name);
     }
 
     @Test
-    public void getTypeShouldReturnValidType() {
-        assertEquals(randomIngredientType, ingredient.getType());
+    public void doesGetPriceReturnValidValue() {
+        Ingredient ingredient = new Ingredient(type, name, price);
+        float actualPrice  = ingredient.getPrice();
+        assertEquals("Стоимость ингредиента отличается:", actualPrice, price, 0.05);
     }
 }
