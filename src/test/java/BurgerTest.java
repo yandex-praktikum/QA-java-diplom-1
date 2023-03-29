@@ -20,6 +20,8 @@ public class BurgerTest {
     Bun bun;
     @Mock
     Ingredient ingredient;
+    @Mock
+    Ingredient newIngredient;
     @Before
     public void setUp() {
         Mockito.when(bun.getPrice()).thenReturn(DataForTests.BUN_PRICE);
@@ -51,7 +53,6 @@ public class BurgerTest {
     }
     @Test
     public void moveIngredientTest() {
-        Ingredient newIngredient = Mockito.mock(Ingredient.class);
         burger.addIngredient(ingredient);
         burger.addIngredient(newIngredient);
         burger.moveIngredient(0, 1);
