@@ -18,6 +18,13 @@ public class Burger {
         this.bun = bun;
     }
 
+    public Burger(Bun bun,List<Ingredient> ingredients) {
+        this.bun = bun;
+        this.ingredients = ingredients;
+    }
+
+    public Burger() {}
+
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
     }
@@ -53,5 +60,4 @@ public class Burger {
 
         return receipt.toString();
     }
-
 }
