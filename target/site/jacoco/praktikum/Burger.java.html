@@ -9,49 +9,49 @@ import java.util.List;
  * Ингредиенты можно перемещать и удалять.
  * Можно распечать чек с информацией о бургере.
  */
-<span class="nc" id="L12">public class Burger {</span>
+<span class="fc" id="L12">public class Burger {</span>
 
     public Bun bun;
-<span class="nc" id="L15">    public List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L15">    public List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();</span>
 
     public void setBuns(Bun bun) {
-<span class="nc" id="L18">        this.bun = bun;</span>
-<span class="nc" id="L19">    }</span>
+<span class="fc" id="L18">        this.bun = bun;</span>
+<span class="fc" id="L19">    }</span>
 
     public void addIngredient(Ingredient ingredient) {
-<span class="nc" id="L22">        ingredients.add(ingredient);</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L22">        ingredients.add(ingredient);</span>
+<span class="fc" id="L23">    }</span>
 
     public void removeIngredient(int index) {
-<span class="nc" id="L26">        ingredients.remove(index);</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L26">        ingredients.remove(index);</span>
+<span class="fc" id="L27">    }</span>
 
     public void moveIngredient(int index, int newIndex) {
-<span class="nc" id="L30">        ingredients.add(newIndex, ingredients.remove(index));</span>
-<span class="nc" id="L31">    }</span>
+<span class="fc" id="L30">        ingredients.add(newIndex, ingredients.remove(index));</span>
+<span class="fc" id="L31">    }</span>
 
     public float getPrice() {
-<span class="nc" id="L34">        float price = bun.getPrice() * 2;</span>
+<span class="fc" id="L34">        float price = bun.getPrice() * 2;</span>
 
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        for (Ingredient ingredient : ingredients) {</span>
-<span class="nc" id="L37">            price += ingredient.getPrice();</span>
-<span class="nc" id="L38">        }</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L37">            price += ingredient.getPrice();</span>
+<span class="fc" id="L38">        }</span>
 
-<span class="nc" id="L40">        return price;</span>
+<span class="fc" id="L40">        return price;</span>
     }
 
     public String getReceipt() {
-<span class="nc" id="L44">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L44">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
 
-<span class="nc bnc" id="L46" title="All 2 branches missed.">        for (Ingredient ingredient : ingredients) {</span>
-<span class="nc" id="L47">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
-<span class="nc" id="L48">                    ingredient.getName()));</span>
-<span class="nc" id="L49">        }</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L47">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
+<span class="fc" id="L48">                    ingredient.getName()));</span>
+<span class="fc" id="L49">        }</span>
 
-<span class="nc" id="L51">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
-<span class="nc" id="L52">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
+<span class="fc" id="L51">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L52">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
 
-<span class="nc" id="L54">        return receipt.toString();</span>
+<span class="fc" id="L54">        return receipt.toString();</span>
     }
 
 }
