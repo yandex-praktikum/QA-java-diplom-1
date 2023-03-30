@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -23,9 +24,15 @@ public class BurgerTest {
     @Mock
     Bun bun;
 
+    Burger burger;
+
+    @Before
+    public void setUp() {
+        burger = new Burger();
+    }
+
     @Test
     public void setBunsAddCorrectBun() {
-        Burger burger = new Burger();
         Assert.assertEquals(burger.bun, null);
         bun = new Bun("bun", 20.20f);
         burger.setBuns(bun);
@@ -35,7 +42,6 @@ public class BurgerTest {
 
     @Test
     public void addIngredientCreatesIngredient() {
-        Burger burger = new Burger();
         Assert.assertTrue(burger.ingredients.isEmpty());
         burger.addIngredient(ingredient);
         Assert.assertFalse(burger.ingredients.isEmpty());
@@ -43,7 +49,6 @@ public class BurgerTest {
 
     @Test
     public void removeIngredientDeleteIngredient() {
-        Burger burger = new Burger();
         burger.addIngredient(ingredient);
         Assert.assertFalse(burger.ingredients.isEmpty());
         burger.removeIngredient(0);
@@ -52,7 +57,6 @@ public class BurgerTest {
 
     @Test
     public void moveIngredientMovesIngredients() {
-        Burger burger = new Burger();
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredient2);
         Ingredient objIngredient1 = burger.ingredients.get(0);

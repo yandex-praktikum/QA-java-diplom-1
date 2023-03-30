@@ -1,5 +1,3 @@
-package DatabaseTests;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +7,6 @@ import praktikum.Database;
 
 @RunWith(Parameterized.class)
 public class DatabaseBunsTest {
-
 
     private final int index;
     private final String name;
