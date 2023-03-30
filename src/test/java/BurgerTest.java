@@ -49,7 +49,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         burger.removeIngredient(DataForTests.FIRST_INGREDIENT);
 
-        Assert.assertEquals(DataForTests.EXPECTED_BURGER_PRICE_AFTER_DELETION, burger.getPrice(), 0);
+        Assert.assertEquals(DataForTests.EXPECTED_BURGER_PRICE_AFTER_DELETING, burger.getPrice(), 0);
     }
     @Test
     public void moveIngredientTest() {
