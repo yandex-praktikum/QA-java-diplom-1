@@ -28,6 +28,6 @@ public class IngredientTest {
         Ingredient ingredient = new Ingredient(ingredientType, "Первый", 2);
         float expectedPrice = 2;
 
-        assertEquals("Имя ингридиента не совпадает!", expectedPrice, ingredient.getPrice(), 0);
+        assertEquals("Цена ингридиента не совпадает!", expectedPrice, ingredient.getPrice(), 0);
     }
 }
