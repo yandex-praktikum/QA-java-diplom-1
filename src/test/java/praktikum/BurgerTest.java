@@ -1,36 +1,51 @@
 package praktikum;
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-import static praktikum.IngredientType.SAUCE;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-class BurgerTest {
+public class BurgerTest {
+    @Mock
+    Bun bun;
+    @Mock
+    Ingredient ingredient;
     @Spy
-    Bun bun = new Bun("black bun", 5F);
-    @Spy
-    Ingredient ingredient = new Ingredient(SAUCE, "Кетчуп", 4F);
-    Burger burger = new Burger();
+    private Burger burger = new Burger();
+
+    public static final String BURGER_RECEIPT = "(==== бургер ====)" + System.lineSeparator() +
+            "= filling начинка =" + System.lineSeparator() + "(==== бургер ====)" +
+            System.lineSeparator() + System.lineSeparator() + "Price: 209,000000" + System.lineSeparator();
+
     @Test
-    void setBuns() {
+    public void burgerGetPriceTest() {
+        Burger burger = new Burger();
+        Mockito.when(bun.getPrice()).thenReturn(100f);
+        Mockito.when(ingredient.getPrice()).thenReturn(9f);
         burger.setBuns(bun);
-        Assert.assertNotNull(bun);
+        burger.addIngredient(ingredient);
+        float expectedPrice = 209f;
+        float actualPrice = burger.getPrice();
+        assertEquals( "Некорректный результат",expectedPrice, actualPrice, 0.0);
     }
 
     @Test
-    void getPrice() {
+    public void burgerGetReceiptTest() {
+        Mockito.when(bun.getName()).thenReturn("бургер");
+        Mockito.when(ingredient.getName()).thenReturn("начинка");
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
+
         burger.setBuns(bun);
-        burger.ingredients.add(ingredient);
-        Assert.assertEquals(14F, burger.getPrice(), 0);
-    }
-    @Test
-    void getReceipt() {
-        burger.setBuns(bun);
-        burger.ingredients.add(ingredient);
-        Assert.assertNotNull(bun);
-       // String actReceipt = burger.getReceipt().toString();
-       // System.out.println(actReceipt);
+        burger.addIngredient(ingredient);
+
+        Mockito.when(burger.getPrice()).thenReturn(209f);
+
+        String expectedReceipt = BURGER_RECEIPT;
+        String actualReceipt = burger.getReceipt();
+        assertEquals("Некорректный результат", BURGER_RECEIPT, actualReceipt);
     }
 }

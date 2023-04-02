@@ -33,6 +33,6 @@ public class BunTest {
     public void getPriceTest() {
         Bun bun = new Bun("black bun", price);
         float actPrice = bun.getPrice();
-        Assert.assertEquals("Цена булочки не верная", price, actPrice, 0);
+        Assert.assertEquals("Цена булочки не верная", price, actPrice, 0.0f);
     }
 }

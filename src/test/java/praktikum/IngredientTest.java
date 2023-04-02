@@ -16,7 +16,7 @@ public class IngredientTest {
     @Parameterized.Parameters
     public static Object[][] dataForTest() {
         return new Object[][] {
-                {"белый", 50F},
+                {"белый", 50f},
                 {"ketchup", 15},
                 {"@#$%^$", 150},
                 {"", 3}
@@ -24,16 +24,21 @@ public class IngredientTest {
     }
 
     @Test
-    public void getPrice() {
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "соус 1", price);
+    public void getPriceTest() {
+        Ingredient ingredient = new Ingredient(null, "соус 1", price);
         float actPrice = ingredient.getPrice();
         Assert.assertEquals(price, actPrice, 0);
     }
 
     @Test
-    public void getName() {
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, name, 10F);
+    public void getNameTest() {
+        Ingredient ingredient = new Ingredient(null, name, 10f);
         String actName = ingredient.getName();
         Assert.assertEquals("Имя ингридиента не верное", name, actName);
+    }
+    @Test
+    public void getTypeIngredientTest() {
+        Ingredient ingredient = new Ingredient(IngredientType.FILLING, "Соус", 10f);
+        Assert.assertEquals("Некорректный результат", IngredientType.FILLING, ingredient.getType());
     }
 }
