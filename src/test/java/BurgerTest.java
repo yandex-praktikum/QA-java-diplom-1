@@ -24,9 +24,9 @@ public class BurgerTest {
     Ingredient newIngredient;
     @Before
     public void setUp() {
-        Mockito.when(bun.getPrice()).thenReturn(DataForTests.BUN_PRICE);
-        Mockito.when(ingredient.getPrice()).thenReturn(DataForTests.INGREDIENT_PRICE);
-        Mockito.when(ingredient.getName()).thenReturn(DataForTests.INGREDIENT_NAME);
+        Mockito.when(bun.getPrice()).thenReturn(12345.67F);
+        Mockito.when(ingredient.getPrice()).thenReturn(200F);
+        Mockito.when(ingredient.getName()).thenReturn("Test ingredient name");
     }
 
     @Test
@@ -47,9 +47,9 @@ public class BurgerTest {
     public void removeIngredientTest() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        burger.removeIngredient(DataForTests.FIRST_INGREDIENT);
+        burger.removeIngredient(0);
 
-        Assert.assertEquals(DataForTests.EXPECTED_BURGER_PRICE_AFTER_DELETING, burger.getPrice(), 0);
+        Assert.assertEquals(24691.34F, burger.getPrice(), 0);
     }
     @Test
     public void moveIngredientTest() {
@@ -57,13 +57,13 @@ public class BurgerTest {
         burger.addIngredient(newIngredient);
         burger.moveIngredient(0, 1);
 
-        assertEquals(DataForTests.INGREDIENT_NAME, burger.ingredients.get(1).getName());
+        assertEquals("Test ingredient name", burger.ingredients.get(1).getName());
     }
     @Test
     public void getPriceTest() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
 
-        assertEquals(DataForTests.EXPECTED_BURGER_PRICE, burger.getPrice(), 0);
+        assertEquals(24891.34F, burger.getPrice(), 0);
     }
 }
