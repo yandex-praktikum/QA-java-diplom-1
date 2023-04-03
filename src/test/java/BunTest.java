@@ -29,7 +29,6 @@ public class BunTest {
     public void checkNameBun(){
         Bun bun = new Bun(expectedName,price);
         Assert.assertEquals(expectedName,bun.getName());
-        System.out.println(bun.getName());
 
     }
 
