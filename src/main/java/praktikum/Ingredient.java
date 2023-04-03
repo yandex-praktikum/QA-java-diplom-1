@@ -7,9 +7,9 @@ package praktikum;
  */
 public class Ingredient {
 
-    public IngredientType type;
-    public String name;
-    public float price;
+    public static IngredientType type;
+    public static String name;
+    public static float price;
 
     public Ingredient(IngredientType type, String name, float price) {
         this.type = type;
