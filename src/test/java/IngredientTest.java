@@ -17,15 +17,15 @@ public class IngredientTest {
 
     @Test
     public void ingredientGetNameReturnsName(){
-        Ingredient ingredient = new Ingredient(ingredientType, "Первый", 2);
-        String expectedName = "Первый";
+        Ingredient ingredient = new Ingredient(ingredientType, "First", 2);
+        String expectedName = "First";
 
         assertEquals("Имя ингридиента не совпадает!", expectedName, ingredient.getName());
     }
 
     @Test
     public void ingredientGetPriceReturnsPrice(){
-        Ingredient ingredient = new Ingredient(ingredientType, "Первый", 2);
+        Ingredient ingredient = new Ingredient(ingredientType, "First", 2);
         float expectedPrice = 2;
 
         assertEquals("Цена ингридиента не совпадает!", expectedPrice, ingredient.getPrice(), 0);
