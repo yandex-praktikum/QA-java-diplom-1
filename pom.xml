@@ -45,6 +45,12 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>Diplom\src\main\java\praktikum\Praktikum.class</exclude>
+                        <exclude>Diplom\src\main\java\praktikum\Database.class</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
