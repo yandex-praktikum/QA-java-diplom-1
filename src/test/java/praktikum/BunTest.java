@@ -5,6 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 @RunWith(Parameterized.class)
 public class BunTest {
     private final String name;
@@ -18,21 +22,22 @@ public class BunTest {
         return new Object[][] {
                 {"black bun", 50F},
                 {"булка", 15},
-                {"@#$%^$", 150},
-                {"", 1F}
+                {"@#$%^$", 89652.4028235F},
+                {"", 1F},
+                {" 41231", 3.5545982F},
+                {null, 0},
+                {"Очень довольная женщина пошла с действительно белой лопатой через шляпу моей маленькой хорошо упитанной свиньи", -51F},
         };
     }
 
     @Test
     public void getNameTest() {
-        Bun bun = new Bun(name, 100F);
-        String actName = bun.getName();
-        Assert.assertEquals("Имя булочки не верное", name, actName);
+        Bun bun = new Bun(name, price);
+        assertThat(name, equalTo(bun.getName()));
     }
     @Test
     public void getPriceTest() {
-        Bun bun = new Bun("black bun", price);
-        float actPrice = bun.getPrice();
-        Assert.assertEquals("Цена булочки не верная", price, actPrice, 0.0f);
+        Bun bun = new Bun(name, price);
+        assertTrue(price == bun.getPrice());
     }
 }

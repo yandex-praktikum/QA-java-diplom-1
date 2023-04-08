@@ -13,7 +13,7 @@ public class BurgerTest {
     @Mock
     Bun bun;
     @Mock
-    Ingredient ingredient;
+    Ingredient ingredientOne, ingredientTwo, ingredientThree;;
     @Spy
     private Burger burger = new Burger();
 
@@ -25,9 +25,9 @@ public class BurgerTest {
     public void burgerGetPriceTest() {
         Burger burger = new Burger();
         Mockito.when(bun.getPrice()).thenReturn(100f);
-        Mockito.when(ingredient.getPrice()).thenReturn(9f);
+        Mockito.when(ingredientOne.getPrice()).thenReturn(9f);
         burger.setBuns(bun);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredientOne);
         float expectedPrice = 209f;
         float actualPrice = burger.getPrice();
         assertEquals( "Некорректный результат",expectedPrice, actualPrice, 0.0);
@@ -36,16 +36,35 @@ public class BurgerTest {
     @Test
     public void burgerGetReceiptTest() {
         Mockito.when(bun.getName()).thenReturn("бургер");
-        Mockito.when(ingredient.getName()).thenReturn("начинка");
-        Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(ingredientOne.getName()).thenReturn("начинка");
+        Mockito.when(ingredientOne.getType()).thenReturn(IngredientType.FILLING);
 
         burger.setBuns(bun);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredientOne);
 
         Mockito.when(burger.getPrice()).thenReturn(209f);
 
-        String expectedReceipt = BURGER_RECEIPT;
         String actualReceipt = burger.getReceipt();
         assertEquals("Некорректный результат", BURGER_RECEIPT, actualReceipt);
+    }
+    @Test
+    public void burgerRemoveIngredientTest () {
+
+        Burger burger = new Burger ();
+        burger.addIngredient(ingredientOne);
+        burger.removeIngredient(0);
+
+        assertEquals(true, burger.ingredients.isEmpty());
+    }
+    @Test
+    public void burgerMoveIngredientTest () {
+
+        Burger burger = new Burger ();
+        burger.addIngredient(ingredientOne);
+        burger.addIngredient(ingredientTwo);
+        burger.addIngredient(ingredientThree);
+        burger.moveIngredient(0,2);
+
+        assertEquals(ingredientOne, burger.ingredients.get(2));
     }
 }
