@@ -28,7 +28,7 @@ public class BurgerTest {
         List<Ingredient> ingredients = database.availableIngredients();
         Burger burger = new Burger();
         burger.addIngredient(ingredients.get(1));
-        assertEquals(ingredients.get(1), ingredients.get(1));
+        assertEquals(ingredients.get(1), burger.ingredients.get(0));
     }
 
     @Test
