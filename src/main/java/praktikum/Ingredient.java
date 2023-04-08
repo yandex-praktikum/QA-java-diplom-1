@@ -17,16 +17,23 @@ public class Ingredient {
         this.price = price;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
     public String getName() {
-        return name;
+        if((name.length() <= 2)
+                || (name.length() > 15)
+                || name.startsWith(" ")
+                || name.endsWith(" ")
+        ){
+            return null;
+        }return name;
+    }
+    public float getPrice() {
+        if (price<0 || price>1000){
+            return 0;
+        }
+        return price;
     }
 
     public IngredientType getType() {
         return type;
     }
-
 }

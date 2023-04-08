@@ -13,13 +13,19 @@ public class Bun {
         this.name = name;
         this.price = price;
     }
-
     public String getName() {
-        return name;
+        if((name.length() <= 2)
+               || (name.length() > 10)
+                || name.startsWith(" ")
+                || name.endsWith(" ")
+                ){
+        return null;
+    }return name;
     }
-
     public float getPrice() {
+        if (price<0 || price>1000){
+            return 0;
+        }
         return price;
     }
-
 }
