@@ -15,6 +15,8 @@
         <junit.version>4.13.2</junit.version>
         <jacoco.version>0.8.7</jacoco.version>
         <mockito.version>5.2.0</mockito.version>
+        <javatuples.version>1.2</javatuples.version>
+        <mavenplugin.version>2.22.0</mavenplugin.version>
     </properties>
 
     <dependencies>
@@ -38,11 +40,26 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.javatuples</groupId>
+            <artifactId>javatuples</artifactId>
+            <version>${javatuples.version}</version>
+        </dependency>
+
 
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${mavenplugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>

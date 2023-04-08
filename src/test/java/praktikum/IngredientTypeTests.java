@@ -1,4 +1,4 @@
 package praktikum;
 
-public class IngredientTypeTests {
+public class IngredientTypeTests extends TestBase {
 }
