@@ -52,7 +52,7 @@ public class BurgerTest {
     @Test
     public void burgerGetPriceReturnsPrice(){
         bun = new Bun("Briosh", 2);
-        ingredient = new Ingredient(IngredientType.SAUCE, "Catchup", 1);
+        ingredient = new Ingredient(IngredientType.FILLING, "SpaceMeat", 1);
 
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
