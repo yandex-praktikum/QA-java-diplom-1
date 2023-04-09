@@ -29,7 +29,7 @@ public class BurgerTest {
     Burger mockBurger; // создали мок
 
     @Test
-    public void test() {
+    public void TestVerifySetBuns() {
         Bun bun = new Bun(name, price);
         mockBurger.setBuns(bun); // вызвали метод объекта с аргументом
         Mockito.verify(mockBurger).setBuns(bun); // проверили, что метод вызван с этим параметром
