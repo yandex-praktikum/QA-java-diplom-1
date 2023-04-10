@@ -18,9 +18,26 @@ public class BunTest {
     @Parameterized.Parameters
     public static Object[][] getTestParameters() {
         return new Object[][]{
-                {"black bun", 100},
-                {"white bun", 200},
-                {"red bun", 300}
+                {"", 100f},
+                {null, 200f},
+                {"Тип float занимает в памяти компьютера 32 бита и может принимать значения " +
+                        "в интервале [3.4E-38; 3.4E+38) (иными словами, в интервале от 3.4*10ˉ³⁸ " +
+                        "(включительно) до 3.4 * 10³⁸ (исключая))", 300},
+                {"black bun 1", 100f},
+                {"white bun +-", 200f},
+                {"red bun &%", 300f},
+                {"black.,; bun", 100f},
+                {"white bun/*", 200f},
+                {"red bun", -300f},
+                {"black bun", 0f},
+                {"white bun", 3/5},
+                {"red bun", (float)3/5},
+                {"black bun", -Float.MAX_VALUE},
+                {"white bun", Float.MAX_VALUE},
+                {"red bun", Float.MIN_VALUE},
+                {"black bun", Float.NEGATIVE_INFINITY},
+                {"white bun", Float.POSITIVE_INFINITY},
+                {"red bun", -Float.MIN_VALUE}
         };
     }
 

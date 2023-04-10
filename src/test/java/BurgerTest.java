@@ -11,6 +11,7 @@ import praktikum.Ingredient;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static praktikum.IngredientType.FILLING;
 
 @RunWith(MockitoJUnitRunner.class)
 
@@ -65,5 +66,23 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
 
         assertEquals(24891.34F, burger.getPrice(), 0);
+    }
+    @Test
+    public void getReceiptTest() {
+        Mockito.when(ingredient.getName()).thenReturn("cutlet");
+        Mockito.when(ingredient.getType()).thenReturn(FILLING);
+        Mockito.when(ingredient.getPrice()).thenReturn(100f);
+        burger.addIngredient(ingredient);
+        Mockito.when(bun.getName()).thenReturn("black bun");
+        Mockito.when(bun.getPrice()).thenReturn(100f);
+        burger.setBuns(bun);
+        String expectedReceipt = String.format("(==== %s ====)%n", bun.getName()) +
+                String.format("= %s %s =%n",
+                        burger.ingredients.get(0).getType().toString().toLowerCase(),
+                        burger.ingredients.get(0).getName()) +
+                String.format("(==== %s ====)%n", "black bun") +
+                String.format("%nPrice: %f%n", burger.getPrice());
+        String actual = burger.getReceipt();
+        assertEquals(expectedReceipt, actual);
     }
 }
