@@ -88,4 +88,23 @@ public class BurgerTest {
 
         assertNotEquals("Рецепты одинаковы, ингредиент не переместился", oldRecipe, burger.getReceipt());
     }
+
+    @Test
+    public void burgerReceiptFormatCheck(){
+        bun = new Bun("Briosh", 2);
+        ingredient = new Ingredient(IngredientType.SAUCE, "Catchup", 1);
+        Ingredient ingredient2 = new Ingredient(IngredientType.SAUCE, "Mayonesse", 1);
+
+        StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
+        receipt.append(String.format("= %s %s =%n", ingredient.getType().toString().toLowerCase(), ingredient.getName()));
+        receipt.append(String.format("= %s %s =%n", ingredient2.getType().toString().toLowerCase(), ingredient2.getName()));
+        receipt.append(String.format("(==== %s ====)%n", bun.getName()));
+        receipt.append(String.format("%nPrice: %f%n", bun.getPrice()*2+ingredient.getPrice()+ ingredient2.getPrice()));
+
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient2);
+
+        assertEquals("Рецепт составлен неправильно", receipt.toString(), burger.getReceipt());
+    }
 }
