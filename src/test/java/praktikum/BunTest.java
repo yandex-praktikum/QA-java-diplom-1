@@ -5,17 +5,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.*;
-
 @RunWith(Parameterized.class)
 public class BunTest {
 
-    private final String name_bun;
-    private final float price_bun;
+    private final String nameBun;
+    private final float priceBun;
 
-    public BunTest(String name_bun, float price_bun) {
-        this.name_bun = name_bun;
-        this.price_bun = price_bun;
+    public BunTest(String nameBun, float priceBun) {
+        this.nameBun = nameBun;
+        this.priceBun = priceBun;
     }
 
     @Parameterized.Parameters
@@ -31,17 +29,17 @@ public class BunTest {
 
     @Test
     public void getName() {
-        Bun bun = new Bun(name_bun, price_bun);
+        Bun bun = new Bun(nameBun, priceBun);
         String actual = bun.getName();
-        String expected = name_bun;
+        String expected = nameBun;
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void getPrice() {
-        Bun bun = new Bun(name_bun, price_bun);
+        Bun bun = new Bun(nameBun, priceBun);
         float actual = bun.getPrice();
-        float expected = price_bun;
+        float expected = priceBun;
         Assert.assertEquals("Error getPrice",expected,actual,0);
     }
 }
