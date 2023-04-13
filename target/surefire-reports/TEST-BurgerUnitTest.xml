@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="BurgerUnitTest" time="0.044" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="BurgerUnitTest" time="0.006" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -30,7 +30,7 @@
     <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\plugins\maven\lib\maven-event-listener.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\plugins\maven\lib\maven3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1251"/>
-    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Firuz\Downloads\apache-maven-3.9.1-bin\apache-maven-3.9.1\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Users\Firuz\Downloads\allure-commandline-2.15.0\allure-2.15.0\bin;C:\Users\Firuz\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Firuz\Downloads\apache-maven-3.9.1-bin\apache-maven-3.9.1\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Users\Firuz\Downloads\allure-commandline-2.15.0\allure-2.15.0\bin;C:\WebDriver\bin;C:\Program Files\dotnet\;C:\Users\Firuz\AppData\Local\Microsoft\WindowsApps;C:\Users\Firuz\AppData\Local\GitHubDesktop\bin;."/>
     <property name="jansi.passthrough" value="true"/>
     <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\plugins\maven\lib\maven3/conf"/>
     <property name="jdk.debug" value="release"/>
@@ -65,12 +65,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="BurgerUnitTest" name="addIngredientCallsMultipleTimesWithParameter" time="0.037"/>
-  <testcase classname="BurgerUnitTest" name="removeIngredientCallsMultipleTimesWithParameter" time="0.002"/>
-  <testcase classname="BurgerUnitTest" name="getPriceReturnsCorrectValue" time="0"/>
-  <testcase classname="BurgerUnitTest" name="getReceiptReturnsCorrectValues" time="0.003"/>
-  <testcase classname="BurgerUnitTest" name="removeIngredientCallsWithCorrectParameter" time="0.001"/>
-  <testcase classname="BurgerUnitTest" name="moveIngredientCallsWithCorrectParameter" time="0"/>
-  <testcase classname="BurgerUnitTest" name="moveIngredientCallsMultipleTimesWithParameter" time="0"/>
-  <testcase classname="BurgerUnitTest" name="addIngredientCallsWithCorrectParameter" time="0.001"/>
+  <testcase classname="BurgerUnitTest" name="removeIngredientCheck" time="0.001"/>
+  <testcase classname="BurgerUnitTest" name="getPriceReturnsCorrectValue" time="0.001"/>
+  <testcase classname="BurgerUnitTest" name="addIngredientWithCorrectParameter" time="0"/>
+  <testcase classname="BurgerUnitTest" name="getReceiptReturnsCorrectValues" time="0.004"/>
+  <testcase classname="BurgerUnitTest" name="moveIngredientWithCorrectParameter" time="0"/>
 </testsuite>

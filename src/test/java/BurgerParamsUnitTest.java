@@ -15,17 +15,15 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class BurgerParamsUnitTest {
 
-    @Rule
-    public MockitoRule rule = MockitoJUnit.rule();
-
-    @Mock
-    Bun bun;
-
-    @Mock
-    Ingredient ingredient;
-
     private final float bunPrice;
     private final float meatPrice;
+    @Rule
+    public MockitoRule rule = MockitoJUnit.rule();
+    @Mock
+    Bun bun;
+    @Mock
+    Ingredient ingredient;
+    private final double delta = 0;
 
     public BurgerParamsUnitTest(float bunPrice, float meatPrice) {
         this.bunPrice = bunPrice;
@@ -33,11 +31,12 @@ public class BurgerParamsUnitTest {
     }
 
     @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
-    public static Object[][] getTestData() {return new Object[][] {
-            {5f, 31f},
-            {13.45f, 50.5f},
-            {9.7f, 5.54f}
-    };
+    public static Object[][] getTestPrice() {
+        return new Object[][]{
+                {5f, 31f},
+                {13.45f, 50.5f},
+                {9.7f, 5.54f}
+        };
     }
 
     @Test
@@ -48,6 +47,6 @@ public class BurgerParamsUnitTest {
         Mockito.when(bun.getPrice()).thenReturn(bunPrice);
         Mockito.when(ingredient.getPrice()).thenReturn(meatPrice);
         float expectedPrice = 2 * bunPrice + meatPrice;
-        assertEquals("У бургера должна быть фиксированная цена", expectedPrice, burger.getPrice(), 0);
+        assertEquals("У бургера должна быть фиксированная цена", expectedPrice, burger.getPrice(), delta);
     }
 }

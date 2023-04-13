@@ -12,8 +12,9 @@ public class BunUnitTest {
 
     @Test
     public void testGetBunPrice() {
+        double delta = 0.01f;
         Bun bun = new Bun("Hamburger Bun", 1.99f);
         float price = bun.getPrice();
-        Assert.assertEquals(1.99f, price, 0.01f);
+        Assert.assertEquals(1.99f, price, delta);
     }
 }
