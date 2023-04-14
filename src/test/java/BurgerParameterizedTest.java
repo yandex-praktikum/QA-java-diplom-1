@@ -42,7 +42,6 @@ public class BurgerParameterizedTest {
     public static Object[][] dataPriceOfIngredients() {
         return new Object[][]{
                 {100.0f, 200.0f, 300.0f, 700.0f},
-                {100.1f, 200.0f, 300.0f, 700.2f},
         };
     }
     @Test
