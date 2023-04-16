@@ -3,8 +3,14 @@ package praktikum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.lenient;
 import static praktikum.IngredientType.*;
@@ -20,18 +26,25 @@ public class BurgerTest {
         burger = new Burger();
     }
 
-    @Test
-    void shouldAddIngredient() {
-        Ingredient ingredient = new Ingredient(SAUCE, "Соус с шипами Антарианского плоскоходца",5.3F);
+    @ParameterizedTest
+    @MethodSource("provideIngredients")
+    void shouldAddIngredient(IngredientType type, String name, float price, @Mock Ingredient ingredient) {
+        lenient().when(ingredient.getType()).thenReturn(type);
+        lenient().when(ingredient.getName()).thenReturn(name);
+        lenient().when(ingredient.getPrice()).thenReturn(price);
         burger.addIngredient(ingredient);
         assertTrue(burger.ingredients.contains(ingredient));
     }
 
     @Test
-    void shouldRemoveIngredient() {
+    void shouldRemoveIngredient(@Mock Ingredient sauce, @Mock Ingredient filling) {
         // Arrange
-        Ingredient sauce = new Ingredient(SAUCE, "Соус с шипами Антарианского плоскоходца",88),
-        filling = new Ingredient(FILLING, "Мини-салат Экзо-Плантаго",4400);
+        lenient().when(sauce.getType()).thenReturn(SAUCE);
+        lenient().when(sauce.getName()).thenReturn("Соус с шипами Антарианского плоскоходца");
+        lenient().when(sauce.getPrice()).thenReturn(88F);
+        lenient().when(filling.getType()).thenReturn(FILLING);
+        lenient().when(filling.getName()).thenReturn("Мини-салат Экзо-Плантаго");
+        lenient().when(filling.getPrice()).thenReturn(4400F);
         burger.addIngredient(sauce);
         burger.addIngredient(filling);
         // Act
@@ -44,10 +57,14 @@ public class BurgerTest {
     }
 
     @Test
-    void shouldMoveIngredient() {
+    void shouldMoveIngredient(@Mock Ingredient sauce, @Mock Ingredient filling) {
         // Arrange
-        Ingredient sauce = new Ingredient(SAUCE, "Соус Spicy-X",90),
-                filling = new Ingredient(FILLING, "Мини-салат Экзо-Плантаго",4400);
+        lenient().when(sauce.getType()).thenReturn(SAUCE);
+        lenient().when(sauce.getName()).thenReturn("Соус с шипами Антарианского плоскоходца");
+        lenient().when(sauce.getPrice()).thenReturn(88F);
+        lenient().when(filling.getType()).thenReturn(FILLING);
+        lenient().when(filling.getName()).thenReturn("Мини-салат Экзо-Плантаго");
+        lenient().when(filling.getPrice()).thenReturn(4400F);
         burger.addIngredient(sauce);
         burger.addIngredient(filling);
         // Act
@@ -92,6 +109,13 @@ public class BurgerTest {
                 () -> assertTrue(receipt.contains("Соус Spicy-X")),
                 () -> assertTrue(receipt.contains("Мини-салат Экзо-Плантаго")),
                 () -> assertTrue(receipt.contains(String.valueOf(988F * 2 + 90F + 4400F)))
+        );
+    }
+
+    private static Stream<Arguments> provideIngredients() {
+        return Stream.of(
+                Arguments.of(SAUCE, "Соус Spicy-X", 90F),
+                Arguments.of(FILLING, "Биокотлета из марсианской Магнолии", 424F)
         );
     }
 }
