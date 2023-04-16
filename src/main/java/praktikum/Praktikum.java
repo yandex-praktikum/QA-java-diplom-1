@@ -1,6 +1,6 @@
 package praktikum;
 
-import java.util.List;
+        import java.util.List;
 
 public class Praktikum {
 
@@ -27,12 +27,11 @@ public class Praktikum {
 
         // Переместим слой с ингредиентом
         burger.moveIngredient(2, 1);
-
         // Удалим ингредиент
         burger.removeIngredient(3);
 
         // Распечатаем рецепт бургера
         System.out.println(burger.getReceipt());
-    }
 
+    }
 }
