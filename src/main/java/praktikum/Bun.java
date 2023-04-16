@@ -13,13 +13,10 @@ public class Bun {
         this.name = name;
         this.price = price;
     }
-
     public String getName() {
         return name;
     }
-
     public float getPrice() {
         return price;
     }
-
 }

@@ -1,0 +1,5 @@
+BunParametrizedTest.class
+IngredientParametrizedTest.class
+DatabaseIngredientsParametrizedTest.class
+BurgerMockTest.class
+DatabaseBunParametrizedTest.class
