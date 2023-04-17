@@ -17,7 +17,7 @@ Project contains following classes:
 | CLASS | README |
 | ------ | ------ |
 | java/praktikum | forked code |
-| test/BunParamsTest | testing the creation with different constructor parameters |
+| test/BunParamsTest | testing the bun creation with different constructor parameters |
 | test/BurgerTests | cover tests for Burger class methods with mocks |
 | test/IngredientParamsTest | testing the ingredient creation with different parameters |
 
