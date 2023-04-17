@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="ru.yandex.praktikum.diplom.BurgerTest" time="2.753" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="ru.yandex.praktikum.diplom.BurgerTest" time="3.429" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -65,16 +65,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="setBunsFieldBunContainsBunTypeObject[0]" time="2.61"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="moveIngredientIngredientsHaveBeenSwapped[0]" time="0.003"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getPriceReturnPricePositiveResult[0]" time="0.087"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="addIngredientLengthListIncreasesByOne[0]" time="0.005"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="removeIngredientLengthListReducedByOne[0]" time="0.004"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getReceipt[0]" time="0.017"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="setBunsFieldBunContainsBunTypeObject[1]" time="0.006"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="moveIngredientIngredientsHaveBeenSwapped[1]" time="0.009"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getPriceReturnPricePositiveResult[1]" time="0"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="addIngredientLengthListIncreasesByOne[1]" time="0.006"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="removeIngredientLengthListReducedByOne[1]" time="0"/>
-  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getReceipt[1]" time="0.006"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="setBunsFieldBunContainsBunTypeObject[0]" time="3.282"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="moveIngredientIngredientsHaveBeenSwapped[0]" time="0.005"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getPriceReturnPricePositiveResult[0]" time="0.08"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="addIngredientLengthListIncreasesByOne[0]" time="0.007"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="removeIngredientLengthListReducedByOne[0]" time="0"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getReceipt[0]" time="0.032"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="setBunsFieldBunContainsBunTypeObject[1]" time="0.003"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="moveIngredientIngredientsHaveBeenSwapped[1]" time="0.002"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getPriceReturnPricePositiveResult[1]" time="0.008"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="addIngredientLengthListIncreasesByOne[1]" time="0.004"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="removeIngredientLengthListReducedByOne[1]" time="0.002"/>
+  <testcase classname="ru.yandex.praktikum.diplom.BurgerTest" name="getReceipt[1]" time="0.004"/>
 </testsuite>
