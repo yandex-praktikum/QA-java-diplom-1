@@ -34,8 +34,9 @@ public class BurgerTest {
     @Test
     public void setBunsAddCorrectBun() {
         Assert.assertEquals(burger.bun, null);
-        bun = new Bun("bun", 20.20f);
         burger.setBuns(bun);
+        Mockito.when(bun.getName()).thenReturn("bun");
+        Mockito.when(bun.getPrice()).thenReturn(20.20f);
         Assert.assertEquals(burger.bun.getName(), "bun");
         Assert.assertEquals(burger.bun.getPrice(), 20.20f, 0);
     }
