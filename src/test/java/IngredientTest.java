@@ -21,7 +21,7 @@ public class IngredientTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Стоимость булочки. Тестовые данные: {0} {1}")
     public static Object[][] getIngredient() {
         return new Object[][] {
                 {SAUCE, "лук", 24},
@@ -50,3 +50,4 @@ public class IngredientTest {
         Assert.assertEquals(ingredientType, actualType);
     }
 }
+

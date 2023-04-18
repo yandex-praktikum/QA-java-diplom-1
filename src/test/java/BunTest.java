@@ -10,6 +10,6 @@ public class BunTest {
         Assert.assertEquals("Булочка с маком", actualName);
 
         float actualPrice = bun.getPrice();
-        Assert.assertEquals(actualPrice, actualPrice, 0.0f);
+        Assert.assertEquals(22, actualPrice, 0.0f);
     }
 }
