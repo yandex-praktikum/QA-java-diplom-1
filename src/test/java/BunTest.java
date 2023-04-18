@@ -1,6 +1,4 @@
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import praktikum.Bun;
 
 public class BunTest {
