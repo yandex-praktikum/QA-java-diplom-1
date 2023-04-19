@@ -28,7 +28,6 @@ public class BunTests extends TestBase {
         Assert.assertEquals(String.format(CHECK_NAME_TEST_MESSAGE,
                 Constants.BUN_NAME, bunName),Constants.BUN_NAME, bunName);
     }
-
     @Test
     @Parameters({
             Constants.BUN_NAME + "," + Constants.BUN_PRICE

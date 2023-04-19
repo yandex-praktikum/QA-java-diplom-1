@@ -1,11 +1,8 @@
 package praktikum;
 
-import junitparams.JUnitParamsRunner;
 import org.javatuples.Pair;
 import org.javatuples.Triplet;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-
 import java.util.Arrays;
 import java.util.List;
 
