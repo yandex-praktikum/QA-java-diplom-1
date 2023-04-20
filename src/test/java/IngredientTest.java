@@ -51,4 +51,14 @@ public class IngredientTest {
         float ingredientPriceActual = ingredient.getPrice();
         assertEquals(ingredientPriceActual, ingredientPrice);
     }
+
+    @Test
+    public void ingredientTypeValueSauce() {
+        assertEquals(SAUCE, IngredientType.valueOf("SAUCE"));
+    }
+
+    @Test
+    public void ingredientTypeValueFilling() {
+        assertEquals(FILLING, IngredientType.valueOf("FILLING"));
+    }
 }
