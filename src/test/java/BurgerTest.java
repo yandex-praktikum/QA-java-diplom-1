@@ -1,24 +1,39 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
     private Burger burger;
+    @Mock
     private Bun mockBun;
+    @Mock
     private Ingredient mockSauce;
+    @Mock
     private Ingredient mockFilling;
 
     @Before
     public void start() {
-        mockBun = new Bun("step", 1f);
-        mockSauce = new Ingredient(IngredientType.SAUCE, "ketchup", 2f);
-        mockFilling = new Ingredient(IngredientType.FILLING, "beef patty", 3f);
+        MockitoAnnotations.initMocks(this);
+        when(mockBun.getName()).thenReturn("step");
+        when(mockBun.getPrice()).thenReturn(1f);
+        when(mockSauce.getType()).thenReturn(IngredientType.SAUCE);
+        when(mockSauce.getName()).thenReturn("ketchup");
+        when(mockSauce.getPrice()).thenReturn(2f);
+        when(mockFilling.getType()).thenReturn(IngredientType.FILLING);
+        when(mockFilling.getName()).thenReturn("beef patty");
+        when(mockFilling.getPrice()).thenReturn(3f);
         burger = new Burger();
         burger.setBuns(mockBun);
         burger.setBuns(mockBun);

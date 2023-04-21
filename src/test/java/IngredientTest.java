@@ -14,7 +14,7 @@ import static praktikum.IngredientType.SAUCE;
         private final IngredientType type;
         private final String name;
         private final float price;
-        Ingredient ingredient;
+        private Ingredient ingredient;
 
         public IngredientTest(IngredientType type, String name, float price) {
             this.type = type;
