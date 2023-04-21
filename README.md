@@ -13,6 +13,8 @@
     Java 11
     maven 4.0.0
     JUnit 4.13.2
+    mockito 3.12.4
+    jacoco 0.8.7
 
 
 ### Оценка покрытия
