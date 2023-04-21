@@ -9,8 +9,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Random;
-
+import static config.PriceNameData.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static praktikum.IngredientType.FILLING;
@@ -18,14 +17,7 @@ import static praktikum.IngredientType.FILLING;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
     Burger burger = new Burger();
-    private float PRICE_BUN = new Random().nextFloat();
-    private float PRICE_INGREDIENT = new Random().nextFloat();
-    private float PRICE_INGREDIENT_FILLING = new Random().nextFloat();
-    private float PRICE_INGREDIENT_SAUCE = new Random().nextFloat();
-    Faker faker = new Faker();
-    private String NAME_INGREDIENT = faker.resolve("food.ingredients");
-    private String NAME_INGREDIENT_FILLING = faker.resolve("food.ingredients");
-    private String NAME_INGREDIENT_SAUCE = faker.resolve("food.ingredients");
+
     @Mock
     Bun bun;
     @Mock
