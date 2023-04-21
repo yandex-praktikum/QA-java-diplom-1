@@ -6,6 +6,10 @@ public class Constants {
 
     public static final String BUN_NAME = "Флюоресцентная булка R2-D3";
     public static final float BUN_PRICE = 999.99f;
+    public static final int MIN_BUN_NAME_VALUE = 3;
+    public static final int MAX_BUN_NAME_VALUE = 255;
+    public static final float MAX_BUN_PRICE = 999999.99f;
+    public static final float MIN_BUN_PRICE = 0.01f;
     public static final String INGREDIENT_ONE_NAME = "Биокотлета из марсианской Магнолии";
     public static final String INGREDIENT_TWO_NAME = "Соус с шипами Антарианского плоскоходца";
 
