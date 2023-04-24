@@ -3,6 +3,7 @@ package praktikum;
 import org.javatuples.Pair;
 import org.javatuples.Triplet;
 import org.mockito.Mockito;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,7 +38,6 @@ public class TestBase {
             Mockito.when(bun.getPrice()).thenReturn(bunPrice);
         }
     }
-
 
 
     public String buildReceipt(Pair<String, Float> bun, List<Triplet<String, Float, String>> ingredients) {

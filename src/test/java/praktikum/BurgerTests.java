@@ -46,8 +46,8 @@ public class BurgerTests extends TestBase {
     })
     public void testAddIngredientAddsIngredientsCorrectly(String ingredientOneName, String ingredientTwoName) {
         //Arrange
-        createIngredientStub(ingredientOne,ingredientOneName, null, null);
-        createIngredientStub(ingredientTwo,ingredientTwoName, null, null);
+        createIngredientStub(ingredientOne, ingredientOneName, null, null);
+        createIngredientStub(ingredientTwo, ingredientTwoName, null, null);
         Burger burger = buildBurger(bun, ingredientOne, ingredientTwo);
 
         //Action
@@ -72,10 +72,10 @@ public class BurgerTests extends TestBase {
             INGREDIENT_ONE_NAME + "," + INGREDIENT_TWO_NAME + ", 0"
     })
     public void testRemoveIngredientRemovesIngredientsCorrectly(String ingredientOneName,
-                                                            String ingredientTwoName, int index) {
+                                                                String ingredientTwoName, int index) {
         //Arrange
-        createIngredientStub(ingredientOne,ingredientOneName, null, null);
-        createIngredientStub(ingredientTwo,ingredientTwoName, null, null);
+        createIngredientStub(ingredientOne, ingredientOneName, null, null);
+        createIngredientStub(ingredientTwo, ingredientTwoName, null, null);
         Burger burger = buildBurger(bun, ingredientOne, ingredientTwo);
 
         //Action
@@ -99,8 +99,8 @@ public class BurgerTests extends TestBase {
     })
     public void testMoveIngredientMovesIngredientsCorrectly(String ingredientOneName, String ingredientTwoName) {
         //Arrange
-        createIngredientStub(ingredientOne,ingredientOneName, null, null);
-        createIngredientStub(ingredientTwo,ingredientTwoName, null, null);
+        createIngredientStub(ingredientOne, ingredientOneName, null, null);
+        createIngredientStub(ingredientTwo, ingredientTwoName, null, null);
         Burger burger = buildBurger(bun, ingredientOne, ingredientTwo);
 
         //Action
@@ -122,8 +122,8 @@ public class BurgerTests extends TestBase {
     })
     public void testGetPriceReturnsCorrectBurgerPrice(float bunPrice, float ingredientOnePrice, float ingredientTwoPrice) {
         //Arrange
-        createIngredientStub(ingredientOne,null, ingredientOnePrice, null);
-        createIngredientStub(ingredientTwo,null, ingredientTwoPrice, null);
+        createIngredientStub(ingredientOne, null, ingredientOnePrice, null);
+        createIngredientStub(ingredientTwo, null, ingredientTwoPrice, null);
         createBunStub(bun, null, bunPrice);
 
         Burger burger = buildBurger(bun, ingredientOne, ingredientTwo);
@@ -142,8 +142,8 @@ public class BurgerTests extends TestBase {
     @Test
     @Parameters({
             BUN_PRICE + "," + INGREDIENT_ONE_PRICE + "," + INGREDIENT_TWO_PRICE
-          + ", " + BUN_NAME + "," + INGREDIENT_ONE_NAME + "," + INGREDIENT_TWO_NAME
-          + "," + INGREDIENT_ONE_TYPE_STR + "," + INGREDIENT_TWO_TYPE_STR
+                    + ", " + BUN_NAME + "," + INGREDIENT_ONE_NAME + "," + INGREDIENT_TWO_NAME
+                    + "," + INGREDIENT_ONE_TYPE_STR + "," + INGREDIENT_TWO_TYPE_STR
     })
     public void testGetReceiptReturnsCorrectBurgerReceipt(
             float bunPrice, float ingredientOnePrice, float ingredientTwoPrice,
