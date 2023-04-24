@@ -18,7 +18,7 @@ public class BunTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters(name = "Тестовое имя: {0}, Тестовая цена: {1}")
+    @Parameterized.Parameters(name = "Тестовое название: {0}, Тестовая цена: {1}")
     public static Object[][] getData() {
         return new Object[][] {
                 {"bulochka", 100},
@@ -37,7 +37,7 @@ public class BunTest {
     @Test
     public void getNameTest() {
         Bun bun = new Bun(name, price);
-        assertEquals("Имена не совпадают", name, bun.getName());
+        assertEquals("Названия не совпадают", name, bun.getName());
     }
 
     @Test
