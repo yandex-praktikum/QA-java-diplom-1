@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.assertEquals;
@@ -47,20 +48,21 @@ public class IngredientTest {
     IngredientType ingredientTypeMock;
 
     @Test
-    public void getPrice() {
+    public void getPriceTest() {
         Ingredient ingredient = new Ingredient(ingredientTypeMock, name, price);
         assertEquals("Цена не совпадает", price, ingredient.getPrice(), 0);
     }
 
     @Test
-    public void getName() {
+    public void getNameTest() {
         Ingredient ingredient = new Ingredient(ingredientTypeMock, name, price);
         assertEquals("Названия не совпадают", name, ingredient.getName());
     }
 
     @Test
-    public void getType() {
-        Ingredient ingredient = new Ingredient(ingredientTypeMock, name, price);
-        assertEquals("Типы ингридиентов не совпадают", ingredientTypeMock.valueOf(type), ingredient.getType().valueOf(type));
+    public void getTypeTest() {
+        Ingredient ingredient = new Ingredient(ingredientTypeMock.valueOf(type), name, price);
+        Ingredient ingredientSpy = Mockito.spy(ingredient);
+        assertEquals("Типы ингридиентов не совпадают", ingredientTypeMock.valueOf(type), ingredientSpy.getType());
     }
 }
