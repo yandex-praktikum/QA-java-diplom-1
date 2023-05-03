@@ -1,0 +1,11 @@
+/target/classes/
+/target/generated-sources/
+/target/generated-test-sources/
+/target/maven-archiver/
+/target/maven-status/
+/.idea/
+/target/surefire-reports/
+/target/test-classes/
+.gitignore
+/target/jacoco.exec
+/target/praktikum-1.0-SNAPSHOT.jar
