@@ -1,6 +1,10 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
@@ -8,16 +12,22 @@ import praktikum.IngredientType;
 
 import static org.junit.Assert.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    private final Burger buterbrod = new Burger();
-    private final Bun toast = new Bun("harrys", 100);
-    private final Ingredient cheese = new Ingredient(IngredientType.FILLING, "Сыр", 50);
-    private final Ingredient salad = new Ingredient(IngredientType.FILLING, "Салат", 40);
-    private final Ingredient tomato = new Ingredient(IngredientType.FILLING, "Помидорка", 60);
+    private Burger buterbrod;
+    @Mock
+    private Bun toast;
+    @Mock
+    private Ingredient cheese;
+    @Mock
+    private Ingredient salad;
+    @Mock
+    private Ingredient tomato;
 
     @Before
     public void newBurger() {
+        buterbrod = new Burger();
         buterbrod.setBuns(toast);
         buterbrod.addIngredient(cheese);
         buterbrod.addIngredient(salad);
@@ -53,11 +63,26 @@ public class BurgerTest {
 
     @Test
     public void getPriceReturnCorrectPrice() {
+        Mockito.doReturn(100F).when(toast).getPrice();
+        Mockito.doReturn(50F).when(cheese).getPrice();
+        Mockito.doReturn(40F).when(salad).getPrice();
+        Mockito.doReturn(60F).when(tomato).getPrice();
         assertEquals(350, buterbrod.getPrice(), 0);
     }
 
     @Test
     public void getReceiptReturnCorrectValues() {
+        Mockito.doReturn("harrys").when(toast).getName();
+        Mockito.doReturn(100F).when(toast).getPrice();
+        Mockito.doReturn(IngredientType.FILLING).when(cheese).getType();
+        Mockito.doReturn("Сыр").when(cheese).getName();
+        Mockito.doReturn(50F).when(cheese).getPrice();
+        Mockito.doReturn(IngredientType.FILLING).when(salad).getType();
+        Mockito.doReturn("Салат").when(salad).getName();
+        Mockito.doReturn(40F).when(salad).getPrice();
+        Mockito.doReturn(IngredientType.FILLING).when(tomato).getType();
+        Mockito.doReturn("Помидорка").when(tomato).getName();
+        Mockito.doReturn(60F).when(tomato).getPrice();
         String receipt =
                 "(==== harrys ====)\n"+
                         "= filling Сыр =\n"+
