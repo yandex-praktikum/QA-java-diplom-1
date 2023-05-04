@@ -45,6 +45,6 @@ public class ParametrizedBurgerTest  {
         burger.addIngredient(filling);
         float expected = bun.price * 2 + sauce.getPrice() + filling.getPrice();
         float actual = burger.getPrice();
-        assertEquals("Стоимость бургера неверно посчитана",expected, actual, 0);
+        assertEquals("Ошибка в расчете стоимости",expected, actual, 0);
     }
 }
