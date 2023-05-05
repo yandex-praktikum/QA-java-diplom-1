@@ -85,7 +85,7 @@ public class BurgerTests {
     }
 
     @Test
-    public void BurgerTest() {
+    public void burgerTest() {
         List<Bun> buns = database.availableBuns();
         var bun = buns.get(new Random().nextInt(buns.size()));
         List<Ingredient> ingredients = database.availableIngredients();

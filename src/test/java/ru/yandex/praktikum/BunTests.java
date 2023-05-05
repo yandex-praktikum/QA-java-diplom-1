@@ -7,11 +7,11 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class BunTests {
-    private final String nameExpect;  /////
-    private final float priceExpect; //
+    private final String nameExpect;
+    private final float priceExpect;
     private Bun bun;
 
-    public BunTests(String nameExpect, float priceExpected) {  ////ed
+    public BunTests(String nameExpect, float priceExpected) {
         this.nameExpect = nameExpect;
         this.priceExpect = priceExpected;
     }
