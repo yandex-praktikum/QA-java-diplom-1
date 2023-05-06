@@ -1,18 +1,11 @@
 package praktikum;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import javax.management.StringValueExp;
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.lang.String.valueOf;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -38,8 +31,9 @@ public class BurgerTest {
 
     @Test
     public void setBuns() {
-        burgerMock.setBuns(bunMock);
-        Mockito.verify(burgerMock).setBuns(bunMock);
+        Burger burger = new Burger();
+        burger.setBuns(bunMock);
+        assertEquals("Булочки не совпадают", bunMock, burger.bun);
     }
 
     @Test
@@ -52,63 +46,57 @@ public class BurgerTest {
     @Test
     public void removeIngredientTest() {
         Burger burger = new Burger();
-        Burger burgerSpy = Mockito.spy(burger);
-        burgerSpy.addIngredient(ingredientsMock);
-        burgerSpy.removeIngredient(0);
+        burger.addIngredient(ingredientsMock);
+        burger.removeIngredient(0);
 
-        assertFalse("Ингредиент не был удален", burgerSpy.ingredients.contains(ingredientsMock));
+        assertFalse("Ингредиент не был удален", burger.ingredients.contains(ingredientsMock));
     }
 
     @Test
     public void moveIngredientTest() {
         Burger burger = new Burger();
-        Burger burgerSpy = Mockito.spy(burger);
+        burger.addIngredient(ingredientsMock);
+        burger.addIngredient(ingredientWithIndexOneMock);
+        burger.moveIngredient(0, 1);
 
-        burgerSpy.addIngredient(ingredientsMock);
-        burgerSpy.addIngredient(ingredientWithIndexOneMock);
-        burgerSpy.moveIngredient(0, 1);
-
-        assertEquals("индекс ингредиента не изменился", 1, burgerSpy.ingredients.indexOf(ingredientsMock));
+        assertEquals("индекс ингредиента не изменился", 1, burger.ingredients.indexOf(ingredientsMock));
     }
 
     @Test
     public void getPriceTest() {
         Burger burger = new Burger();
-        Burger burgerSpy = Mockito.spy(burger);
 
         Mockito.when(bunMock.getPrice()).thenReturn(BUN_PRICE);
         Mockito.when(ingredientsMock.getPrice()).thenReturn(INGREDIENT_PRICE);
 
-        burgerSpy.setBuns(bunMock);
-        burgerSpy.addIngredient(ingredientsMock);
-        burgerSpy.getPrice();
+        burger.setBuns(bunMock);
+        burger.addIngredient(ingredientsMock);
+        burger.getPrice();
 
         Mockito.verify(bunMock).getPrice();
         Mockito.verify(ingredientsMock).getPrice();
-        assertEquals("Стоимость бургера не совпадает с ожидаемой", Float.valueOf(EXPECTED_BURGER_PRICE), burgerSpy.getPrice(), 0);
+        assertEquals("Стоимость бургера не совпадает с ожидаемой", Float.valueOf(EXPECTED_BURGER_PRICE), burger.getPrice(), 0);
     }
 
     @Test
     public void getReceiptTest() {
         Burger burger = new Burger();
-        Burger burgerSpy = Mockito.spy(burger);
-
-        burgerSpy.setBuns(bunMock);
-        burgerSpy.addIngredient(ingredientsMock);
+        burger.setBuns(bunMock);
+        burger.addIngredient(ingredientsMock);
 
         Mockito.when(bunMock.getName()).thenReturn(BUN_NAME);
         Mockito.when(ingredientsMock.getType()).thenReturn(ingredientTypeMock.valueOf("SAUCE"));
         Mockito.when(ingredientsMock.getName()).thenReturn(INGREDIENT_NAME);
         Mockito.when(ingredientsMock.getPrice()).thenReturn(Float.valueOf(EXPECTED_BURGER_PRICE));
 
-        burgerSpy.getReceipt();
+        burger.getReceipt();
 
         Mockito.verify(bunMock, Mockito.times(2)).getName();
         Mockito.verify(ingredientsMock).getType();
         Mockito.verify(ingredientsMock).getName();
-        assertTrue("Рецепт не содержит названия булочки", burgerSpy.getReceipt().contains(BUN_NAME));
-        assertTrue("Рецепт не содержит типа ингредиента", burgerSpy.getReceipt().contains("sauce"));
-        assertTrue("Рецепт не содержит названия ингредиента", burgerSpy.getReceipt().contains(INGREDIENT_NAME));
-        assertTrue("Рецепт не содержит общей стоимости", burgerSpy.getReceipt().contains(EXPECTED_BURGER_PRICE));
+        assertTrue("Рецепт не содержит названия булочки", burger.getReceipt().contains(BUN_NAME));
+        assertTrue("Рецепт не содержит типа ингредиента", burger.getReceipt().contains("sauce"));
+        assertTrue("Рецепт не содержит названия ингредиента", burger.getReceipt().contains(INGREDIENT_NAME));
+        assertTrue("Рецепт не содержит общей стоимости", burger.getReceipt().contains(EXPECTED_BURGER_PRICE));
     }
 }
