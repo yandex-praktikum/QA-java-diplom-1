@@ -14,13 +14,9 @@ public class BurgerTest {
     @Mock
     Bun bunMock;
     @Mock
-    Burger burgerMock;
-    @Mock
     Ingredient ingredientsMock;
     @Mock
     Ingredient ingredientWithIndexOneMock;
-    @Mock
-    IngredientType ingredientTypeMock;
 
     private final static float BUN_PRICE = 5F;
     private final static float INGREDIENT_PRICE = 7F;
@@ -85,7 +81,7 @@ public class BurgerTest {
         burger.addIngredient(ingredientsMock);
 
         Mockito.when(bunMock.getName()).thenReturn(BUN_NAME);
-        Mockito.when(ingredientsMock.getType()).thenReturn(ingredientTypeMock.valueOf("SAUCE"));
+        Mockito.when(ingredientsMock.getType()).thenReturn(IngredientType.valueOf("SAUCE"));
         Mockito.when(ingredientsMock.getName()).thenReturn(INGREDIENT_NAME);
         Mockito.when(ingredientsMock.getPrice()).thenReturn(Float.valueOf(EXPECTED_BURGER_PRICE));
 

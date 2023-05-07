@@ -43,24 +43,21 @@ public class IngredientTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Mock
-    IngredientType ingredientTypeMock;
-
     @Test
     public void getPriceTest() {
-        Ingredient ingredient = new Ingredient(ingredientTypeMock, name, price);
+        Ingredient ingredient = new Ingredient(IngredientType.valueOf(type), name, price);
         assertEquals("Цена не совпадает", price, ingredient.getPrice(), 0);
     }
 
     @Test
     public void getNameTest() {
-        Ingredient ingredient = new Ingredient(ingredientTypeMock, name, price);
+        Ingredient ingredient = new Ingredient(IngredientType.valueOf(type), name, price);
         assertEquals("Названия не совпадают", name, ingredient.getName());
     }
 
     @Test
     public void getTypeTest() {
-        Ingredient ingredient = new Ingredient(ingredientTypeMock.valueOf(type), name, price);
-        assertEquals("Типы ингридиентов не совпадают", ingredientTypeMock.valueOf(type), ingredient.getType());
+        Ingredient ingredient = new Ingredient(IngredientType.valueOf(type), name, price);
+        assertEquals("Типы ингридиентов не совпадают", IngredientType.valueOf(type), ingredient.getType());
     }
 }
