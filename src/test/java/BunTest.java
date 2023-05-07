@@ -4,7 +4,7 @@ import praktikum.Bun;
 
 public class BunTest {
     @Test
-    public void getNameBunTest(){
+    public void getBunNameTest(){
     Bun bun= new Bun("black bun",100);
     Assert.assertEquals("black bun",bun.getName());
     }
