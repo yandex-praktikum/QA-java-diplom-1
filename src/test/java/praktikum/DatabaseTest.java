@@ -4,10 +4,8 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-import static org.junit.Assert.*;
-
 public class DatabaseTest {
-    private Database database = new Database();
+    private final Database database = new Database();
 
     @Test
     public void availableBuns() {

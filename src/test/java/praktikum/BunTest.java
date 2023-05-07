@@ -1,8 +1,6 @@
 package praktikum;
 
 import org.junit.Test;
-import praktikum.Bun;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BunTest {

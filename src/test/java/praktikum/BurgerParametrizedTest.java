@@ -12,10 +12,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(Parameterized.class)
 public class BurgerParametrizedTest {
-    private String bunName;
-    private String type;
-    private String ingredientName;
-    private float ingredientPrice;
+    private final String bunName;
+    private final String type;
+    private final String ingredientName;
+    private final float ingredientPrice;
     private final String expectedReceipt;
 
     public BurgerParametrizedTest(String bunName, String type, String ingredientName, float ingredientPrice, String expectedReceipt) {
