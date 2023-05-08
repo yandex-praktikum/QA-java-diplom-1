@@ -22,13 +22,16 @@ public class BunTest {
         };
     }
     @Test
-    public void checkBunNameAndPriceTest(){
+    public void checkBunPriceTest(){
+        Bun bun = new Bun(name, price);
+        float expectedPrice = price;
+        assertEquals("Цена булочки не совпадает.", expectedPrice, bun.getPrice(), 0);
+    }
+    @Test
+    public void checkBunNameTest(){
         Bun bun = new Bun(name, price);
         String expectedName = name;
-        float expectedPrice = price;
-
         assertEquals("Название булочки не совпадает.", expectedName, bun.getName());
-        assertEquals("Цена булочки не совпадает.", expectedPrice, bun.getPrice(), 0);
     }
 }
 

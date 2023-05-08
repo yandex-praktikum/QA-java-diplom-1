@@ -24,14 +24,26 @@ public class IngredientFullTest {
         };
     }
     @Test
-    public void checkIngredientNameAndPriceAndTypeTest(){
+    public void checkIngredientNameTest(){
         Ingredient ingredient = new Ingredient(type, name, price);
         String expectedName = name;
-        float expectedPrice = price;
-        IngredientType expectedType = type;
 
         assertEquals("Название ингредиента не совпадает.", expectedName, ingredient.getName());
+    }
+
+    @Test
+    public void checkIngredientPriceTest(){
+        Ingredient ingredient = new Ingredient(type, name, price);
+        float expectedPrice = price;
+
         assertEquals("Цена ингредиента не совпадает.", expectedPrice, ingredient.getPrice(), 0);
+    }
+
+    @Test
+    public void checkIngredientTypeTest(){
+        Ingredient ingredient = new Ingredient(type, name, price);
+        IngredientType expectedType = type;
+
         assertEquals("Тип ингредиента не совпадает.", expectedType, ingredient.getType());
     }
 }
