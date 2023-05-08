@@ -8,10 +8,10 @@ import praktikum.IngredientType;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
-    Ingredient ingredient;
     private final IngredientType type;
     private final String name;
     private final float price;
+    Ingredient ingredient;
 
     public IngredientTest(IngredientType type, String name, float price) {
         this.type = type;
@@ -20,7 +20,7 @@ public class IngredientTest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] getBurgerData() {
+    public static Object[][] getIngredientData() {
         return new Object[][]{
                 {IngredientType.FILLING, "dinosaur", 200},
                 {IngredientType.SAUCE, "chili sauce", 300},
