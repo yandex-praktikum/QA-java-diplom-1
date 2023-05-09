@@ -1,5 +1,3 @@
-package ingredient;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +12,7 @@ public class IngredientParameterizedUnitTests {
     private float price;
     public IngredientType type;
 
-    public void IngredientParameterizedTest (IngredientType type, String name, float price) {
+    public void IngredientParameterizedTest(IngredientType type, String name, float price) {
         this.type = type;
         this.name = name;
         this.price = price;

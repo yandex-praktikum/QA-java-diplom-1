@@ -1,5 +1,3 @@
-package bun;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +14,11 @@ public class BunParameterizedUnitTests {
         this.price = price;
     }
 
-    @Parameterized.Parameters (name="Тестовые данные: {0}, {1}")
+    @Parameterized.Parameters(name = "Тестовые данные: {0}, {1}")
     public static Object[][] getData() {
         return new Object[][]{
-                        {"Флюоресцентная булка R2-D3", 988.025f},
-                        {"Краторная булка N-200i", 1255}
+                {"Флюоресцентная булка R2-D3", 988.025f},
+                {"Краторная булка N-200i", 1255}
         };
     }
 
