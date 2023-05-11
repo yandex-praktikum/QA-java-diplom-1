@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: bunparamtest.BunParamPriceTest
+Test set: burge_rmock_test.BurgerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in bunparamtest.BunParamPriceTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.653 s - in burge_rmock_test.BurgerTest

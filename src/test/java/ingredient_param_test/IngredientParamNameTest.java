@@ -1,4 +1,4 @@
-package ingredientparamtest;
+package ingredient_param_test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,28 +12,30 @@ import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class IngredientParamNameTest {
-    private final  String expected;
-    private final  String name;
+    private final String expected;
+    private final String name;
     private final float price;
     private final IngredientType type;
-    public IngredientParamNameTest(String expected, float price, String name, IngredientType type) {
-        this.expected = expected;
+
+    public IngredientParamNameTest(float price, String name, IngredientType type, String expected) {
         this.price = price;
         this.name = name;
-
         this.type = type;
+        this.expected = expected;
     }
-    @Parameterized.Parameters
+
+    @Parameterized.Parameters(name = "{index}: Наименование ингредиента: {0}, {1}, {2}, Ожидаемое наименование, {3}")
     public static Object[][] checkIngredientName() {
         return new Object[][]{
-                {"hot sauce",100,"hot sauce",SAUCE},
-                {"sour cream",200,"sour cream",SAUCE},
-                {"chili sauce",300,"chili sauce",SAUCE},
-                {"cutlet",100,"cutlet",FILLING},
-                {"dinosaur",200,"dinosaur",FILLING},
-                {"sausage",300,"sausage",FILLING},
+                {100, "hot sauce", SAUCE, "hot sauce"},
+                {200, "sour cream", SAUCE, "sour cream"},
+                {300, "chili sauce", SAUCE, "chili sauce"},
+                {100, "cutlet", FILLING, "cutlet"},
+                {200, "dinosaur", FILLING, "dinosaur"},
+                {300, "sausage", FILLING, "sausage"},
         };
     }
+
     @Test
     public void checkIngredientNameTest() {
         Ingredient ingredient = new Ingredient(type, name, price);

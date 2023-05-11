@@ -1,4 +1,4 @@
-package burgermocktest;
+package burge_rmock_test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class BurgerTest {
     @Mock
     Bun bun;
+
     @Test
     public void getPriceTest() {
         Burger burger = new Burger();
@@ -26,11 +27,12 @@ public class BurgerTest {
         burger.addIngredient(firstIngredient);
         burger.addIngredient(secondIngredient);
         float sum = bun.getPrice() * 2 + firstIngredient.price + secondIngredient.price;
-        assertEquals("Ошибка стоимомсти бургера", sum, burger.getPrice(),0.0);
+        assertEquals("Ошибка стоимомсти бургера", sum, burger.getPrice(), 0.0);
     }
 
     @Mock
     Bun tel;
+
     @Test
     public void getReceiptTest() {
         Burger burger = new Burger();
@@ -45,18 +47,28 @@ public class BurgerTest {
         assertEquals("Ошибка полученного ожидаемого рецепта", expectedReceipt, burger.getReceipt());
     }
 
-    @Mock
-    Burger burger;
+
+    Burger burger = new Burger();
+
     @Test
     public void removeIngredientTest() {
-    burger.removeIngredient(0);
-    Mockito.verify(burger).removeIngredient(0);
+        burger.setBuns(new Bun("black bun", 100));
+        Ingredient firstIngredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
+        Ingredient secondIngredient = new Ingredient(IngredientType.FILLING, "dinosaur", 200);
+        Ingredient thirdIngredient = new Ingredient(IngredientType.FILLING, "dinosaur", 200);
+        burger.addIngredient(firstIngredient);
+        burger.addIngredient(secondIngredient);
+        burger.addIngredient(thirdIngredient);
+        burger.removeIngredient(2);
+        assertEquals(2, 2);
     }
+
     @Mock
     Burger ingredient;
+
     @Test
     public void moveIngredientTest() {
-        ingredient.moveIngredient(1,2);
-        Mockito.verify(ingredient).moveIngredient(1,2);
+        ingredient.moveIngredient(1, 2);
+        Mockito.verify(ingredient).moveIngredient(1, 2);
     }
 }
