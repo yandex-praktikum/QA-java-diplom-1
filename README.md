@@ -5,6 +5,6 @@
 Версия Java 11.
 
 Проект использует следующие библиотеки:
-JUnit 4
-Mockito
-Jacoco
+- JUnit 4
+- Mockito
+- Jacoco
