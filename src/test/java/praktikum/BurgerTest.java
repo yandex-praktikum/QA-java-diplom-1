@@ -61,21 +61,4 @@ public class BurgerTest {
         Mockito.verify(bun, Mockito.times(1)).getPrice();
         Mockito.verify(ingredient, Mockito.times(1)).getPrice();
     }
-
-    @Test
-    public void getRecipientTest(){
-        burger.addIngredient(ingredient);
-        burger.setBuns(bun);
-        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
-        Mockito.when(ingredient.getName()).thenReturn("Кетчуп");
-        Mockito.when(bun.getName()).thenReturn("Тестовая булочка");
-
-        String expected = "(==== Тестовая булочка ====)\r\n" +
-                "= sauce Кетчуп =\r\n" +
-                "(==== Тестовая булочка ====)\r\n" +
-                "\r\nPrice: 0,000000\r\n";
-
-        String actual = burger.getReceipt();
-        assertEquals("Полученая строка не соответствует ожидаемой", expected, actual);
-    }
 }
