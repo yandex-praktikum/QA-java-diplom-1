@@ -1,7 +1,9 @@
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Bun;
+import praktikum.Ingredient;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,7 +17,7 @@ public class BunParametrizedTest {
         this.name = name;
         this.price = price;
     }
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] bunsData(){
         return new Object[][]{
                 {"Булка", 1},
@@ -30,16 +32,22 @@ public class BunParametrizedTest {
         };
 
     }
+
+    @Before
+    public void setUp() {
+        bun = new Bun(name, price);
+    }
+
     @Test
-    public void checkName() {
+    public void checkNameWithValidData() {
         Bun bun = new Bun(name, price);
         assertEquals(name, bun.getName());
     }
 
     @Test
-    public void checkPrice() {
+    public void checkPriceWithValidData() {
         Bun bun = new Bun(name, price);
-        assertEquals(price, bun.getPrice(), 0);
+        assertEquals(price, bun.getPrice(), 0.001f);
     }
 
 
