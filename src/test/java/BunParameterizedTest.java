@@ -24,7 +24,7 @@ public class BunParameterizedTest {
                 {"white bun", 200},
                 {"red bun", 300},
                 {null, 1},
-                {"asdfg", 147d},
+                {"asdfg", 147f},
                 {"", 0}
         };
 
@@ -39,5 +39,5 @@ public class BunParameterizedTest {
     public void checkGetValidName() { assertEquals("invalid name", name, bun.getName()); }
 
     @Test
-    public void checkGetValidPrice() { assertEquals("invalid price", price, bun.getPrice(), 0.0d); }
+    public void checkGetValidPrice() { assertEquals("invalid price", price, bun.getPrice(), 0.0f); }
 }
