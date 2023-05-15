@@ -15,11 +15,12 @@ import static org.bouncycastle.util.Strings.toLowerCase;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
+
 @RunWith(Parameterized.class)
-public class BurgerTest {
+public class BurgerTest2 {
     Burger burger = new Burger();
     private final IngredientType type;
-    public BurgerTest(IngredientType type) {
+    public BurgerTest2(IngredientType type) {
         this.type = type;
     }
     @Parameterized.Parameters
@@ -36,47 +37,6 @@ public class BurgerTest {
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-    }
-    @Test
-    public void setBunsTest() {
-        burger.setBuns(bun);
-        Assert.assertThat(burger.bun, notNullValue());
-    }
-
-    @Test
-    public void addIngredientTest() {
-        burger.addIngredient(ingredient);
-        Assert.assertThat(burger.ingredients, notNullValue());
-    }
-
-    @Test
-    public void removeIngredientTest() {
-        burger.addIngredient(ingredient);
-        burger.removeIngredient(0);
-        int result = 0;
-        int size = burger.ingredients.size();
-        Assert.assertEquals(result, size);
-    }
-
-    @Test
-    public void moveIngredientTest() {
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
-        burger.moveIngredient(1, 0);
-        int size = burger.ingredients.size();
-        int result = 2;
-        Assert.assertEquals(result, size);
-    }
-
-    @Test
-    public void getPriceTest() {
-        float priceResult = (float) 5;
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
-        Mockito.when(bun.getPrice()).thenReturn((float) 2);
-        Mockito.when(ingredient.getPrice()).thenReturn((float) 1);
-        float burgerPrice = burger.getPrice();
-        Assert.assertEquals(priceResult, burgerPrice, 0.001);
     }
 
     @Test

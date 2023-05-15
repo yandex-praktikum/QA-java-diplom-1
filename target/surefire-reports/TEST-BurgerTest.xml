@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="BurgerTest" time="0.98" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="BurgerTest" time="0.949" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.3.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -65,16 +65,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="BurgerTest" name="getPriceTest[0]" time="0.81"/>
-  <testcase classname="BurgerTest" name="addIngredientTest[0]" time="0.002"/>
-  <testcase classname="BurgerTest" name="moveIngredientTest[0]" time="0.001"/>
-  <testcase classname="BurgerTest" name="setBunsTest[0]" time="0.001"/>
-  <testcase classname="BurgerTest" name="removeIngredientTest[0]" time="0"/>
-  <testcase classname="BurgerTest" name="getReceiptTest[0]" time="0.162"/>
-  <testcase classname="BurgerTest" name="getPriceTest[1]" time="0.001"/>
-  <testcase classname="BurgerTest" name="addIngredientTest[1]" time="0"/>
-  <testcase classname="BurgerTest" name="moveIngredientTest[1]" time="0"/>
-  <testcase classname="BurgerTest" name="setBunsTest[1]" time="0"/>
-  <testcase classname="BurgerTest" name="removeIngredientTest[1]" time="0"/>
-  <testcase classname="BurgerTest" name="getReceiptTest[1]" time="0.003"/>
+  <testcase classname="BurgerTest" name="getPriceTest" time="0.945"/>
+  <testcase classname="BurgerTest" name="addIngredientTest" time="0.003"/>
+  <testcase classname="BurgerTest" name="moveIngredientTest" time="0"/>
+  <testcase classname="BurgerTest" name="setBunsTest" time="0.001"/>
+  <testcase classname="BurgerTest" name="removeIngredientTest" time="0"/>
 </testsuite>
