@@ -26,7 +26,7 @@ public class IngredientParameterizedTest {
     @Parameterized.Parameters()
     public static Object[][] getTestData() {
         return new Object[][] {
-                {SAUCE, "hot sauce", 100},
+                {SAUCE, "hot sauce", 100}, //
                 {SAUCE, "sour cream", 200},
                 {SAUCE, "chili sauce", 300},
                 {SAUCE, "cutlet", 100},

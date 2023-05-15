@@ -92,17 +92,17 @@ public class BurgerTest {
         Mockito.when(mockIngredient.getType()).thenReturn(FILLING);
         Mockito.when(mockIngredient.getPrice()).thenReturn(100f);
         burger.addIngredient(mockIngredient);
-        Mockito.when(mockBun.getName()).thenReturn("black bun");
+        Mockito.when(mockBun.getName()).thenReturn("blue bun");
         Mockito.when(mockBun.getPrice()).thenReturn(100F);
         burger.setBuns(mockBun);
         StringBuilder expected = new StringBuilder();
         expected.append(String.format("(==== %s ====)%n",mockBun.getName()));
         expected.append(String.format("= %s %s =%n",burger.ingredients.get(0).getType().toString().toLowerCase(),
                 burger.ingredients.get(0).getName()));
-        expected.append(String.format("(==== %s ====)%n","black bun"));
+        expected.append(String.format("(==== %s ====)%n","blue bun"));
         expected.append(String.format("%nPrice: %f%n", burger.getPrice()));
         String expectedReceipt = expected.toString();
-        String actual =  burger.getReceipt();
+        String actual = burger.getReceipt();
         assertEquals(expectedReceipt,actual);
     }
 }
