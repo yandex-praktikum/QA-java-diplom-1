@@ -42,7 +42,7 @@ public class IngredientParameterizedTest {
     public void startTest() { ingredient = new Ingredient(type, name, price); }
 
     @Test
-    public void checkGetValidPrice() { assertEquals("invalid name", price, ingredient.getPrice()); }
+    public void checkGetValidPrice() { assertEquals("invalid name", price, ingredient.getPrice(), 0.0f); }
 
     @Test
     public void checkGetValidName() { assertEquals("invalid name", name, ingredient.getName()); }
