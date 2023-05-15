@@ -5,9 +5,9 @@
 Покрыть тестами классы Bun, Burger, Ingredient, IngredientType. Используя моки, стабы и параметризацию там, где нужно.
 Процент покрытия должен быть не ниже 70%.
 ## 3. Используемые инструменты
-*IntelliJ IDEA Community Edition 2022.3.1
-*Java 11
-*Maven 3.8.1
-*Junit 4.13.2
-*Jacoco
-*Mockito
+* IntelliJ IDEA Community Edition 2022.3.1
+* Java 11
+* Maven 3.8.1
+* Junit 4.13.2
+* Jacoco
+* Mockito
