@@ -17,8 +17,27 @@ public class BunParameterizedTest {
         this.price = price;
     }
 
-    @Parameterized.Parameter()
+    @Parameterized.Parameters()
     public static Object[][] getTestData() {
+        return new Object[][] {
+                {"black bun", 100},
+                {"white bun", 200},
+                {"red bun", 300},
+                {null, 1},
+                {"asdfg", 147d},
+                {"", 0}
+        };
 
     }
+
+    @Before
+    public void startTest() {
+        bun = new Bun(name, price);
+
+    }
+    @Test
+    public void checkGetValidName() { assertEquals("invalid name", name, bun.getName()); }
+
+    @Test
+    public void checkGetValidPrice() { assertEquals("invalid price", price, bun.getPrice(), 0.0d); }
 }
