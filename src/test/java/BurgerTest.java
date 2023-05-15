@@ -10,7 +10,6 @@ import praktikum.Ingredient;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
@@ -26,7 +25,9 @@ public class BurgerTest {
     Ingredient mockIngredient;
 
     @Before
-    public void startTest() {burger = new Burger(); }
+    public void startTest() {
+        burger = new Burger();
+    }
 
     @Test
     public void checkAddIngredients() {
@@ -35,6 +36,18 @@ public class BurgerTest {
         int ingredientSize = burger.ingredients.size();
         boolean actual = ingredientSize > 0;
         assertTrue("the number of ingredients must be greater than 0", actual);
+    }
+
+    @Test
+    public void checkBunsSet() {
+        List<Bun> buns = new ArrayList<>();
+        Bun bun = Mockito.mock(Bun.class);
+        Burger burger = new Burger();
+        burger.setBuns(bun);
+        buns.add(bun);
+        int bunsSize = buns.size();
+        boolean actual = bunsSize > 0;
+        assertTrue("the number of buns must be greater than 0", actual);
     }
 
     @Test
@@ -52,7 +65,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void checkGetValidIngredients() {
+    public void checkMoveIngredients() {
         Burger burger = new Burger();
         Ingredient ingredient_0 = new Ingredient(SAUCE, "hot sauce", 100);
         Ingredient ingredient_1 = new Ingredient(SAUCE, "sour cream", 200);
@@ -64,14 +77,13 @@ public class BurgerTest {
         assertNotEquals(index_0, index_1);
     }
 
-        @Test
+    @Test
     public void checkGetValidPrice() {
         Mockito.when(mockBun.getPrice()).thenReturn(200.4f);
         burger.setBuns(mockBun);
         Float actual = burger.getPrice();
         Float expected = 400.8f;
-        assertEquals("Должна быть ровна", expected, actual, 0.02f);
-    }
+        assertEquals("Должна быть равна",expected,actual,0.02f);    }
 
     @Test
     public void checkGetValidReceipt() {
@@ -81,17 +93,16 @@ public class BurgerTest {
         Mockito.when(mockIngredient.getPrice()).thenReturn(100f);
         burger.addIngredient(mockIngredient);
         Mockito.when(mockBun.getName()).thenReturn("black bun");
-        Mockito.when(mockBun.getPrice()).thenReturn(100f);
+        Mockito.when(mockBun.getPrice()).thenReturn(100F);
         burger.setBuns(mockBun);
         StringBuilder expected = new StringBuilder();
-        expected.append(String.format("(==== %s ====)%n", mockBun.getName()));
-        expected.append(String.format("= %s %s =%n", burger.ingredients.get(0).getType().toString().toLowerCase(),
-            burger.ingredients.get(0).getName()));
-        expected.append(String.format("(==== %s ====)%n", "black bun"));
+        expected.append(String.format("(==== %s ====)%n",mockBun.getName()));
+        expected.append(String.format("= %s %s =%n",burger.ingredients.get(0).getType().toString().toLowerCase(),
+                burger.ingredients.get(0).getName()));
+        expected.append(String.format("(==== %s ====)%n","black bun"));
         expected.append(String.format("%nPrice: %f%n", burger.getPrice()));
         String expectedReceipt = expected.toString();
-        String actual = burger.getReceipt();
-        assertEquals(expectedReceipt, actual);
-
+        String actual =  burger.getReceipt();
+        assertEquals(expectedReceipt,actual);
     }
 }
