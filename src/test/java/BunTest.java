@@ -4,13 +4,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Bun;
 
-import java.util.Collection;
-
 @RunWith(Parameterized.class)
 
 public class BunTest {
-    private Bun bun;
-
     private String nameBun;
     private float priceBun;
 
@@ -21,8 +17,15 @@ public class BunTest {
     }
 
     @Parameterized.Parameters
-    public static Object[] getData() {
-        return new Object[][]{{"black bun",100.0F}, {"white bun", 200.0F}};
+    public static Object[] getData()
+    {return new Object[][]{
+            {"black bun",100.0F},
+            {"white bun", 200.0F},
+            {null, -1},
+            {"", 27.3},
+            {"bvhdhhqqwweeefrfgbhjkjkvbjdn",0},
+            {"52",99999999},
+            {"$4444$$", - 54}};
     }
     @Test
     public void getNameTest(){
@@ -38,4 +41,5 @@ public class BunTest {
         float actual = bun.getPrice();
         Assert.assertEquals("Ошибка",expected,actual,0.0);
     }
+
 }
