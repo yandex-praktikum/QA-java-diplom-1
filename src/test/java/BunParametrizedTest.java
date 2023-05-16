@@ -3,7 +3,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Bun;
-import praktikum.Ingredient;
 
 import static org.junit.Assert.assertEquals;
 
