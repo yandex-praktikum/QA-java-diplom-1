@@ -35,7 +35,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         int ingredientSize = burger.ingredients.size();
         boolean actual = ingredientSize > 0;
-        assertTrue("the number of ingredients must be greater than 0", actual);
+        assertTrue("количество ингредиентов должно быть больше 0", actual);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class BurgerTest {
         buns.add(bun);
         int bunsSize = buns.size();
         boolean actual = bunsSize > 0;
-        assertTrue("the number of buns must be greater than 0", actual);
+        assertTrue("количество булочек должно быть больше 0", actual);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient_2);
         burger.removeIngredient(1);
         int ingredientSize = burger.ingredients.size();
-        assertEquals("invalid number of ingredients", 2, ingredientSize);
+        assertEquals("недопустимое количество ингредиентов", 2, ingredientSize);
     }
 
     @Test

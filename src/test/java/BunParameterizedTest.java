@@ -20,8 +20,8 @@ public class BunParameterizedTest {
     @Parameterized.Parameters()
     public static Object[][] getTestData() {
         return new Object[][] {
-                {"blue bun", 100},
-                {"green bun", 200},
+                {"black bun", 100},
+                {"white bun", 200},
                 {"red bun", 300},
                 {null, 1},
                 {"asdfg", 147f},
