@@ -1,23 +1,33 @@
-package praktikum;
-
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import praktikum.Bun;
+import praktikum.Burger;
+import praktikum.Ingredient;
+import praktikum.IngredientType;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    @Mock Ingredient ingredient;
-    @Mock Bun bun;
-
+    @Mock
+    Ingredient ingredient;
+    @Mock
+    Bun bun;
+    @Test
+    public void testSetBuns() {
+        Burger burger = new Burger();
+        burger.setBuns(bun);
+        assertEquals("Значения должны быть равны",bun, burger.bun);
+    }
     @Test
     public void addIngredient() {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
-        Assert.assertEquals("Неверное количество ингридиентов в бургере", 1, burger.ingredients.size());
+        assertEquals("Неверное количество ингридиентов в бургере", 1, burger.ingredients.size());
     }
 
     @Test
@@ -25,7 +35,7 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
-        Assert.assertEquals("Неверное количество ингридиентов в бургере", 0, burger.ingredients.size());
+        assertEquals("Неверное количество ингридиентов в бургере", 0, burger.ingredients.size());
     }
 
     @Test
@@ -36,7 +46,7 @@ public class BurgerTest {
         burger.addIngredient(secondIngredient);
         Ingredient firstIngredientInBurger = burger.ingredients.get(0);
         burger.moveIngredient(0, 1);
-        Assert.assertEquals("Ингридиенты не изменили свои индексы", firstIngredientInBurger, burger.ingredients.get(1));
+        assertEquals("Ингридиенты не изменили свои индексы", firstIngredientInBurger, burger.ingredients.get(1));
     }
 
     @Test
@@ -48,7 +58,7 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(bunPrice);
         float ingredientPrice = 100;
         Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
-        Assert.assertEquals("Цена бургера не корректная", bunPrice * 2 + ingredientPrice, burger.getPrice(), 0.01f);
+        assertEquals("Цена бургера не корректная", bunPrice * 2 + ingredientPrice, burger.getPrice(), 0.01f);
     }
 
     @Test
@@ -83,6 +93,6 @@ public class BurgerTest {
         receipt.append(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
 
-        Assert.assertEquals(receipt.toString(), burger.getReceipt());
+        assertEquals(receipt.toString(), burger.getReceipt());
     }
 }
