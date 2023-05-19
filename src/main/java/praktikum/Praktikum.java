@@ -1,5 +1,6 @@
 package praktikum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Praktikum {
@@ -9,7 +10,8 @@ public class Praktikum {
         Database database = new Database();
 
         // Создадим новый бургер
-        Burger burger = new Burger();
+        List<Ingredient> burgerIngredients = new ArrayList<>();
+        Burger burger = new Burger(burgerIngredients);
 
         // Считаем список доступных булок из базы данных
         List<Bun> buns = database.availableBuns();
