@@ -11,4 +11,5 @@ public class IngredientTypeTest {
     public void testFillingAvailable(){
         Assert.assertNotNull("Такой начинки нет", IngredientType.valueOf("FILLING"));
     }
+
 }
