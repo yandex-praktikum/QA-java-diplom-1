@@ -21,10 +21,10 @@ public class BunTest {
                 {"Классическая", -1},
                 {"Super", 1},
                 {"", 0},
-                {"@#$", },
-                {"             ", 9999999f},
-                {"24242", -9999999f},
-                {"Сааааамаааая длинннннннная бУУУУУлука", 23,5},
+                {"@#$", -23},
+                {"             ", 99999},
+                {"24242", -99999},
+                {"Сааааамаааая длинннннннная бУУУУУлука", 23},
         };
     }
 
@@ -32,12 +32,11 @@ public class BunTest {
     public void getBunNameTest(){
         Bun bun=new Bun(expextedName,100);
         Assert.assertEquals(expextedName,bun.getName());
-
     }
 
     @Test
     public void getPriceBunTest() {
-        Bun bun=new Bun("black bun",expectedPrice);
+        Bun bun=new Bun("Жгучая булочка",expectedPrice);
         Assert.assertEquals(expectedPrice,bun.getPrice(),0);
     }
 }
