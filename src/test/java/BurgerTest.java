@@ -35,7 +35,7 @@ public class BurgerTest {
     @Test
     public void getPriceTest() {
         Burger burger = new Burger();
-        burger.setBuns(new Bun("black bun",350));
+        burger.setBuns(new Bun("red bun",300));
         assertEquals(700, burger.getPrice(),0);
     }
 
@@ -49,7 +49,6 @@ public class BurgerTest {
         burger.getReceipt();
         Mockito.verify(bun,Mockito.times(2)).getName();
         System.out.println(burger.getReceipt().toString());
-
     }
 
     @Test
