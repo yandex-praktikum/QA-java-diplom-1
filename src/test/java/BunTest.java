@@ -34,7 +34,7 @@ public class BunTest {
         Assert.assertEquals(expextedName,bun.getName());
 
     }
-    
+
     @Test
     public void getPriceBunTest() {
         Bun bun=new Bun("black bun",expectedPrice);
