@@ -18,8 +18,8 @@ public class BunTest {
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][] {
-                {"Антуанетта", 5.2F},
-                {"Людовик", 3.4F}
+                {"white bun", 100F},
+                {"red bun", 300F}
         };
     }
 
