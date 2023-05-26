@@ -36,7 +36,7 @@ public class BurgerTest {
     public void getPriceTest() {
         Burger burger = new Burger();
         burger.setBuns(new Bun("red bun",300));
-        assertEquals(700, burger.getPrice(),0);
+        assertEquals(600, burger.getPrice(),0);
     }
 
     @Test
