@@ -3,7 +3,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
-import org.apache.commons.lang3.RandomStringUtils;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,7 +33,7 @@ public class BunTest {
     }
     @Test
     public void validLongStringNameGetBunTest() {
-        String name =  RandomStringUtils.randomAlphabetic(25);
+        String name =  "validLongStringNameGetBunTest";
         Bun bun = new Bun(name, 0);
         assertEquals("Названия должны быть равны",name, bun.getName());
     }
