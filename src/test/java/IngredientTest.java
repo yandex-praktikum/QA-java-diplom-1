@@ -25,21 +25,21 @@ public class IngredientTest {
     }
     @ParameterizedTest(name = "Проверка получения типа ингредиента: тип {0}, название {1}, цена {2}")
     @MethodSource("getDataForIngredients")
-    public void checkIngredientType(IngredientType type, String name, float price) {
+    public void ingredientTypeTest(IngredientType type, String name, float price) {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(type, ingredient.getType());
     }
 
     @ParameterizedTest(name = "Проверка получения названия ингредиента: тип {0}, название {1}, цена {2}")
     @MethodSource("getDataForIngredients")
-    public void checkIngredientName(IngredientType type, String name, float price) {
+    public void ingredientNameTest(IngredientType type, String name, float price) {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(name, ingredient.getName());
     }
 
     @ParameterizedTest(name = "Проверка получения цены ингредиента: тип {0}, название {1}, цена {2}")
     @MethodSource("getDataForIngredients")
-    public void checkIngredientPrice(IngredientType type, String name, float price) {
+    public void ingredientPriceTest(IngredientType type, String name, float price) {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(price, ingredient.getPrice());
     }
