@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -66,6 +67,7 @@ public class BurgerPriceTest {
     }
 
     @Test
+    @DisplayName("Проверка финальной стоимости")
     public void finalPriceTest() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient1);
