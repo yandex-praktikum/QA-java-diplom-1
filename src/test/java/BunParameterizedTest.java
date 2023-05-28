@@ -25,6 +25,17 @@ public class BunParameterizedTest {
                 {"red bun", 300},
                 {null, 1},
                 {"asdfg", 147f},
+                {"black.,; bun", 100f},
+                {"white bun/*", 200f},
+                {"red bun", -300f},
+                {"white bun", 3/5},
+                {"red bun", (float)3/5},
+                {"black bun", -Float.MAX_VALUE},
+                {"white bun", Float.MAX_VALUE},
+                {"red bun", Float.MIN_VALUE},
+                {"black bun", Float.NEGATIVE_INFINITY},
+                {"white bun", Float.POSITIVE_INFINITY},
+                {"red bun", -Float.MIN_VALUE},
                 {"", 0}
         };
 

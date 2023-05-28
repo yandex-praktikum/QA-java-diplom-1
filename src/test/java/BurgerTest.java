@@ -22,7 +22,11 @@ public class BurgerTest {
     @Mock
     Bun mockBun;
     @Mock
-    Ingredient mockIngredient;
+    Bun bun;
+    @Mock
+    Ingredient ingredient;
+    @Mock
+    Ingredient newIngredient;
 
     @Before
     public void startTest() {
@@ -40,14 +44,9 @@ public class BurgerTest {
 
     @Test
     public void checkBunsSet() {
-        List<Bun> buns = new ArrayList<>();
-        Bun bun = Mockito.mock(Bun.class);
-        Burger burger = new Burger();
         burger.setBuns(bun);
-        buns.add(bun);
-        int bunsSize = buns.size();
-        boolean actual = bunsSize > 0;
-        assertTrue("количество булочек должно быть больше 0", actual);
+
+        assertEquals(bun, burger.bun);
     }
 
     @Test
@@ -66,15 +65,11 @@ public class BurgerTest {
 
     @Test
     public void checkMoveIngredients() {
-        Burger burger = new Burger();
-        Ingredient ingredient_0 = new Ingredient(SAUCE, "hot sauce", 100);
-        Ingredient ingredient_1 = new Ingredient(SAUCE, "sour cream", 200);
-        burger.addIngredient(ingredient_0);
-        burger.addIngredient(ingredient_1);
-        burger.moveIngredient(1, 0);
-        int index_0 = burger.ingredients.indexOf(ingredient_0);
-        int index_1 = burger.ingredients.indexOf(ingredient_1);
-        assertNotEquals(index_0, index_1);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(newIngredient);
+        burger.moveIngredient(0, 1);
+
+        assertEquals("название ингредиента", burger.ingredients.get(1).getName());
     }
 
     @Test
@@ -88,10 +83,10 @@ public class BurgerTest {
     @Test
     public void checkGetValidReceipt() {
         burger = new Burger();
-        Mockito.when(mockIngredient.getName()).thenReturn("cutlet");
-        Mockito.when(mockIngredient.getType()).thenReturn(FILLING);
-        Mockito.when(mockIngredient.getPrice()).thenReturn(100f);
-        burger.addIngredient(mockIngredient);
+        Mockito.when(ingredient.getName()).thenReturn("cutlet");
+        Mockito.when(ingredient.getType()).thenReturn(FILLING);
+        Mockito.when(ingredient.getPrice()).thenReturn(100f);
+        burger.addIngredient(ingredient);
         Mockito.when(mockBun.getName()).thenReturn("blue bun");
         Mockito.when(mockBun.getPrice()).thenReturn(100F);
         burger.setBuns(mockBun);
