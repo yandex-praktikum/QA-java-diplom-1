@@ -49,9 +49,6 @@ public class BurgerTest {
     @Test
     public void checkGetReceiptReturnsCorrectReceipt(){
         burger.setBuns(bun);
-        Mockito.when(bun.getName()).thenReturn("Флюоресцентная булка R2-D3");
-        Ingredient filling = Mockito.mock(Ingredient.class);
-        filling.getName();
         ingredient.getName();
         burger.getPrice();
 
