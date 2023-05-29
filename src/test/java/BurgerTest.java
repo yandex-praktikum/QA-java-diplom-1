@@ -8,9 +8,6 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
@@ -68,8 +65,9 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         burger.addIngredient(newIngredient);
         burger.moveIngredient(0, 1);
+        assertEquals(ingredient, burger.ingredients.get(1));
 
-        assertEquals("название ингредиента", burger.ingredients.get(1).getName());
+
     }
 
     @Test
