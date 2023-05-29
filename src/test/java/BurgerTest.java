@@ -67,7 +67,6 @@ public class BurgerTest {
         burger.moveIngredient(0, 1);
         assertEquals(ingredient, burger.ingredients.get(1));
 
-
     }
 
     @Test
