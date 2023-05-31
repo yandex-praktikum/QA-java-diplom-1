@@ -7,8 +7,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -49,18 +52,19 @@ public class BurgerTest {
     @Test
     public void checkGetReceiptReturnsCorrectReceipt(){
         burger.setBuns(bun);
-        ingredient.getName();
-        burger.getPrice();
+        burger.addIngredient(ingredient);
+        Mockito.when(bun.getName()).thenReturn("Флюоресцентная булка R2-D3");
+        Mockito.when(bun.getPrice()).thenReturn(988f);
+        Mockito.when(ingredient.getName()).thenReturn("Мясо бессмертных моллюсков Protostomia");
+        Mockito.when(ingredient.getType()).thenReturn(FILLING);
+        Mockito.when(ingredient.getPrice()).thenReturn(1337f);
 
-        StringBuilder expectedReceipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
-        for (var ingredient : burger.ingredients) {
-            expectedReceipt.append(String.format("= %s %s =%n", ingredient.getType().toString().toLowerCase(),
-                    ingredient.getName()));
-        }
-        expectedReceipt.append(String.format("(==== %s ====)%n", bun.getName()));
-        expectedReceipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
+        StringBuilder expected = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
+        expected.append(String.format("= filling %s =%n", ingredient.getName()));
+        expected.append(String.format("(==== %s ====)%n", bun.getName()));
+        expected.append(String.format("%nPrice: %f%n", bun.getPrice() * 2 + ingredient.getPrice()));
+        Assert.assertEquals(expected.toString(), burger.getReceipt());
 
-        assertEquals(expectedReceipt.toString(), burger.getReceipt());
     }
 
 }
