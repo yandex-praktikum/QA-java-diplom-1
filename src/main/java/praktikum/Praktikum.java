@@ -1,6 +1,11 @@
-package praktikum;
-
 import java.util.List;
+import praktikum.Database;
+import praktikum.Burger;
+import praktikum.Bun;
+import praktikum.Ingredient;
+
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 public class Praktikum {
 
@@ -32,7 +37,16 @@ public class Praktikum {
         burger.removeIngredient(3);
 
         // Распечатаем рецепт бургера
-        System.out.println(burger.getReceipt());
+      //  System.out.println(burger.getReceipt());
+
+        Burger burgerT = new Burger();
+        Bun bunT = new Bun("TestBun", 50);
+        Ingredient ingredient1 = new Ingredient(SAUCE, "TestSauce", 10);
+        Ingredient ingredient2 = new Ingredient(FILLING, "TestFilling", 20);
+        burgerT.setBuns(bunT);
+        burgerT.addIngredient(ingredient1);
+        burgerT.addIngredient(ingredient2);
+        System.out.println(burgerT.getReceipt());
     }
 
 }
