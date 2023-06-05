@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -8,17 +6,14 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
+import praktikum.*;
 
 import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.of;
-import static praktikum.IngredientType.FILLING;
-import static praktikum.IngredientType.SAUCE;
+import static praktikum.IngredientType.*;
 
 @ExtendWith(MockitoExtension.class)
 public class BurgerPriceTest {
@@ -75,9 +70,4 @@ public class BurgerPriceTest {
         Mockito.when(ingredient1.getPrice()).thenReturn(300F);
         assertEquals(700, burger.getPrice());
     }
-
-
-
-
-
 }

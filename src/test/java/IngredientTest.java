@@ -10,8 +10,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.of;
-import static praktikum.IngredientType.FILLING;
-import static praktikum.IngredientType.SAUCE;
+import static praktikum.IngredientType.*;
 
 public class IngredientTest {
     private static Random random = new Random();

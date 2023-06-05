@@ -1,19 +1,14 @@
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import praktikum.Bun;
-import praktikum.Database;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
+import praktikum.*;
 
 import java.util.Random;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.of;
-import static praktikum.IngredientType.FILLING;
-import static praktikum.IngredientType.SAUCE;
+import static praktikum.IngredientType.*;
 
 public class DatabaseTest {
 
