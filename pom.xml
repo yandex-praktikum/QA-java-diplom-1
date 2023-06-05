@@ -28,6 +28,7 @@
             <artifactId>byte-buddy</artifactId>
             <version>1.11.16</version>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

@@ -18,8 +18,9 @@ public class BunTest {
     @Parameterized.Parameters
     public static Object[][] testParams() {
         return new Object[][]{
-                {"Булочка №1", 2.00f},
-                {"Булочка №2", 6.00f}
+                {"Флюоресцентная булка R2-D3", 988},
+                {"Краторная булка N-200i", 1255},
+                {"red bun", 6.00f},
         };
     }
 
