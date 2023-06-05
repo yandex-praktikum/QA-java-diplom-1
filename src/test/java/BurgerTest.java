@@ -31,23 +31,36 @@ public class BurgerTest {
 
         Burger  burger = new Burger();
         burger.setBuns(bun);
+        Assert.assertNotNull(burger.bun);
     }
 
     @Test
     public void addIngridientActs(){
         Burger  burger = new Burger();
         burger.addIngredient(ingredient);
+        Assert.assertNotNull(burger.ingredients);
     }
 
     @Test
     public void removeIngridientActs(){
         Burger  burger = new Burger();
 
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient1);
+        burger.addIngredient(ingredient2);
         burger.removeIngredient(1);
+        Assert.assertEquals(ingredient1, burger.ingredients.get(0));
     }
 
+    @Test
+    public void moveIngridientActs(){
+        Burger  burger = new Burger();
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient1);
+        burger.addIngredient(ingredient2);
+        burger.moveIngredient(2,1);
+        Assert.assertEquals(ingredient2, burger.ingredients.get(1));
+        Assert.assertEquals(ingredient1, burger.ingredients.get(2));
+    }
     @Test
     public void getPriceReturnsCorrectValue(){
         Burger  burger = new Burger();
