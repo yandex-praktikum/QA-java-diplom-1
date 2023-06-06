@@ -4,9 +4,11 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import praktikum.*;
 
+import java.util.Locale;
 import java.util.Random;
 import java.util.stream.Stream;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.of;
 import static praktikum.IngredientType.*;
@@ -70,10 +72,12 @@ public class BurgerTest {
         Ingredient ingredient = new Ingredient(IngredientType.FILLING, "cutlet", 100);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
+        String actualReceipt = burger.getReceipt();
         assertAll(
-                ()-> assertTrue(burger.getReceipt().contains("red bun")),
-                ()-> assertTrue(burger.getReceipt().contains("cutlet")),
-                ()-> assertTrue(burger.getReceipt().contains("Price"))
+                ()-> assertTrue(actualReceipt.contains("red bun")),
+                ()-> assertTrue(actualReceipt.contains("cutlet")),
+                ()-> assertTrue(actualReceipt.contains("Price")),
+                ()->assertTrue(actualReceipt.contains("time") || actualReceipt.contains("Time"))
         );
     }
 

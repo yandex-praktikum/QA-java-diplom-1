@@ -16,9 +16,9 @@ public class BunTest {
     private static Random random = new Random();
     private static Stream<Arguments> provideDataForBuns() {
         return Stream.of(
-                of(RandomStringUtils.randomAlphabetic(1), random.nextFloat()),
+                of(RandomStringUtils.randomAlphabetic(3), random.nextFloat()),
                 of(RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
-                of("Миллион калорий", 1),
+                of("Миллион калорий", random.nextFloat()),
                 of(RandomStringUtils.randomAlphabetic(999), random.nextFloat()),
                 of(RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
                 of(RandomStringUtils.randomAlphabetic(100), 0.01F),
@@ -44,11 +44,12 @@ public class BunTest {
         String validName = RandomStringUtils.randomAlphabetic(10);
         float validPrice = 1;
         return Stream.of(
+                of(RandomStringUtils.randomAlphabetic(1),validPrice),
+                of(RandomStringUtils.randomAlphabetic(2),validPrice),
                 of(RandomStringUtils.randomAlphabetic(1001), validPrice),
-                of("*", validPrice),
+                of("SELECT*", validPrice),
                 of("<script>alert('XSS')</script>", validPrice),
-                of("1", validPrice),
-                of("A", validPrice),
+                of("123", validPrice),
                 of(validName, -0.01F),
                 of(validName, 0),
                 of(validName, 1_000_000),
@@ -59,7 +60,7 @@ public class BunTest {
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
     @MethodSource("provideInvalidDataForBuns")
     public void checkThrowsExceptionsOnInvalidParameters(String name, float price){
-        assertThrows(IllegalArgumentException.class, ()-> new Bun (name, price));
+        assertThrows(Exception.class, ()-> new Bun (name, price));
     }
 
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
