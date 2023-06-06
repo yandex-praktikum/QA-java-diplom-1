@@ -1,6 +1,7 @@
 import org.junit.Test;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
+
 import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {

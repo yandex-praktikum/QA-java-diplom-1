@@ -7,7 +7,9 @@ import praktikum.Database;
 import praktikum.Ingredient;
 import praktikum.Bun;
 import praktikum.Burger;
+
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -35,19 +37,19 @@ public class BurgerTest {
     @Test
     public void getPriceTest() {
         Burger burger = new Burger();
-        burger.setBuns(new Bun("red bun",300));
-        assertEquals(600, burger.getPrice(),0);
+        burger.setBuns(new Bun("red bun", 300));
+        assertEquals(600, burger.getPrice(), 0);
     }
 
     @Test
     public void getReceiptTest() {
-        Database database=new Database();
+        Database database = new Database();
         List<Ingredient> ingredients = database.availableIngredients();
         List<Bun> buns = database.availableBuns();
-        Burger burger = new Burger(bun,ingredients);
+        Burger burger = new Burger(bun, ingredients);
         Mockito.when(bun.getName()).thenReturn(buns.get(2).getName());
         burger.getReceipt();
-        Mockito.verify(bun,Mockito.times(2)).getName();
+        Mockito.verify(bun, Mockito.times(2)).getName();
         System.out.println(burger.getReceipt().toString());
     }
 

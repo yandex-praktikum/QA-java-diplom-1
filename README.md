@@ -41,7 +41,7 @@ Themes used:
 * mockito-core            3.12.4
 * maven-compiler-plugin   3.8.1
 * jacoco-maven-plugin     0.8.7
-
+* log4j                   2.6.1
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
