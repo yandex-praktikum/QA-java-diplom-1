@@ -2,6 +2,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
@@ -9,8 +11,10 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.params.provider.Arguments.of;
-import static praktikum.IngredientType.*;
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 public class IngredientTest {
     private static Random random = new Random();
@@ -19,7 +23,11 @@ public class IngredientTest {
                 of(SAUCE, RandomStringUtils.randomAlphabetic(1), random.nextFloat()),
                 of(FILLING, RandomStringUtils.randomAlphabetic(99), random.nextFloat()),
                 of(SAUCE, RandomStringUtils.randomAlphabetic(25), random.nextFloat()),
-                of(FILLING, "Морковь немытая Россия", 1)
+                of(FILLING, "Морковь немытая Россия", 1),
+                of(SAUCE, RandomStringUtils.randomAlphabetic(100), 0.01F),
+                of(RandomStringUtils.randomAlphabetic(100), 999_999.99F),
+                of(SAUCE, RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
+                of(FILLING, RandomStringUtils.randomAlphabetic(999), random.nextFloat())
         );
     }
     @ParameterizedTest(name = "Проверка получения типа ингредиента: тип {0}, название {1}, цена {2}")
@@ -41,5 +49,40 @@ public class IngredientTest {
     public void ingredientPriceTest(IngredientType type, String name, float price) {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(price, ingredient.getPrice());
+    }
+
+    private static Stream<Arguments> provideInvalidDataForIngredients(){
+        String validName = RandomStringUtils.randomAlphabetic(10);
+        float validPrice = 1;
+        return Stream.of(
+                of(RandomStringUtils.randomAlphabetic(1001), validPrice),
+                of("*", validPrice),
+                of("<script>alert('XSS')</script>", validPrice),
+                of("1", validPrice),
+                of("A", validPrice),
+                of(validName, -0.01F),
+                of(validName, 0),
+                of(validName, 1_000_000),
+                of(validName, 1_000_000.01F)
+        );
+    }
+
+    @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
+    @MethodSource("provideInvalidDataForIngredients")
+    public void checkThrowsExceptionsOnInvalidParameters(String name, float price){
+        assertThrows(IllegalArgumentException.class, ()-> new Ingredient (FILLING, name, price));
+    }
+
+    @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
+    @NullAndEmptySource
+    public void checkThrowsExceptionsOnNullName(String name){
+        assertThrows(IllegalArgumentException.class, ()-> new Ingredient(SAUCE, name, 100.01F));
+    }
+
+    @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
+    @NullSource
+    public void checkThrowsExceptionsOnNullType(IngredientType type){
+        String validName = RandomStringUtils.randomAlphabetic(10);
+        assertThrows(IllegalArgumentException.class, ()-> new Ingredient(type, validName, 100.01F));
     }
 }

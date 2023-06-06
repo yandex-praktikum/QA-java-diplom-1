@@ -2,13 +2,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import praktikum.Bun;
 
 import java.util.Random;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.params.provider.Arguments.of;
 
 public class BunTest {
@@ -43,14 +44,15 @@ public class BunTest {
         String validName = RandomStringUtils.randomAlphabetic(10);
         float validPrice = 1;
         return Stream.of(
-                of("", validPrice),
                 of(RandomStringUtils.randomAlphabetic(1001), validPrice),
                 of("*", validPrice),
                 of("<script>alert('XSS')</script>", validPrice),
                 of("1", validPrice),
                 of("A", validPrice),
-                of(validName, -1),
-                of(validName, 0)
+                of(validName, -0.01F),
+                of(validName, 0),
+                of(validName, 1_000_000),
+                of(validName, 1_000_000.01F)
         );
     }
 
@@ -61,7 +63,7 @@ public class BunTest {
     }
 
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
-    @NullSource
+    @NullAndEmptySource
     public void checkThrowsExceptionsOnInvalidParameters(String name){
         assertThrows(IllegalArgumentException.class, ()-> new Bun (name, 100));
     }
