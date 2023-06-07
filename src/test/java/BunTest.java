@@ -59,7 +59,7 @@ public class BunTest {
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
     @MethodSource("provideInvalidDataForBuns")
     public void checkThrowsExceptionsOnInvalidParameters(String name, float price){
-        assertThrows(Exception.class, ()-> new Bun (name, price));
+        assertThrows(IllegalArgumentException.class, ()-> new Bun (name, price));
     }
 
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
