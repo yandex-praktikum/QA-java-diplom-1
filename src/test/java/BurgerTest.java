@@ -23,7 +23,6 @@ public class BurgerTest {
         burger = new Burger();
         database = new Database();
     }
-
     @Test
     public void getPrice() {
         burger.bun = bun;

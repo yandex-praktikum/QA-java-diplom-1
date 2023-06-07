@@ -9,7 +9,6 @@ public class IngredientTypeTest {
     public Ingredient ingredient;
     @Mock
     public IngredientType ingredientType;
-
     @Before
     public void setUp() {
         ingredient = new Ingredient(ingredientType, "bacon", 5.5f);

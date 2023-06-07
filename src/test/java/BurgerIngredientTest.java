@@ -14,7 +14,6 @@ public class BurgerIngredientTest {
     Ingredient secondIngredient = new Ingredient(FILLING, "Мясо", 500.0f);
     Ingredient thirdIngredient = new Ingredient(SAUCE, "Соус горчичиный", 50.0f);
     public List<Ingredient> initialIngredients = List.of(firstIngredient, secondIngredient, thirdIngredient);
-
     @Test
     public void checkMoveIngredient() {
         burger.addIngredient(firstIngredient);

@@ -67,7 +67,6 @@ public class BunMockTest {
         );
         Assert.assertEquals(String.class, bun.getName().getClass());
     }
-
     @Test
     public void getSymbolsNameBun() {
         Mockito.when(bun.getName()).thenReturn(")(*&^%$#@?><");

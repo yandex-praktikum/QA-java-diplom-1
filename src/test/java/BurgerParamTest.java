@@ -22,7 +22,6 @@ public class BurgerParamTest {
     @Mock
     private Ingredient ingredient;
 
-
     public BurgerParamTest(IngredientType type, String ingredientName, float priceIngredient) {
         this.type = type;
         this.ingredientName = ingredientName;

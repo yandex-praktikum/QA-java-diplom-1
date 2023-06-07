@@ -26,7 +26,6 @@ public class BunParamTest {
                 {"pancake", 1000000000000000000000.0f}
         };
     }
-
     @Test
     public void getNameBun() {
         Bun bun = new Bun(name, price);

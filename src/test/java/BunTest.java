@@ -15,7 +15,6 @@ public class BunTest {
     public void getNameBun() {
         Assert.assertEquals("pancake", bun.getName());
     }
-
     @Test
     public void getPriceBun() {
         Assert.assertEquals(12.5f, bun.getPrice(), 0.1f);
