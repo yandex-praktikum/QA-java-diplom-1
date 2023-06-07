@@ -52,7 +52,7 @@ public class IngredientTest {
 
     private static Stream<Arguments> provideInvalidDataForIngredients(){
         String validName = RandomStringUtils.randomAlphabetic(10);
-        float validPrice = 1;
+        float validPrice = random.nextFloat();
         return Stream.of(
                 of(RandomStringUtils.randomAlphabetic(2), validPrice),
                 of(RandomStringUtils.randomAlphabetic(1001), validPrice),
@@ -75,13 +75,15 @@ public class IngredientTest {
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
     @NullAndEmptySource
     public void checkThrowsExceptionsOnNullName(String name){
-        assertThrows(IllegalArgumentException.class, ()-> new Ingredient(SAUCE, name, 100.01F));
+        float validPrice = random.nextFloat();
+        assertThrows(IllegalArgumentException.class, ()-> new Ingredient(SAUCE, name, validPrice));
     }
 
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
     @NullSource
     public void checkThrowsExceptionsOnNullType(IngredientType type){
         String validName = RandomStringUtils.randomAlphabetic(10);
-        assertThrows(IllegalArgumentException.class, ()-> new Ingredient(type, validName, 100.01F));
+        float validPrice = random.nextFloat();
+        assertThrows(IllegalArgumentException.class, ()-> new Ingredient(type, validName, validPrice));
     }
 }
