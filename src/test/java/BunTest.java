@@ -65,6 +65,7 @@ public class BunTest {
     @ParameterizedTest(name = "Проверка выброса исключений на невалидные данные")
     @NullAndEmptySource
     public void checkThrowsExceptionsOnInvalidParameters(String name){
-        assertThrows(IllegalArgumentException.class, ()-> new Bun (name, 100));
+        float validPrice = random.nextFloat();
+        assertThrows(IllegalArgumentException.class, ()-> new Bun (name, validPrice));
     }
 }
