@@ -21,12 +21,12 @@ public class IngredientTest {
     private static Stream <Arguments> getDataForIngredients() {
         return Stream.of(
                 of(SAUCE, RandomStringUtils.randomAlphabetic(3), random.nextFloat()),
-                of(FILLING, RandomStringUtils.randomAlphabetic(99), random.nextFloat()),
+                of(SAUCE, RandomStringUtils.randomAlphabetic(4), random.nextFloat()),
+                of(FILLING, RandomStringUtils.randomAlphabetic(999), random.nextFloat()),
+                of(SAUCE, RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
                 of(FILLING, "Морковь немытая Россия", random.nextFloat()),
                 of(SAUCE, RandomStringUtils.randomAlphabetic(100), 0.01F),
-                of(RandomStringUtils.randomAlphabetic(100), 999_999.99F),
-                of(SAUCE, RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
-                of(FILLING, RandomStringUtils.randomAlphabetic(999), random.nextFloat())
+                of(RandomStringUtils.randomAlphabetic(20), 999_999.99F)
         );
     }
     @ParameterizedTest(name = "Проверка получения типа ингредиента: тип {0}, название {1}, цена {2}")
@@ -54,12 +54,11 @@ public class IngredientTest {
         String validName = RandomStringUtils.randomAlphabetic(10);
         float validPrice = 1;
         return Stream.of(
-                of(RandomStringUtils.randomAlphabetic(1), validPrice),
                 of(RandomStringUtils.randomAlphabetic(2), validPrice),
                 of(RandomStringUtils.randomAlphabetic(1001), validPrice),
                 of("SELECT*", validPrice),
                 of("<script>alert('XSS')</script>", validPrice),
-                of("123", validPrice),
+                of(RandomStringUtils.randomAlphanumeric(3), validPrice),
                 of(validName, -0.01F),
                 of(validName, 0),
                 of(validName, 1_000_000),

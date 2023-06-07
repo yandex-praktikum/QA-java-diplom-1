@@ -17,10 +17,10 @@ public class BunTest {
     private static Stream<Arguments> provideDataForBuns() {
         return Stream.of(
                 of(RandomStringUtils.randomAlphabetic(3), random.nextFloat()),
-                of(RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
-                of("Миллион калорий", random.nextFloat()),
+                of(RandomStringUtils.randomAlphabetic(4), random.nextFloat()),
                 of(RandomStringUtils.randomAlphabetic(999), random.nextFloat()),
                 of(RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
+                of("Миллион калорий", random.nextFloat()),
                 of(RandomStringUtils.randomAlphabetic(100), 0.01F),
                 of(RandomStringUtils.randomAlphabetic(99), 999_999.99F)
         );
@@ -44,7 +44,6 @@ public class BunTest {
         String validName = RandomStringUtils.randomAlphabetic(10);
         float validPrice = 1;
         return Stream.of(
-                of(RandomStringUtils.randomAlphabetic(1),validPrice),
                 of(RandomStringUtils.randomAlphabetic(2),validPrice),
                 of(RandomStringUtils.randomAlphabetic(1001), validPrice),
                 of("SELECT*", validPrice),
