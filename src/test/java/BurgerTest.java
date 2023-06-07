@@ -78,7 +78,4 @@ public class BurgerTest {
                 ()-> assertTrue(actualReceipt.contains("time") || actualReceipt.contains("Time"))
         );
     }
-
-
-
 }

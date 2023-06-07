@@ -26,7 +26,7 @@ public class IngredientTest {
                 of(SAUCE, RandomStringUtils.randomAlphabetic(1000), random.nextFloat()),
                 of(FILLING, "Морковь немытая Россия", random.nextFloat()),
                 of(SAUCE, RandomStringUtils.randomAlphabetic(100), 0.01F),
-                of(RandomStringUtils.randomAlphabetic(20), 999_999.99F)
+                of(FILLING, RandomStringUtils.randomAlphabetic(20), 999_999.99F)
         );
     }
     @ParameterizedTest(name = "Проверка получения типа ингредиента: тип {0}, название {1}, цена {2}")
