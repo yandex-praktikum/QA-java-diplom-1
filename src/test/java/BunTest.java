@@ -34,7 +34,7 @@ public class BunTest {
     }
 
     @ParameterizedTest(name = "Проверка получения цены булки: название {0}, цена {1}")
-    @MethodSource("getDataForBuns")
+    @MethodSource("provideDataForBuns")
     public void checkBunPrice(String name, float price) {
         Bun bun = new Bun(name, price);
         assertEquals(price, bun.getPrice());
