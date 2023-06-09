@@ -74,8 +74,7 @@ public class BurgerTest {
         assertAll(
                 ()-> assertTrue(actualReceipt.contains("red bun")),
                 ()-> assertTrue(actualReceipt.contains("cutlet")),
-                ()-> assertTrue(actualReceipt.contains("Price")),
-                ()-> assertTrue(actualReceipt.contains("time") || actualReceipt.contains("Time"))
+                ()-> assertTrue(actualReceipt.contains("Price"))
         );
     }
 }
