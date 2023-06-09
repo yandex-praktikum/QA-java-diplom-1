@@ -66,7 +66,7 @@ public class BurgerTest {
         Assert.assertEquals("Ингридиент не на своем месте", ingredientPositionAfterMoving, ingredientPosition);
     }
     @Test
-    public void returnsCorrectPrice() {
+    public void checkReturnCorrectPrice() {
         float expectedPrice = 100f;
         Mockito.when(burger.getPrice()).thenReturn(expectedPrice);
         Assert.assertEquals("Цена посчитана неверно", expectedPrice, burger.getPrice(), 0);
