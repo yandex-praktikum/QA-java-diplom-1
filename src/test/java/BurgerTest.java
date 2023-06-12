@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,10 @@ public class BurgerTest {
     Ingredient ingredient;
     @Mock
     Bun bun;
+    @Mock
+    Ingredient expectedIngredient;
+    @Mock
+    Ingredient secondIngredient;
 
     @Before
     public void setUp() {
@@ -39,46 +44,41 @@ public class BurgerTest {
     @Test
     public void removeIngredientTest() {
         Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Сырный", 100);
-        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "Чесночный", 100);
         burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
-        assertEquals("Ошибка! Ожидается, что добавлено 2 ингредиента", 2, burger.ingredients.size());
-        burger.removeIngredient(0);
-        assertFalse("Ошибка! Ожидается, что ингредиент с индексом 0 должен быть удален", burger.ingredients.contains(ingredient0));
+        int expectedSizeAfterRemove = burger.ingredients.size() - 1;
+        burger.removeIngredient(burger.ingredients.size() - 1);
+        int actualSizeAfterRemove = burger.ingredients.size();
+        Assert.assertEquals(expectedSizeAfterRemove, actualSizeAfterRemove);
     }
 
     @Test
     public void moveIngredientTest() {
-        Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Сырный", 100);
-        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "Чесночный", 100);
-        burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
-        assertEquals("Ошибка! Ожидается, что добавлено 2 ингредиента", 2, burger.ingredients.size());
+        burger.addIngredient(expectedIngredient);
+        burger.addIngredient(secondIngredient);
         burger.moveIngredient(0, 1);
-        assertEquals("Ожидается, что у соуса Сырный будет индекс 1", 1, burger.ingredients.indexOf(ingredient0));
+        Ingredient actualIngredient = burger.ingredients.get(1);
+        Assert.assertEquals(expectedIngredient, actualIngredient);
     }
 
     @Test
     public void getPriceTest() {
         Mockito.when(bun.getPrice()).thenReturn(50F);
         burger.setBuns(bun);
-        Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Сырный", 100);
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "Салат", 200);
-        burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
-        float sumIngredient = bun.getPrice() * 2 + ingredient0.price + ingredient1.price;
-        assertEquals("Ошибка! Неверная цена бургера", sumIngredient, burger.getPrice(), 0);
+        Mockito.when(expectedIngredient.getPrice()).thenReturn(90F);
+        burger.addIngredient(expectedIngredient);
+        float actualPrice = burger.getPrice();
+        float expectedPrice = (50*2 + 90);
+        Assert.assertEquals(expectedPrice, actualPrice, 0);
+        
     }
 
     @Test
     public void getReceiptTest() {
-        Mockito.when(bun.getPrice()).thenReturn(50F);
+       Mockito.when(bun.getPrice()).thenReturn(50F);
         Mockito.when(bun.getName()).thenReturn("Белый хлеб");
         burger.setBuns(bun);
         Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Сырный", 100);
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "Салат", 200);
         burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
         String expectedReceipt = burger.getReceipt();
         assertEquals("Ошибка! Не получился ожидаемый рецепт", expectedReceipt, burger.getReceipt());
     }

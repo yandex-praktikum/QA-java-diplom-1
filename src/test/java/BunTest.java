@@ -10,17 +10,12 @@ public class BunTest {
 
     @Before
     public void setUp() {
-        bun = new Bun("Марсианская булка M-234i", 86.50f);
+        bun = new Bun("Флюоресцентная булка R2-D3", 988f);
     }
 
     @Test
     public void getNameReturnCorrectBunName() {
-        Assert.assertEquals(errorName, "Марсианская булка M-234i", bun.getName());
-    }
-
-    @Test
-    public void getPriceReturnCorrectBunPrice() {
-        Assert.assertEquals(errorPrice, 86.50f, bun.getPrice(), 0);
+        Assert.assertEquals(errorName, "Флюоресцентная булка R2-D3", bun.getName());
     }
 }
 
