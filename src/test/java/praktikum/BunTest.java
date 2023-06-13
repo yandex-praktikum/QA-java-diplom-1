@@ -1,26 +1,21 @@
 package praktikum;
 
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import static org.junit.Assert.assertEquals;
+
+/**
+ * Тесты для класса /src/main/java/Bun.
+ */
 @RunWith(Parameterized.class)
 public class BunTest {
 
-    private final String nameBun;
-    private final float priceBun;
-    private Bun bun;
-
-    @Before
-    public void setUp() {
-        bun = new Bun(nameBun, priceBun);
-    }
+    private final Bun bun;
 
     public BunTest(String nameBun, float priceBun) {
-        this.nameBun = nameBun;
-        this.priceBun = priceBun;
+        bun = new Bun(nameBun, priceBun);
     }
 
     @Parameterized.Parameters(name = "nameBun: {0}; priceBun: {1}")
@@ -30,6 +25,7 @@ public class BunTest {
                 {"Space", 0},
                 {null, 50},
                 {"777", 0},
+                {"", 0.25f },
                 {"@#$%", -100.5f}
         };
     }
@@ -37,12 +33,12 @@ public class BunTest {
     @Test
     public void getNameExpectedEqualsActual() {
         // {0 - expected} {1 - actual}
-        Assert.assertEquals(nameBun, bun.getName());
+        assertEquals(bun.name, bun.getName());
     }
 
     @Test
     public void getPriceExpectedEqualsActual() {
         // {1 - expected} {2 - actual}
-        Assert.assertEquals("Error getPrice", priceBun, bun.getPrice(), 0);
+        assertEquals("Error getPrice", bun.price, bun.getPrice(), 0);
     }
 }
