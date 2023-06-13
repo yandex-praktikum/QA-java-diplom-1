@@ -13,7 +13,6 @@ public class BunTest {
         this.name = name;
         this.price = price;
     }
-
     @Parameterized.Parameters(name = "Test data {index} >> Name: {0}, Price: {1}")
     public static Object[][] getTestData(){
         return new Object[][]{
@@ -41,5 +40,4 @@ public class BunTest {
         Bun bun = new Bun(name, price);
         Assert.assertEquals(price, bun.getPrice(), 0);
     }
-
 }

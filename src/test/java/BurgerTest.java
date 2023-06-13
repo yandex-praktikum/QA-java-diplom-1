@@ -7,7 +7,6 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
-
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -18,13 +17,11 @@ public class BurgerTest {
     Ingredient ingredient;
 
     @Test
-
     public void ingredientShouldBeAdded() {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
         assertTrue(burger.ingredients.size() != 0);
     }
-
     @Test
     public void ingredientShouldBeRemoved() {
         Burger burger = new Burger();
@@ -33,7 +30,6 @@ public class BurgerTest {
         burger.removeIngredient(1);
         assertEquals(1, burger.ingredients.size());
     }
-
     @Test
     public void ingredientShouldBeMoved() {
         Burger burger = new Burger();
@@ -44,7 +40,6 @@ public class BurgerTest {
         String ingredientsAfter = burger.ingredients.toString();
         assertNotEquals(ingredientsAfter, ingredientsBefore);
     }
-
     @Test
     public void getValidPrice() {
         Burger burger = new Burger();
@@ -53,7 +48,6 @@ public class BurgerTest {
         float expected = 400F;
         assertEquals("Error", burger.getPrice(), expected, 0);
     }
-
     @Test
     public void getValidReceipt() {
         Burger burger = new Burger();
