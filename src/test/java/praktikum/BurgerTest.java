@@ -47,6 +47,7 @@ public class BurgerTest {
     public void setBunsCallSetBunsIsCalled() {
         burger.setBuns(bun);
         Mockito.verify(burger, Mockito.times(1)).setBuns(bun);
+        assertNotNull(burger.bun);
     }
 
     @Test
