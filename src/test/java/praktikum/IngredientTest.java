@@ -23,7 +23,6 @@ public class IngredientTest {
     @Test
     public void getType() {
         Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "sour cream", 200);
-        ingredient.getType();
         assertEquals(IngredientType.SAUCE,ingredient.getType());
     }
 }

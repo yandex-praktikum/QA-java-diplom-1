@@ -10,12 +10,12 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class BunTest {
     private Bun bun;
-    private final String NAME;
-    private final float PRICE;
+    private final String name;
+    private final float price;
 
-    public BunTest(String NAME, float PRICE) {
-        this.NAME = NAME;
-        this.PRICE = PRICE;
+    public BunTest(String name, float price) {
+        this.name = name;
+        this.price = price;
     }
     @Parameterized.Parameters
     public static Object[][]getTestData(){
@@ -23,20 +23,28 @@ public class BunTest {
                 {"white bun",200},
                 {"black bun",100},
                 {"red bun",300},
+                {null,0},
+                {"",1},
+                {"булкабулкабулкаьулывфвыпвщшфшвтифгыишгвщищшитщьщшзтотзгтшщирщищшотдотдлотдотждтводаифыовтадфтывждадифывиадфыиваотфыжвоиарыфвиафыивжатыфовташицнипщцйшукитцутмтцйм",Float.MAX_VALUE},
+                {"H",Float.MIN_VALUE},
+                {"@![[o[as",-100},
+                {"white bun",0.1F},
+                {"red bun",-0.001F},
+                {"12324",100}
         };
     }
     @Before
     public void setUp(){
-        bun=new Bun(NAME,PRICE);
+        bun=new Bun(name, price);
     }
 
     @Test
     public void getNameTest() {
-        assertEquals(NAME,bun.getName());
+        assertEquals(name,bun.getName());
     }
 
     @Test
     public void getPriceTest() {
-        assertEquals(PRICE,bun.getPrice(),0);
+        assertEquals(price,bun.getPrice(),0);
     }
 }

@@ -66,7 +66,12 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "cutlet", 100));
-        String expectedResult= burger.getReceipt();
+        String expectedResult="(==== Булочка с кунжутом ====)\n"
+                + "= sauce hot sauce =\n"
+                + "= filling cutlet =\n"
+                +"(==== Булочка с кунжутом ====)\n"
+                + "\n"
+                + "Price: 400,000000\n";
         assertEquals(expectedResult,burger.getReceipt());
     }
 }
