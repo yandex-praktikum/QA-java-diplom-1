@@ -30,7 +30,7 @@ public class BurgerTest {
     private Burger burger;
 
     @Before
-    public void createNewBurger(){
+    public void createNewBurger() {
         burger = new Burger();
     }
 
@@ -44,18 +44,18 @@ public class BurgerTest {
     }
 
     @Test
-    public void removeIngredient(){
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
-        burger.addIngredient(ingredient);
+    public void removeIngredient() {
+        burger.addIngredient(sauce);
+        burger.addIngredient(filling);
+        burger.addIngredient(sauce);
         burger.removeIngredient(0);
         List<Ingredient> actual = burger.ingredients;
 
-        assertEquals(List.of(ingredient, ingredient), actual);
+        assertEquals(List.of(filling, sauce), actual);
     }
 
     @Test
-    public void moveIngredient(){
+    public void moveIngredient() {
         burger.addIngredient(sauce);
         burger.addIngredient(filling);
         burger.moveIngredient(1, 0);
@@ -65,7 +65,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getReceipt(){
+    public void getReceipt() {
         Mockito.when(bun.getName()).thenReturn("softBun");
         Mockito.when(bun.getPrice()).thenReturn(60.0f);
         burger.setBuns(bun);
@@ -80,23 +80,14 @@ public class BurgerTest {
         Mockito.when(filling.getPrice()).thenReturn(35.0f);
         burger.addIngredient(filling);
 
-        StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
-        List<Ingredient> ingredients = burger.ingredients;
-
-        for (Ingredient ingredient : ingredients) {
-            receipt.append(String.format("= %s %s =%n", ingredient.getType().name().toLowerCase(),
-                ingredient.getName()));
-        }
-
-        receipt.append(String.format("(==== %s ====)%n", bun.getName()));
-        receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
-
-        String expected = receipt.toString();
-        System.out.println(expected);
+        String expected = "(==== softBun ====)\n"
+            + "= sauce Sweet-chili =\n"
+            + "= filling Chicken =\n"
+            + "(==== softBun ====)\n"
+            + "\n"
+            + "Price: 200,000000\n";
         String actual = burger.getReceipt();
 
-        assertEquals("Incorrect burger receipt", expected, actual);
+        assertEquals(expected, actual);
     }
-
-
 }
