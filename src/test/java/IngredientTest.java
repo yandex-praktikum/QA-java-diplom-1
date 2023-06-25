@@ -1,17 +1,17 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import praktikum.Bun;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
+    private Ingredient ingredient;
     private IngredientType type;
     private String name;
     private float price;
-    private Ingredient ingredient;
 
     public IngredientTest(IngredientType type, String name, float price) {
         this.type = type;
@@ -19,24 +19,34 @@ public class IngredientTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters(name = "Проверка возвращаемого значения названия и цены")
-    public static Object[][] ingredientParameters() {
-        return new Object[][]{
-                {"Булка", 0},               //Цена - 0
-                {"Булка", 0.46f},           //Цена - 0 + десятичные знаки
-                {"Булка", 1000},            //Цена - целое число
-                {"Б", 1000},                //Название - одна буква
-                {"Булкааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааа", 1000},
-                //Название - много букв
-                {"Булка-сосиска", 1000},                //Название - с тире
+    @Parameterized.Parameters(name = "Получение типа, наименования и цены ингредиента. Тестовые данные: {0}, {1}, {2}")
+    public static Object[][] getData() {
+        return new Object[][] {
+                {IngredientType.SAUCE, "sauce", 2},         //цена - целое число
+                {IngredientType.SAUCE, "sauce", 15.20f},     //цена - десятичное число
+                {IngredientType.SAUCE, "а", 15.20f},         //наименование - 1 буква
+                {IngredientType.FILLING, "аааааааааааааааааааааааааааааааааааааааааааааа", 50},       //наименование - много букв
+                {IngredientType.FILLING, "filling", 15.20f},  //тип - FILLING
         };
     }
 
-    @Test
-    public void checkReturnParams() {
+    @Before
+    public void init() {
         ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals(type, ingredient.getType());
-        Assert.assertEquals(name, ingredient.getName());
-        Assert.assertEquals(price, ingredient.getPrice(),0);
+    }
+
+    @Test
+    public void checkGetName() {
+        Assert.assertEquals("Наименование булки не совпадает", name, ingredient.getName());
+    }
+
+    @Test
+    public void checkGetPrice() {
+        Assert.assertEquals("Цена булки не совпадает", price, ingredient.getPrice(), 0);
+    }
+
+    @Test
+    public void checkGetType() {
+        Assert.assertEquals("Ошибка: тип булки не совпадает", type, ingredient.getType());
     }
 }

@@ -16,7 +16,7 @@ public class TestBun {
         this.price = price;
     }
 
-    @Parameterized.Parameters(name = "Проверка возвращаемого значения названия и цены")
+    @Parameterized.Parameters(name = "Проверка возвращаемого значения названия и цены. Тестовые данные: {0}, {1}")
     public static Object[][] bunParameters() {
         return new Object[][]{
                 {"Булка", 0},               //Цена - 0
@@ -25,14 +25,19 @@ public class TestBun {
                 {"Б", 1000},                //Название - одна буква
                 {"Булкааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааа", 1000},
                                             //Название - много букв
-                {"Булка-сосиска", 1000},                //Название - с тире
+                {"Булка-сосиска", 1000},    //Название - с тире
         };
     }
 
     @Test
-    public void checkReturnParams() {
+    public void checkGetName() {
         bun = new Bun(name, price);
         Assert.assertEquals(name, bun.getName());
+    }
+
+    @Test
+    public void checkGetPrice() {
+        bun = new Bun(name, price);
         Assert.assertEquals(price, bun.getPrice(),0);
     }
 }
