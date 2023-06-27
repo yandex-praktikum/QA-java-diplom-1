@@ -1,0 +1,9 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="UnnecessaryFullyQualifiedName" enabled="true" level="WEAK WARNING" enabled_by_default="true" editorAttributes="REASSIGNED_LOCAL_VARIABLE_ATTRIBUTES">
+      <option name="m_ignoreJavadoc" value="false" />
+      <option name="ignoreInModuleStatements" value="true" />
+    </inspection_tool>
+  </profile>
+</component>
