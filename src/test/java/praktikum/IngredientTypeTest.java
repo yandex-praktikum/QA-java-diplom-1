@@ -10,4 +10,3 @@ public class IngredientTypeTest {
         Assert.assertEquals("FILLING", IngredientType.FILLING.toString());
     }
 }
-

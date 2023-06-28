@@ -49,4 +49,3 @@ public class IngredientTest {
         Assert.assertEquals(ingredientType, ingredient.getType());
     }
 }
-
