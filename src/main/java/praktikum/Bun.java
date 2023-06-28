@@ -21,5 +21,18 @@ public class Bun {
     public float getPrice() {
         return price;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Bun bun = (Bun) o;
+        return price == bun.price && name.equals(bun.name);
+    }
 
 }
