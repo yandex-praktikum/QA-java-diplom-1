@@ -1,30 +1,36 @@
 package ingredientTests;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import praktikum.Ingredient;
 
-import static org.junit.Assert.*;
+import static praktikum.IngredientType.SAUCE;
 
+@RunWith(MockitoJUnitRunner.class)
 public class IngredientTest {
 
-    @Before
-    public void setUp() throws Exception {
-    }
+@Mock
+    Ingredient ingredient;
 
-    @After
-    public void tearDown() throws Exception {
+    @Test
+    public void getPriceTest () {
+            Mockito.when(ingredient.getPrice()).thenReturn(300F);
+        Assert.assertEquals(300, ingredient.getPrice(),0.5);
     }
 
     @Test
-    public void getPrice() {
+    public void getNameTest() {
+        Mockito.when(ingredient.getName()).thenReturn("Cotleta");
+        Assert.assertEquals("Cotleta", ingredient.getName());
     }
 
     @Test
-    public void getName() {
-    }
-
-    @Test
-    public void getType() {
+    public void getTypeTest() {
+        Mockito.when(ingredient.getType()).thenReturn(SAUCE);
+        Assert.assertEquals(SAUCE, ingredient.getType());
     }
 }
