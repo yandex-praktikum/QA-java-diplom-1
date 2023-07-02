@@ -1,13 +1,17 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import static org.junit.Assert.assertEquals;
 
 import praktikum.Bun;
+
+import static org.junit.Assert.assertEquals;
+
 @RunWith(Parameterized.class)
 public class BunTest {
     private String name;
     private float price;
+
+
     public BunTest(String name, float price) {
         this.name = name;
         this.price = price;
@@ -17,7 +21,7 @@ public class BunTest {
     public static Object[][] getBunData() {
         return new Object[][]{
                 {"Булочка", 50},
-                {"Simple bun", 0.000001},
+                {"Маленькая булочка", 0.0000001},
                 {"", 0},
                 {"Буууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууууулочка", 9999999999.99F}
         };
@@ -32,6 +36,6 @@ public class BunTest {
     @Test
     public void getBunPriceTest() {
         Bun bun = new Bun(name, price);
-        assertEquals(price, bun.getPrice());
+        assertEquals(price, bun.getPrice(), TestConstant.DELTA);
     }
 }

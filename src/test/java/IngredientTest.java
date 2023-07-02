@@ -41,7 +41,7 @@ public class IngredientTest {
     @Test
     public void getPriceTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        assertEquals("Неверная стоимость", price, ingredient.getPrice(), TestConstants.DELTA);
+        assertEquals("Неверная стоимость", price, ingredient.getPrice(), TestConstant.DELTA);
     }
 
     @Test

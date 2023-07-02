@@ -21,10 +21,10 @@ public class BurgerTest {
     @Mock
     Ingredient ingredient;
     Burger burger = new Burger();
-    Ingredient [] ingredients = new Ingredient[] {
+    Ingredient[] ingredients = new Ingredient[]{
             new Ingredient(SAUCE, "Кетчуп", 5),
             new Ingredient(SAUCE, "Майонез", 7),
-            new Ingredient(SAUCE, "Соус кари", 15)
+            new Ingredient(SAUCE, "Соус кари", 15),
             new Ingredient(FILLING, "Зелень", 60),
             new Ingredient(FILLING, "Колбаса", 80),
             new Ingredient(FILLING, "Сыр", 100)
@@ -35,7 +35,7 @@ public class BurgerTest {
     public void setBunTest() {
         burger.setBuns(new Bun("Новая булочка", 50));
         assertEquals("Новая булочка", burger.bun.getName());
-        assertEquals(50, burger.bun.getPrice());
+        assertEquals(50, burger.bun.getPrice(), TestConstant.DELTA);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class BurgerTest {
             burger.addIngredient(i);
         }
         burger.removeIngredient(3);
-        assertEquals("Неверное количество ингредиентов",5, burger.ingredients.size());
+        assertEquals("Неверное количество ингредиентов", 5, burger.ingredients.size());
     }
 
     @Test
@@ -66,22 +66,22 @@ public class BurgerTest {
 
     @Test
     public void getPriceTest() {
-        Mockito.when(bun.getPrice()).thenReturn(20);
-        Mockito.when(ingredient.getPrice()).thenReturn(10);
+        Mockito.when(bun.getPrice()).thenReturn(20F);
+        Mockito.when(ingredient.getPrice()).thenReturn(10F);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         float expected = 50;
-        assertEquals("Некорректная стоимость бургера", expected, burger.getPrice());
+        assertEquals("Некорректная стоимость бургера", expected, burger.getPrice(), TestConstant.DELTA);
     }
 
     @Test
-    public void getReceiptTest () {
+    public void getReceiptTest() {
         burger.setBuns(bun);
         for (Ingredient i : ingredients) {
             burger.addIngredient(i);
         }
 
-        Mockito.when(burger.getPrice()).thenReturn(500);
+        Mockito.when(burger.getPrice()).thenReturn(500F);
         String actualReceipt = burger.getReceipt();
 
         StringBuilder expectedReceipt = new StringBuilder(String.format("(==== %s ====)%n", bun.name));
@@ -91,4 +91,5 @@ public class BurgerTest {
         expectedReceipt.append(String.format("(==== %s ====)%n", bun.name));
         expectedReceipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
         assertEquals("Чек отличается от ожидаемого", expectedReceipt.toString(), actualReceipt);
+    }
 }
