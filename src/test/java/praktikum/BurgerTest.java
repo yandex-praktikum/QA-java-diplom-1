@@ -7,21 +7,25 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.assertEquals;
-import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 public class BurgerTest {
 
     Burger burger = new Burger();
 
-    @Mock
-    Bun bun = new Bun("", 1f);
+    private final float bunPrice = 2f;
+    private final float ingredientPrice = 1f;
+    private final String bunName = "булка";
+    private final String ingredientName = "соус";
 
     @Mock
-    Ingredient ingredient = new Ingredient(SAUCE, "", 1f);
+    Bun bun;
 
     @Mock
-    Ingredient secondIngredient = new Ingredient(FILLING, "", 1f);
+    Ingredient ingredient;
+
+    @Mock
+    Ingredient secondIngredient;
 
     @Before
     public void init() {
@@ -68,10 +72,9 @@ public class BurgerTest {
 
     @Test
     public void testGetPrice() {
-
         burger.setBuns(bun);
-        Mockito.when(bun.getPrice()).thenReturn(2f);
-        Mockito.when(ingredient.getPrice()).thenReturn(1f);
+        Mockito.when(bun.getPrice()).thenReturn(bunPrice);
+        Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
         burger.addIngredient(ingredient);
         assertEquals( 5,
                 burger.getPrice(),
@@ -80,14 +83,13 @@ public class BurgerTest {
 
     @Test
     public void testGetReceipt() {
-
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        Mockito.when(bun.getPrice()).thenReturn(2f);
-        Mockito.when(bun.getName()).thenReturn("булка");
-        Mockito.when(ingredient.getPrice()).thenReturn(1f);
+        Mockito.when(bun.getPrice()).thenReturn(bunPrice);
+        Mockito.when(bun.getName()).thenReturn(bunName);
+        Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
         Mockito.when(ingredient.getType()).thenReturn(SAUCE);
-        Mockito.when(ingredient.getName()).thenReturn("соус");
+        Mockito.when(ingredient.getName()).thenReturn(ingredientName);
         String receipt = burger.getReceipt();
         assertEquals(
                 "(==== булка ====)\r\n" +

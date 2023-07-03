@@ -1,7 +1,6 @@
 package praktikum;
 
 import junit.framework.TestCase;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -21,12 +20,12 @@ public class BunTest extends TestCase {
     @Parameterized.Parameter(1)
     public float price;
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Стоимость и наименование булочки. Тестовые данные: {0} {1}")
     public static List<Object[]> getData() {
 
         return Arrays.asList(new Object[][] {
 
-                {RandomStringUtils.randomAlphabetic(6), Float.MAX_VALUE},
+                {"Булочка", Float.MAX_VALUE},
                 {"", -Float.MAX_VALUE}
         });
     }

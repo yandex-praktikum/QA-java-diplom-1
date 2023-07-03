@@ -6,7 +6,10 @@ import static praktikum.IngredientType.SAUCE;
 
 public class IngredientTest extends TestCase {
 
-    Ingredient ingredient = new Ingredient(SAUCE, "соус", 2f);
+    private final String ingredientName = "соус";
+    private final float ingredientPrice = 2f;
+
+    Ingredient ingredient = new Ingredient(SAUCE, ingredientName, ingredientPrice);
 
     public void testGetPrice() {
 
