@@ -8,12 +8,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import praktikum.IngredientType;
 import static org.junit.Assert.assertEquals;
-import static praktikum.IngredientType.FILLING;
-import static praktikum.IngredientType.SAUCE;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -23,75 +19,79 @@ public class BurgerTest {
     Ingredient ingredient;
 
     Burger burger = new Burger();
-    Ingredient [] ingredients = new Ingredient[] {
-            new Ingredient(SAUCE, "hot sauce", 100),
-            new Ingredient(SAUCE, "sour cream", 200),
-            new Ingredient(SAUCE, "chili sauce", 300),
-            new Ingredient(FILLING, "cutlet", 100),
-            new Ingredient(FILLING, "dinosaur", 200),
-            new Ingredient(FILLING, "sausage", 300)
-    };
 
     @Test
     public void setBunsTest() {
-        burger.setBuns(new Bun("Bun", 60));
-        assertEquals("Bun", burger.bun.getName());
-        assertEquals(60, burger.bun.getPrice(), 0);
+
+        burger.setBuns(bun);
+        assertEquals(bun, burger.bun);
+
     }
 
     @Test
     public void addIngredientsToIngredientList() {
-        for (int i = 0; i < ingredients.length; i++) {
-            burger.addIngredient(ingredients[i]);
-            assertEquals("Ингредиент отличается от ожидаемого",
-                    ingredients[i], burger.ingredients.get(i));
-        }
+
+        burger.addIngredient(ingredient);
+        int expectedSize = 1;
+        assertEquals(expectedSize, burger.ingredients.size());
+
     }
 
     @Test
     public void removeIngredientFromIngredientList() {
-        for (Ingredient value : ingredients) {
-            burger.addIngredient(value);
-        }
-        burger.removeIngredient(5);
-        assertEquals("Ингредиентов больше, чем должно быть",
-                5, burger.ingredients.size());
+
+        burger.addIngredient(ingredient);
+        burger.removeIngredient(0);
+        int expectedSize = 0;
+        assertEquals(expectedSize, burger.ingredients.size());
+
     }
 
     @Test
     public void moveIngredientInIngredientList() {
-        for (Ingredient value : ingredients) {
-            burger.addIngredient(value);
-        }
-        burger.moveIngredient(0, 5);
-        burger.moveIngredient(4, 0);
-        assertEquals("Порядок ингредиентов отличается от ожидаемого",
-                ingredients[0], burger.ingredients.get(5));
-        assertEquals("Порядок ингредиентов отличается от ожидаемого",
-                ingredients[5], burger.ingredients.get(0));
+
+        String expected = "MoveTest";
+        burger.addIngredient(ingredient);
+        burger.addIngredient(new Ingredient(IngredientType.SAUCE, expected,1));
+        burger.addIngredient(ingredient);
+        burger.moveIngredient(1, 2);
+        String actual = burger.ingredients.get(2).getName();
+        assertEquals(expected, actual);
+
     }
 
     @Test
     public void getPriceTest() {
-        Mockito.when(bun.getPrice()).thenReturn(30F);
-        Mockito.when(ingredient.getPrice()).thenReturn(10F);
-
+        float expectedPrice = 40;
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        float actual = burger.getPrice();
-        float expected = 70;
-        assertEquals("Цена бургера не соответствует ожидаемой", expected, actual, 0);
+        burger.addIngredient(ingredient);
+        Mockito.when(bun.getPrice()).thenReturn(10f);
+        Mockito.when(ingredient.getPrice()).thenReturn(10f);
+        assertEquals("Цена не соответствует", expectedPrice, burger.getPrice(), 0);
+
     }
 
     @Test
-    public void getReceipt() throws IOException {
-        String reference = Files.readString(Paths.get("src/main/java/praktikum/Receipt"));
-        for (Ingredient value : ingredients) {
-            burger.addIngredient(value);
-        }
-        burger.setBuns(new Bun("Половинка свежей булочки", 30));
-        String actual = burger.getReceipt();
-        assertEquals("Рецепт отличается от ожидаемого", reference, actual);
+    public void getReceipt() {
+
+        String expected = "(==== BunName ====)\n"
+                + "= sauce IngName =\n"
+                + "= sauce IngName =\n"
+                + "(==== BunName ====)\n"
+                + "\n"
+                + "Price: 40,000000\n";
+        Burger burger = new Burger();
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient);
+        Mockito.when(bun.getName()).thenReturn("BunName");
+        Mockito.when(bun.getPrice()).thenReturn(10f);
+        Mockito.when(ingredient.getName()).thenReturn("IngName");
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredient.getPrice()).thenReturn(10f);
+        assertEquals(expected, burger.getReceipt());
+
     }
 
 }
