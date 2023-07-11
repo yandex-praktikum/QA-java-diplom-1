@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: BunTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.708 sec <<< FAILURE!
-getBunNameTest[1](BunTest)  Time elapsed: 0.03 sec  <<< ERROR!
+Tests run: 8, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.492 sec <<< FAILURE!
+getBunNameTest[1](BunTest)  Time elapsed: 0.021 sec  <<< ERROR!
 java.lang.IllegalArgumentException: argument type mismatch
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -46,7 +46,7 @@ java.lang.IllegalArgumentException: argument type mismatch
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getBunPriceTest[1](BunTest)  Time elapsed: 0 sec  <<< ERROR!
+getBunPriceTest[1](BunTest)  Time elapsed: 0.007 sec  <<< ERROR!
 java.lang.IllegalArgumentException: argument type mismatch
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)

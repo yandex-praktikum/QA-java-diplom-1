@@ -11,7 +11,6 @@ public class BunTest {
     private String name;
     private float price;
 
-
     public BunTest(String name, float price) {
         this.name = name;
         this.price = price;
