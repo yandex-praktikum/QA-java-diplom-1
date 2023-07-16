@@ -25,7 +25,7 @@ public class BunTest {
                 {"", Float.MIN_VALUE},
                 {null, 0},
                 {" ", -1},
-                {" bun with black dust", Float.MAX_VALUE}
+                {" bun with black dust ", Float.MAX_VALUE}
         };
     }
     @Before
