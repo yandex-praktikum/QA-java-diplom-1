@@ -1,4 +1,5 @@
 package praktikum;
+
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
