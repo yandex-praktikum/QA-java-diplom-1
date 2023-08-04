@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class BunTest {
 
-    Bun bun = new Bun("Краторная булка N-200i", 1255);
+    Bun bun = new Bun("Краторная булка N-200i",1255.0f);
 
     @Test
     public void getNameReturnsCorrectBunName() {
@@ -20,7 +20,7 @@ public class BunTest {
     @Test
     public void getPriceReturnsCorrectBunPrice() {
         //Arrange
-        float expectedBunPrice = 1255;
+        float expectedBunPrice = 1255.0f;
         //Act
         float actualBunPrice = bun.getPrice();
         //Assert
