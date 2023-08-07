@@ -14,8 +14,10 @@ public class Praktikum {
         // Считаем список доступных булок из базы данных
         List<Bun> buns = database.availableBuns();
 
+
         // Считаем список доступных ингредиентов из базы данных
         List<Ingredient> ingredients = database.availableIngredients();
+
 
         // Соберём бургер
         burger.setBuns(buns.get(0));

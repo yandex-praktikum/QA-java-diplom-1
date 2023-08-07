@@ -18,6 +18,7 @@ public class Burger {
         this.bun = bun;
     }
 
+
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
     }
