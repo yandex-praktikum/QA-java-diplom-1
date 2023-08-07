@@ -9,8 +9,8 @@ import java.util.List;
  * Ингредиенты можно перемещать и удалять.
  * Можно распечать чек с информацией о бургере.
  */
-public class Burger {
 
+public class Burger {
     public Bun bun;
     public List<Ingredient> ingredients = new ArrayList<>();
 
@@ -36,7 +36,6 @@ public class Burger {
         for (Ingredient ingredient : ingredients) {
             price += ingredient.getPrice();
         }
-
         return price;
     }
 
@@ -53,5 +52,4 @@ public class Burger {
 
         return receipt.toString();
     }
-
 }
