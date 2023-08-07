@@ -19,7 +19,6 @@ public class Praktikum {
 
         // Соберём бургер
         burger.setBuns(buns.get(0));
-
         burger.addIngredient(ingredients.get(1));
         burger.addIngredient(ingredients.get(4));
         burger.addIngredient(ingredients.get(3));
@@ -32,7 +31,12 @@ public class Praktikum {
         burger.removeIngredient(3);
 
         // Распечатаем рецепт бургера
-        System.out.println(burger.getReceipt());
+         System.out.println(burger.getReceipt());
+
+        for (int i = 0; i < buns.size(); i++) { // i строго меньше размера списка
+            System.out.println("булочка " + i + ": " + buns.get(i) + " руб.");
+            // напечатали траты и их индексы в списке
+        }
     }
 
 }
