@@ -16,7 +16,7 @@ public class IngredientTypeTest {
     }
 
     @Parameterized.Parameters(name = "{0}")
-    public static Object[][] getType() {
+    public static Object[][] getType(){
         return new Object[][]{
                 {IngredientType.FILLING},
                 {IngredientType.SAUCE},
@@ -24,7 +24,7 @@ public class IngredientTypeTest {
     }
 
     @Test
-    public void typeValue() {
+    public void typeValue(){
         Assert.assertThat(IngredientType.valueOf(String.valueOf(type)), is(notNullValue()));
     }
 }
