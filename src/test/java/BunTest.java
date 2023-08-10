@@ -22,7 +22,9 @@ public class BunTest {
         return new Object[][] {
                 {"Булочка с маком", 30},
                 {"Крендель", 0},
-                {"Расстегай", 1000000},
+                {"Шанюшка", Float.MIN_VALUE},
+                {"Помпушка", Float.MAX_VALUE},
+                {"   ", 1000000},
                 {null, -1},
         };
     }
