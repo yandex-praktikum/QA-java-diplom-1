@@ -1,0 +1,14 @@
+/target/classes/
+/target/generated-sources/
+/target/generated-test-sources/
+/target/maven-archiver/
+/target/maven-status/
+/target/test-classes/
+/target/jacoco.exec
+/target/praktikum-1.0-SNAPSHOT.jar
+/target/surefire-reports/
+/target/site/jacoco/
+/target/site/jacoco/jacoco-resources/
+/target/site/jacoco/jacoco.csv
+/target/site/jacoco/jacoco.xml
+/target/site/jacoco/jacoco-sessions.html
