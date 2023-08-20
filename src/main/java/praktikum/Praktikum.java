@@ -3,7 +3,6 @@ package praktikum;
 import java.util.List;
 
 public class Praktikum {
-
     public static void main(String[] args) {
         // Инициализируем базу данных
         Database database = new Database();
@@ -34,5 +33,4 @@ public class Praktikum {
         // Распечатаем рецепт бургера
         System.out.println(burger.getReceipt());
     }
-
 }

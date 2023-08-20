@@ -39,7 +39,6 @@ public class Burger {
 
         return price;
     }
-
     public String getReceipt() {
         StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
 

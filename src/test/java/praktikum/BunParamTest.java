@@ -22,8 +22,6 @@ public class BunParamTest {
         this.name = name;
         this.price = price;
     }
-
-
     @Parameterized.Parameters
     public static Object[][] testData() {
         return new Object[][]{

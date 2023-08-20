@@ -5,7 +5,6 @@ package praktikum;
  * Булочке можно дать название и назначить цену.
  */
 public class Bun {
-
     public String name;
     public float price;
 
@@ -13,7 +12,6 @@ public class Bun {
         this.name = name;
         this.price = price;
     }
-
     public String getName() {
         return name;
     }

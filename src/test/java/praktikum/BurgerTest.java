@@ -94,5 +94,4 @@ public class BurgerTest {
       Assert.assertEquals(receipt.toString(), burger.getReceipt());
 
           }
-
 }

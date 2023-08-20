@@ -15,7 +15,6 @@ public class IngredientParamTest {
     private final String name;
     private final float price;
     private Ingredient ingredient;
-
     @Before
     public void setUp(){
         ingredient = new Ingredient(type, name, price);
