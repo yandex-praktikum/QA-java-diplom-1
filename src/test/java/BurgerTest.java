@@ -91,8 +91,6 @@ public void addIngredientTest() {
                 " sausage =%n" + "(==== " + bunName + " ====)%n"
                 + "%nPrice: " + expectedPriceBurgerStr + "%n");
         String actual = burger.getReceipt();
-        //  System.out.println("actual "+actual);
-        //  System.out.println("expected "+expected);
         assertEquals(actual, expected);
 
         }
