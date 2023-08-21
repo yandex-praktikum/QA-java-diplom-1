@@ -1,3 +1,4 @@
+import org.mockito.Mock;
 import praktikum.Bun;
 import praktikum.Burger;
 import org.junit.Test;
@@ -9,9 +10,15 @@ import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
+    @Mock
+    IngredientType ingredientType;
+
+    @Mock
+    Ingredient ketchup = new Ingredient(ingredientType.SAUCE, "Кенчуп", 99.99F);;
+
     @Test
     public void addIngredientTest() {
-        Ingredient ketchup = new Ingredient(IngredientType.SAUCE, "Кенчуп", 99.99F);
+        Ingredient ketchup = new Ingredient(ingredientType.SAUCE, "Кенчуп", 99.99F);
         Burger burger = new Burger();
         burger.addIngredient(ketchup);
 

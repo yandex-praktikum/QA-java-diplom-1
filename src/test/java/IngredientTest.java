@@ -1,13 +1,8 @@
-import praktikum.Bun;
-import praktikum.Burger;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 import static org.junit.Assert.*;
 
-@RunWith(MockitoJUnitRunner.class)
 public class IngredientTest {
     @Test
     public void getPriceTest() {
