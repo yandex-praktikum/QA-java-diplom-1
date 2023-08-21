@@ -6,7 +6,6 @@ public class IngredientTypeTest {
     @Test
     public void valuesTest() {
         String[] expected = {"SAUCE", "FILLING"};
-        IngredientType[] ingredientTypes = IngredientType.values();
 
         for(int i = 0; i < IngredientType.values().length; i++) {
             String actual = IngredientType.values()[i].name();

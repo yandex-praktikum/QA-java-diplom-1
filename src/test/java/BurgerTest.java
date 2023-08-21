@@ -1,4 +1,5 @@
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import praktikum.Bun;
 import praktikum.Burger;
 import org.junit.Test;
@@ -11,14 +12,14 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
     @Mock
-    IngredientType ingredientType;
-
+    Bun bun;
     @Mock
-    Ingredient ketchup = new Ingredient(ingredientType.SAUCE, "Кенчуп", 99.99F);;
+    Ingredient ketchup;
+    @Mock
+    Ingredient patty;
 
     @Test
     public void addIngredientTest() {
-        Ingredient ketchup = new Ingredient(ingredientType.SAUCE, "Кенчуп", 99.99F);
         Burger burger = new Burger();
         burger.addIngredient(ketchup);
 
@@ -30,7 +31,6 @@ public class BurgerTest {
 
     @Test
     public void removeIngredientTest() {
-        Ingredient ketchup = new Ingredient(IngredientType.SAUCE, "Кенчуп", 99.99F);
         Burger burger = new Burger();
         burger.addIngredient(ketchup);
         burger.removeIngredient(0);
@@ -43,28 +43,28 @@ public class BurgerTest {
 
     @Test
     public void moveIngredientTest() {
-        Ingredient ketchup = new Ingredient(IngredientType.SAUCE, "Кенчуп", 99.99F);
-        Ingredient putty = new Ingredient(IngredientType.SAUCE, "Коклета", 9.99F);
         Burger burger = new Burger();
         burger.addIngredient(ketchup);
-        burger.addIngredient(putty);
+        burger.addIngredient(patty);
         burger.moveIngredient(1, 0);
 
         int expected = 0;
-        int actual = burger.ingredients.indexOf(putty);
+        int actual = burger.ingredients.indexOf(patty);
 
         assertEquals(expected, actual);
     }
 
     @Test
     public void getPriceTest() {
-        Bun bun = new Bun("Бриош", 10.0F);
-        Ingredient ketchup = new Ingredient(IngredientType.SAUCE, "Кенчуп", 90.0F);
-        Ingredient putty = new Ingredient(IngredientType.SAUCE, "Коклета", 20.0F);
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ketchup);
-        burger.addIngredient(putty);
+        burger.addIngredient(patty);
+
+
+        Mockito.when(bun.getPrice()).thenReturn(10.0F);
+        Mockito.when(ketchup.getPrice()).thenReturn(90.0F);
+        Mockito.when(patty.getPrice()).thenReturn(20.0F);
 
         float expected = 130.0F;
         float actual = burger.getPrice();
@@ -74,18 +74,21 @@ public class BurgerTest {
 
     @Test
     public void getReceiptTest() {
-        Bun bun = new Bun("Бриош", 10.0F);
-        Ingredient ketchup = new Ingredient(IngredientType.SAUCE, "Кенчуп", 90.0F);
-        Ingredient putty = new Ingredient(IngredientType.SAUCE, "Коклета", 20.0F);
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ketchup);
-        burger.addIngredient(putty);
+        burger.addIngredient(patty);
+
+        Mockito.when(bun.getName()).thenReturn("Бриош");
+        Mockito.when(ketchup.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ketchup.getName()).thenReturn("Кенчуп");
+        Mockito.when(patty.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(patty.getName()).thenReturn("Коклета");
 
         String expected = String.format("(==== %s ====)%n", bun.getName()) + String.format("= %s %s =%n", ketchup.getType().toString().toLowerCase(),
                 ketchup.getName()) +
-                String.format("= %s %s =%n", putty.getType().toString().toLowerCase(),
-                        putty.getName()) +
+                String.format("= %s %s =%n", patty.getType().toString().toLowerCase(),
+                        patty.getName()) +
                 String.format("(==== %s ====)%n", bun.getName()) +
                 String.format("%nPrice: %f%n", burger.getPrice());
         String actual = burger.getReceipt();
