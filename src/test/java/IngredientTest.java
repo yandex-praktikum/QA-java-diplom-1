@@ -43,11 +43,11 @@ public class IngredientTest {
 
     @Test
     public void returnsCorrectName() {
-        Assert.assertEquals("Некорректное название ингридиента", name, ingredient.getName());
+        Assert.assertEquals("Некорректное название ингредиента", name, ingredient.getName());
     }
 
     @Test
     public void returnsCorrectType() {
-        Assert.assertEquals("Некорректное название ингридиента", type, ingredient.getType());
+        Assert.assertEquals("Некорректное название ингредиента", type, ingredient.getType());
     }
 }

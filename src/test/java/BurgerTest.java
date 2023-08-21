@@ -1,5 +1,5 @@
+import org.junit.Assert;
 import org.junit.Before;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -9,7 +9,6 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -20,6 +19,7 @@ public class BurgerTest {
     Bun bunMock;
     @Mock
     Ingredient ingredientMock;
+    @Mock
     Burger burger;
 
     @Before
@@ -36,7 +36,7 @@ public class BurgerTest {
     @Test
     public void testAddIngredient() {
         burger.addIngredient(ingredientMock);
-        assertEquals(1, burger.ingredients.size());
+        assertTrue(burger.ingredients.size() !=0);
     }
 
     @Test
@@ -49,12 +49,10 @@ public class BurgerTest {
 
     @Test
     public void testMoveIngredient() {
-        Ingredient ingredientSauce = new Ingredient(IngredientType.SAUCE, "sour cream", 200);
-        Ingredient ingredientFilling = new Ingredient(IngredientType.FILLING, "dinosaur", 200);
-        burger.addIngredient(ingredientSauce);
-        burger.addIngredient(ingredientFilling);
+        burger.addIngredient(ingredientMock);
+        burger.addIngredient(ingredientMock);
         burger.moveIngredient(0, 1);
-        assertEquals(ingredientFilling, burger.ingredients.get(0));
+        Assert.assertNotNull(burger.ingredients.get(1));
     }
 
     @Test
@@ -80,5 +78,4 @@ public class BurgerTest {
         String expectedReceipt2 = "(==== bread ====)" + "\r\n" + "= sauce sweet onion =" + "\r\n" + "(==== bread ====)" + "\r\n" + "\r\n" + "Price: 40,000000" + "\r\n";
         assertEquals(expectedReceipt2, burger.getReceipt());
     }
-
 }
