@@ -33,6 +33,9 @@ public class Praktikum {
 
         // Распечатаем рецепт бургера
         System.out.println(burger.getReceipt());
+        System.out.println(burger.getPrice());
+        System.out.println(Burger.ingredients.remove(0));
+
     }
 
 }
