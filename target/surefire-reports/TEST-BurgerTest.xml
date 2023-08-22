@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="BurgerTest" time="2.142" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="BurgerTest" time="2.407" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.19_7\bin"/>
-    <property name="sun.java.command" value="C:\Users\ella-\AppData\Local\Temp\surefire16452404431192348665\surefirebooter1633760498193773309.jar C:\Users\ella-\AppData\Local\Temp\surefire16452404431192348665 2023-08-22T22-48-43_185-jvmRun1 surefire822816862712495098tmp surefire_016334263100065690944tmp"/>
+    <property name="sun.java.command" value="C:\Users\ella-\AppData\Local\Temp\surefire3658090387914431826\surefirebooter14137735175032914213.jar C:\Users\ella-\AppData\Local\Temp\surefire3658090387914431826 2023-08-22T23-42-45_847-jvmRun1 surefire8953482637323679738tmp surefire_017504966574971138905tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\ella-\Projects\Diplom\QA-java-diplom-1\target\test-classes;C:\Users\ella-\Projects\Diplom\QA-java-diplom-1\target\classes;C:\Users\ella-\.m2\repository\io\rest-assured\rest-assured\4.4.0\rest-assured-4.4.0.jar;C:\Users\ella-\.m2\repository\org\codehaus\groovy\groovy\3.0.8\groovy-3.0.8.jar;C:\Users\ella-\.m2\repository\org\codehaus\groovy\groovy-xml\3.0.8\groovy-xml-3.0.8.jar;C:\Users\ella-\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\ella-\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\ella-\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\ella-\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\ella-\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\ella-\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\ella-\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\ella-\.m2\repository\io\rest-assured\json-path\4.4.0\json-path-4.4.0.jar;C:\Users\ella-\.m2\repository\org\codehaus\groovy\groovy-json\3.0.8\groovy-json-3.0.8.jar;C:\Users\ella-\.m2\repository\io\rest-assured\rest-assured-common\4.4.0\rest-assured-common-4.4.0.jar;C:\Users\ella-\.m2\repository\io\rest-assured\xml-path\4.4.0\xml-path-4.4.0.jar;C:\Users\ella-\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\ella-\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\ella-\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\ella-\.m2\repository\com\sun\xml\bind\jaxb-impl\2.3.3\jaxb-impl-2.3.3.jar;C:\Users\ella-\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\ella-\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\ella-\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\ella-\.m2\repository\io\qameta\allure\allure-junit4\2.23.0\allure-junit4-2.23.0.jar;C:\Users\ella-\.m2\repository\io\qameta\allure\allure-java-commons\2.23.0\allure-java-commons-2.23.0.jar;C:\Users\ella-\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\ella-\.m2\repository\io\qameta\allure\allure-model\2.23.0\allure-model-2.23.0.jar;C:\Users\ella-\.m2\repository\io\qameta\allure\allure-rest-assured\2.23.0\allure-rest-assured-2.23.0.jar;C:\Users\ella-\.m2\repository\io\qameta\allure\allure-attachments\2.23.0\allure-attachments-2.23.0.jar;C:\Users\ella-\.m2\repository\org\freemarker\freemarker\2.3.31\freemarker-2.3.31.jar;C:\Users\ella-\.m2\repository\org\mockito\mockito-core\4.8.0\mockito-core-4.8.0.jar;C:\Users\ella-\.m2\repository\net\bytebuddy\byte-buddy\1.12.14\byte-buddy-1.12.14.jar;C:\Users\ella-\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.14\byte-buddy-agent-1.12.14.jar;C:\Users\ella-\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\ella-\AppData\Local\Temp\surefire16452404431192348665\surefirebooter1633760498193773309.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ella-\AppData\Local\Temp\surefire3658090387914431826\surefirebooter14137735175032914213.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.19+7-LTS"/>
@@ -62,10 +62,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="getPriceTest" classname="BurgerTest" time="0.414"/>
-  <testcase name="addIngredientTest" classname="BurgerTest" time="0.003"/>
+  <testcase name="getPriceTest" classname="BurgerTest" time="0.413"/>
+  <testcase name="addIngredientTest" classname="BurgerTest" time="0.002"/>
   <testcase name="setBunTest" classname="BurgerTest" time="0.003"/>
-  <testcase name="moveIngredientTest" classname="BurgerTest" time="0.003"/>
-  <testcase name="removeIngredientTest" classname="BurgerTest" time="0.005"/>
-  <testcase name="getReceiptTest" classname="BurgerTest" time="0.013"/>
+  <testcase name="moveIngredientTest" classname="BurgerTest" time="0.002"/>
+  <testcase name="removeIngredientTest" classname="BurgerTest" time="0.002"/>
+  <testcase name="getReceiptTest" classname="BurgerTest" time="0.01"/>
 </testsuite>
