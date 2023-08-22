@@ -1,23 +1,22 @@
 package praktikum;
-
 import java.util.List;
 
 public class Praktikum {
 
     public static void main(String[] args) {
-        // Инициализируем базу данных
+        // Инициализация базы данных
         Database database = new Database();
 
-        // Создадим новый бургер
+        // Создать новый бургер
         Burger burger = new Burger();
 
-        // Считаем список доступных булок из базы данных
+        // Список доступных булок из базы данных
         List<Bun> buns = database.availableBuns();
 
-        // Считаем список доступных ингредиентов из базы данных
+        // Список доступных ингредиентов из базы данных
         List<Ingredient> ingredients = database.availableIngredients();
 
-        // Соберём бургер
+        // Собрать бургер
         burger.setBuns(buns.get(0));
 
         burger.addIngredient(ingredients.get(1));
@@ -25,13 +24,13 @@ public class Praktikum {
         burger.addIngredient(ingredients.get(3));
         burger.addIngredient(ingredients.get(5));
 
-        // Переместим слой с ингредиентом
+        // Переместить слой с ингредиентом
         burger.moveIngredient(2, 1);
 
-        // Удалим ингредиент
+        // Удалить ингредиент
         burger.removeIngredient(3);
 
-        // Распечатаем рецепт бургера
+        // Получить рецепт бургера
         System.out.println(burger.getReceipt());
     }
 
