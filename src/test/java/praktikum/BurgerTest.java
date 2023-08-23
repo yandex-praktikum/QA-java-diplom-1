@@ -11,6 +11,12 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
+    private static final String BUN_NAME = "Test Bun";
+    private static final float BUN_PRICE = 100f;
+    private static final String INGREDIENT_NAME = "Test Ingredient";
+    private static final float INGREDIENT_PRICE = 250f;
+    private static final float INGREDIENT2_PRICE = 150f;
+
     Burger burger = new Burger();
     @Mock
     private Bun mockBun;
@@ -23,29 +29,41 @@ public class BurgerTest {
 
     @Test
     public void testBurgerGetPrice() {
-        when(mockBun.getPrice()).thenReturn(100f);
-        when(mockIngredient1.getPrice()).thenReturn(50f);
-        when(mockIngredient2.getPrice()).thenReturn(75f);
+        when(mockBun.getPrice()).thenReturn(BUN_PRICE);
+        when(mockIngredient1.getPrice()).thenReturn(INGREDIENT_PRICE);
+        when(mockIngredient2.getPrice()).thenReturn(INGREDIENT2_PRICE);
 
-        Burger burger = new Burger();
         burger.setBuns(mockBun);
         burger.addIngredient(mockIngredient1);
         burger.addIngredient(mockIngredient2);
 
-        assertEquals(325f, burger.getPrice(), 0.01);
+        float expectedPrice = (BUN_PRICE*2) + INGREDIENT_PRICE + INGREDIENT2_PRICE;
+        assertEquals(expectedPrice, burger.getPrice(), 0.01);
     }
 
     @Test
     public void testBurgerGetReceipt() {
-        when(mockBun.getName()).thenReturn("Test Bun");
+        when(mockBun.getName()).thenReturn(BUN_NAME);
+        when(mockBun.getPrice()).thenReturn(BUN_PRICE);
         when(mockIngredient1.getType()).thenReturn(IngredientType.FILLING);
-        when(mockIngredient1.getName()).thenReturn("Test Ingredient");
+        when(mockIngredient1.getName()).thenReturn(INGREDIENT_NAME);
+        when(mockIngredient1.getPrice()).thenReturn(INGREDIENT_PRICE);
 
-        Burger burger = new Burger();
         burger.setBuns(mockBun);
         burger.addIngredient(mockIngredient1);
 
-        String expectedReceipt = "(==== Test Bun ====)\n= filling Test Ingredient =\n(==== Test Bun ====)\n\nPrice: 0.000000\n";
+        float expectedPrice = (mockBun.getPrice() * 2) + mockIngredient1.getPrice();
+        String[] expectedReceiptLines = {
+                "(==== " + mockBun.getName() + " ====)",
+                "= " + mockIngredient1.getType().toString().toLowerCase() + " "+ mockIngredient1.getName() +" =",
+                "(==== " + mockBun.getName() + " ====)",
+                "",
+                "Price: "+ String.format("%.6f", expectedPrice),
+                ""
+        };
+
+        String expectedReceipt = String.join("\n", expectedReceiptLines);
+
         assertEquals(expectedReceipt, burger.getReceipt());
     }
 
