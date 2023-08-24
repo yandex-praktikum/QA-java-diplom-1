@@ -46,20 +46,16 @@ public class BurgerTest {
 
     @Test
     public void moveIngredientTest(){
-        int i = 0;
-        while (i < 2){
+        for(int i = 0; i < 2; i++){
             if(burger.ingredients.size() % 2 == 0){
                 burger.addIngredient(new Ingredient(IngredientType.FILLING, nameFilling, priceFilling));
             } else {
-                burger.addIngredient(new Ingredient(IngredientType.SAUCE, nameSauce, priceSauce));
+               burger.addIngredient(new Ingredient(IngredientType.SAUCE, nameSauce, priceSauce));
             }
-            i++;
         }
         burger.moveIngredient(1, 0);
 
-        String expectedResult = nameSauce;
-
-        Assert.assertEquals(expectedResult, burger.ingredients.get(0).getName());
+        Assert.assertEquals(nameSauce, burger.ingredients.get(0).getName());
     }
 
     @Test
@@ -87,7 +83,7 @@ public class BurgerTest {
                         nameBun, IngredientType.SAUCE.toString().toLowerCase(),
                         nameSauce, nameBun, ((priceBun * 2) + priceSauce));
 
-        Assert.assertEquals(expectedResult, burger.getReceipt());
+        Assert.assertEquals("Текст не совпадает", expectedResult, burger.getReceipt());
     }
 
 }
