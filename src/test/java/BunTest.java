@@ -7,6 +7,7 @@ public class BunTest {
     private static final String BUN_NAME = "Булочка с кунжутом";
     private static final float BUN_PRICE = 20;
     Bun bun = new Bun(BUN_NAME, BUN_PRICE);
+
     @Test
     public void getNameCorrectValue() {
         String expectedValue = BUN_NAME;

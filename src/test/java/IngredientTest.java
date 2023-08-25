@@ -10,6 +10,7 @@ public class IngredientTest {
     private static final float INGREDIENT_PRICE = 20;
     private static final IngredientType INGREDIENT_TYPE = IngredientType.SAUCE;
     Ingredient ingredient = new Ingredient(INGREDIENT_TYPE, INGREDIENT_NAME, INGREDIENT_PRICE);
+
     @Test
     public void getNameCorrectValue() {
         String expectedValue = INGREDIENT_NAME;
@@ -30,7 +31,6 @@ public class IngredientTest {
         IngredientType actualValue = ingredient.getType();
         assertEquals(expectedValue, actualValue);
     }
-
 
 
 }

@@ -66,7 +66,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="IngredientTypeTest" name="isIngredientTypeEnumEqualsToValues[Проверка перечисления типов ингредиентов. Тестовые данные: SAUCE SAUCE true]" time="0.012"/>
+  <testcase classname="IngredientTypeTest" name="isIngredientTypeEnumEqualsToValues[Проверка перечисления типов ингредиентов. Тестовые данные: SAUCE SAUCE true]" time="0.011"/>
   <testcase classname="IngredientTypeTest" name="isIngredientTypeEnumEqualsToValues[Проверка перечисления типов ингредиентов. Тестовые данные: FILLING FILLING true]" time="0"/>
-  <testcase classname="IngredientTypeTest" name="isIngredientTypeEnumEqualsToValues[Проверка перечисления типов ингредиентов. Тестовые данные: SAUCEFILLING FILLING false]" time="0"/>
+  <testcase classname="IngredientTypeTest" name="isIngredientTypeEnumEqualsToValues[Проверка перечисления типов ингредиентов. Тестовые данные: SAUCEFILLING FILLING false]" time="0.001"/>
 </testsuite>
