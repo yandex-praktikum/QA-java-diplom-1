@@ -1,11 +1,11 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.OrderWith;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
@@ -33,9 +33,11 @@ public class TestBurger {
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
+        burger = new Burger();
     }
     @Mock
     Bun bun;
+    Burger burger;
     @Mock
     Ingredient ingredient;
     @Parameterized.Parameters
@@ -48,21 +50,36 @@ public class TestBurger {
         };
     }
     @Test
+    public void setBuns(){
+        burger.setBuns(bun);
+    }
+    @Test
+    public void setIngredient(){
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient);
+    }
+    @Test
+    public void setRemoveIngredient(){
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient);
+        burger.moveIngredient(1,0);
+        burger.removeIngredient(1);
+    }
+    @Test
     public void testReceipt() {
-       Burger burger = new Burger();
-       burger.setBuns(bun);
-       burger.addIngredient(ingredient);
-       burger.addIngredient(ingredient);
-       burger.moveIngredient(1,0);
-       burger.removeIngredient(1);
-       Mockito.when(bun.getName()).thenReturn(bunName);
-       Mockito.when(bun.getPrice()).thenReturn(bunPrice);
-       Mockito.when(ingredient.getType()).thenReturn(type);
-       Mockito.when(ingredient.getName()).thenReturn(ingredientName);
-       Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
-        System.out.println(burger.getReceipt());
-        System.out.println(result);
-       assertEquals(result, burger.getReceipt());
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
+        burger.addIngredient(ingredient);
+        burger.moveIngredient(1,0);
+        burger.removeIngredient(1);
+        Mockito.when(bun.getName()).thenReturn(bunName);
+        Mockito.when(bun.getPrice()).thenReturn(bunPrice);
+        Mockito.when(ingredient.getType()).thenReturn(type);
+        Mockito.when(ingredient.getName()).thenReturn(ingredientName);
+        Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
+        assertEquals(result, burger.getReceipt());
 
     }
 }
