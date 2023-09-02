@@ -4,10 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -64,8 +62,16 @@ public class BurgerTest {
 
     @Test
     public void getPriceReturnPriceBurgerTest() {
-        // лучше бы тоже с параметрами сделать (пустой, 1 ингр, три ирнг)
-        // сравнить цену
+        burger.setBuns(mockBun);
+        burger.addIngredient(mockIngredientFirst);
+        burger.addIngredient(mockIngredientSecond);
+
+        Mockito.when(mockBun.getPrice()).thenReturn(300.00f);
+        Mockito.when(mockIngredientFirst.getPrice()).thenReturn(20.00f);
+        Mockito.when(mockIngredientSecond.getPrice()).thenReturn(1000.00f);
+
+        float expectedPrice = 1620.00f;
+        Assert.assertEquals(expectedPrice,burger.getPrice(), 0);
     }
 
     @Test
