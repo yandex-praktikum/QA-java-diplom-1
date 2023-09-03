@@ -38,19 +38,15 @@ public class BunParamTest {
 
         };
     }
-
     @Test
     public  void bunTestName() {
-  //      Bun bun = new Bun(name, price);
         assertEquals(name, bun.getName());
         System.out.println(bun.getName());
     }
-
-        @Test
+    @Test
         public  void bunTestPrice() {
-       //     Bun bun = new Bun(name, price);
-            assertEquals(price, bun.getPrice(), 0);
-            System.out.println(bun.getPrice());
+         assertEquals(price, bun.getPrice(), 0);
+         System.out.println(bun.getPrice());
     }
 
 }
