@@ -6,27 +6,22 @@
  * У ингредиента есть тип (начинка или соус), название и цена.
  */
 public class Ingredient {
-
     public IngredientType type;
     public String name;
     public float price;
-
-<span class="fc" id="L14">    public Ingredient(IngredientType type, String name, float price) {</span>
-<span class="fc" id="L15">        this.type = type;</span>
-<span class="fc" id="L16">        this.name = name;</span>
-<span class="fc" id="L17">        this.price = price;</span>
-<span class="fc" id="L18">    }</span>
-
+<span class="fc" id="L12">    public Ingredient(IngredientType type, String name, float price) {</span>
+<span class="fc" id="L13">        this.type = type;</span>
+<span class="fc" id="L14">        this.name = name;</span>
+<span class="fc" id="L15">        this.price = price;</span>
+<span class="fc" id="L16">    }</span>
     public float getPrice() {
-<span class="fc" id="L21">        return price;</span>
+<span class="fc" id="L18">        return price;</span>
     }
-
     public String getName() {
-<span class="fc" id="L25">        return name;</span>
+<span class="fc" id="L21">        return name;</span>
     }
-
     public IngredientType getType() {
-<span class="fc" id="L29">        return type;</span>
+<span class="fc" id="L24">        return type;</span>
     }
 
 }
