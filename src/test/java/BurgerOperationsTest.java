@@ -22,7 +22,7 @@ public class BurgerOperationsTest {
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
         burger.addIngredient(ingredient3);
-        Assert.assertTrue(!burger.ingredients.isEmpty());
+        Assert.assertFalse(burger.ingredients.isEmpty());
     }
 
     @Test
@@ -47,8 +47,8 @@ public class BurgerOperationsTest {
     @Test
     public void moveIngredientTest() {
         burger.moveIngredient(0,1);
-        Assert.assertTrue(burger.ingredients.get(1).equals(ingredient1));
-        Assert.assertTrue(burger.ingredients.get(0).equals(ingredient2));
+        Assert.assertEquals(burger.ingredients.get(1), ingredient1);
+        Assert.assertEquals(burger.ingredients.get(0), ingredient2);
     }
 
     @Test
@@ -59,7 +59,6 @@ public class BurgerOperationsTest {
 
     @Test
     public void returnReceiptTest() {
-        //float price = bun.getPrice()*2 + ingr1.getPrice() + ingr2.getPrice() + ingr3.getPrice();
         String text = String.format("(==== %s ====)\r\n= %s %s =\r\n= %s %s =\r\n= %s %s =\r\n" +
                         "(==== %s ====)\r\n\r\nPrice: %f\r\n",
                 bun.getName(),
@@ -71,9 +70,7 @@ public class BurgerOperationsTest {
                 ingredient3.getName(),
                 bun.getName(),
                 burger.getPrice());
-
         Assert.assertEquals(burger.getReceipt(), text);
-
     }
 
 }
