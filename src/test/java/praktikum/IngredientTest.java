@@ -5,9 +5,11 @@ import org.junit.Test;
 
 
 
+
 public class IngredientTest {
 
-    Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
+    IngredientType type = IngredientType.SAUCE;
+    Ingredient ingredient = new Ingredient(type, "hot sauce", 100);
     @Test
     public void getPriceTest() {
 
@@ -29,5 +31,5 @@ public class IngredientTest {
         IngredientType expected = IngredientType.SAUCE;
         IngredientType actual = ingredient.getType();
         Assert.assertEquals(expected,actual);
-    }
+           }
 }
