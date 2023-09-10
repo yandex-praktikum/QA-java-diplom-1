@@ -11,6 +11,9 @@ public class Ingredient {
     public String name;
     public float price;
 
+    public Ingredient() {
+    }
+
     public Ingredient(IngredientType type, String name, float price) {
         this.type = type;
         this.name = name;
