@@ -15,6 +15,7 @@ public class Burger {
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
+
         this.bun = bun;
     }
 
@@ -23,6 +24,7 @@ public class Burger {
     }
 
     public void removeIngredient(int index) {
+
         ingredients.remove(index);
     }
 
