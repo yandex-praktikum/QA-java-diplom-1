@@ -1,0 +1,58 @@
+enums">package praktikum;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+* Модель бургера.
+* Бургер состоит из булочек и ингредиентов (начинка или соус).
+* Ингредиенты можно перемещать и удалять.
+* Можно распечать чек с информацией о бургере.
+*/
+<span class="fc" id="L12">public class Burger {</span>
+
+public Bun bun;
+<span class="fc" id="L15">    public List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();</span>
+
+public void setBuns(Bun bun) {
+<span class="fc" id="L18">        this.bun = bun;</span>
+<span class="fc" id="L19">    }</span>
+
+public void addIngredient(Ingredient ingredient) {
+<span class="fc" id="L22">        ingredients.add(ingredient);</span>
+<span class="fc" id="L23">    }</span>
+
+public void removeIngredient(int index) {
+<span class="fc" id="L26">        ingredients.remove(index);</span>
+<span class="fc" id="L27">    }</span>
+
+public void moveIngredient(int index, int newIndex) {
+<span class="fc" id="L30">        ingredients.add(newIndex, ingredients.remove(index));</span>
+<span class="fc" id="L31">    }</span>
+
+public float getPrice() {
+<span class="fc" id="L34">        float price = bun.getPrice() * 2;</span>
+
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L37">            price += ingredient.getPrice();</span>
+<span class="fc" id="L38">        }</span>
+
+<span class="fc" id="L40">        return price;</span>
+}
+
+public String getReceipt() {
+<span class="fc" id="L44">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
+<span class="fc" id="L47">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
+<span class="fc" id="L48">                    ingredient.getName()));</span>
+<span class="fc" id="L49">        }</span>
+
+<span class="fc" id="L51">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L52">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
+
+<span class="fc" id="L54">        return receipt.toString();</span>
+}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
