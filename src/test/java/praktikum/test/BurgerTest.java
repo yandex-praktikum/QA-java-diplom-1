@@ -9,7 +9,9 @@ import org.mockito.MockitoAnnotations;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -19,91 +21,102 @@ import static org.mockito.Mockito.*;
 
 @RunWith(Parameterized.class)
 public class BurgerTest {
-
+    @Mock
+    private Bun mockBun;
     private Burger burger;
 
-    @Mock
-    private Ingredient mockIngredient;
+    private List<Ingredient> mockIngredients = new ArrayList<>();
 
-    private int initialSize;
-    private int expectedSize;
-    private int indexToRemove;
-    private int newIndexToMove;
-    private int expectedIndexAfterMove;
+    private float bunPrice;
+    private float expectedPrice;
+    private String expectedReceipt;
+    private int countIngredients;
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] {
-                {0, 0, 0, 0, 0, 0}, // Нулевой список, ничего не делаем
-                {1, 0, 0, 0, 0, 0}, // Список из одного элемента, ничего не делаем
-                {3, 2, 1, 1, 1, 1}, // Удаляем элемент с индексом 1, ожидаем размер 2
-                {3, 3, 1, 2, 1, 2}  // Перемещаем элемент с индекса 1 на индекс 2, размер остается 3
+        return Arrays.asList(new Object[][]{
+                {100.0f, 800.0f, "(==== black bun ====)" + System.lineSeparator() + "= sauce sour cream =" + System.lineSeparator() +
+                        "= sauce chili sauce =" + System.lineSeparator() + "= filling cutlet =" + System.lineSeparator() +
+                        "(==== black bun ====)" + System.lineSeparator() + System.lineSeparator() + "Price: 800,000000" + System.lineSeparator(), 3},
+                {100.0f, 1000.0f, "(==== black bun ====)" + System.lineSeparator() + "= sauce sour cream =" + System.lineSeparator() +
+                        "= sauce chili sauce =" + System.lineSeparator() + "= filling cutlet =" + System.lineSeparator() + "= filling dinosaur =" + System.lineSeparator() +
+                        "(==== black bun ====)" + System.lineSeparator() + System.lineSeparator() + "Price: 1000,000000" + System.lineSeparator(), 4}
         });
     }
 
-    public BurgerTest(int initialSize, int expectedSize, int indexToRemove, int newIndexToMove, int expectedIndexAfterMove) {
-        this.initialSize = initialSize;
-        this.expectedSize = expectedSize;
-        this.indexToRemove = indexToRemove;
-        this.newIndexToMove = newIndexToMove;
-        this.expectedIndexAfterMove = expectedIndexAfterMove;
+    public BurgerTest(float bunPrice, float expectedPrice, String expectedReceipt, int countIngredients) {
+        this.bunPrice = bunPrice;
+        this.expectedPrice = expectedPrice;
+        this.expectedReceipt = expectedReceipt;
+        this.countIngredients = countIngredients;
     }
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        burger = new Burger();
-        // Заполним список ингредиентов предварительно
-        for (int i = 0; i < initialSize; i++) {
-            burger.ingredients.add(mock(Ingredient.class));
+
+        when(mockBun.getPrice()).thenReturn(bunPrice);
+        when(mockBun.getName()).thenReturn("black bun");
+
+        mockIngredients.clear();  // Очищаем список перед добавлением ингредиентов
+
+        for (int i = 0; i < countIngredients; i++) {
+            // Используем разные ингредиенты с разными ценами
+            mockIngredients.add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
+            mockIngredients.add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
+            mockIngredients.add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
+            mockIngredients.add(new Ingredient(IngredientType.FILLING, "dinosaur", 200));
         }
+
+        burger = new Burger();
+        burger.setBuns(mockBun);
+        burger.ingredients.addAll(mockIngredients.subList(0, countIngredients));
     }
 
+    @Test
+    public void testGetPrice() {
+        assertEquals(expectedPrice, burger.getPrice(), 0.01);
+    }
+
+    @Test
+    public void testGetReceipt() {
+        assertEquals(expectedReceipt, burger.getReceipt());
+    }
     @Test
     public void testAddIngredient() {
-        List<Ingredient> ingredients = burger.ingredients;
+        int sizePlus = burger.ingredients.size() + 1;
 
-        // Добавляем мок-ингредиент
-        burger.addIngredient(mockIngredient);
+        Ingredient newIngredient = new Ingredient(IngredientType.FILLING, "sausage", 300);
+        burger.addIngredient(newIngredient);
 
-        // Проверяем, что ингредиент был добавлен
-        assertEquals(expectedSize, ingredients.size());
-
-        // Проверяем, что метод getPrice будет вызван на мок-ингредиенте, когда будет вызываться getPrice на бургере
-        burger.getPrice();
-        verify(mockIngredient, times(1)).getPrice();
+        assertEquals(sizePlus, burger.ingredients.size());
+        assertEquals(newIngredient, burger.ingredients.get(sizePlus - 1));
+        assertEquals(expectedPrice + 300, burger.getPrice(), 0.01);
     }
-
     @Test
     public void testRemoveIngredient() {
-        List<Ingredient> ingredients = burger.ingredients;
+        int sizeMinus = burger.ingredients.size() - 1;
+        int indexToRemove = 1;
+        Ingredient removedIngredient = burger.ingredients.get(indexToRemove);
 
-        // Удаляем ингредиент
         burger.removeIngredient(indexToRemove);
 
-        // Проверяем, что ингредиент был удален
-        assertEquals(expectedSize, ingredients.size());
-
-        // Проверяем, что метод getPrice будет вызван на мок-ингредиенте, когда будет вызываться getPrice на бургере
-        burger.getPrice();
-        verify(mockIngredient, times(1)).getPrice();
+        assertEquals(sizeMinus, burger.ingredients.size());
+        assertEquals(false, burger.ingredients.contains(removedIngredient));
+        assertEquals(expectedPrice - 300, burger.getPrice(), 0.01);
     }
-
     @Test
     public void testMoveIngredient() {
-        List<Ingredient> ingredients = burger.ingredients;
+        int sizeBefore = burger.ingredients.size();
+        int indexToMove = 2;
+        int newIndex = 1;
 
-        // Запомним ингредиент перед перемещением
-        Ingredient ingredientToMove = ingredients.get(indexToRemove);
+        Ingredient ingredientToMove = burger.ingredients.get(indexToMove);
 
-        // Перемещаем ингредиент
-        burger.moveIngredient(indexToRemove, newIndexToMove);
+        burger.moveIngredient(indexToMove, newIndex);
 
-        // Проверяем, что ингредиент был перемещен на правильную позицию
-        assertEquals(expectedIndexAfterMove, ingredients.indexOf(ingredientToMove));
-
-        // Проверяем, что метод getPrice будет вызван на мок-ингредиенте, когда будет вызываться getPrice на бургере
-        burger.getPrice();
-        verify(mockIngredient, times(1)).getPrice();
+        assertEquals(sizeBefore, burger.ingredients.size());
+        assertEquals(ingredientToMove, burger.ingredients.get(newIndex));
+        assertEquals(expectedPrice, burger.getPrice(), 0.01);
     }
 }
