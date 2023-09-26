@@ -4,16 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
-//    IngredientType type = IngredientType.SAUCE;
-//    String ingredientName = "secret ingredient";
-//    float ingredientPrice = 199;
-//
-//    Ingredient ingredient = new Ingredient(type, ingredientName, ingredientPrice);
+
     private final IngredientType expectedType;
     private final String expectedName;
     private final float expectedPrice;
