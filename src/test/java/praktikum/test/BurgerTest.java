@@ -25,20 +25,24 @@ public class BurgerTest {
     @Mock
     Ingredient mockDinosaur;
     private Burger burger;
+
     @Before
     public void setUp() {
         burger = new Burger();
     }
+
     @Test
     public void checkSetBun() {
         burger.setBuns(mockBun);
         Assert.assertEquals(mockBun, burger.bun);
     }
+
     @Test
     public void checkAddIngredient() {
         burger.addIngredient(mockHotSauce);
         Assert.assertTrue(burger.ingredients.contains(mockHotSauce));
     }
+
     @Test
     public void checkRemoveIngredient() {
         burger.addIngredient(mockHotSauce);
@@ -46,6 +50,7 @@ public class BurgerTest {
         burger.removeIngredient(0);
         Assert.assertFalse(burger.ingredients.contains(mockHotSauce));
     }
+
     @Test
     public void checkMoveIngredient() {
         burger.addIngredient(mockHotSauce);
@@ -54,6 +59,7 @@ public class BurgerTest {
         burger.moveIngredient(2, 0);
         Assert.assertEquals(mockDinosaur, burger.ingredients.get(0));
     }
+
     @Test
     public void checkGetPrice() {
         burger.setBuns(mockBun);
@@ -68,6 +74,7 @@ public class BurgerTest {
 
         Assert.assertEquals(600F, burger.getPrice(), 0.01);
     }
+
     @Test
     public void checkGetReceipt() {
         burger.setBuns(mockBun);
@@ -101,11 +108,13 @@ public class BurgerTest {
 
         Assert.assertEquals(expected, burger.getReceipt());
     }
+
     @Test
     public void checkEmptyBun() {
         Burger burger = new Burger();
         Assert.assertNull(burger.bun);
     }
+
     @Test
     public void checkIngredientsIsEmpty() {
         Burger burger = new Burger();

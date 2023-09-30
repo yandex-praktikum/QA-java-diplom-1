@@ -5,8 +5,8 @@ import org.junit.Test;
 import praktikum.IngredientType;
 
 public class IngredientTypeTest {
-    private String SAUCE = "SAUCE";
-    private String FILLING = "FILLING";
+    private final String SAUCE = "SAUCE";
+    private final String FILLING = "FILLING";
 
     @Test
     public void testSauceEnumValue() {

@@ -8,8 +8,8 @@ import static org.junit.Assert.assertEquals;
 
 public class BunTest {
     private Bun bun;
-    private String name = "Флюоресцентная булка R2-D3";
-    private float price = 9.88f;
+    private final String name = "Флюоресцентная булка R2-D3";
+    private final float price = 9.88f;
 
     @Before
     public void setUp() {

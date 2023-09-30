@@ -34,18 +34,18 @@ public class IngredientTest {
     @Test
     public void checkIngredientType() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals("Сравнение типов ингредиентов",type, ingredient.getType());
+        Assert.assertEquals("Сравнение типов ингредиентов", type, ingredient.getType());
     }
 
     @Test
     public void checkName() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals("Сравнение названий ингредиентов",name, ingredient.getName());
+        Assert.assertEquals("Сравнение названий ингредиентов", name, ingredient.getName());
     }
 
     @Test
     public void checkPrice() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals("Сравнение цен ингредиентов",price, ingredient.getPrice(), 0.01);
+        Assert.assertEquals("Сравнение цен ингредиентов", price, ingredient.getPrice(), 0.01);
     }
 }
