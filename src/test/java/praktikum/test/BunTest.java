@@ -18,15 +18,11 @@ public class BunTest {
 
     @Test
     public void testGetName() {
-        String expectedName = name;
-        String actualName = bun.getName();
-        assertEquals(expectedName, actualName);
+        assertEquals(name, bun.getName());
     }
 
     @Test
     public void testGetPrice() {
-        float expectedPrice = price;
-        float actualPrice = bun.getPrice();
-        assertEquals(expectedPrice, actualPrice, 0.01);
+        assertEquals(price, bun.getPrice(), 0.01);
     }
 }

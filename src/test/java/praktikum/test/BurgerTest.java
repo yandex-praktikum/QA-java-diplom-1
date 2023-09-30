@@ -1,122 +1,114 @@
 package praktikum.test;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import praktikum.IngredientType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
-
-@RunWith(Parameterized.class)
+@RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
     @Mock
-    private Bun mockBun;
+    Bun mockBun;
+    @Mock
+    Ingredient mockHotSauce;
+    @Mock
+    Ingredient mockCutlet;
+    @Mock
+    Ingredient mockDinosaur;
     private Burger burger;
-
-    private List<Ingredient> mockIngredients = new ArrayList<>();
-
-    private float bunPrice;
-    private float expectedPrice;
-    private String expectedReceipt;
-    private int countIngredients;
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {100.0f, 800.0f, "(==== black bun ====)" + System.lineSeparator() + "= sauce sour cream =" + System.lineSeparator() +
-                        "= sauce chili sauce =" + System.lineSeparator() + "= filling cutlet =" + System.lineSeparator() +
-                        "(==== black bun ====)" + System.lineSeparator() + System.lineSeparator() + "Price: 800,000000" + System.lineSeparator(), 3},
-                {100.0f, 1000.0f, "(==== black bun ====)" + System.lineSeparator() + "= sauce sour cream =" + System.lineSeparator() +
-                        "= sauce chili sauce =" + System.lineSeparator() + "= filling cutlet =" + System.lineSeparator() + "= filling dinosaur =" + System.lineSeparator() +
-                        "(==== black bun ====)" + System.lineSeparator() + System.lineSeparator() + "Price: 1000,000000" + System.lineSeparator(), 4}
-        });
-    }
-
-    public BurgerTest(float bunPrice, float expectedPrice, String expectedReceipt, int countIngredients) {
-        this.bunPrice = bunPrice;
-        this.expectedPrice = expectedPrice;
-        this.expectedReceipt = expectedReceipt;
-        this.countIngredients = countIngredients;
-    }
-
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
-
-        when(mockBun.getPrice()).thenReturn(bunPrice);
-        when(mockBun.getName()).thenReturn("black bun");
-
-        mockIngredients.clear();  // Очищаем список перед добавлением ингредиентов
-
-        for (int i = 0; i < countIngredients; i++) {
-            // Используем разные ингредиенты с разными ценами
-            mockIngredients.add(new Ingredient(IngredientType.SAUCE, "sour cream", 200));
-            mockIngredients.add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
-            mockIngredients.add(new Ingredient(IngredientType.FILLING, "cutlet", 100));
-            mockIngredients.add(new Ingredient(IngredientType.FILLING, "dinosaur", 200));
-        }
-
         burger = new Burger();
+    }
+    @Test
+    public void checkSetBun() {
         burger.setBuns(mockBun);
-        burger.ingredients.addAll(mockIngredients.subList(0, countIngredients));
-    }
-
-    @Test
-    public void testGetPrice() {
-        assertEquals(expectedPrice, burger.getPrice(), 0.01);
-    }
-
-    @Test
-    public void testGetReceipt() {
-        assertEquals(expectedReceipt, burger.getReceipt());
+        Assert.assertEquals(mockBun, burger.bun);
     }
     @Test
-    public void testAddIngredient() {
-        int sizePlus = burger.ingredients.size() + 1;
-
-        Ingredient newIngredient = new Ingredient(IngredientType.FILLING, "sausage", 300);
-        burger.addIngredient(newIngredient);
-
-        assertEquals(sizePlus, burger.ingredients.size());
-        assertEquals(newIngredient, burger.ingredients.get(sizePlus - 1));
-        assertEquals(expectedPrice + 300, burger.getPrice(), 0.01);
+    public void checkAddIngredient() {
+        burger.addIngredient(mockHotSauce);
+        Assert.assertTrue(burger.ingredients.contains(mockHotSauce));
     }
     @Test
-    public void testRemoveIngredient() {
-        int sizeMinus = burger.ingredients.size() - 1;
-        int indexToRemove = 1;
-        Ingredient removedIngredient = burger.ingredients.get(indexToRemove);
-
-        burger.removeIngredient(indexToRemove);
-
-        assertEquals(sizeMinus, burger.ingredients.size());
-        assertEquals(false, burger.ingredients.contains(removedIngredient));
-        assertEquals(expectedPrice - 300, burger.getPrice(), 0.01);
+    public void checkRemoveIngredient() {
+        burger.addIngredient(mockHotSauce);
+        burger.addIngredient(mockDinosaur);
+        burger.removeIngredient(0);
+        Assert.assertFalse(burger.ingredients.contains(mockHotSauce));
     }
     @Test
-    public void testMoveIngredient() {
-        int sizeBefore = burger.ingredients.size();
-        int indexToMove = 2;
-        int newIndex = 1;
+    public void checkMoveIngredient() {
+        burger.addIngredient(mockHotSauce);
+        burger.addIngredient(mockCutlet);
+        burger.addIngredient(mockDinosaur);
+        burger.moveIngredient(2, 0);
+        Assert.assertEquals(mockDinosaur, burger.ingredients.get(0));
+    }
+    @Test
+    public void checkGetPrice() {
+        burger.setBuns(mockBun);
+        burger.addIngredient(mockHotSauce);
+        burger.addIngredient(mockCutlet);
+        burger.addIngredient(mockDinosaur);
 
-        Ingredient ingredientToMove = burger.ingredients.get(indexToMove);
+        Mockito.when(mockBun.getPrice()).thenReturn(100F);
+        Mockito.when(mockHotSauce.getPrice()).thenReturn(100F);
+        Mockito.when(mockCutlet.getPrice()).thenReturn(100F);
+        Mockito.when(mockDinosaur.getPrice()).thenReturn(200F);
 
-        burger.moveIngredient(indexToMove, newIndex);
+        Assert.assertEquals(600F, burger.getPrice(), 0.01);
+    }
+    @Test
+    public void checkGetReceipt() {
+        burger.setBuns(mockBun);
+        burger.addIngredient(mockHotSauce);
+        burger.addIngredient(mockCutlet);
+        burger.addIngredient(mockDinosaur);
 
-        assertEquals(sizeBefore, burger.ingredients.size());
-        assertEquals(ingredientToMove, burger.ingredients.get(newIndex));
-        assertEquals(expectedPrice, burger.getPrice(), 0.01);
+        Mockito.when(mockBun.getPrice()).thenReturn(100F);
+        Mockito.when(mockBun.getName()).thenReturn("black bun");
+
+        Mockito.when(mockHotSauce.getPrice()).thenReturn(100F);
+        Mockito.when(mockHotSauce.getName()).thenReturn("hot sauce");
+        Mockito.when(mockHotSauce.getType()).thenReturn(SAUCE);
+
+        Mockito.when(mockCutlet.getPrice()).thenReturn(100F);
+        Mockito.when(mockCutlet.getName()).thenReturn("cutlet");
+        Mockito.when(mockCutlet.getType()).thenReturn(FILLING);
+
+        Mockito.when(mockDinosaur.getPrice()).thenReturn(200F);
+        Mockito.when(mockDinosaur.getName()).thenReturn("dinosaur");
+        Mockito.when(mockDinosaur.getType()).thenReturn(FILLING);
+
+
+        String expected = "(==== black bun ====)" + System.lineSeparator() +
+                "= sauce hot sauce =" + System.lineSeparator() +
+                "= filling cutlet =" + System.lineSeparator() +
+                "= filling dinosaur =" + System.lineSeparator() +
+                "(==== black bun ====)" + System.lineSeparator() +
+                System.lineSeparator() +
+                "Price: 600,000000" + System.lineSeparator();
+
+        Assert.assertEquals(expected, burger.getReceipt());
+    }
+    @Test
+    public void checkEmptyBun() {
+        Burger burger = new Burger();
+        Assert.assertNull(burger.bun);
+    }
+    @Test
+    public void checkIngredientsIsEmpty() {
+        Burger burger = new Burger();
+        Assert.assertTrue(burger.ingredients.isEmpty());
     }
 }

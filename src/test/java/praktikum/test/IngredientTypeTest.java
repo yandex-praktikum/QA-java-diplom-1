@@ -1,9 +1,8 @@
 package praktikum.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 import praktikum.IngredientType;
-
-import static org.junit.Assert.assertEquals;
 
 public class IngredientTypeTest {
     private String SAUCE = "SAUCE";
@@ -11,13 +10,11 @@ public class IngredientTypeTest {
 
     @Test
     public void testSauceEnumValue() {
-        IngredientType sauce = IngredientType.SAUCE;
-        assertEquals(SAUCE, sauce.name());
+        Assert.assertEquals(SAUCE, IngredientType.SAUCE.name());
     }
 
     @Test
     public void testFillingEnumValue() {
-        IngredientType filling = IngredientType.FILLING;
-        assertEquals(FILLING, filling.name());
+        Assert.assertEquals(FILLING, IngredientType.FILLING.name());
     }
 }
