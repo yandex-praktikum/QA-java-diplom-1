@@ -4,15 +4,15 @@ import praktikum.Bun;
 
 public class BunTest extends BaseTest {
 
-    private static final Bun bun = new Bun(expectedName, expectedPrice);
+    private static final Bun bun = new Bun(expectedBunName, expectedBunPrice);
 
     @Test
     public void getName() {
-        Assert.assertEquals(expectedName, bun.getName());
+        Assert.assertEquals(expectedBunName, bun.getName());
     }
 
     @Test
     public void getPrice() {
-        Assert.assertEquals(expectedPrice, bun.getPrice(), testDelta);
+        Assert.assertEquals(expectedBunPrice, bun.getPrice(), testDelta);
     }
 }

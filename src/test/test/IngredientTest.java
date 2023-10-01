@@ -10,13 +10,15 @@ public class IngredientTest extends BaseTest {
 
     private static IngredientType expectedIngredientType;
 
+    private static final float expectedIngredientPrice = random.nextFloat();
+
     private static Ingredient ingredient;
 
     @Parameterized.Parameters
     public static Object[][] getTestData() {
         return new Object[][] {
-                {IngredientType.FILLING, expectedIngredientName, expectedPrice},
-                {IngredientType.SAUCE, expectedIngredientName, expectedPrice}
+                {IngredientType.FILLING, expectedIngredientName, expectedIngredientPrice},
+                {IngredientType.SAUCE, expectedIngredientName, expectedIngredientPrice}
         };
     }
 
@@ -27,7 +29,7 @@ public class IngredientTest extends BaseTest {
 
     @Test
     public void getPrice() {
-        Assert.assertEquals(expectedPrice, ingredient.getPrice(), testDelta);
+        Assert.assertEquals(expectedIngredientPrice, ingredient.getPrice(), testDelta);
     }
 
     @Test
