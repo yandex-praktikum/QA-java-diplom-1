@@ -13,11 +13,6 @@ public class IngredientTypeTest {
     private String name;
     private float price;
 
-    @Before
-    public void setUp() {
-
-    }
-
     public IngredientTypeTest(IngredientType type, String name, float price) {
         this.type = type;
         this.name = name;
@@ -27,7 +22,7 @@ public class IngredientTypeTest {
     @Parameterized.Parameters(name = "Type: {0}")
     public static Object[][] getData() {
         return new Object[][]{
-                {IngredientType.SAUCE, "Булка", 10.0f},
+                {IngredientType.SAUCE, "Соус", 10.0f},
                 {IngredientType.FILLING, "Начинка", 5.0f}
         };
     }
