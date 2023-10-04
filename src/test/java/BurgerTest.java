@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -12,11 +13,13 @@ import praktikum.IngredientType;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    Burger burger = new Burger();
     @Mock
-    Bun bun;
+    private Bun bun;
+
     @Mock
-    Ingredient ingredient;
+    private Ingredient ingredient;
+
+    private Burger burger;
 
     private final String nameSauce = "Сырный";
     private final String nameFilling = "Лук";
@@ -25,18 +28,24 @@ public class BurgerTest {
     private final float priceFilling = 3.1f;
     private final float priceSauce = 2.4f;
 
+    @Before
+    public void setUp() {
+        burger = new Burger();
+        burger.setBuns(bun);
+    }
+
     @Test
-    public void addIngredientTest(){
+    public void addIngredientTest() {
         int expectedResult = 1;
         burger.addIngredient(ingredient);
         Assert.assertEquals(expectedResult, burger.ingredients.size());
     }
 
     @Test
-    public void removeIngredientTest(){
+    public void removeIngredientTest() {
         int expectedResult = 4;
         int i = 0;
-        while (i < 5){
+        while (i < 5) {
             burger.addIngredient(ingredient);
             i++;
         }
@@ -45,13 +54,18 @@ public class BurgerTest {
     }
 
     @Test
-    public void moveIngredientTest(){
-        for(int i = 0; i < 2; i++){
-            if(burger.ingredients.size() % 2 == 0){
-                burger.addIngredient(new Ingredient(IngredientType.FILLING, nameFilling, priceFilling));
+    public void moveIngredientTest() {
+        for (int i = 0; i < 2; i++) {
+            if (burger.ingredients.size() % 2 == 0) {
+                Mockito.when(ingredient.getType()).thenReturn(IngredientType.FILLING);
+                Mockito.when(ingredient.getName()).thenReturn(nameFilling);
+                Mockito.when(ingredient.getPrice()).thenReturn(priceFilling);
             } else {
-                burger.addIngredient(new Ingredient(IngredientType.SAUCE, nameSauce, priceSauce));
+                Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+                Mockito.when(ingredient.getName()).thenReturn(nameSauce);
+                Mockito.when(ingredient.getPrice()).thenReturn(priceSauce);
             }
+            burger.addIngredient(ingredient);
         }
         burger.moveIngredient(1, 0);
 
@@ -59,24 +73,24 @@ public class BurgerTest {
     }
 
     @Test
-    public void getPriceTest(){
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
+    public void getPriceTest() {
         Mockito.when(bun.getPrice()).thenReturn(priceBun);
         Mockito.when(ingredient.getPrice()).thenReturn(priceFilling);
+
+        burger.addIngredient(ingredient);
 
         Assert.assertEquals((priceBun * 2) + priceFilling, burger.getPrice(), 0);
     }
 
     @Test
-    public void getReceiptTest(){
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
+    public void getReceiptTest() {
         Mockito.when(bun.getName()).thenReturn(nameBun);
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
         Mockito.when(ingredient.getName()).thenReturn(nameSauce);
         Mockito.when(bun.getPrice()).thenReturn(priceBun);
         Mockito.when(ingredient.getPrice()).thenReturn(priceSauce);
+
+        burger.addIngredient(ingredient);
 
         String expectedResult = String.format(
                 "(==== %s ====)%n= %s %s =%n(==== %s ====)%n%nPrice: %f%n",
@@ -85,5 +99,4 @@ public class BurgerTest {
 
         Assert.assertEquals("Неверный чек", expectedResult, burger.getReceipt());
     }
-
 }
