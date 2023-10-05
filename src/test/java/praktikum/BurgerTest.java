@@ -31,19 +31,19 @@ public class BurgerTest {
     }
 
     @Test
-    public void setBuns_ShouldSetBun() {
+    public void setBunsShouldSetBun() {
         burger.setBuns(mockBun);
         assertEquals("Булочка не установлена", mockBun, burger.bun);
     }
 
     @Test
-    public void addIngredient_ShouldAddIngredient() {
+    public void addIngredientShouldAddIngredient() {
         burger.addIngredient(salad);
         assertTrue("Ингредиент не добавился", burger.ingredients.contains(salad));
     }
 
     @Test
-    public void removeIngredient_ShouldRemoveIngredient_AndChangeIngredientsSize() {
+    public void removeIngredientShouldRemoveIngredientAndChangeIngredientsSize() {
         int index = 1;
         Ingredient ingredientToRemove = burger.ingredients.get(index);
         int size = burger.ingredients.size();
@@ -53,7 +53,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void moveIngredient_ShouldSwapIngredients() {
+    public void moveIngredientShouldSwapIngredients() {
         int index = 0;
         int newIndex = 1;
         Ingredient ingredientToMove = burger.ingredients.get(index);
@@ -65,7 +65,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getPrice_ZeroDelta_ShouldReturnPrice() {
+    public void getPriceZeroDeltaShouldReturnPrice() {
         float bunPrice = 5.0f;
         when(mockBun.getPrice()).thenReturn(bunPrice);
 
@@ -81,7 +81,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getReceipt_ShouldReturn_EqualReceipt() {
+    public void getReceiptShouldReturnEqualReceipt() {
         when(mockBun.getName()).thenReturn("Булочка");
         when(mockBun.getPrice()).thenReturn(2.0f);
 
@@ -91,15 +91,15 @@ public class BurgerTest {
         when(cheese.getType()).thenReturn(IngredientType.FILLING);
         when(cheese.getName()).thenReturn("Сыр");
 
-          String expectedReceipt = "(==== Булочка ====)\r\n" +
-                  "= sauce Салат =\r\n" +
-                  "= filling Сыр =\r\n" +
-                  "(==== Булочка ====)\r\n" +
-                  "\r\n" +
-                  "Price: 4,000000\r\n";
+        String expectedReceipt = String.format("(==== Булочка ====)\r\n"
+                + "= sauce %s =\r\n"
+                + "= filling %s =\r\n"
+                + "(==== Булочка ====)\r\n"
+                + "\r\n"
+                + "Price: %.6f\r\n", "Салат", "Сыр", 4.0);
         System.out.println(expectedReceipt);
 
-        assertEquals("Информация о бургере не совапдает",expectedReceipt, burger.getReceipt());
+        assertEquals("Информация о бургере не совапдает", expectedReceipt, burger.getReceipt());
     }
 }
 

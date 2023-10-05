@@ -1,6 +1,5 @@
 package praktikum;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -28,7 +27,7 @@ public class IngredientTypeTest {
     }
 
     @Test
-    public void getType_ShouldReturn_DifferentType_OfIngredient() {
+    public void getTypeShouldReturnDifferentTypeOfIngredient() {
         Ingredient ingredient = new Ingredient(type, name, price);
         IngredientType actual = ingredient.getType();
         assertEquals("Неправильный тип ингредиента", type, actual);

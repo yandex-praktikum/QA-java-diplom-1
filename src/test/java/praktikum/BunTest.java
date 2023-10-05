@@ -15,13 +15,13 @@ public class BunTest {
     }
 
     @Test
-    public void getName_ShouldReturn_ExpectedName() {
+    public void getNameShouldReturnExpectedName() {
         String expectedName = "Флюоресцентная булка";
         assertEquals("Наименования булок не совпадают", expectedName, bun.getName());
     }
 
     @Test
-    public void getPrice_ShouldReturnPrice_ZeroDelta() {
+    public void getPriceShouldReturnPriceZeroDelta() {
         float expectedPrice = 10.0f;
         assertEquals("Есть разница между значениями цены", expectedPrice, bun.getPrice(), 0);
     }
