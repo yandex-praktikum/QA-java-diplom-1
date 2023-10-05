@@ -26,7 +26,6 @@ public class BurgerTest {
     public void addIngredientTest() {
         burger.addIngredient(ingredient);
         Assert.assertTrue(burger.ingredients.contains(ingredient));
-        System.out.println(burger.ingredients.contains(ingredient));
     }
 
     @Test
@@ -35,7 +34,6 @@ public class BurgerTest {
         burger.addIngredient(ingredient1);
         burger.removeIngredient(1);
         Assert.assertFalse(burger.ingredients.contains(ingredient1));
-        System.out.println(burger.ingredients.contains(ingredient1));
     }
 
     @Test
@@ -44,7 +42,6 @@ public class BurgerTest {
         burger.addIngredient(ingredient1);
         burger.moveIngredient(0,1);
         Assert.assertEquals(1, burger.ingredients.indexOf(ingredient));
-        System.out.println(burger.ingredients.indexOf(ingredient));
     }
 
     @Test
@@ -54,15 +51,13 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(145F);
         Mockito.when(ingredient.getPrice()).thenReturn(145F);
         Assert.assertEquals(435F, burger.getPrice(), 0);
-        System.out.println(burger.getPrice());
     }
 
     @Test
     public void getReceiptTest() {
         float totalPrice = (bunPrice * 2) + saucePrice;
-        StringBuilder receiptER = new StringBuilder(
-                String.format("(==== %s ====)%n= %s %s =%n(==== %s ====)%n%nPrice: %f%n",
-                        bunName, sauceType.toString().toLowerCase(), sauceName, bunName, totalPrice));
+        String receiptER = String.format("(==== %s ====)%n= %s %s =%n(==== %s ====)%n%nPrice: %f%n",
+                bunName, sauceType.toString().toLowerCase(), sauceName, bunName, totalPrice);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         Mockito.when(bun.getName()).thenReturn(bunName);
@@ -70,8 +65,6 @@ public class BurgerTest {
         Mockito.when(ingredient.getType()).thenReturn(sauceType);
         Mockito.when(ingredient.getName()).thenReturn(sauceName);
         Mockito.when(ingredient.getPrice()).thenReturn(saucePrice);
-        System.out.println(receiptER);
-        System.out.println(burger.getReceipt());
-        Assert.assertEquals(receiptER.toString(), burger.getReceipt());
+        Assert.assertEquals(receiptER, burger.getReceipt());
     }
 }
