@@ -32,14 +32,14 @@ public class BurgerTest extends BaseTest {
         burger = new Burger();
 
         Mockito.when(bun.getName()).thenReturn(bunName);
-        Mockito.when(bun.getPrice()).thenReturn(random.nextFloat());
+//        Mockito.when(bun.getPrice()).thenReturn(random.nextFloat());
 
-        Mockito.when(firstIngredient.getType()).thenReturn(IngredientType.SAUCE);
-        Mockito.when(firstIngredient.getName()).thenReturn(ingredientSauceName);
+//        Mockito.when(firstIngredient.getType()).thenReturn(IngredientType.SAUCE);
+//        Mockito.when(firstIngredient.getName()).thenReturn(ingredientSauceName);
         Mockito.when(firstIngredient.getPrice()).thenReturn(random.nextFloat());
 
-        Mockito.when(secondIngredient.getType()).thenReturn(IngredientType.FILLING);
-        Mockito.when(secondIngredient.getName()).thenReturn(ingredientFillingName);
+//        Mockito.when(secondIngredient.getType()).thenReturn(IngredientType.FILLING);
+//        Mockito.when(secondIngredient.getName()).thenReturn(ingredientFillingName);
         Mockito.when(secondIngredient.getPrice()).thenReturn(random.nextFloat());
     }
 
@@ -77,6 +77,17 @@ public class BurgerTest extends BaseTest {
         float expectedSum = bun.getPrice() * 2 + firstIngredient.getPrice() + secondIngredient.getPrice();
 
         Assert.assertEquals(expectedSum, burger.getPrice(), testDeltaRange);
+    }
+
+    @Test
+    public void removeIngredientTest() {
+        burger.addIngredient(firstIngredient);
+        burger.addIngredient(secondIngredient);
+
+        burger.removeIngredient(1);
+
+        Assert.assertEquals(List.of(firstIngredient), burger.ingredients);
+        Assert.assertEquals(1, burger.ingredients.size());
     }
 
 }
