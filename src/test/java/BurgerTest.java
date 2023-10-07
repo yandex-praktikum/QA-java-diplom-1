@@ -32,14 +32,14 @@ public class BurgerTest extends BaseTest {
         burger = new Burger();
 
         Mockito.when(bun.getName()).thenReturn(bunName);
-//        Mockito.when(bun.getPrice()).thenReturn(random.nextFloat());
+        Mockito.when(bun.getPrice()).thenReturn(random.nextFloat());
 
-//        Mockito.when(firstIngredient.getType()).thenReturn(IngredientType.SAUCE);
-//        Mockito.when(firstIngredient.getName()).thenReturn(ingredientSauceName);
+        Mockito.when(firstIngredient.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(firstIngredient.getName()).thenReturn(ingredientSauceName);
         Mockito.when(firstIngredient.getPrice()).thenReturn(random.nextFloat());
 
-//        Mockito.when(secondIngredient.getType()).thenReturn(IngredientType.FILLING);
-//        Mockito.when(secondIngredient.getName()).thenReturn(ingredientFillingName);
+        Mockito.when(secondIngredient.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(secondIngredient.getName()).thenReturn(ingredientFillingName);
         Mockito.when(secondIngredient.getPrice()).thenReturn(random.nextFloat());
     }
 
@@ -88,6 +88,34 @@ public class BurgerTest extends BaseTest {
 
         Assert.assertEquals(List.of(firstIngredient), burger.ingredients);
         Assert.assertEquals(1, burger.ingredients.size());
+    }
+
+    @Test
+    public void getReceiptTest(){
+        String expectedCompareReceipt =
+                String.format("(==== %s ====)%n", bunName) +
+                String.format(
+                        "= %s %s =%n",
+                        IngredientType.SAUCE.toString().toLowerCase(),
+                        ingredientSauceName
+                ) +
+                String.format(
+                        "= %s %s =%n",
+                        IngredientType.FILLING.toString().toLowerCase(),
+                        ingredientFillingName
+                ) +
+                String.format("(==== %s ====)%n", bunName) +
+                String.format(
+                        "%nPrice: %f%n",
+                        bun.getPrice() * 2 + firstIngredient.getPrice() + secondIngredient.getPrice()
+                );
+
+        burger.setBuns(bun);
+        burger.addIngredient(firstIngredient);
+        burger.addIngredient(secondIngredient);
+
+        Assert.assertEquals(expectedCompareReceipt, burger.getReceipt());
+
     }
 
 }
