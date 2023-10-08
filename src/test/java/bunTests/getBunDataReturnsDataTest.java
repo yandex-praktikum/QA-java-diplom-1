@@ -21,7 +21,7 @@ public class getBunDataReturnsDataTest {
     }
 
     @Test
-    public void getBunPriceReturnsPrice(){
+    public void getBunPriceReturnsPriceTest(){
         bun.getPrice();
         Mockito.when(bun.getPrice()).thenReturn(243F);
         Assert.assertEquals(243F, bun.getPrice(), 0.5);
