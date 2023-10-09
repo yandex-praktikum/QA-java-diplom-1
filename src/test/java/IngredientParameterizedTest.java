@@ -47,7 +47,7 @@ public class IngredientParameterizedTest {
 
     @Test
     public void testGetValidPrice() {
-        assertEquals(price, ingredient.getPrice(), 0.001f);
+        assertEquals(price, ingredient.getPrice(), Constants.Delta);
     }
 
     @Test

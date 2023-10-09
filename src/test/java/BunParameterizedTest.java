@@ -33,7 +33,6 @@ public class BunParameterizedTest {
     @Before
     public void startTest(){
         bun = new Bun(name,price);
-
     }
     @Test
     public void testGetValidName() {
@@ -42,6 +41,6 @@ public class BunParameterizedTest {
 
     @Test
     public void testGetValidPrice() {
-        assertEquals(price, bun.getPrice(), 0.001f);
+        assertEquals(price, bun.getPrice(), Constants.Delta);
     }
 }
