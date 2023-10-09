@@ -71,7 +71,7 @@ public class BurgerTest {
     @Test
     public void testGetPrice() {
         float ingredientsSum = bun.getPrice() * 2 + ingredientOne.getPrice() + ingredientTwo.getPrice() + ingredientThree.getPrice();
-        assertEquals(ingredientsSum, burger.getPrice(), Constants.Delta);
+        assertEquals(ingredientsSum, burger.getPrice(), Constants.DELTA);
     }
     @Test
     public void testGetReceipt() {

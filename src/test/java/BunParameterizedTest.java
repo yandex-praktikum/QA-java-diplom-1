@@ -41,6 +41,6 @@ public class BunParameterizedTest {
 
     @Test
     public void testGetValidPrice() {
-        assertEquals(price, bun.getPrice(), Constants.Delta);
+        assertEquals(price, bun.getPrice(), Constants.DELTA);
     }
 }
