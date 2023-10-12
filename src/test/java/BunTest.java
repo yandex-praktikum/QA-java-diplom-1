@@ -9,6 +9,7 @@ import praktikum.Bun;
 public class BunTest {
     private final String name;
     private final float price;
+    private float delta;
 
     public BunTest(String name, float price) {
         this.name = name;
@@ -33,6 +34,7 @@ public class BunTest {
     @Test
     public void getPriceReturnCorrectValue() {
         Bun bun = new Bun(name, price);
-        Assert.assertEquals(price, bun.getPrice(), 0);
+        delta = 0;
+        Assert.assertEquals(price, bun.getPrice(), delta);
     }
 }

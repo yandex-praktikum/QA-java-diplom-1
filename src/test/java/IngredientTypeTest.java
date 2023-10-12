@@ -4,7 +4,7 @@ import praktikum.IngredientType;
 
 public class IngredientTypeTest {
 
-    int EXPECTED_LENGTH = 2;
+    private int EXPECTED_LENGTH = 2;
 
     @Test
     public void ingredientTypeCheck() {
