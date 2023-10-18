@@ -1,4 +1,4 @@
-package bunTests;
+package bun.tests;
 
 
 import org.junit.Assert;
@@ -13,15 +13,14 @@ import praktikum.Bun;
 public class getBunDataReturnsDataTest {
     @Mock
     Bun bun;
-    @Test
+   @Test
     public void getBunNameReturnsNameTest() {
         bun.getName();
         Mockito.when(bun.getName()).thenReturn("булочка");
         Assert.assertEquals("булочка", bun.getName());
     }
-
     @Test
-    public void getBunPriceReturnsPriceTest(){
+    public void getBunPriceReturnsPriceTest() {
         bun.getPrice();
         Mockito.when(bun.getPrice()).thenReturn(243F);
         Assert.assertEquals(243F, bun.getPrice(), 0.5);

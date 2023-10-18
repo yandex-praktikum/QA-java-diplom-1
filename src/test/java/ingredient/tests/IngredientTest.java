@@ -1,4 +1,4 @@
-package ingredientTests;
+package ingredient.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,19 +13,19 @@ import static praktikum.IngredientType.SAUCE;
 @RunWith(MockitoJUnitRunner.class)
 public class IngredientTest {
 
-@Mock
+    @Mock
     Ingredient ingredient;
 
     @Test
-    public void getPriceTest () {
-            Mockito.when(ingredient.getPrice()).thenReturn(300F);
-        Assert.assertEquals(300, ingredient.getPrice(),0.5);
+    public void getPriceTest() {
+        Mockito.when(ingredient.getPrice()).thenReturn(300F);
+        Assert.assertEquals(300, ingredient.getPrice(), 0.5);
     }
 
     @Test
     public void getNameTest() {
-        Mockito.when(ingredient.getName()).thenReturn("Cotleta");
-        Assert.assertEquals("Cotleta", ingredient.getName());
+        Mockito.when(ingredient.getName()).thenReturn("Cutlet");
+        Assert.assertEquals("Cutlet", ingredient.getName());
     }
 
     @Test
