@@ -1,12 +1,6 @@
 package praktikum;
 
-/**
- * Модель ингредиента.
- * Ингредиент: начинка или соус.
- * У ингредиента есть тип (начинка или соус), название и цена.
- */
 public class Ingredient {
-
     public IngredientType type;
     public String name;
     public float price;
@@ -20,13 +14,10 @@ public class Ingredient {
     public float getPrice() {
         return price;
     }
-
     public String getName() {
         return name;
     }
-
     public IngredientType getType() {
         return type;
     }
-
 }
