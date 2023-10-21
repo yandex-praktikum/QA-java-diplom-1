@@ -22,4 +22,9 @@ public class Bun {
         return price;
     }
 
+    @Override
+    public String toString() {
+        return name; // возвращаем только имя булочки
+    }
 }
+

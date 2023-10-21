@@ -29,4 +29,9 @@ public class Ingredient {
         return type;
     }
 
+    @Override
+    public String toString() {
+        return name; // возвращаем только имя булочки
+    }
+
 }
