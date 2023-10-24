@@ -1,5 +1,7 @@
 package praktikum;
 
+import groovy.transform.ASTTest;
+
 /**
  * Модель ингредиента.
  * Ингредиент: начинка или соус.
