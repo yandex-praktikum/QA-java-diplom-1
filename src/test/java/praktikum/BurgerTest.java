@@ -15,7 +15,7 @@ import static praktikum.IngredientType.SAUCE;
 public class BurgerTest {
 
     Burger burger = new Burger();
-    Bun bun = new Bun("Мучной", 2.00f);
+    Bun bun = new Bun("Мучная", 2.00f);
 
     private final IngredientType type;
     private final String name;
@@ -82,11 +82,16 @@ public class BurgerTest {
     @Test
     public void getReceipt() {
         Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Ketchup", 2.0f);
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "Cheese", 1.0f);
+
         burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
         burger.setBuns(bun);
-        burger.getReceipt();
+        String actualReceipt = burger.getReceipt();
+        String expectedReceipt = "(==== Мучная ====)\n" +
+                "= sauce Ketchup =\n" +
+                "(==== Мучная ====)\n" +
+                "\nPrice: 6,000000\n";
+
+        assertThat(actualReceipt, is(expectedReceipt));
 
 
 
