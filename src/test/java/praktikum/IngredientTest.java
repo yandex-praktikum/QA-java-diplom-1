@@ -2,7 +2,6 @@ package praktikum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.junit.*;
 import static org.junit.Assert.assertEquals;
 
 import static praktikum.IngredientType.FILLING;
@@ -19,7 +18,7 @@ public class IngredientTest {
         this.name = name;
         this.price = price;
     }
-    @Parameterized.Parameters
+    @Parameterized.Parameters //два набора параметров для создания ингредиентов
     public static Object[][] IngredientTestParam() {
         return new Object[][]{
                 {SAUCE, "sour cream", 200},
@@ -28,7 +27,7 @@ public class IngredientTest {
     }
 
     @Test
-    public void ingrTest(){
+    public void ingrTest(){ // проверяем, что геттеры возвращают значения, которые были заданы для ингредиентов
         Ingredient testIngr = new Ingredient(type, name, price);
         assertEquals(testIngr.getType(), type);
         assertEquals(testIngr.getName(), name);

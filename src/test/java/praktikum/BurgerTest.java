@@ -13,14 +13,14 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    List<Ingredient> ingredients = new ArrayList<>();
+    // List<Ingredient> ingredients = new ArrayList<>();
     IngredientType sauceType = IngredientType.SAUCE;
     IngredientType fillingType = IngredientType.FILLING;
 
 
 
       @Test
-    public void checkSetBun(){
+    public void checkSetBun(){ //задаем для бурегра булочку и проверяем, что ее имя и цена соотвествуют заданным
           Burger burger =  new Burger();
           Bun bun = new Bun ("test bun", 123);
           burger.setBuns(bun);
@@ -29,18 +29,18 @@ public class BurgerTest {
           assertEquals(123, burger.bun.price, 0.0);
     }
 
-    public void addIngredient(Burger burger){
+    public void addIngredient(Burger burger){ //вспомогательный класс заполнения ингредиентов для бургера
         Ingredient hotSauce = new Ingredient(IngredientType.SAUCE, "hot sauce", 200);
         burger.addIngredient(hotSauce);
         Ingredient chickenFillet = new Ingredient(IngredientType.FILLING, "chicken fillet", 100);
         burger.addIngredient(chickenFillet);
     }
-    public void setTestBun(Burger burger){
+    public void setTestBun(Burger burger){ //вспомогательный класс установки бургеру тестовой булочки
           Bun testBun = new Bun("test bun", 200);
           burger.setBuns(testBun);
     }
     @Test
-    public void testAddIngredient(){
+    public void testAddIngredient(){ //проверяем, что при добавлении ингредиентов бургеру они добавляются в правильном порядке и с правильными значениями
         Burger burger =  new Burger();
         addIngredient(burger);
         assertEquals(sauceType, burger.ingredients.get(0).type);
@@ -52,7 +52,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testRemoveIngredient(){
+    public void testRemoveIngredient(){ //проверяем, что при удаление ингредиента по индексу он удаляется и на его место попадает следующий по порядку
         Burger burger =  new Burger();
         addIngredient(burger);
         burger.removeIngredient(0);
@@ -66,41 +66,41 @@ public class BurgerTest {
 
     }
     @Test
-    public void testMoveIngredient(){
+    public void testMoveIngredient(){// тест на перемену мест для ингредиентов
           Burger burger = new Burger();
-          addIngredient(burger);
+          addIngredient(burger); //задали два ингредиента
           Ingredient dinoFillet = new Ingredient(IngredientType.FILLING, "dino fillet", 400);
-          burger.addIngredient(dinoFillet);
+          burger.addIngredient(dinoFillet); //добавили третий
 
-        assertEquals(fillingType, burger.ingredients.get(2).type);
+        assertEquals(fillingType, burger.ingredients.get(2).type);//проверяем свойства третьего
         assertEquals("dino fillet", burger.ingredients.get(2).name);
         assertEquals(400, burger.ingredients.get(2).price, 0.0);
 
-        burger.moveIngredient(0,2);
+        burger.moveIngredient(0,2);//первый ингредиент переместили на третье место
 
-        assertEquals(fillingType, burger.ingredients.get(0).type);
+        assertEquals(fillingType, burger.ingredients.get(0).type);//проверка, что на первом месте теперь бывший второй ингредиент
         assertEquals("chicken fillet", burger.ingredients.get(0).name);
         assertEquals(100, burger.ingredients.get(0).price, 0.0);
 
-        assertEquals(fillingType, burger.ingredients.get(1).type);
+        assertEquals(fillingType, burger.ingredients.get(1).type);//проверка, что на втором месте теперь бывший третий ингредиент
         assertEquals("dino fillet", burger.ingredients.get(1).name);
         assertEquals(400, burger.ingredients.get(1).price, 0.0);
 
-        assertEquals(sauceType, burger.ingredients.get(2).type);
+        assertEquals(sauceType, burger.ingredients.get(2).type);//проверка, что на третьем месте бывший первый ингредиент
         assertEquals("hot sauce", burger.ingredients.get(2).name);
         assertEquals(200,burger.ingredients.get(2).price, 0.0);
 
-        burger.moveIngredient(1,2);
+        burger.moveIngredient(1,2); //теперь второй ингредиент переместили на третье место
 
-        assertEquals(fillingType, burger.ingredients.get(0).type);
+        assertEquals(fillingType, burger.ingredients.get(0).type);//проверка, что первый ингредиент остался на месте
         assertEquals("chicken fillet", burger.ingredients.get(0).name);
         assertEquals(100, burger.ingredients.get(0).price, 0.0);
 
-        assertEquals(sauceType, burger.ingredients.get(1).type);
+        assertEquals(sauceType, burger.ingredients.get(1).type);//проверка, что на второе место переместился ингредиент с третьего места
         assertEquals("hot sauce", burger.ingredients.get(1).name);
         assertEquals(200,burger.ingredients.get(1).price, 0.0);
 
-        assertEquals(fillingType, burger.ingredients.get(2).type);
+        assertEquals(fillingType, burger.ingredients.get(2).type);//проверка, что на третье место перместился элемент со второго места
         assertEquals("dino fillet", burger.ingredients.get(2).name);
         assertEquals(400, burger.ingredients.get(2).price, 0.0);
 
@@ -108,7 +108,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetReceiptOnlyBun(){
+    public void testGetReceiptOnlyBun(){ // генерация рецепта для бургера, состоящего только из тестовой булочки
           Burger testBurger = new Burger();
           setTestBun(testBurger);
           String testReceipt = testBurger.getReceipt();
@@ -121,7 +121,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetReceipt(){
+    public void testGetReceipt(){ //генерация рецепта для бургера из тестовой булочки и двух тестовых ингредиентов
         Burger testBurger = new Burger();
         setTestBun(testBurger);
         addIngredient(testBurger);
@@ -145,7 +145,7 @@ public class BurgerTest {
 
 
     @Test
-    public void testGetPrice(){
+    public void testGetPrice(){ //тестируем расчет стоимости бургера, состоящего из булочки и двух ингредиентов
           List<Ingredient> mockedIngredients = new ArrayList<>();
           Burger mockedBurger = new Burger();
           mockedBurger.addIngredient(mockedIngredient1);
@@ -161,7 +161,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetPriceOnlyBun(){
+    public void testGetPriceOnlyBun(){ //расчет цены бургера, состоящего только из булочки
         List<Ingredient> mockedIngredients = new ArrayList<>();
         Burger mockedBurger = new Burger();
         mockedBurger.setBuns(mockedBun);
