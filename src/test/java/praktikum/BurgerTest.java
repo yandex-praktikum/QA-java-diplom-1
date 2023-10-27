@@ -51,15 +51,6 @@ public class BurgerTest {
 
     @Test
     public void checkMoveIngredient() {
-//        Burger burger = new Burger();
-//        burger.addIngredient(sausageFilling);
-//        burger.addIngredient(sourCreamSauce);
-//        List<Ingredient> ingredient = new ArrayList<>();
-//        ingredient.add(sausageFilling);
-//        ingredient.add(sourCreamSauce);
-//        burger.moveIngredient(0, 1);
-//        Assert.assertEquals("Ingredient not moved!", burger.ingredients, ingredient);
-
         Burger burger = new Burger();
         burger.addIngredient(sourCreamSauce);
         burger.addIngredient(sausageFilling);
