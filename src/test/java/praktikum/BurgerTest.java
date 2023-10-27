@@ -20,7 +20,7 @@ public class BurgerTest {
 
 
       @Test
-    public void checkSetBun(){ //задаем для бурегра булочку и проверяем, что ее имя и цена соотвествуют заданным
+    public void checkSetBun(){ //задаем для бургера булочку и проверяем, что ее имя и цена соотвествуют заданным
           Burger burger =  new Burger();
           Bun bun = new Bun ("test bun", 123);
           burger.setBuns(bun);
