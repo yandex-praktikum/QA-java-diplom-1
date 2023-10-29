@@ -8,6 +8,7 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
+import static praktikum.constants.Constants.*;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
@@ -26,17 +27,15 @@ public class IngredientTest {
     @Parameterized.Parameters
     public static Object[][] getIngredientData() {
         return new Object[][] {
-                {SAUCE, "Соус Spicy-X", 100},
-                {SAUCE, "Соус фирменный Space Sauce", 0},
-//                {SAUCE, "Соус традиционный галактический", null}, // Не проходит
-                {SAUCE, "Соус с шипами Антарианского плоскоходца", -100},
-                {SAUCE, "", 200},
-                {SAUCE, "!@#$%^&*()", 200},
+                {SAUCE, SAUCE_SPACY_X, 100},
+                {SAUCE, SAUCE_SPECIAL_SPACE_SAUCE, 0},
+                {SAUCE, SAUCE_ANTARIAN_PLANEWALKER_SPIKED, -100},
+                {SAUCE, EMPTY_STRING, 200},
+                {SAUCE, SPECIAL_CHARACTER_STRING, 200},
                 {SAUCE, null, 200},
-                {FILLING, "Мясо бессмертных моллюсков Protostomia", 100},
-                {FILLING, "Говяжий метеорит (отбивная)", 0},
-//                {FILLING, "Хрустящие минеральные кольца", null}, // Не проходит
-                {FILLING, "Мини-салат Экзо-Плантаго", -100}
+                {FILLING, FILLING_MEAT_IMMORTAL_MOLLUSKS, 100},
+                {FILLING, FILLING_BEEF_METEORITE, 0},
+                {FILLING, FILLING_MINI_SALAD_EXO_PLANTAGO, -100}
         };
     }
 

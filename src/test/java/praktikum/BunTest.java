@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
+import static praktikum.constants.Constants.*;
 
 
 @RunWith(Parameterized.class)
@@ -19,11 +20,11 @@ public class BunTest {
     @Parameterized.Parameters
     public static Object[][] getIngredientData() {
         return new Object[][] {
-                {"Флюоресцентная булка R2-D3", 100},
-                {"Краторная булка N-200i", 0},
-                {"Флюоресцентная булка R2-D3", -100},
-                {"", 200},
-                {"!@#$%^&*()", 200},
+                {BUN_FLUORESCENT, 100},
+                {BUN_KATOR, 0},
+                {BUN_FLUORESCENT, -100},
+                {EMPTY_STRING, 200},
+                {SPECIAL_CHARACTER_STRING, 200},
                 {null, 200},
         };
     }
