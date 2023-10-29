@@ -1,7 +1,6 @@
 package praktikum;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,7 +8,6 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.*;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
-import static praktikum.constants.Constants.*;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
