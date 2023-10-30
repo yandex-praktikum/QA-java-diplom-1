@@ -19,12 +19,12 @@ public class BurgerTest {
     String bunName = "Chiabatta";
 
     @Mock
-    Bun bun = new Bun(bunName, 15);
+    Bun bun;
 
     @Mock
-    Ingredient cutletIngredient = new Ingredient(IngredientType.FILLING, cutletIngredientName, 50);
+    Ingredient cutletIngredient;
     @Mock
-    Ingredient ketchupIngredient = new Ingredient(IngredientType.SAUCE, ketchupIngredientName, 10);
+    Ingredient ketchupIngredient;
 
     @Before
     public void createBurgerObject(){
@@ -60,7 +60,6 @@ public class BurgerTest {
         this.burger.addIngredient(cutletIngredient);
         this.burger.addIngredient(ketchupIngredient);
         this.burger.moveIngredient(0,1);
-        System.out.println(this.burger.ingredients);
         Assert.assertEquals(expectedResult, this.burger.ingredients);
     }
 
@@ -93,7 +92,6 @@ public class BurgerTest {
         float bunPrice = 15;
         float cutletPrice = 50;
         float ketchupPrice = 10;
-        float expectedFullPrice = 90;
         burger.setBuns(bun);
         burger.addIngredient(cutletIngredient);
         burger.addIngredient(ketchupIngredient);
