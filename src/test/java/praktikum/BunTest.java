@@ -11,6 +11,7 @@ public class BunTest {
 
     private final String name;
     private final float price;
+    private final static float ZERODELTABUNPRICE = 0;
 
     public BunTest(String name, float price) {
         this.name = name;
@@ -39,6 +40,6 @@ public class BunTest {
     @Test
     public void checkGetBunPrice() {
         Bun bun = new Bun(name, price);
-        assertEquals("Bun price is incorrect", price, bun.getPrice(), 0);
+        assertEquals("Bun price is incorrect", price, bun.getPrice(), ZERODELTABUNPRICE);
     }
 }

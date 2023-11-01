@@ -30,7 +30,6 @@ public class BurgerTest {
     public void checkSetBuns() {
         Burger burger = new Burger();
         burger.setBuns(blackBun);
-        System.out.println(blackBun);
         assertThat("No bun added to burger", burger.bun, is(notNullValue()));
     }
 
@@ -58,7 +57,7 @@ public class BurgerTest {
         ingredient.add(sausageFilling);
         ingredient.add(sourCreamSauce);
         burger.moveIngredient(0, 1);
-        Assert.assertEquals("Ingredient not moved!", burger.ingredients, ingredient);
+        Assert.assertEquals("Ingredient not moved!", ingredient, burger.ingredients);
 
     }
 
@@ -71,7 +70,7 @@ public class BurgerTest {
         Mockito.when(blackBun.getPrice()).thenReturn(100F);
         Mockito.when(sourCreamSauce.getPrice()).thenReturn(200F);
         Mockito.when(sausageFilling.getPrice()).thenReturn(300F);
-        Assert.assertEquals("Price is incorrect", burger.getPrice(), 700, 0);
+        Assert.assertEquals("Price is incorrect", 700, burger.getPrice(), 0);
     }
 
     @Test

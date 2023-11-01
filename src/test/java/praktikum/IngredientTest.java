@@ -39,18 +39,18 @@ public class IngredientTest {
     @Test
     public void checkGetIngredientPrice() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        assertEquals("Ingredient price is incorrect", ingredient.getPrice(), price, 0);
+        assertEquals("Ingredient price is incorrect", price, ingredient.getPrice() ,0);
     }
 
     @Test
     public void checkGetIngredientName() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        assertEquals("Ingredient name is incorrect", ingredient.getName(), name);
+        assertEquals("Ingredient name is incorrect", name, ingredient.getName());
     }
 
     @Test
     public void checkGetIngredientType() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        assertEquals("Ingredient type is incorrect", ingredient.getType(), type);
+        assertEquals("Ingredient type is incorrect", type, ingredient.getType());
     }
 }
