@@ -24,6 +24,7 @@ public class BunTest {
     @Test
     public  void getPricePositiveTest(){
         assertEquals(WRONG_PRICE_MSG, BLACK_PRICE, bun.getPrice(),DELTA);
+
     }
 
 }
