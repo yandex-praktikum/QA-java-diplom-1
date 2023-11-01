@@ -26,16 +26,4 @@ public class IngredientTest {
     public void getTypeTest(){
         Assert.assertEquals(WRONG_TYPE_MSG,IngredientType.FILLING, ingredient.getType());
     }
-    @Test
-    public void getPriceNegativeTest(){
-        Assert.assertNotEquals(FAKE_EQUAL_PRICE_MSG, FAKE_PRICE, ingredient.getPrice(), DELTA);
-    }
-    @Test
-    public void getNameNegativeTest(){
-        Assert.assertNotEquals(FAKE_EQUAL_NAME_MSG,FAKE_FILLING,ingredient.getName());
-    }
-    @Test
-    public void getTypeNegativeTest(){
-        Assert.assertNotEquals(FAKE_EQUAL_TYPE_MSG,FAKE_TYPE, ingredient.getType());
-    }
 }
