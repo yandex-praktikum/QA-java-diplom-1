@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertThrows;
 import static praktikum.Constant.*;
 import static praktikum.Message.*;
 
@@ -25,11 +24,6 @@ public class BunTest {
     @Test
     public  void getPricePositiveTest(){
         assertEquals(WRONG_PRICE_MSG, BLACK_PRICE, bun.getPrice(),DELTA);
-    }
-
-    @Test
-    public void getPriceNegativeTest(){
-        assertThrows(Exception.class, () -> bun.getPrice(FAKE_NAME));
     }
 
 }

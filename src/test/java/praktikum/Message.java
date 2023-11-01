@@ -8,9 +8,6 @@ public class Message {
     public static final String ERROR_DELETE_MSG = "this ingredient don't delete";
     public static final String ERROR_MOVE_ING_MSG = "this ingredients don't move";
     public static final String ERROR_RECEIPT_MSG = "this receipt is not correct";
-    public static final String FAKE_EQUAL_NAME_MSG = "these names should be not equal";
-    public static final String FAKE_EQUAL_PRICE_MSG = "these prices should be not equal";
-    public static final String FAKE_EQUAL_TYPE_MSG = "these types should be not equal";
     public static final String ERROR_TYPE_FILLING_MSG = "this type filling is wrong";
 
 }

@@ -25,6 +25,5 @@ public class IngredientTest {
     @Test
     public void getTypeTest(){
         Assert.assertEquals(WRONG_TYPE_MSG,IngredientType.FILLING, ingredient.getType());
-
     }
 }
