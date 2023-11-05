@@ -41,6 +41,7 @@ public class Burger {
     }
 
     public String getReceipt() {
+        bun = new Bun("black bun", 100.0f);
         StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
 
         for (Ingredient ingredient : ingredients) {
@@ -54,4 +55,17 @@ public class Burger {
         return receipt.toString();
     }
 
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setName(String hamburger) {
+    }
+
+    public void setPrice(float v) {
+    }
 }
