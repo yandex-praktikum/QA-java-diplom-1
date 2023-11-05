@@ -74,57 +74,23 @@ public class BurgerTest {
         float price = burger.getPrice();
         assertEquals(1200.0f, price, 1.0f);
     }
-
-
-/*    @Test // не работает
+     @Test
     public void testGetReceipt() {
-        List<Ingredient> ingredients = new ArrayList<>();
-        ingredients.add(new Ingredient(IngredientType.SAUCE, "chili sauce", 300.0f));
-        ingredients.add(new Ingredient(IngredientType.FILLING,"sausage",  300.0f));
-        burger = new Burger();
-        bun = new Bun("black bun",100.0f);
-        burger("Hamburger", ingredients, 600.0f);
-        burger.setName("Hamburger");
-        bun.setName("black bun");
-        burger.setIngredients(ingredients);
-        burger.setPrice(600.0f);
-        bun.setName("black bun");
-        bun = new Bun("black bun",100.0f);
-        String expectedReceipt = "(==== black bun ====)\n" +
-                "= sauce chili sauce =\n" +
-                "= filling sausage =\n" +
-                "(==== black bun ====)\n" +
-                "\n" +
-                "Price: 800,000000\n";
-        System.out.println(expectedReceipt);
-        assertEquals(burger.getReceipt(), expectedReceipt);
-    }*/
-    // @Test
-    //public void testGetReceipt() {
-    //  Bun bun = new Bun("black bun", 100.0f);
-    //  Ingredient sauce = new Ingredient(IngredientType.SAUCE,"hot sauce",  100.0f);
-    //  Ingredient dinosaur = new Ingredient(IngredientType.FILLING,"dinosaur", 200.0f);
-    //  Burger burger = new Burger();
-    //  burger.addIngredient(sauce);
-    //  burger.addIngredient(dinosaur);
-    //  String expectedReceipt = "(==== black bun ====)\n" +
-    //        "= sauce hot sauce =\n" +
-    //        "= filling dinosaur =\n" +
-    //      "(==== black bun ====)\n" +
-    //     "\n" +
-    //     "Price: 500,000000\n";
-    //assertEquals(expectedReceipt, burger.getReceipt());
-    // }
+      Bun bun = new Bun("black bun", 100);
+      Ingredient sauce = new Ingredient(IngredientType.SAUCE,"hot sauce",  100);
+      Ingredient dinosaur = new Ingredient(IngredientType.FILLING,"dinosaur", 200);
+      Burger burger = new Burger();
+       burger.addIngredient(sauce);
+        burger.addIngredient(dinosaur);
+        String expectedReceipt = "(==== black bun ====)\r\n" +
+            "= sauce hot sauce =\r\n" +
+            "= filling dinosaur =\r\n" +
+          "(==== black bun ====)\r\n" +
+         "\r\n" +
+         "Price: 500,000000\r\n";
+         assertEquals(expectedReceipt, burger.getReceipt());
+     }
 
-    // @Test //тест падает из-за различий актуал и экспектид
-     //public void testGetIngredients() {
-         // List<Ingredient> ingredients = new ArrayList<>();
-         // ingredients.add(new Ingredient(IngredientType.SAUCE, "hot sause", 100.0f));
-         // ingredients.add(new Ingredient(IngredientType.FILLING, "dinosaur", 200.0f));
-         // Burger recipe = new Burger();//"cake", "Mix flour and sugar", ingredients
-         // List<Ingredient> result = recipe.getIngredients();
-       //   assertEquals(ingredients, result);
-     //}
     @Test
     public void testSetIngredients() {
         List<Ingredient> ingredients = new ArrayList<>();

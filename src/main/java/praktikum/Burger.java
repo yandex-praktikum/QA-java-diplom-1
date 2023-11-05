@@ -68,9 +68,6 @@ public class Burger {
 
     public void setName(String hamburger) {
     }
-    public String getName() {
-        return name;
-    }
 
     public void setPrice(float v) {
     }
