@@ -116,16 +116,15 @@ public class BurgerTest {
     //assertEquals(expectedReceipt, burger.getReceipt());
     // }
 
-    // @Test
-    //public void testGetIngredients() {
-    // create a list of ingredients
-    //   List<Ingredient> ingredients = new ArrayList<>();
-    // ingredients.add(new Ingredient(IngredientType.SAUCE, "hot sause", 100.0f));
-    // ingredients.add(new Ingredient(IngredientType.FILLING, "dinosaur", 200.0f));
-    // Burger recipe = new Burger();//"cake", "Mix flour and sugar", ingredients
-    // List<Ingredient> result = recipe.getIngredients();
-    //   assertEquals(ingredients, result);
-    // }
+    // @Test //тест падает из-за различий актуал и экспектид
+     //public void testGetIngredients() {
+         // List<Ingredient> ingredients = new ArrayList<>();
+         // ingredients.add(new Ingredient(IngredientType.SAUCE, "hot sause", 100.0f));
+         // ingredients.add(new Ingredient(IngredientType.FILLING, "dinosaur", 200.0f));
+         // Burger recipe = new Burger();//"cake", "Mix flour and sugar", ingredients
+         // List<Ingredient> result = recipe.getIngredients();
+       //   assertEquals(ingredients, result);
+     //}
     @Test
     public void testSetIngredients() {
         List<Ingredient> ingredients = new ArrayList<>();

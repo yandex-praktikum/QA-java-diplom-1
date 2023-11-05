@@ -12,6 +12,7 @@ import java.util.List;
 public class Burger {
 
     public Bun bun;
+    public String name;
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
@@ -63,7 +64,12 @@ public class Burger {
         this.ingredients = ingredients;
     }
 
+
+
     public void setName(String hamburger) {
+    }
+    public String getName() {
+        return name;
     }
 
     public void setPrice(float v) {
