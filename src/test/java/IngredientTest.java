@@ -1,6 +1,5 @@
 import org.junit.Test;
 import org.mockito.Mock;
-import praktikum.Bun;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
@@ -8,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
     @Mock
-    Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100.0f);
+    Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
 
     @Test
     public void testGetName() {
@@ -17,7 +16,7 @@ public class IngredientTest {
 
     @Test
     public void testGetPrice() {
-        assertEquals(100.0f, ingredient.getPrice(), 0.001);
+        assertEquals(100, ingredient.getPrice(), 0.001);
     }
     @Test
     public void testGetType(){

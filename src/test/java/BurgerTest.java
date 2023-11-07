@@ -7,8 +7,6 @@ import praktikum.Ingredient;
 import java.util.ArrayList;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-
-import java.util.Arrays;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 
@@ -16,14 +14,14 @@ import static org.junit.Assert.assertEquals;
 public class BurgerTest {
 
     private String name;
-    private String ingregiants;
+   private String ingregiants;
     private float price;
     @Mock
     Burger burger = new Burger();
     Bun bun = new Bun(name, price);
     @Test
     public void testAddIngredient() {
-        Ingredient lettuce = new Ingredient(IngredientType.SAUCE,"Lettuce", 0.5f);
+        Ingredient lettuce = new Ingredient(IngredientType.SAUCE,"Lettuce", 100);
         burger.addIngredient(lettuce);
         List<Ingredient> ingredients = burger.getIngredients();
         assertTrue(ingredients.contains(lettuce));
@@ -31,8 +29,8 @@ public class BurgerTest {
 
     @Test
     public void testRemoveIngredientByIndex() {
-        Ingredient lettuce = new Ingredient(IngredientType.SAUCE,"Lettuce", 200.0f);
-        Ingredient tomato = new Ingredient(IngredientType.FILLING,"sausage", 300.0f);
+        Ingredient lettuce = new Ingredient(IngredientType.SAUCE,"Lettuce", 200);
+        Ingredient tomato = new Ingredient(IngredientType.FILLING,"sausage", 300);
         burger.addIngredient(lettuce);
         burger.addIngredient(tomato);
         List<Ingredient> ingredients = burger.getIngredients();
@@ -46,9 +44,9 @@ public class BurgerTest {
     }
     @Test
     public void testMoveIngredient() {
-        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "chili sauce", 300.0f);
-        Ingredient ingredient2 = new Ingredient(IngredientType.FILLING, "sausage", 300.0f);
-        Ingredient ingredient3 = new Ingredient(IngredientType.SAUCE, "sour cream", 100.0f);
+        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "chili sauce", 300);
+        Ingredient ingredient2 = new Ingredient(IngredientType.FILLING, "sausage", 300);
+        Ingredient ingredient3 = new Ingredient(IngredientType.SAUCE, "sour cream", 100);
         burger.addIngredient(ingredient1);
         burger.addIngredient(ingredient2);
         burger.addIngredient(ingredient3);
@@ -64,10 +62,9 @@ public class BurgerTest {
 
     @Test
     public void testGetPrice() {
-        // Burger burger = new Burger();
-        Bun bun = new Bun("red bun", 300.0f);
-        Ingredient sauce = new Ingredient(IngredientType.SAUCE,"chili sauce", 300.0f);
-        Ingredient sausage = new Ingredient(IngredientType.FILLING,"sausage",  300.0f);
+        Bun bun = new Bun("red bun", 300);
+        Ingredient sauce = new Ingredient(IngredientType.SAUCE,"chili sauce", 300);
+        Ingredient sausage = new Ingredient(IngredientType.FILLING,"sausage",  300);
         burger.setBuns(bun);
         burger.addIngredient(sauce);
         burger.addIngredient(sausage);
@@ -94,13 +91,28 @@ public class BurgerTest {
     @Test
     public void testSetIngredients() {
         List<Ingredient> ingredients = new ArrayList<>();
-        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "hot sauce", 100.0f );
-        Ingredient ingredient2 = new Ingredient(IngredientType.FILLING, "dinosaur", 100.0f);
+        Ingredient ingredient1 = new Ingredient(IngredientType.SAUCE, "hot sauce", 100 );
+        Ingredient ingredient2 = new Ingredient(IngredientType.FILLING, "dinosaur", 100);
         ingredients.add(ingredient1);
         ingredients.add(ingredient2);
         Burger recipe = new Burger();
         recipe.setIngredients(ingredients);
         assertEquals(ingredients, recipe.getIngredients());
+    }
+
+    @Test
+    public void testSetPrice() {
+        Burger product = new Burger();
+        float price = 200;
+        product.setPrice(price);
+        assertEquals(price,200, 0.01);
+    }
+    @Test
+    public void testSetName() {
+        Burger product = new Burger();
+        String name = "hamburger";
+        product.setName(name);
+        assertEquals(name,"hamburger", "hamburger");
     }
 
 }

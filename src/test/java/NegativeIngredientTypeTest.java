@@ -1,6 +1,5 @@
 import org.junit.Test;
 import praktikum.IngredientType;
-import static org.junit.Assert.assertNotEquals;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import java.util.Arrays;

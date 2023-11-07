@@ -2,13 +2,11 @@ import org.junit.Test;
 import org.mockito.Mock;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class NegativeIngredientTest {
     @Mock
-    Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100.0f);
+    Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
 
 
     @Test
