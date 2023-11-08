@@ -13,13 +13,12 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    // List<Ingredient> ingredients = new ArrayList<>();
     IngredientType sauceType = IngredientType.SAUCE;
     IngredientType fillingType = IngredientType.FILLING;
 
 
 
-      @Test
+    @Test
     public void checkSetBun(){ //задаем для бургера булочку и проверяем, что ее имя и цена соотвествуют заданным
           Burger burger =  new Burger();
           Bun bun = new Bun ("test bun", 123);
@@ -67,10 +66,10 @@ public class BurgerTest {
     }
     @Test
     public void testMoveIngredient(){// тест на перемену мест для ингредиентов
-          Burger burger = new Burger();
-          addIngredient(burger); //задали два ингредиента
-          Ingredient dinoFillet = new Ingredient(IngredientType.FILLING, "dino fillet", 400);
-          burger.addIngredient(dinoFillet); //добавили третий
+       Burger burger = new Burger();
+       addIngredient(burger); //задали два ингредиента
+       Ingredient dinoFillet = new Ingredient(IngredientType.FILLING, "dino fillet", 400);
+       burger.addIngredient(dinoFillet); //добавили третий
 
         assertEquals(fillingType, burger.ingredients.get(2).type);//проверяем свойства третьего
         assertEquals("dino fillet", burger.ingredients.get(2).name);
@@ -103,7 +102,6 @@ public class BurgerTest {
         assertEquals(fillingType, burger.ingredients.get(2).type);//проверка, что на третье место перместился элемент со второго места
         assertEquals("dino fillet", burger.ingredients.get(2).name);
         assertEquals(400, burger.ingredients.get(2).price, 0.0);
-
 
     }
 
@@ -142,8 +140,6 @@ public class BurgerTest {
     @Mock
     Ingredient mockedIngredient2;
 
-
-
     @Test
     public void testGetPrice(){ //тестируем расчет стоимости бургера, состоящего из булочки и двух ингредиентов
           List<Ingredient> mockedIngredients = new ArrayList<>();
@@ -156,8 +152,6 @@ public class BurgerTest {
           Mockito.when(mockedBurger.ingredients.get(1).getPrice()).thenReturn(150.0F);
           float expectedPrice = 650;
           assertEquals(expectedPrice, mockedBurger.getPrice(), 0.0);
-
-
     }
 
     @Test
@@ -168,7 +162,6 @@ public class BurgerTest {
         Mockito.when(mockedBun.getPrice()).thenReturn(200.0F);
         float expectedPrice = 400;
         assertEquals(expectedPrice, mockedBurger.getPrice(), 0.0);
-
 
     }
 

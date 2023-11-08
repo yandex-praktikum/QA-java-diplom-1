@@ -48,7 +48,6 @@
                 <version>0.8.7</version>
                 <executions>
                     <execution>
-                        <!--id выбираешь самостоятельно-->
                         <id>prepare-agent</id>
                         <!--в какой фазе maven будет выполняться цель-->
                         <phase>initialize</phase>
@@ -68,7 +67,5 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 </project>
