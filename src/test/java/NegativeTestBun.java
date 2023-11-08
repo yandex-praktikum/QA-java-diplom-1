@@ -1,5 +1,4 @@
 import org.junit.Test;
-import org.mockito.Mock;
 import praktikum.Bun;
 
 import static org.junit.Assert.*;
