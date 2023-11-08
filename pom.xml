@@ -46,7 +46,10 @@
                 <configuration>
                     <excludes>
                         <exclude>
-                            java/prakticum/Praktikum.java
+                           praktikum/Praktikum.class
+                        </exclude>
+                        <exclude>
+                        praktikum/Database.class
                         </exclude>
                     </excludes>
                 </configuration>
