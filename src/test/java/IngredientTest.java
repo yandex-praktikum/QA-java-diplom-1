@@ -6,6 +6,7 @@ import praktikum.IngredientType;
 import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
+    private final static float EXPECTEDPRICE = 100.0f;
     @Mock
     Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
 
@@ -16,7 +17,7 @@ public class IngredientTest {
 
     @Test
     public void testGetPrice() {
-        assertEquals(100, ingredient.getPrice(), 0.001);
+        assertEquals(EXPECTEDPRICE, ingredient.getPrice(), 0.001);
     }
     @Test
     public void testGetType(){

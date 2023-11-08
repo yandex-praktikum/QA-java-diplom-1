@@ -5,6 +5,7 @@ import praktikum.IngredientType;
 import static org.junit.Assert.assertNotEquals;
 
 public class NegativeIngredientTest {
+    private final static float UNEXPECTEDPRICE = 456.0f;
     @Mock
     Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "hot sauce", 100);
 
@@ -16,7 +17,7 @@ public class NegativeIngredientTest {
 
     @Test
     public void testGetPrice() {
-        assertNotEquals(456.0f, ingredient.getPrice(), 0.001);
+        assertNotEquals(UNEXPECTEDPRICE, ingredient.getPrice(), 0.001);
     }
     @Test
     public void testGetType(){
