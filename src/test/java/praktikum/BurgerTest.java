@@ -1,5 +1,7 @@
 package praktikum;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -10,12 +12,24 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.AdditionalMatchers.not;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(Parameterized.class)
 public class BurgerTest {
 
     Burger burger = new Burger();
     Bun bun = new Bun("Мучная", 2.00f);
+
+
+    @Mock
+    private Bun bun1;
+
+    @Mock
+    private Ingredient ingredient;
+
 
     private final IngredientType type;
     private final String name;
@@ -36,14 +50,44 @@ public class BurgerTest {
     }
 
 
+
+
+
+
+    @Before
+    public void init() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+
+
+
+
+
+
+
     @Test
     public void setBuns() {
     }
 
+
+
+
     @Test
     public void addIngredient() {
-        burger.addIngredient(new Ingredient(type, name, price));
+        //burger.addIngredient(new Ingredient(type, name, price));
+        //assertThat(burger.ingredients, notNullValue());
+
+        ingredient.type = type;
+        ingredient.name = name;
+        ingredient.price = price;
+
+        // Мокируем метод `addIngredient`
+
+        burger.addIngredient(ingredient);
+
         assertThat(burger.ingredients, notNullValue());
+
     }
 
 

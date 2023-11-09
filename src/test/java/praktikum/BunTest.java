@@ -8,11 +8,13 @@ public class BunTest {
 
     @Test
     public void getName() {
-        assertEquals("Apple", bun.getName());
+        String expectedName = "Apple";
+        assertEquals(expectedName, bun.getName());
     }
 
     @Test
     public void getPrice() {
-        assertEquals(2.50f, bun.getPrice(), 0);
+        float expectedPrice = 2.50f;
+        assertEquals(expectedPrice, bun.getPrice(), 0);
     }
 }
