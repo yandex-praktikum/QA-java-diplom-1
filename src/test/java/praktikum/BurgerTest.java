@@ -1,36 +1,30 @@
 package praktikum;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.AdditionalMatchers.not;
-import static praktikum.IngredientType.FILLING;
-import static praktikum.IngredientType.SAUCE;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
+import static praktikum.IngredientType.FILLING;
+import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class BurgerTest {
 
     Burger burger = new Burger();
-    Bun bun = new Bun("Мучная", 2.00f);
-
 
     @Mock
-    private Bun bun1;
-
+    Ingredient ingredientMock = Mockito.mock(Ingredient.class);
     @Mock
-    private Ingredient ingredient;
-
-
+    Bun bunMock = Mockito.mock(Bun.class);
     private final IngredientType type;
     private final String name;
     private final float price;
@@ -50,20 +44,10 @@ public class BurgerTest {
     }
 
 
-
-
-
-
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
     }
-
-
-
-
-
-
 
 
     @Test
@@ -71,29 +55,19 @@ public class BurgerTest {
     }
 
 
-
-
     @Test
     public void addIngredient() {
-        //burger.addIngredient(new Ingredient(type, name, price));
-        //assertThat(burger.ingredients, notNullValue());
-
-        ingredient.type = type;
-        ingredient.name = name;
-        ingredient.price = price;
-
-        // Мокируем метод `addIngredient`
-
-        burger.addIngredient(ingredient);
-
+        ingredientMock.type = type;
+        ingredientMock.name = name;
+        ingredientMock.price = price;
+        burger.addIngredient(ingredientMock);
         assertThat(burger.ingredients, notNullValue());
-
     }
 
 
     @Test
     public void removeIngredient() {
-        burger.addIngredient(new Ingredient(type, name, price));
+        burger.addIngredient(ingredientMock);
         burger.removeIngredient(0);
         assertThat(burger.ingredients.size(), equalTo(0));
     }
@@ -101,48 +75,65 @@ public class BurgerTest {
     //я честно хз как сделать проще чтобы переместились ингредиенты, чтобы руками не добавлять
     @Test
     public void moveIngredient() {
-        Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Ketchup", 0.5f);
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "Cheese", 1.0f);
-        burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
-        burger.moveIngredient(0, 1);
-        // Проверяем, что ингредиенты переместились правильно
-        assertEquals(ingredient1, burger.ingredients.get(0));
-        assertEquals(ingredient0, burger.ingredients.get(1));
-    }
+        Ingredient ingredientMock0 = Mockito.mock(Ingredient.class);
+        Ingredient ingredientMock1 = Mockito.mock(Ingredient.class);
 
+        Mockito.when(ingredientMock0.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredientMock0.getName()).thenReturn("Ketchup");
+        Mockito.when(ingredientMock0.getPrice()).thenReturn(0.5f);
+
+        Mockito.when(ingredientMock1.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(ingredientMock1.getName()).thenReturn("Cheese");
+        Mockito.when(ingredientMock1.getPrice()).thenReturn(1.0f);
+
+        Burger burger = new Burger();
+        burger.addIngredient(ingredientMock0);
+        burger.addIngredient(ingredientMock1);
+
+        burger.moveIngredient(0, 1);
+
+        // Проверяем, что ингредиенты переместились правильно
+        assertEquals(ingredientMock1, burger.ingredients.get(0));
+        assertEquals(ingredientMock0, burger.ingredients.get(1));
+    }
 
 
     @Test
     public void getPrice() {
-        Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Ketchup", 2.0f);
-        Ingredient ingredient1 = new Ingredient(IngredientType.FILLING, "Cheese", 1.0f);
-        burger.addIngredient(ingredient0);
-        burger.addIngredient(ingredient1);
-        burger.setBuns(bun);
-        burger.getPrice();
-        assertThat(burger.getPrice(), equalTo(7.0f));
+        Ingredient ingredientMock = Mockito.mock(Ingredient.class);
+        Mockito.when(ingredientMock.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredientMock.getName()).thenReturn("Ketchup");
+        Mockito.when(ingredientMock.getPrice()).thenReturn(2.0f);
+
+        Mockito.when(bunMock.getName()).thenReturn("Мучная");
+        Mockito.when(bunMock.getPrice()).thenReturn(2.00f);
+
+        Burger burger = new Burger();
+        burger.addIngredient(ingredientMock);
+        burger.setBuns(bunMock);
+
+        float actualPrice = burger.getPrice();
+
+        float expectedPrice = 6.0f;
+
+        assertThat(actualPrice, equalTo(expectedPrice));
     }
+
     @Test
     public void getReceipt() {
-        Ingredient ingredient0 = new Ingredient(IngredientType.SAUCE, "Ketchup", 2.0f);
-
-        burger.addIngredient(ingredient0);
-        burger.setBuns(bun);
+        Mockito.when(ingredientMock.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredientMock.getName()).thenReturn("Ketchup");
+        Mockito.when(ingredientMock.getPrice()).thenReturn(2.0f);
+        Mockito.when(bunMock.getName()).thenReturn("Мучная");
+        Mockito.when(bunMock.getPrice()).thenReturn(2.00f);
+        Burger burger = new Burger();
+        burger.addIngredient(ingredientMock);
+        burger.setBuns(bunMock);
         String actualReceipt = burger.getReceipt();
         String expectedReceipt = "(==== Мучная ====)\n" +
                 "= sauce Ketchup =\n" +
                 "(==== Мучная ====)\n" +
                 "\nPrice: 6,000000\n";
-
         assertThat(actualReceipt, is(expectedReceipt));
-
-
-
-
-
-
-
-
     }
 }
