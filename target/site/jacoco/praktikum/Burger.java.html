@@ -41,18 +41,17 @@ import java.util.List;
     }
 
     public String getReceipt() {
-<span class="fc" id="L44">        StringBuilder receipt = new StringBuilder(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L44">        StringBuilder receipt = new StringBuilder(String.format(&quot;(%s)%n&quot;, bun.getName()));</span>
 
 <span class="fc bfc" id="L46" title="All 2 branches covered.">        for (Ingredient ingredient : ingredients) {</span>
 <span class="fc" id="L47">            receipt.append(String.format(&quot;= %s %s =%n&quot;, ingredient.getType().toString().toLowerCase(),</span>
 <span class="fc" id="L48">                    ingredient.getName()));</span>
 <span class="fc" id="L49">        }</span>
 
-<span class="fc" id="L51">        receipt.append(String.format(&quot;(==== %s ====)%n&quot;, bun.getName()));</span>
-<span class="fc" id="L52">        receipt.append(String.format(&quot;%nPrice: %f%n&quot;, getPrice()));</span>
+<span class="fc" id="L51">        receipt.append(String.format(&quot;(%s)%n&quot;, bun.getName()));</span>
+<span class="fc" id="L52">        receipt.append(String.format(&quot;%nЦена: %f%n&quot;, getPrice()));</span>
 
 <span class="fc" id="L54">        return receipt.toString();</span>
     }
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
