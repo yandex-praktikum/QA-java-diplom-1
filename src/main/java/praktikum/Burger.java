@@ -31,7 +31,7 @@ public class Burger {
     }
 
     public float getPrice() {
-        float price = bun.getPrice() * 2;
+        int price = bun.getPrice() * 2;
 
         for (Ingredient ingredient : ingredients) {
             price += ingredient.getPrice();
@@ -49,7 +49,7 @@ public class Burger {
         }
 
         receipt.append(String.format("(==== %s ====)%n", bun.getName()));
-        receipt.append(String.format("%nPrice: %f%n", getPrice()));
+        receipt.append(String.format("%nЦена: %f%n", getPrice()));
 
         return receipt.toString();
     }
