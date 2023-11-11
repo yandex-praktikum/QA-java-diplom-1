@@ -28,5 +28,4 @@ public class Ingredient {
     public IngredientType getType() {
         return type;
     }
-
 }

@@ -3,6 +3,7 @@ import org.junit.Test;
 import praktikum.Bun;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 
 public class BunTest {
@@ -10,7 +11,7 @@ public class BunTest {
 
     @Before
     public void setUp() {
-        bun = new Bun("С кунжутом", 5);
+        bun = new Bun("С кунжутом", 10);
     }
 
     @Test
@@ -18,14 +19,30 @@ public class BunTest {
         String expected = "С кунжутом";
         String actual = bun.getName();
 
-        assertEquals("Проверим из чего состоит булочка", expected, actual);
+        assertEquals("Проверим что булочка с кунжутом", expected, actual);
+    }
+
+    @Test
+    public void checkWrongCompositionTest() {
+        String expected = "С кокосом";
+        String actual = bun.getName();
+
+        assertNotEquals("Проверим что булочка не с кокосом", expected, actual);
     }
 
     @Test
     public void checkPriceTest() {
-        int expected = 5;
+        int expected = 10;
         int actual = bun.getPrice();
 
-        assertEquals("Проверим цену", expected, actual);
+        assertEquals("Проверим корректную цену", expected, actual);
+    }
+
+    @Test
+    public void checkWrongPriceTest() {
+        int expected = 15;
+        int actual = bun.getPrice();
+
+        assertNotEquals("Проверим некорректную цену", expected, actual);
     }
 }

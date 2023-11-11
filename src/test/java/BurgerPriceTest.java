@@ -13,14 +13,14 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(Parameterized.class)
-public class BurgerGetPriceTest {
+public class BurgerPriceTest {
     private final int priceBun;
     private final int priceIngredient;
     private Burger burger;
     @Mock
     private Bun bun;
 
-    public BurgerGetPriceTest(int priceBun, int priceIngredient) {
+    public BurgerPriceTest(int priceBun, int priceIngredient) {
         this.priceBun = priceBun;
         this.priceIngredient = priceIngredient;
     }
@@ -39,7 +39,7 @@ public class BurgerGetPriceTest {
         initMocks(this);
         burger = new Burger();
         burger.setBuns(bun);
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "слива", priceIngredient);
+        Ingredient ingredient = new Ingredient(IngredientType.соус, "вишня", priceIngredient);
         burger.addIngredient(ingredient);
     }
 

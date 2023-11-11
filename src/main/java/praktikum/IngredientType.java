@@ -6,6 +6,6 @@ package praktikum;
  * FILLING – начинка
  */
 public enum IngredientType {
-    SAUCE,
-    FILLING
+    соус,
+    начинка
 }

@@ -16,13 +16,13 @@ public class Database {
         buns.add(new Bun("белая булочка", 200));
         buns.add(new Bun("красная булочка", 300));
 
-        ingredients.add(new Ingredient(IngredientType.SAUCE, "острый соус", 100));
-        ingredients.add(new Ingredient(IngredientType.SAUCE, "сметана", 200));
-        ingredients.add(new Ingredient(IngredientType.SAUCE, "соус чили", 300));
+        ingredients.add(new Ingredient(IngredientType.соус, "острый соус", 100));
+        ingredients.add(new Ingredient(IngredientType.соус, "сметана", 200));
+        ingredients.add(new Ingredient(IngredientType.соус, "соус чили", 300));
 
-        ingredients.add(new Ingredient(IngredientType.FILLING, "котлета", 100));
-        ingredients.add(new Ingredient(IngredientType.FILLING, "сыр", 200));
-        ingredients.add(new Ingredient(IngredientType.FILLING, "колбаса", 300));
+        ingredients.add(new Ingredient(IngredientType.начинка, "котлета", 100));
+        ingredients.add(new Ingredient(IngredientType.начинка, "сыр", 200));
+        ingredients.add(new Ingredient(IngredientType.начинка, "колбаса", 300));
     }
 
     public List<Bun> availableBuns() {
@@ -32,5 +32,4 @@ public class Database {
     public List<Ingredient> availableIngredients() {
         return ingredients;
     }
-
 }

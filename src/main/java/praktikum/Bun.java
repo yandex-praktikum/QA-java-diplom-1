@@ -21,5 +21,4 @@ public class Bun {
     public int getPrice() {
         return price;
     }
-
 }
