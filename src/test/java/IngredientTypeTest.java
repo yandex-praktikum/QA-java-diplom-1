@@ -3,7 +3,7 @@ import praktikum.IngredientType;
 
 import static org.junit.Assert.*;
 
-public class IngredientTestTypeTest {
+public class IngredientTypeTest {
     public IngredientType[] ingredients = IngredientType.values();
 
     @Test
