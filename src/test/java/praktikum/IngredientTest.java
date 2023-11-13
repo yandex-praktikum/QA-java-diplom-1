@@ -1,40 +1,54 @@
 package praktikum;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 import static org.junit.Assert.*;
 
+@RunWith(Parameterized.class)
 public class IngredientTest {
-    static Ingredient ingredientSauce;
-    static Ingredient ingredientFilling;
-    @BeforeClass
-    public static void createBun() {
-        ingredientSauce = new Ingredient(IngredientType.SAUCE, "BBQ", 10);
-        ingredientFilling = new Ingredient(IngredientType.FILLING, "Salad", 5);
+    Ingredient ingredient;
+    IngredientType type;
+    String name;
+    float price;
+
+    public IngredientTest(IngredientType type, String name, float price) {
+        this.type = type;
+        this.name = name;
+        this.price = price;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] getTestValues(){
+        return new Object[][]{
+                {IngredientType.SAUCE, "Salad", 7},
+                {IngredientType.FILLING, "BBQ", 10.01f}
+        };
+    }
+    @Before
+    public void init() {
+        ingredient = new Ingredient(type, name, price);
     }
 
     @Test
     public void getPrice() {
-      float expectedPrice = 10;
-      assertEquals(expectedPrice, ingredientSauce.getPrice(), 0.0);
+      float expectedPrice = price;
+      assertEquals(expectedPrice, ingredient.getPrice(), 0.0);
     }
 
     @Test
     public void getName() {
-      String expectedName = "BBQ";
-      assertEquals(expectedName, ingredientSauce.getName());
+      String expectedName = name;
+      assertEquals(expectedName, ingredient.getName());
     }
 
     @Test
-    public void getTypeSauce() {
-      IngredientType expectedSauce = IngredientType.SAUCE;
-      assertEquals(expectedSauce, ingredientSauce.getType());
-    }
-
-    @Test
-    public void getTypeFilling() {
-        IngredientType expectedFilling = IngredientType.FILLING;
-        assertEquals(expectedFilling, ingredientFilling.getType());
+    public void getType() {
+      IngredientType expectedType = type;
+      assertEquals(expectedType, ingredient.getType());
     }
 }
