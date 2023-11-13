@@ -2,7 +2,6 @@ package praktikum;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Модель бургера.
  * Бургер состоит из булочек и ингредиентов (начинка или соус).
@@ -15,18 +14,22 @@ public class Burger {
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
+
         this.bun = bun;
     }
 
     public void addIngredient(Ingredient ingredient) {
+
         ingredients.add(ingredient);
     }
 
     public void removeIngredient(int index) {
+
         ingredients.remove(index);
     }
 
     public void moveIngredient(int index, int newIndex) {
+
         ingredients.add(newIndex, ingredients.remove(index));
     }
 
