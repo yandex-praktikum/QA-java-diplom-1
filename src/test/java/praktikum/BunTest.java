@@ -1,13 +1,14 @@
 package praktikum;
 
-import static org.junit.Assert.*;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class BunTest {
 
     static Bun bun;
+
     @BeforeClass
     public static void createBun() {
         bun = new Bun("Moskovskaya", 25);
@@ -15,8 +16,8 @@ public class BunTest {
 
     @Test
     public void getName() {
-      String expectedName = "Moskovskaya";
-      assertEquals(expectedName, bun.getName());
+        String expectedName = "Moskovskaya";
+        assertEquals(expectedName, bun.getName());
     }
 
     @Test

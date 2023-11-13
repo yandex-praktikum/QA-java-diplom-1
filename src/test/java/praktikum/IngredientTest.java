@@ -4,10 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
@@ -23,12 +21,13 @@ public class IngredientTest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] getTestValues(){
+    public static Object[][] getTestValues() {
         return new Object[][]{
                 {IngredientType.SAUCE, "Salad", 7},
                 {IngredientType.FILLING, "BBQ", 10.01f}
         };
     }
+
     @Before
     public void init() {
         ingredient = new Ingredient(type, name, price);
@@ -36,19 +35,19 @@ public class IngredientTest {
 
     @Test
     public void getPrice() {
-      float expectedPrice = price;
-      assertEquals(expectedPrice, ingredient.getPrice(), 0.0);
+        float expectedPrice = price;
+        assertEquals(expectedPrice, ingredient.getPrice(), 0.0);
     }
 
     @Test
     public void getName() {
-      String expectedName = name;
-      assertEquals(expectedName, ingredient.getName());
+        String expectedName = name;
+        assertEquals(expectedName, ingredient.getName());
     }
 
     @Test
     public void getType() {
-      IngredientType expectedType = type;
-      assertEquals(expectedType, ingredient.getType());
+        IngredientType expectedType = type;
+        assertEquals(expectedType, ingredient.getType());
     }
 }
