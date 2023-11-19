@@ -19,8 +19,8 @@ public class BurgerTest {
     Bun bun;
     private Burger burger;
     private IngredientType type;
-    private final Ingredient newIngredient_1 = new Ingredient(type.FILLING,"Сосиска", (float) 57.32);
-    private final Ingredient newIngredient_2 = new Ingredient(type.SAUCE,"Кетчуп", (float) 17.99);
+    private final Ingredient newIngredient_1 = new Ingredient(type.FILLING,"Сосиска", (float) 57.00);
+    private final Ingredient newIngredient_2 = new Ingredient(type.SAUCE,"Кетчуп", (float) 17.00);
     private final static String BUN_NAME = "Bread";
 
     @Before
@@ -60,7 +60,7 @@ public class BurgerTest {
         burger.addIngredient(newIngredient_2);
         Mockito.when(bun.getPrice()).thenReturn((float) 100.50);
         burger.setBuns(bun);
-        float expectedPrice = (float) 276.31;
+        float expectedPrice = (float) 275.00;
         assertEquals("Price of burger is not correct", expectedPrice, burger.getPrice(),0.0f);
     }
 
@@ -71,7 +71,7 @@ public class BurgerTest {
         burger.setBuns(bun);
 
         String receipt = burger.getReceipt();
-        float price = burger.getPrice();
+        float price = (float) burger.getPrice();
         String strPrice = Float.toString(price);
         String newStrPrice = strPrice.replace(".",",");
 
