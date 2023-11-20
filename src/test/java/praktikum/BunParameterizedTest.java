@@ -6,16 +6,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.*;
-
 @RunWith(Parameterized.class)
-public class BunTest {
+public class BunParameterizedTest {
 
     private Bun bun;
     private final String name;
     private final float price;
 
-    public BunTest(String name, float price)
+    public BunParameterizedTest(String name, float price)
     {
         this.name = name;
         this.price = price;
@@ -23,10 +21,11 @@ public class BunTest {
     @Parameterized.Parameters (name = "{0} и {1}")
     public static Object[][] dataForTest()
     {
+        //неявные ожидания классов эквивалентности, где они не нужны, не считаются. не вижу необходимости в этих тестах
         return new Object[][]{
                 {"black bun", 100},
                 {"white bun", 200},
-                {"red bun", 300},
+                {"red bun", -300},
         };
     }
     @Before
