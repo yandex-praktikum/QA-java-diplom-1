@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="15" failures="0" name="ingredient.IngredientTest" time="0.044" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="2022.2.3"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="18.0.2+9-61"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-18.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\alsuy\Diplom_1\QA-java-diplom-1"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\alsuy\Diplom_1\QA-java-diplom-1"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="18.0.2+9-61"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\alsuy\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.3\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.3\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-18.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk11.0.17_8\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Java\jdk-18.0.2\bin;C:\Program Files\Java\jre1.8.0_341\bin;C:\Program Files\nodejs\;C:\Users\alsuy\OneDrive\Documents\apache-maven-3.8.6-bin\apache-maven-3.8.6\bin;C:\Program Files\Git\cmd;C:\WebDriver\bin\chromedriver_win32;C:\Users\alsuy\Downloads\geckodriver-v0.32.0-win-aarch64\geckodriver-v0.32.0-win32;C:\WebDriver\bin\geckodriver-v0.31.0-win64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Allure\allure-2.15.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\alsuy\AppData\Local\Microsoft\WindowsApps;C:\Users\alsuy\AppData\Local\Android\Sdk\platform-tools\;C:\Users\alsuy\AppData\Roaming\npm;C:\Users\alsuy\AppData\Local\Programs\Microsoft VS Code\bin;;."/>
+    <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.3\plugins\maven\lib\maven3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="62.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\alsuy"/>
+    <property name="user.timezone" value="Asia/Almaty"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="18"/>
+    <property name="user.name" value="alsuy"/>
+    <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.3\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.3\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="18"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.2.3 verify"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-18.0.2"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="18.0.2"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="sun.stderr.encoding" value="UTF-8"/>
+    <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.3\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2022-07-19"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.stdout.encoding" value="UTF-8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectIngredientTypeTest[ingredients: SAUCE,hot sauce,100]" time="0.039"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectPriceTest[ingredients: SAUCE,hot sauce,100]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectNameTest[ingredients: SAUCE,hot sauce,100]" time="0.001"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectIngredientTypeTest[ingredients: SAUCE,sour cream,50]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectPriceTest[ingredients: SAUCE,sour cream,50]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectNameTest[ingredients: SAUCE,sour cream,50]" time="0.001"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectIngredientTypeTest[ingredients: FILLING,cutlet,100]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectPriceTest[ingredients: FILLING,cutlet,100]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectNameTest[ingredients: FILLING,cutlet,100]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectIngredientTypeTest[ingredients: SAUCE,,0]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectPriceTest[ingredients: SAUCE,,0]" time="0.001"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectNameTest[ingredients: SAUCE,,0]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectIngredientTypeTest[ingredients: SAUCE,,-100]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectPriceTest[ingredients: SAUCE,,-100]" time="0"/>
+  <testcase classname="ingredient.IngredientTest" name="getCorrectNameTest[ingredients: SAUCE,,-100]" time="0.002"/>
+</testsuite>
