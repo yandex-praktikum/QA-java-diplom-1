@@ -61,17 +61,27 @@ public class BurgerTest {
         float price = burger.getPrice();
         Assert.assertEquals("Цена не совпадает",350.0F, price, 0);
     }
-    @Test
+   @Test
     public void getReceiptTest() {
         burger.addIngredient(ingredient);
         burger.addIngredient(secondIngredient);
         burger.setBuns(bun);
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
         Mockito.when(ingredient.getName()).thenReturn("Соус");
+        Mockito.when(ingredient.getPrice()).thenReturn(100.0F);
         Mockito.when(secondIngredient.getType()).thenReturn(IngredientType.FILLING);
         Mockito.when(secondIngredient.getName()).thenReturn("Начинка");
+        Mockito.when(secondIngredient.getPrice()).thenReturn(150.0F);
         Mockito.when(bun.getName()).thenReturn("Булочка");
+        Mockito.when(bun.getPrice()).thenReturn(50.0F);
         String receipt = burger.getReceipt();
-        Assert.assertEquals("Чек не пришел", true, !receipt.isEmpty());
+
+        StringBuilder needleReceipt = new StringBuilder(String.format("(==== %s ====)%n", "Булочка"));
+        needleReceipt.append(String.format("= %s %s =%n", IngredientType.SAUCE.toString().toLowerCase(), "Соус"));
+        needleReceipt.append(String.format("= %s %s =%n", IngredientType.FILLING.toString().toLowerCase(), "Начинка"));
+        needleReceipt.append(String.format("(==== %s ====)%n", "Булочка"));
+        needleReceipt.append(String.format("%nPrice: %f%n", 350.0F));
+        String needleReceiptString = needleReceipt.toString();
+        Assert.assertEquals("Чек не пришел или пришёл неверный", needleReceiptString, receipt);
     }
 }
