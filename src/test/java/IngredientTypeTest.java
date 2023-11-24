@@ -21,12 +21,12 @@ public class IngredientTypeTest {
         };
     }
     @Test
-    public void testsauceName() {
+    public void testSauceName() {
         assertEquals("SAUCE", IngredientType.SAUCE.name());
     }
 
     @Test
-    public void testfillingName() {
+    public void testFillingName() {
         assertEquals("FILLING", IngredientType.FILLING.name());
     }
 }

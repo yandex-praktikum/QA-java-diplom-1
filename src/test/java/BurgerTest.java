@@ -50,7 +50,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testremoveIngredient() {
+    public void testRemoveIngredient() {
         Burger burger = new Burger();
         burger.addIngredient(filling);
         burger.removeIngredient(0);
@@ -60,7 +60,7 @@ public class BurgerTest {
     }
 
     @Test
-public void testmoveIngredient() {
+public void testMoveIngredient() {
         Burger burger = new Burger();
         burger.addIngredient(filling);
         burger.addIngredient(sauce);
@@ -69,8 +69,8 @@ public void testmoveIngredient() {
         assertEquals(burger.ingredients.get(1),filling);
     }
 
-    @Test // РЕГИСТР ЦЕННИКОВ???
-    public void testgetPrice() {
+    @Test
+    public void testGetPrice() {
 
         Mockito.when(bun.getPrice()).thenReturn(bunPrice);
         Mockito.when(sauce.getPrice()).thenReturn(saucePrice);
@@ -86,7 +86,7 @@ public void testmoveIngredient() {
     }
 
     @Test
-    public void testgetReceipt() {
+    public void testGetReceipt() {
         String bunName = "red bun";
         String sauceName = "hot sauce";
         String fillingName = "cutlet";

@@ -23,6 +23,5 @@ public class BunTest {
         Bun bun = new Bun("red bun", 300);
        float actual = bun.getPrice();
         assertEquals(300, bun.getPrice(),1);
-
     }
 }

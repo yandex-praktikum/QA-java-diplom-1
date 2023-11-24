@@ -14,16 +14,14 @@ public class IngredientTest {
     Ingredient ingredient;
 
     @Test
-    public void testgetPrice()
-        {
+    public void testGetPrice() {
         ingredient = new Ingredient(SAUCE, "hot sauce", 100);
       float actual = ingredient.getPrice();
         assertEquals(100, ingredient.getPrice(),1);
     }
 
     @Test
-    public void testgetName()
-    {
+    public void testGetName() {
         ingredient = new Ingredient(SAUCE, "hot sauce", 100);
         String actual = ingredient.getName();
         assertEquals("hot sauce", actual);
