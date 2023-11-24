@@ -17,8 +17,6 @@ public class BurgerTest {
 
     @Mock
     Database database;
-    @Mock
-    Burger burger;
 
 
     public void getAvailableBuns(){
@@ -43,9 +41,12 @@ public class BurgerTest {
     @Test
     public void setBunsPositiveTest() {
         getAvailableBuns();
-        Bun bun = database.availableBuns().get(0);
+        Bun bun  = database.availableBuns().get(0);
+        Burger burger = new Burger();
         burger.setBuns(bun);
-        Mockito.verify(burger).setBuns(bun);
+
+        Assert.assertEquals("У былки не то имя",database.availableBuns().get(0).getName(),burger.bun.getName() );
+        Assert.assertEquals("У былки не та цена",database.availableBuns().get(0).getPrice() ,burger.bun.getPrice() ,0);
     }
 
     @Test
