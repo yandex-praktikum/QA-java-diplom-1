@@ -18,10 +18,11 @@ public class BurgerTest {
     @Mock
     Bun bun;
     private Burger burger;
-    private IngredientType type;
-    private final Ingredient newIngredient_1 = new Ingredient(type.FILLING,"Сосиска", (float) 57.00);
-    private final Ingredient newIngredient_2 = new Ingredient(type.SAUCE,"Кетчуп", (float) 17.00);
+    private final Ingredient newIngredient_1 = Mockito.mock(Ingredient.class);
+    private final Ingredient newIngredient_2 = Mockito.mock(Ingredient.class);
     private final static String BUN_NAME = "Bread";
+    private final static String INGREDIENT1_NAME = "Sausage";
+    private final static String INGREDIENT2_NAME = "Кетчуп";
     private final static double DELTA = 0.0f;
 
     @Before
@@ -61,25 +62,32 @@ public class BurgerTest {
         burger.addIngredient(newIngredient_2);
         Mockito.when(bun.getPrice()).thenReturn((float) 100.50);
         burger.setBuns(bun);
-        float expectedPrice = (float) 275.00;
+        float expectedPrice = (float) 201;
         assertEquals("Price of burger is not correct", expectedPrice, burger.getPrice(), DELTA);
     }
 
     @Test
     public void getReceiptTest() {
+        Mockito.when(newIngredient_1.getType()).thenReturn(IngredientType.FILLING);
+        Mockito.when(newIngredient_2.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(newIngredient_1.getName()).thenReturn(INGREDIENT1_NAME);
+        Mockito.when(newIngredient_2.getName()).thenReturn(INGREDIENT2_NAME);
+        Mockito.when(newIngredient_1.getPrice()).thenReturn((float) 100);
+        Mockito.when(newIngredient_2.getPrice()).thenReturn((float) 50);
+
         burger.addIngredient(newIngredient_2);
         Mockito.when(bun.getName()).thenReturn(BUN_NAME);
         burger.setBuns(bun);
 
         String receipt = burger.getReceipt();
-        float price = (float) burger.getPrice();
+        float price = burger.getPrice();
         String strPrice = Float.toString(price);
         String newStrPrice = strPrice.replace(".",",");
 
         assertTrue("Receipt of burger is not correct",
                 receipt.contains(BUN_NAME)
-                && receipt.contains(newIngredient_1.name)
-                && receipt.contains(newIngredient_2.name)
+                && receipt.contains(INGREDIENT1_NAME)
+                && receipt.contains(INGREDIENT2_NAME)
                 && receipt.contains(newStrPrice));
     }
 }
