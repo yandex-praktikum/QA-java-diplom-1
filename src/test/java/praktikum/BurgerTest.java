@@ -22,6 +22,7 @@ public class BurgerTest {
     private final Ingredient newIngredient_1 = new Ingredient(type.FILLING,"Сосиска", (float) 57.00);
     private final Ingredient newIngredient_2 = new Ingredient(type.SAUCE,"Кетчуп", (float) 17.00);
     private final static String BUN_NAME = "Bread";
+    private final static double DELTA = 0.0f;
 
     @Before
     public void beforeBurgerTest() {
@@ -61,7 +62,7 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn((float) 100.50);
         burger.setBuns(bun);
         float expectedPrice = (float) 275.00;
-        assertEquals("Price of burger is not correct", expectedPrice, burger.getPrice(),0.0f);
+        assertEquals("Price of burger is not correct", expectedPrice, burger.getPrice(), DELTA);
     }
 
     @Test

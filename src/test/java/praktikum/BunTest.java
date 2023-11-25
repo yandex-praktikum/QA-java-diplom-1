@@ -13,6 +13,7 @@ public class BunTest {
     private Bun bun;
     private final String name;
     private final float price;
+    private final static double DELTA = 0.0f;
 
     @Before
     public void beforeBenTest() {
@@ -41,6 +42,6 @@ public class BunTest {
 
     @Test
     public void getPriceTest() {
-        assertEquals("Price of bun is not correct", price, bun.getPrice(), 0.0f);
+        assertEquals("Price of bun is not correct", price, bun.getPrice(), DELTA);
     }
 }

@@ -14,6 +14,7 @@ public class IngredientTest {
     private static IngredientType type;
     private final String name;
     private final float price;
+    private final static double DELTA = 0.0f;
 
     @Before
     public void beforeBenTest() {
@@ -36,7 +37,7 @@ public class IngredientTest {
 
     @Test
     public void getPriceTest() {
-        assertEquals("Price of ingredient is not correct", price, ingredient.getPrice(), 0.0f);
+        assertEquals("Price of ingredient is not correct", price, ingredient.getPrice(), DELTA);
     }
 
     @Test
