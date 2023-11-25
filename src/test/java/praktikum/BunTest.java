@@ -28,10 +28,10 @@ public class BunTest {
     @Parameterized.Parameters()
     public static Object[][] getNameAndPrice() {
         return new Object[][] {
-                {"Булочка с маком", (float) 100.00},
-                {"Сосиска в тесте", (float) 152.50},
-                {"Ватрушка", (float) 120.30},
-                {"Пирожок с капустой", (float) 90.50}
+                {"Булочка с маком", (float) 100},
+                {"123456", (float) 152.54},
+                {null, null},
+                {"Burger", (float) -25.5}
         };
     }
 
