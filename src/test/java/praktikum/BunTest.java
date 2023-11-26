@@ -30,7 +30,7 @@ public class BunTest {
         return new Object[][] {
                 {"Булочка с маком", (float) 100},
                 {"123456", (float) 152.54},
-                {null, null},
+                {null, (float) 0},
                 {"Burger", (float) -25.5}
         };
     }
