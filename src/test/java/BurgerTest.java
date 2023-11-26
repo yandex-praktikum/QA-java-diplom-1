@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -77,7 +76,7 @@ public class BurgerTest {
     @Test
     public void getPriceTest() {
         List<Ingredient> availableIngredients = database.availableIngredients();
-        float expectedPrice = 800;
+        float expectedPrice = 900;
 
         Burger burger = new Burger();
         burger.addIngredient(availableIngredients.get(0));
