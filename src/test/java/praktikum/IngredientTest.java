@@ -20,18 +20,18 @@ public class IngredientTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters (name = "Тип ингридиента: {0}, имя ингрид.: {1}, Цена: {2}")
+    @Parameterized.Parameters(name = "Тип ингридиента: {0}, имя ингрид.: {1}, Цена: {2}")
     public static Object[][] dataForTest() {
-        return new Object[][] {
-                { SAUCE, "Кетчунез", 1},
-                { FILLING, "Сыр", 2},
+        return new Object[][]{
+                {SAUCE, "Кетчунез", 1},
+                {FILLING, "Сыр", 2},
         };
     }
 
     @Test
     public void getPriceTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        assertEquals(price, ingredient.getPrice(),0);
+        assertEquals(price, ingredient.getPrice(), 0);
     }
 
     @Test

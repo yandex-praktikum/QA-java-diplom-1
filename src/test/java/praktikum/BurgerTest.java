@@ -41,14 +41,16 @@ public class BurgerTest {
     @Test
     public void addIngredient() {
         burger.addIngredient(ingredient1);
-        Assert.assertEquals(1, burger.ingredients.size());
+        int one = 1;
+        Assert.assertEquals(one, burger.ingredients.size());
     }
 
     @Test
     public void removeIngredient() {
         burger.addIngredient(ingredient1);
         burger.removeIngredient(0);
-        Assert.assertEquals(0, burger.ingredients.size());
+        int zero = 0;
+        Assert.assertEquals(zero, burger.ingredients.size());
     }
 
     @Test

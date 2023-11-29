@@ -6,10 +6,11 @@ public class IngredientTypeTest {
 
     @Test
     public void testSauce() {
-        assert IngredientType.SAUCE != null;
+        assert IngredientType.valueOf("SAUCE") != null;
     }
+
     @Test
     public void testFilling() {
-        assert IngredientType.FILLING != null;
+        assert  IngredientType.valueOf("FILLING") != null;
     }
 }
