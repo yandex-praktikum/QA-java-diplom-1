@@ -9,7 +9,6 @@ import praktikum.Database;
 @RunWith(MockitoJUnitRunner.class)
 public class BunTest {
 
-    // rewrite for stab
     @Spy
     Database database;
 
@@ -22,7 +21,7 @@ public class BunTest {
     @Test
     public void getBunPricePositive(){
         Bun bun = database.availableBuns().get(1);
-        Assert.assertEquals("У булочки другое название", 200f, bun.getPrice(), 0.001);
+        Assert.assertEquals("У булочки другая цена", 200f, bun.getPrice(), 0.001);
     }
 
     @Test

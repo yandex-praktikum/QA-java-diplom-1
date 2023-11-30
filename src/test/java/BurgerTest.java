@@ -1,10 +1,7 @@
-import static org.hamcrest.CoreMatchers.*;
-import org.hamcrest.MatcherAssert;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Matchers;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -12,13 +9,7 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Database;
 import praktikum.Ingredient;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
@@ -90,5 +81,18 @@ public class BurgerTest {
         System.out.println(burger.getReceipt());
         System.out.println(expectedReceipt);
         Assert.assertEquals("Рецепт не совпадает с ожидаемым", expectedReceipt, burger.getReceipt());
+    }
+
+    @Test
+    public void moveIngredientTest(){
+        Ingredient ingredient1 = database.availableIngredients().get(0);
+        burger.addIngredient(ingredient1);
+        Ingredient ingredient2 = database.availableIngredients().get(1);
+        burger.addIngredient(ingredient2);
+        burger.moveIngredient(1, 0);
+        System.out.println(burger.ingredients.get(1).getName());
+        System.out.println(ingredient1.getName());
+        Mockito.verify(burger, Mockito.times(1)).moveIngredient(1, 0);
+        Assert.assertEquals("нгредиенты не на новых местах", burger.ingredients.get(1).getName(), ingredient1.getName());
     }
 }
