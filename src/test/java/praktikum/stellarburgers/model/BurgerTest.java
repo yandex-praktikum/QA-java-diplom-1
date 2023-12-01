@@ -38,8 +38,8 @@ public class BurgerTest {
         final String ACTUAL_NAME = burger.bun.getName();
         float ACTUAL_PRICE = burger.bun.getPrice();
 
-        softAssertions.assertThat(EXPECTED_NAME).isEqualTo(ACTUAL_NAME);
-        softAssertions.assertThat(EXPECTED_PRICE).isEqualTo(ACTUAL_PRICE);
+        softAssertions.assertThat(ACTUAL_NAME).isEqualTo(EXPECTED_NAME);
+        softAssertions.assertThat(ACTUAL_PRICE).isEqualTo(EXPECTED_PRICE);
         softAssertions.assertAll();
     }
 
@@ -61,9 +61,9 @@ public class BurgerTest {
         final float ACTUAL_PRICE = testedIngredient.getPrice();
 
         softAssertions.assertThat(ACTUAL_INGREDIENTS_NUMBER).isEqualTo(EXPECTED_INGREDIENTS_NUMBER);
-        softAssertions.assertThat(EXPECTED_TYPE).isEqualTo(ACTUAL_TYPE);
-        softAssertions.assertThat(EXPECTED_NAME).isEqualTo(ACTUAL_NAME);
-        softAssertions.assertThat(EXPECTED_PRICE).isEqualTo(ACTUAL_PRICE);
+        softAssertions.assertThat(ACTUAL_TYPE).isEqualTo(EXPECTED_TYPE);
+        softAssertions.assertThat(ACTUAL_NAME).isEqualTo(EXPECTED_NAME);
+        softAssertions.assertThat(ACTUAL_PRICE).isEqualTo(EXPECTED_PRICE);
         softAssertions.assertAll();
     }
 
@@ -90,9 +90,9 @@ public class BurgerTest {
         final float ACTUAL_PRICE =  testedIngredient.getPrice();
 
         softAssertions.assertThat(ACTUAL_INGREDIENTS_NUMBER).isEqualTo(EXPECTED_INGREDIENTS_NUMBER);
-        softAssertions.assertThat(EXPECTED_TYPE).isEqualTo(ACTUAL_TYPE);
-        softAssertions.assertThat(EXPECTED_NAME).isEqualTo(ACTUAL_NAME);
-        softAssertions.assertThat(EXPECTED_PRICE).isEqualTo(ACTUAL_PRICE);
+        softAssertions.assertThat(ACTUAL_TYPE).isEqualTo(EXPECTED_TYPE);
+        softAssertions.assertThat(ACTUAL_NAME).isEqualTo(EXPECTED_NAME);
+        softAssertions.assertThat(ACTUAL_PRICE).isEqualTo(EXPECTED_PRICE);
         softAssertions.assertAll();
     }
 
@@ -120,9 +120,9 @@ public class BurgerTest {
         final float ACTUAL_PRICE = burger.ingredients.get(INDEX_AFTER_MOVING).getPrice();
 
         softAssertions.assertThat(ACTUAL_INGREDIENTS_NUMBER).isEqualTo(EXPECTED_INGREDIENTS_NUMBER);
-        softAssertions.assertThat(EXPECTED_TYPE).isEqualTo(ACTUAL_TYPE);
-        softAssertions.assertThat(EXPECTED_NAME).isEqualTo(ACTUAL_NAME);
-        softAssertions.assertThat(EXPECTED_PRICE).isEqualTo(ACTUAL_PRICE);
+        softAssertions.assertThat(ACTUAL_TYPE).isEqualTo(EXPECTED_TYPE);
+        softAssertions.assertThat(ACTUAL_NAME).isEqualTo(EXPECTED_NAME);
+        softAssertions.assertThat(ACTUAL_PRICE).isEqualTo(EXPECTED_PRICE);
         softAssertions.assertAll();
     }
 
