@@ -17,7 +17,7 @@ public class BunTest {
         this.PRICE = price;
     }
 
-    @Parameterized.Parameters(name = "Unit test: Bun( name: {0}, price: {1} )")
+    @Parameterized.Parameters(name = "Bun test ( name: {1}, price: {0} )")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {Float.NaN, "Rare bun"},
@@ -36,7 +36,6 @@ public class BunTest {
                 {1234.5678f, "   "},
                 {1234.5678f, "Regular bun"},
                 {1234.5678f, "Very rare '(~@&%$*)' bun"}
-
         };
     }
 
