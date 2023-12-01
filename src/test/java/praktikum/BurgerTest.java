@@ -14,8 +14,6 @@ public class BurgerTest {
     @Mock
     private Bun bun;
     @Mock
-    Ingredient ingredient;
-    @Mock
     Ingredient sauce;
     @Mock
     Ingredient filling;
