@@ -14,7 +14,7 @@ Project uses
 
 ## Repository cloning
 ```shell
-git clone https://git@github.com:Sergey8193/Diplom_1.git
+git clone https://github.com/Sergey8193/Diplom_1.git
 ```
 
 ## Running auto tests
