@@ -9,7 +9,6 @@ import static org.junit.Assert.assertEquals;
 public class BunTests {
 
     private final String name;
-
     private final float price;
 
     public BunTests(String name, float price) {
@@ -29,13 +28,12 @@ public class BunTests {
     @Test
     public void testBunGetName() {
         Bun bun = new Bun(name, price);
-        assertEquals("Булка не отдаёт имя!", name, bun.getName());
+        assertEquals("Безымянная булка!", name, bun.getName());
     }
 
     @Test
     public void testBunGetPrice() {
         Bun bun = new Bun(name, price);
-        assertEquals("Булка бесценна!", price, bun.getPrice(), 0.05);
-        assertEquals("Булка бесценна!", price, bun.getPrice(), 0.05);
+        assertEquals("Булка бесценна!", price, bun.getPrice(), 0.005);
     }
 }
