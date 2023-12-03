@@ -25,7 +25,7 @@ public class BurgerParameterizedTests {
 
     @Parameterized.Parameters
     public static Object[][] setBurgerParams() {
-        return new Object[][] {
+        return new Object[][]{
                 {
                         new Bun("Хтоническая булка", 999.7F),
                         new ArrayList<>(Arrays.asList(

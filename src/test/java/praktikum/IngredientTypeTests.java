@@ -3,6 +3,7 @@ package praktikum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -17,7 +18,7 @@ public class IngredientTypeTests {
 
     @Parameterized.Parameters
     public static Object[][] setIngredientType() {
-        return new Object[][] {
+        return new Object[][]{
                 {IngredientType.SAUCE, "SAUCE"},
                 {IngredientType.FILLING, "FILLING"}
         };

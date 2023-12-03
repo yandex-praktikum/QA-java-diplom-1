@@ -1,18 +1,12 @@
 package praktikum;
 
 import org.junit.Before;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.Mockito;
-import org.mockito.Mock;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerIngredientsTests {
@@ -34,7 +28,7 @@ public class BurgerIngredientsTests {
     @Test
     public void setBunTest() {
         burger.setBuns(bun);
-        assertTrue(burger.bun == bun);
+        assertSame(burger.bun, bun);
     }
 
     //Проверим добавление ингредиента
@@ -58,6 +52,6 @@ public class BurgerIngredientsTests {
     public void moveIngredient() {
         burger.ingredients.add(filling);
         burger.moveIngredient(1, 0);
-        assertTrue("Ингредиент не переместился!", burger.ingredients.get(0) == filling);
+        assertSame("Ингредиент не переместился!", burger.ingredients.get(0), filling);
     }
 }
