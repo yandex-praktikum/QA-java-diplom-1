@@ -24,7 +24,8 @@ public class IngredientTests {
     public static Object[][] setIngredients() {
         return new Object[][] {
                 {IngredientType.SAUCE, "Coус Spicy-X", 90},
-                {IngredientType.FILLING, "Хрустящие минеральные кольца", 300}
+                {IngredientType.FILLING, "Хрустящие минеральные кольца", 300.5F},
+                {IngredientType.FILLING, "Щупальца Ктулху в кляре", 255.25F}
         };
     }
 
