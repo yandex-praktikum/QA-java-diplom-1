@@ -24,13 +24,6 @@ public class BurgerIngredientsTests {
         burger.ingredients.add(sause);
     }
 
-    //Проверим добавление булки
-    @Test
-    public void setBunTest() {
-        burger.setBuns(bun);
-        assertSame(burger.bun, bun);
-    }
-
     //Проверим добавление ингредиента
     @Test
     public void addIngredientTest() {

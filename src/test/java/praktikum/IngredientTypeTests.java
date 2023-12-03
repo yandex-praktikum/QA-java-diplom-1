@@ -24,6 +24,7 @@ public class IngredientTypeTests {
         };
     }
 
+    //Проверим, что тип ингредиента соответствует его значению
     @Test
     public void testGetIngredientType() {
         assertEquals(ingredientType, IngredientType.valueOf(name));

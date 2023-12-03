@@ -26,12 +26,14 @@ public class BunTests {
         };
     }
 
+    //Проверяем, что метод getName возвращает правильное название булки
     @Test
     public void testBunGetName() {
         Bun bun = new Bun(name, price);
         assertEquals("Безымянная булка!", name, bun.getName());
     }
 
+    //Проверяем, что метод getPrice возвращает правильную цену булки
     @Test
     public void testBunGetPrice() {
         Bun bun = new Bun(name, price);

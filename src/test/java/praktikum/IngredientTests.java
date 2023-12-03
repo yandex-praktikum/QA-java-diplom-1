@@ -30,16 +30,19 @@ public class IngredientTests {
         };
     }
 
+    //Проверим, то метод gerPrice возвращает правильную цену ингредиента
     @Test
     public void testIngredientGetPrice() {
         assertEquals("Ингредиент бесценен!", price, ingredient.getPrice(), 0.005);
     }
 
+    //Проверим, что метод getName возвращает правильное название игредиента
     @Test
     public void testIngredientGetName() {
         assertEquals("Безымянный ингредиент!", name, ingredient.getName());
     }
 
+    //Проверим, что метод getType возвращает правильный тип ингредиента
     @Test
     public void testIngredientGetType() {
         assertEquals("Нетипичный ингредиент!", type, ingredient.getType());

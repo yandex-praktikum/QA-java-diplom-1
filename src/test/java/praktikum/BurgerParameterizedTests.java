@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 @RunWith(Parameterized.class)
 public class BurgerParameterizedTests {
@@ -56,12 +57,14 @@ public class BurgerParameterizedTests {
         };
     }
 
+    //Проверим добавление булки
     @Test
-    public void testSetBun() {
+    public void setBunTest() {
         burger.setBuns(bun);
-        assertEquals("Булка не добавилась!", bun.getName(), burger.bun.getName());
+        assertSame(burger.bun, bun);
     }
 
+    //Проверим, что метод getPrice возвращает верную стоимость бургера
     @Test
     public void testBurgerPrice() {
         burger.setBuns(bun);
@@ -71,6 +74,7 @@ public class BurgerParameterizedTests {
         assertEquals("Цена не верна!", price, burger.getPrice(), 0.05);
     }
 
+    //Проверим, что метод getReceipt возвращает корректный чек
     @Test
     public void testReceipt() {
         burger.setBuns(bun);
