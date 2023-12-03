@@ -11,8 +11,6 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerIngredientsTests {
     @Mock
-    Bun bun;
-    @Mock
     Ingredient filling;
     @Mock
     Ingredient sause;
