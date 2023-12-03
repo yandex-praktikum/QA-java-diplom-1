@@ -20,8 +20,11 @@ public class BurgerIsolatedTests {
     //делаем заглушку для типа бургера
     @Before
     public void fillBurger() {
-        burger.setBuns(bun);
-        burger.addIngredient(ingredient);
+        //не используем методы, которые могут не работать
+        //burger.setBuns(bun);
+        //burger.addIngredient(ingredient);
+        burger.bun = bun;
+        burger.ingredients.add(ingredient);
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.valueOf("FILLING"));
     }
 
