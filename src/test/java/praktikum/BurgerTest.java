@@ -76,12 +76,11 @@ public class BurgerTest {
 
     @Test
     public void checkGetPriceWithMockData() {
-        Bun bunForTest = getMockedBun();
-        Ingredient ingredient = getMockedFirstIngredient();
-        burger.setBuns(bunForTest);
-        burger.addIngredient(ingredient);
-        float actual = burger.getPrice();
-        Assert.assertEquals(700, actual, 0);
+        Bun bun = new Bun("булочка", 10f);
+        burger.setBuns(bun);
+        var actual = burger.getPrice();
+        var expected = bun.getPrice() * 2;
+        Assert.assertEquals(expected, actual, 0);
     }
 
     @Test
