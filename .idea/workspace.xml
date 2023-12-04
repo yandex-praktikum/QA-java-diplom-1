@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="493d284d-86c8-450e-9402-b9e302914a48" name="Changes" comment="Диплом 1 - файл README.md.">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/praktikum/Bun.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/praktikum/Burger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/praktikum/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/praktikum/Ingredient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/praktikum/IngredientType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/praktikum/Praktikum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/praktikum-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Bun.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Bun.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Burger.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Burger.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Database.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Database.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Ingredient.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Ingredient.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/IngredientType.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/IngredientType.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Praktikum.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/Praktikum.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/praktikum/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-praktikum.BunTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-praktikum.BurgerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-praktikum.IngredientTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-praktikum.IngredientTypeTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/praktikum.BunTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/praktikum.BurgerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/praktikum.IngredientTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/praktikum.IngredientTypeTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/praktikum/BunTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/praktikum/BurgerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/praktikum/IngredientTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/praktikum/IngredientTypeTest.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;yvrazgul&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a1299717-6abb-4f5b-a44e-27d686648eb1" />
+        <option name="url" value="https://github.com/yvrazgul/QA-java-diplom-1.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2YUd8MXyOpqggl8t7DEhn9YFiCQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/erazgulina/Desktop/school/project/Diplom/QA-java-diplom-1/src&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.BurgerTest">
+    <configuration name="BunTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="praktikum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="praktikum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="praktikum" />
+      <option name="MAIN_CLASS_NAME" value="praktikum.BunTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BurgerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="praktikum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="praktikum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="praktikum" />
+      <option name="MAIN_CLASS_NAME" value="praktikum.BurgerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BurgerTest.checkGetPriceWithMockData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="praktikum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="praktikum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="praktikum" />
+      <option name="MAIN_CLASS_NAME" value="praktikum.BurgerTest" />
+      <option name="METHOD_NAME" value="checkGetPriceWithMockData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IngredientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="praktikum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="praktikum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="praktikum" />
+      <option name="MAIN_CLASS_NAME" value="praktikum.IngredientTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IngredientTypeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="praktikum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="praktikum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="praktikum" />
+      <option name="MAIN_CLASS_NAME" value="praktikum.IngredientTypeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BurgerTest" />
+        <item itemvalue="JUnit.BurgerTest.checkGetPriceWithMockData" />
+        <item itemvalue="JUnit.IngredientTypeTest" />
+        <item itemvalue="JUnit.BunTest" />
+        <item itemvalue="JUnit.IngredientTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="493d284d-86c8-450e-9402-b9e302914a48" name="Changes" comment="" />
+      <created>1700583933335</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700583933335</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Диплом 1">
+      <option name="closed" value="true" />
+      <created>1700928136752</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700928136752</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Диплом 1 - покрытие тестами.">
+      <option name="closed" value="true" />
+      <created>1700928212626</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700928212627</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Диплом 1 - покрытие тестами.">
+      <option name="closed" value="true" />
+      <created>1700928259974</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700928259974</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Диплом 1 - покрытие тестами.">
+      <option name="closed" value="true" />
+      <created>1700928416302</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700928416302</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Диплом 1 - исправление по PR.">
+      <option name="closed" value="true" />
+      <created>1701707298676</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701707298676</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Диплом 1 - файл README.md.">
+      <option name="closed" value="true" />
+      <created>1701708105855</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701708105855</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Диплом 1 - файл README.md.">
+      <option name="closed" value="true" />
+      <created>1701708417680</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701708417681</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Диплом 1 - файл README.md.">
+      <option name="closed" value="true" />
+      <created>1701708607600</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701708607600</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Диплом 1" />
+    <MESSAGE value="Диплом 1 - покрытие тестами." />
+    <MESSAGE value="Диплом 1 - исправление по PR." />
+    <MESSAGE value="Диплом 1 - файл README.md." />
+    <option name="LAST_COMMIT_MESSAGE" value="Диплом 1 - файл README.md." />
+  </component>
+</project>
