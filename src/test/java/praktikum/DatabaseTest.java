@@ -14,11 +14,11 @@ public class DatabaseTest {
 
     @Test
     public void availableBuns() {
-        Assert.assertEquals("Кол-во булочек неверное", 3, database.availableBuns().size());
+        Assert.assertEquals("Кол-во булочек некорректное", 3, database.availableBuns().size());
     }
 
     @Test
     public void availableIngredients() {
-        Assert.assertEquals("Кол-во ингредиентов неверное", 6, database.availableIngredients().size());
+        Assert.assertEquals("Кол-во ингредиентов некорректное", 6, database.availableIngredients().size());
     }
 }

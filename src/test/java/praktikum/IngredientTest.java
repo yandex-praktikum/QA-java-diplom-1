@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class IngredientTest {
     private final String INGREDIENT_NAME = "соус тысяча островов";
-    private final float INGREDIENT_PRICE = 13.37f;
+    private final float INGREDIENT_PRICE = 13.36f;
     private Ingredient ingredient;
 
     @Before

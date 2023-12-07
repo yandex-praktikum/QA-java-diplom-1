@@ -13,7 +13,7 @@ public class BurgerTest {
     private final String BULKA_NAME = "пижонский багет";
     private final float BULKA_PRICE = 20f;
     private final String INGREDIENT_NAME = "соус тысяча островов";
-    private final float INGREDIENT_PRICE = 1.37f;
+    private final float INGREDIENT_PRICE = 1.36f;
     @Mock
     Bun bun;
     @Mock

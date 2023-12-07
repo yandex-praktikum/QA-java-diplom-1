@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class BunTest {
     private final String NAME_BUN = "blackBun";
-    private final float PRICE_BUN = 1.15f;
+    private final float PRICE_BUN = 1.16f;
     private Bun bun;
 
     @Before

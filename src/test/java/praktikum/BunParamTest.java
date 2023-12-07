@@ -25,7 +25,7 @@ public class BunParamTest {
     @Parameterized.Parameters(name = "Проверка возвращаемого значения в зависимости от переданного. Тестовые данные: {0} : {1}")
     public static Object[][] setBun() {
         return new Object[][]{
-                {"", -1.3f},
+                {"", -1.4f},
                 {null, 0},
                 {LONG_NAME_BUN, Float.MIN_VALUE},
                 {SPECIAL_NAME_BUN, Float.MAX_VALUE}
