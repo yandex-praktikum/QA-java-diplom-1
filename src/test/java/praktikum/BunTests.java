@@ -4,10 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-//@RunWith(Parameterized.class)
 public class BunTests {
 
-    private Bun bun = new Bun("Булка цвета из иных миров", 2535.25F);
+    private final Bun bun = new Bun("Булка цвета из иных миров", 2535.25F);
 
     @Test
     public void testBunGetName() {

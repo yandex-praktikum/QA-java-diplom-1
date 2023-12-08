@@ -37,12 +37,12 @@ public class BurgerParameterizedTests {
                 },
                 {
                         new Bun("Инсмутская булка", 600),
-                        new ArrayList<>(Arrays.asList()),
+                        new ArrayList<>(List.of()),
                         1200
                 },
                 {
                         new Bun("Закатная булка", 900),
-                        new ArrayList<>(Arrays.asList(
+                        new ArrayList<>(List.of(
                                 new Ingredient(IngredientType.FILLING, "Лапки лунных жаб", 1350.25F)
                         )),
                         3150.25F
