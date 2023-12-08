@@ -37,34 +37,25 @@ public class BurgerParameterizedTests {
                 },
                 {
                         new Bun("Инсмутская булка", 600),
-                        new ArrayList<>(Arrays.asList(
-                                new Ingredient(IngredientType.FILLING, "Филе подводного отродья", 1200),
-                                new Ingredient(IngredientType.FILLING, "Сыр из молока морских коров", 700),
-                                new Ingredient(IngredientType.FILLING, "Морской салат", 300),
-                                new Ingredient(IngredientType.SAUCE, "Слизь Дагона", 1500)
-                        )),
-                        4900
+                        new ArrayList<>(Arrays.asList()),
+                        1200
                 },
                 {
                         new Bun("Закатная булка", 900),
                         new ArrayList<>(Arrays.asList(
-                                new Ingredient(IngredientType.FILLING, "Лапки лунных жаб", 1350.25F),
-                                new Ingredient(IngredientType.FILLING, "Львиная котлета", 900),
-                                new Ingredient(IngredientType.SAUCE, "Лунная пыль", 1900)
+                                new Ingredient(IngredientType.FILLING, "Лапки лунных жаб", 1350.25F)
                         )),
-                        5950.25F
-                },
+                        3150.25F
+                }
         };
     }
 
-    //Проверим добавление булки
     @Test
     public void setBunTest() {
         burger.setBuns(bun);
         assertSame(burger.bun, bun);
     }
 
-    //Проверим, что метод getPrice возвращает верную стоимость бургера
     @Test
     public void testBurgerPrice() {
         burger.setBuns(bun);
@@ -74,7 +65,6 @@ public class BurgerParameterizedTests {
         assertEquals("Цена не верна!", price, burger.getPrice(), 0.05);
     }
 
-    //Проверим, что метод getReceipt возвращает корректный чек
     @Test
     public void testReceipt() {
         burger.setBuns(bun);
@@ -92,8 +82,6 @@ public class BurgerParameterizedTests {
         receipt.append(String.format("%nPrice: %f%n", price));
         assertEquals("Рецепт не верный!", receipt.toString(), burger.getReceipt());
     }
-
-
 }
 
 
