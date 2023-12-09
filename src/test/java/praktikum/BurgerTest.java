@@ -1,5 +1,4 @@
 package praktikum;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -39,7 +37,6 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(500.0F);
         Mockito.when(ingredientFilling.getPrice()).thenReturn(100.0F);
         Mockito.when(ingredientSause.getPrice()).thenReturn(400F);
-
         Assert.assertEquals(expectedReceipt, testBurger.getReceipt());
     }
 

@@ -1,20 +1,23 @@
 package praktikum;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
 
 @RunWith(Parameterized.class)
 public class IngredientTypeTest {
     private final String ingredient;
-    private final boolean inList;
+    private boolean expectedInList;
+    private boolean actualInList;
+    private Ingredient ingredientSause;
+    private Ingredient ingredientFilling;
 
-    public IngredientTypeTest(String ingredient, boolean inList) {
+    public IngredientTypeTest(String ingredient, boolean expectedInList) {
         this.ingredient = ingredient;
-        this.inList = inList;
+        this.expectedInList = expectedInList;
     }
 
     @Parameterized.Parameters
@@ -32,9 +35,11 @@ public class IngredientTypeTest {
 
         try {
             IngredientType.valueOf(ingredient);
-
+            actualInList = true;
         } catch (IllegalArgumentException e) {
             System.out.println("Unknow ingredient");
+            actualInList = false;
         }
+        Assert.assertEquals(expectedInList, actualInList);
     }
 }
