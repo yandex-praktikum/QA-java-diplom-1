@@ -7,8 +7,8 @@ import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
-import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
 public class BurgerTest {
 
@@ -96,7 +96,6 @@ public class BurgerTest {
         // Assert
         assertEquals("The receipt should correctly list the bun and ingredients including the price.", expectedReceipt.trim(), actualReceipt);
     }
-
 
 
 }

@@ -1,7 +1,7 @@
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.junit.Test;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
@@ -30,7 +30,7 @@ public class BurgerParameterizedTest {
     // Define parameters for the tests
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] {
+        return Arrays.asList(new Object[][]{
 
 
                 {
@@ -73,6 +73,7 @@ public class BurgerParameterizedTest {
             burger.addIngredient(ingredient);
         }
     }
+
     @Test
     public void testGetPrice() {
         // Act

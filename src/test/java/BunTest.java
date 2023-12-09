@@ -1,12 +1,10 @@
-
-
 import org.junit.Test;
 import praktikum.Bun;
 
 import static org.junit.Assert.assertEquals;
 
 public class BunTest {
-//Class Bun does not have dependencies or complex logic, Therefor, no mocks or stubs are required here.
+    //Class Bun does not have dependencies or complex logic, Therefor, no mocks or stubs are required here.
     @Test
     public void testGetName() {
         // Arrange

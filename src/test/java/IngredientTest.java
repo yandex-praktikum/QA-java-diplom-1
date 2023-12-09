@@ -5,7 +5,7 @@ import praktikum.IngredientType;
 import static org.junit.Assert.assertEquals;
 
 public class IngredientTest {
-//basic getters so there is no need for mocks or stubs.
+    //basic getters so there is no need for mocks or stubs.
     @Test
     public void testGetPrice() {
         // Arrange
