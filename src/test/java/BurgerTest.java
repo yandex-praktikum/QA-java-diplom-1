@@ -42,7 +42,7 @@ public class BurgerTest {
         Mockito.when(bunRed.getPrice()).thenReturn(200f);
         Mockito.when(ingredientFilling.getPrice()).thenReturn(200f);
         Mockito.when(ingredientSauce.getPrice()).thenReturn(200f);
-        Assert.assertEquals(burger.getPrice(), 800, 1);
+        Assert.assertEquals(800, burger.getPrice(), 1);
     }
 
     @Test
