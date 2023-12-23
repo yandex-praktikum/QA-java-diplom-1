@@ -19,7 +19,6 @@ import static praktikum.IngredientType.FILLING;
 public class BurgerTests {
     Burger burger;
 
-    Database database = new Database();
     @Mock
     Bun bun;
     @Mock
