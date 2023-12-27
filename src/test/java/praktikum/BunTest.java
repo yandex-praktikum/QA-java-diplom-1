@@ -14,6 +14,7 @@ public class BunTest {
 
     private final String bunName;
     private final float bunPrice;
+    private Bun bun;
 
     public BunTest(String bunName, float bunPrice) {
         this.bunName = bunName;
@@ -31,9 +32,14 @@ public class BunTest {
     }
 
     @Test
-    public void createBunWithEmptyNameAndZeroPrice() {
-        Bun bun = new Bun(bunName, bunPrice);
+    public void createBunGetName() {
+        bun = new Bun(bunName, bunPrice);
         assertEquals(bunName, bun.getName());
+    }
+
+    @Test
+    public void createBunGetPrice() {
+        bun = new Bun(bunName, bunPrice);
         assertEquals(bunPrice, bun.getPrice(), 0);
     }
 }
