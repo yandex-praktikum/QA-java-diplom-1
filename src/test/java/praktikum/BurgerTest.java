@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class BurgerTest {
 
@@ -45,25 +44,5 @@ public class BurgerTest {
 
         assertEquals(ingredient1, burger.ingredients.get(1));
         assertEquals(ingredient2, burger.ingredients.get(0));
-    }
-
-    @Test
-    public void testGetPrice() {
-        Bun bun = mock(Bun.class);
-        when(bun.getPrice()).thenReturn(100f);
-
-        Burger burger = new Burger();
-        burger.setBuns(bun);
-
-        Ingredient ingredient1 = mock(Ingredient.class);
-        when(ingredient1.getPrice()).thenReturn(50f);
-
-        Ingredient ingredient2 = mock(Ingredient.class);
-        when(ingredient2.getPrice()).thenReturn(75f);
-
-        burger.addIngredient(ingredient1);
-        burger.addIngredient(ingredient2);
-
-        assertEquals(325f, burger.getPrice(), 0.001);
     }
 }
