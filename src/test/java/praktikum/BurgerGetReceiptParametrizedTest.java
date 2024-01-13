@@ -46,7 +46,7 @@ public class BurgerGetReceiptParametrizedTest {
                 "= sauce hot sauce =" + System.lineSeparator() +
                 "(==== white bun ====)" + System.lineSeparator() +
                 System.lineSeparator() +
-                "Price: 550.000000" + System.lineSeparator();
+                "Price: 550,000000" + System.lineSeparator();
 
         Bun bun2 = mock(Bun.class);
         when(bun2.getName()).thenReturn("black bun");
@@ -67,7 +67,7 @@ public class BurgerGetReceiptParametrizedTest {
                 "= sauce chili sauce =" + System.lineSeparator() +
                 "(==== black bun ====)" + System.lineSeparator() +
                 System.lineSeparator() +
-                "Price: 500.000000" + System.lineSeparator();
+                "Price: 500,000000" + System.lineSeparator();
 
         return Arrays.asList(new Object[][]{
                 {bun1, new Ingredient[]{ingredient1_1, ingredient1_2}, expectedReceipt1},
@@ -81,6 +81,6 @@ public class BurgerGetReceiptParametrizedTest {
         burger.setBuns(bun);
         Arrays.asList(ingredients).forEach(burger::addIngredient);
 
-        assertEquals(expectedReceipt, burger.getReceipt().replace(",", "."));
+        assertEquals(expectedReceipt, burger.getReceipt());
     }
 }
