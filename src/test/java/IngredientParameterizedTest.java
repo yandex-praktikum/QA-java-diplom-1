@@ -66,7 +66,7 @@ public class IngredientParameterizedTest {
         try {
             ingredient = new Ingredient(TYPE, NAME, PRICE);
         }catch (Exception e){
-            //e.printStackTrace();
+
         }
     }
 }
