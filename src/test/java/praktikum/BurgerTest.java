@@ -101,4 +101,53 @@ public class BurgerTest {
                 "\n";
         Assert.assertEquals(actual, burger.getReceipt());
     }
+
+    @Test
+    public void addIngredientTest(){
+        Bun bun = new Bun("Булочка с кунжутом",100);
+        Ingredient sauce = new Ingredient(IngredientType.SAUCE, "соус барбекю",10);
+        Ingredient filling = new Ingredient(IngredientType.FILLING, "котлета",10);
+        var burger = new Burger();
+        burger.setBuns(bun);
+
+        burger.addIngredient(sauce);
+        burger.addIngredient(filling);
+
+        Assert.assertEquals(2, burger.ingredients.size());
+        Assert.assertTrue(burger.ingredients.stream().anyMatch((i) ->  i.getName() == sauce.getName()));
+        Assert.assertTrue(burger.ingredients.stream().anyMatch((i) ->  i.getName() == filling.getName()));
+    }
+
+    @Test
+    public void removeIngredientTest(){
+        Bun bun = new Bun("Булочка с кунжутом",100);
+        Ingredient sauce = new Ingredient(IngredientType.SAUCE, "соус барбекю",10);
+        Ingredient filling = new Ingredient(IngredientType.FILLING, "котлета",10);
+        var burger = new Burger();
+        burger.setBuns(bun);
+        burger.addIngredient(sauce);
+        burger.addIngredient(filling);
+
+        burger.removeIngredient(1);
+
+        Assert.assertEquals(1, burger.ingredients.size());
+        Assert.assertTrue(burger.ingredients.stream().anyMatch((i) ->  i.getName() == sauce.getName()));
+        Assert.assertFalse(burger.ingredients.stream().anyMatch((i) ->  i.getName() == filling.getName()));
+    }
+
+    @Test
+    public void moveIngredientTest(){
+        Bun bun = new Bun("Булочка с кунжутом",100);
+        Ingredient sauce = new Ingredient(IngredientType.SAUCE, "соус барбекю",10);
+        Ingredient filling = new Ingredient(IngredientType.FILLING, "котлета",10);
+        var burger = new Burger();
+        burger.setBuns(bun);
+        burger.addIngredient(sauce);
+        burger.addIngredient(filling);
+
+        burger.moveIngredient(1,0);
+
+        Assert.assertEquals(filling.getName(), burger.ingredients.get(0).getName());
+        Assert.assertEquals(sauce.getName(), burger.ingredients.get(1).getName());
+    }
 }
