@@ -1,7 +1,6 @@
 package praktikum;
 
 import org.junit.Test;
-import praktikum.Database;
 
 import static org.junit.Assert.assertFalse;
 

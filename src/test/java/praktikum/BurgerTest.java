@@ -6,9 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
+
 
 import static org.junit.Assert.*;
 
@@ -90,13 +88,6 @@ public class BurgerTest {
         expectedReceipt.append(String.format("= %s %s =%n", "sauce", "firstSauce"));
         expectedReceipt.append(String.format("(==== %s ====)%n", "FirstBun"));
         expectedReceipt.append(String.format("%nPrice: %f%n", 500.500000f));
-
-//        String expectedReceipt = "(==== FirstBun ====)\n" +
-//                "= filling firstFilling =\n" +
-//                "= sauce firstSauce =\n" +
-//                "(==== FirstBun ====)\n" +
-//
-//                "\nPrice: 500,500000\n";
 
         assertEquals(expectedReceipt.toString(), burger.getReceipt());
     }

@@ -1,18 +1,15 @@
 package praktikum;
 
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
 
-    private Ingredient ingredient;
     private final String name;
     private final float price;
     private final IngredientType ingredientType;
