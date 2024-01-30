@@ -4,20 +4,13 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static praktikum.RandomStringUtilsArgs.ALPHABETIC_LENGTH;
+import static praktikum.RandomStringUtilsArgs.NUMERIC_LENGTH;
 
 public class BunTest {
 
-
-	String bunName = RandomStringUtils.randomAlphabetic(7);
-	float bunPrice = Float.valueOf(RandomStringUtils.randomNumeric(3));
-
-	@Test
-	public void bunConstructorTest() {
-		Bun bun = new Bun(bunName, bunPrice);
-		assertEquals(bunName, bun.getName());
-		assertEquals(bunPrice, bun.getPrice(), 0);
-	}
+	String bunName = RandomStringUtils.randomAlphabetic(ALPHABETIC_LENGTH);
+	float bunPrice = Float.valueOf(RandomStringUtils.randomNumeric(NUMERIC_LENGTH));
 
 	@Test
 	public void getBunNameTest() {
