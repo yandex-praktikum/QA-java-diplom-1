@@ -13,9 +13,13 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static praktikum.RandomStringUtilsArgs.ALPHABETIC_LENGTH;
+import static praktikum.RandomStringUtilsArgs.NUMERIC_LENGTH;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
+	private static String ingredientName = RandomStringUtils.randomAlphabetic(ALPHABETIC_LENGTH);
+	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(NUMERIC_LENGTH));
 	@Mock
 	Bun bun;
 	@Mock
@@ -23,9 +27,6 @@ public class BurgerTest {
 	@Mock
 	Ingredient ingredient2;
 	private Burger burger;
-
-	private static String ingredientName = RandomStringUtils.randomAlphabetic(7);
-	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(3));
 
 	@Before
 	public void setUp() {

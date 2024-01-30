@@ -4,12 +4,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static praktikum.RandomStringUtilsArgs.ALPHABETIC_LENGTH;
+import static praktikum.RandomStringUtilsArgs.NUMERIC_LENGTH;
 
 public class IngredientTest {
 
+	private static String ingredientName = RandomStringUtils.randomAlphabetic(ALPHABETIC_LENGTH);
+	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(NUMERIC_LENGTH));
 	private final IngredientType ingredientType = IngredientType.SAUCE;
-	private static String ingredientName = RandomStringUtils.randomAlphabetic(7);
-	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(3));
 	Ingredient ingredient = new Ingredient(ingredientType, ingredientName, ingredientPrice);
 
 	@Test

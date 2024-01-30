@@ -11,13 +11,15 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
+import static praktikum.RandomStringUtilsArgs.ALPHABETIC_LENGTH;
+import static praktikum.RandomStringUtilsArgs.NUMERIC_LENGTH;
 
 @RunWith(Parameterized.class)
 public class IngredientParamTest {
 
+	private static String ingredientName = RandomStringUtils.randomAlphabetic(ALPHABETIC_LENGTH);
+	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(NUMERIC_LENGTH));
 	private final IngredientType type;
-	private static String ingredientName = RandomStringUtils.randomAlphabetic(7);
-	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(3));
 
 	public IngredientParamTest(IngredientType type, String ingredientName, float ingredientPrice) {
 		this.type = type;
