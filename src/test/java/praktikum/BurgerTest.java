@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -22,7 +23,6 @@ public class BurgerTest {
 	@Mock
 	Ingredient ingredient2;
 	private Burger burger;
-	private static String bunName = RandomStringUtils.randomAlphabetic(7);
 
 	private static String ingredientName = RandomStringUtils.randomAlphabetic(7);
 	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(3));
@@ -43,16 +43,15 @@ public class BurgerTest {
 
 	@Test
 	public void getBurgerPriceTest() {
-		burger.setBuns(bun);
-		burger.addIngredient(ingredient1);
-		burger.addIngredient(ingredient2);
-
-		Mockito.when(bun.getPrice()).thenReturn(200.00F);
-		Mockito.when(ingredient1.getPrice()).thenReturn(100.00F);
-		Mockito.when(ingredient2.getPrice()).thenReturn(100.00F);
-
+		Database database = new Database();
+		List<Bun> buns = database.availableBuns();
+		List<Ingredient> ingredients = database.availableIngredients();
+		Burger burger = new Burger();
+		burger.setBuns(buns.get(0));
+		burger.addIngredient(ingredients.get(1));
+		burger.addIngredient(ingredients.get(4));
 		float actualResult = burger.getPrice();
-		assertEquals((200.0F * 2) + 100.0F + 100.0F, actualResult, 0);
+		assertEquals((100.0F * 2) + 200.0F + 200.0F, actualResult, 0);
 	}
 
 	@Test
