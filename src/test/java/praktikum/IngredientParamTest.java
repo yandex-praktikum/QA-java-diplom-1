@@ -1,6 +1,5 @@
 package praktikum;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -11,14 +10,10 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
-import static praktikum.RandomStringUtilsArgs.ALPHABETIC_LENGTH;
-import static praktikum.RandomStringUtilsArgs.NUMERIC_LENGTH;
 
 @RunWith(Parameterized.class)
-public class IngredientParamTest {
+public class IngredientParamTest extends BaseTest {
 
-	private static String ingredientName = RandomStringUtils.randomAlphabetic(ALPHABETIC_LENGTH);
-	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(NUMERIC_LENGTH));
 	private final IngredientType type;
 
 	public IngredientParamTest(IngredientType type, String ingredientName, float ingredientPrice) {

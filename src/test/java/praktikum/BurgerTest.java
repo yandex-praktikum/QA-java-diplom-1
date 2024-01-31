@@ -1,6 +1,5 @@
 package praktikum;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,13 +12,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static praktikum.RandomStringUtilsArgs.ALPHABETIC_LENGTH;
-import static praktikum.RandomStringUtilsArgs.NUMERIC_LENGTH;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BurgerTest {
-	private static String ingredientName = RandomStringUtils.randomAlphabetic(ALPHABETIC_LENGTH);
-	private static float ingredientPrice = Float.valueOf(RandomStringUtils.randomNumeric(NUMERIC_LENGTH));
+public class BurgerTest extends BaseTest {
 	@Mock
 	Bun bun;
 	@Mock
