@@ -8,8 +8,6 @@ import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
-import java.util.Arrays;
-import java.util.Collection;
 
 import static org.mockito.Mockito.when;
 
@@ -23,12 +21,12 @@ public class BurgerTest {
     public String ingredientName;
 
     @Parameterized.Parameters
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
+    public static Object[][] data() {
+        return new Object[][]{
                 {"Сыр"},
                 {"Кетчуп"},
                 {"Салат"}
-        });
+        };
     }
 
     @Before
@@ -98,8 +96,6 @@ public class BurgerTest {
                 "%nPrice: %f%n", bunMock.getName(),
                 ingredientMock.getType().toString().toLowerCase(), ingredientMock.getName(),
                 bunMock.getName(), burger.getPrice());
-        System.out.println(expectedReceipt);
-        System.out.println(actualReceipt);
         Assert.assertEquals(expectedReceipt, actualReceipt);
     }
 }
