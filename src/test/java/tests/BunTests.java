@@ -29,13 +29,13 @@ public class BunTests {
     public void getNameTest() {
         Bun bun = new Bun(name, price);
         String actualName = bun.getName();
-        Assert.assertEquals("Названия должны совпадать", name, actualName);
+        Assert.assertEquals("Names should match", name, actualName);
     }
 
     @Test
     public void getPriceTest() {
         Bun bun = new Bun(name, price);
         float actualPrice = bun.getPrice();
-        Assert.assertEquals("Цены должны совпадать", price, actualPrice, 0.0f);
+        Assert.assertEquals("Prices should match", price, actualPrice, 0.0f);
     }
 }
