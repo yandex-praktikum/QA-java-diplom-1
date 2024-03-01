@@ -1,5 +1,6 @@
 package tests;
 
+import helpers.TestData;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +11,9 @@ import praktikum.Bun;
 public class BunTests {
     private final String name;
     private final float price;
+    private static final Bun firstBun = TestData.returnFirstBun();
+    private static final Bun secondBun = TestData.returnSecondBun();
+    private static final Bun thirdBun = TestData.returnThirdBun();
 
     public BunTests(String name, float price) {
         this.name = name;
@@ -19,9 +23,9 @@ public class BunTests {
     @Parameterized.Parameters
     public static Object[][] getSumData() {
         return new Object[][] {
-                {"white bun" , 100},
-                {"black bun", 200},
-                {"red bun", 300},
+                {firstBun.getName(), firstBun.getPrice()},
+                {secondBun.getName(), secondBun.getPrice()},
+                {thirdBun.getName(), thirdBun.getPrice()},
         };
     }
 
