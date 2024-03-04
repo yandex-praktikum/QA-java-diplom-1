@@ -28,7 +28,7 @@ public class IngredientTests {
 
     @Parameterized.Parameters
     public static Object[][] getSumData() {
-        return new Object[][] {
+        return new Object[][]{
                 {firstIngredient.getType(), firstIngredient.getName(), firstIngredient.getPrice()},
                 {secondIngredient.getType(), secondIngredient.getName(), secondIngredient.getPrice()},
                 {thirdIngredient.getType(), thirdIngredient.getName(), thirdIngredient.getPrice()},

@@ -22,7 +22,7 @@ public class BunTests {
 
     @Parameterized.Parameters
     public static Object[][] getSumData() {
-        return new Object[][] {
+        return new Object[][]{
                 {firstBun.getName(), firstBun.getPrice()},
                 {secondBun.getName(), secondBun.getPrice()},
                 {thirdBun.getName(), thirdBun.getPrice()},

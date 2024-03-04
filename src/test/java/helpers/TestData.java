@@ -15,11 +15,10 @@ public class TestData {
     private final static List<Bun> availableBuns = database.availableBuns();
     private final static List<Ingredient> availableIngredients = database.availableIngredients();
 
-    public static Bun returnBunByIndex(int index){
+    public static Bun returnBunByIndex(int index) {
         try {
             return availableBuns.get(index);
-        }
-        catch(Exception exception) {
+        } catch (Exception exception) {
             throw new RuntimeException("No bun with given index was found");
         }
     }
@@ -29,11 +28,11 @@ public class TestData {
         int index = random.nextInt(availableBuns.size());
         return availableBuns.get(index);
     }
+
     public static Ingredient returnIngredientByIndex(int index) {
         try {
             return availableIngredients.get(index);
-        }
-        catch(Exception exception) {
+        } catch (Exception exception) {
             throw new RuntimeException("No ingredient with given index was found");
         }
     }
@@ -52,7 +51,7 @@ public class TestData {
     public static int generateIndex(int index, List<Ingredient> ingredients) {
         Random random = new Random();
         int secondIndex = random.nextInt(ingredients.size());
-        if(secondIndex==index) {
+        if (secondIndex == index) {
             secondIndex = random.nextInt(ingredients.size());
         }
         return secondIndex;

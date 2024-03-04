@@ -89,7 +89,7 @@ public class BurgerTests {
     public void moveIngredientTest() {
         List<Ingredient> ingredients = MethodsHelpers.addIngredientsToIngredientList(ingredient,
                 ingredientTwo, ingredientThree);
-        int  index = TestData.generateIndex(ingredients);
+        int index = TestData.generateIndex(ingredients);
         int newIndex = TestData.generateIndex(index, ingredients);
         burger = new Burger();
         MethodsHelpers.setBurgerBunAndIngredients(burger, bun, ingredients);
