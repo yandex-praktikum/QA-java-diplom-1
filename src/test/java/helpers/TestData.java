@@ -1,31 +1,27 @@
 package helpers;
 
+import com.github.javafaker.Faker;
 import praktikum.Bun;
 import praktikum.Database;
 import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 import java.util.List;
 import java.util.Random;
 
 public class TestData {
+    private final static Faker faker = new Faker();
     private final static Database database = new Database();
     private final static List<Bun> availableBuns = database.availableBuns();
     private final static List<Ingredient> availableIngredients = database.availableIngredients();
 
-    public static Bun returnFirstBun() {
-        return availableBuns.get(0);
-    }
-
-    public static Bun returnSecondBun() {
-        return availableBuns.get(1);
-    }
-
-    public static Bun returnThirdBun() {
-        return availableBuns.get(2);
-    }
-
     public static Bun returnBunByIndex(int index){
+        try {
             return availableBuns.get(index);
+        }
+        catch(Exception exception) {
+            throw new RuntimeException("No bun with given index was found");
+        }
     }
 
     public static Bun returnRandomBun() {
@@ -33,33 +29,13 @@ public class TestData {
         int index = random.nextInt(availableBuns.size());
         return availableBuns.get(index);
     }
-
-    public static Ingredient returnFirstIngredient() {
-        return availableIngredients.get(0);
-    }
-
-    public static Ingredient returnSecondIngredient() {
-        return availableIngredients.get(1);
-    }
-
-    public static Ingredient returnThirdIngredient() {
-        return availableIngredients.get(2);
-    }
-
-    public static Ingredient returnFourthIngredient() {
-        return availableIngredients.get(3);
-    }
-
-    public static Ingredient returnFifthIngredient() {
-        return availableIngredients.get(4);
-    }
-
-    public static Ingredient returnSixthIngredient() {
-        return availableIngredients.get(5);
-    }
-
     public static Ingredient returnIngredientByIndex(int index) {
-        return availableIngredients.get(index);
+        try {
+            return availableIngredients.get(index);
+        }
+        catch(Exception exception) {
+            throw new RuntimeException("No ingredient with given index was found");
+        }
     }
 
     public static Ingredient returnRandomIngredient() {
@@ -80,5 +56,25 @@ public class TestData {
             secondIndex = random.nextInt(ingredients.size());
         }
         return secondIndex;
+    }
+
+    public static String returnRandomBunName() {
+        return faker.funnyName().name();
+    }
+
+    public static String returnRandomIngredientName() {
+        return faker.twinPeaks().character();
+    }
+
+    public static float returnRandomPrice() {
+        Random random = new Random();
+        return random.nextFloat();
+    }
+
+    public static IngredientType returnRandomIngredientType() {
+        Random random = new Random();
+        IngredientType[] types = IngredientType.values();
+        int index = random.nextInt(types.length);
+        return types[index];
     }
 }

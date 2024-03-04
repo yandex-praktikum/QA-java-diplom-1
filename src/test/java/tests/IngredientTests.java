@@ -13,12 +13,12 @@ public class IngredientTests {
     private final String name;
     private final float price;
     private final IngredientType type;
-    private static final Ingredient firstIngredient = TestData.returnFirstIngredient();
-    private static final Ingredient secondIngredient = TestData.returnSecondIngredient();
-    private static final Ingredient thirdIngredient = TestData.returnThirdIngredient();
-    private static final Ingredient fourthIngredient = TestData.returnFourthIngredient();
-    private static final Ingredient fifthIngredient = TestData.returnFifthIngredient();
-    private static final Ingredient sixthIngredient = TestData.returnSixthIngredient();
+    private static final Ingredient firstIngredient = TestData.returnIngredientByIndex(0);
+    private static final Ingredient secondIngredient = TestData.returnIngredientByIndex(1);
+    private static final Ingredient thirdIngredient = TestData.returnIngredientByIndex(2);
+    private static final Ingredient fourthIngredient = TestData.returnIngredientByIndex(3);
+    private static final Ingredient fifthIngredient = TestData.returnIngredientByIndex(4);
+    private static final Ingredient sixthIngredient = TestData.returnIngredientByIndex(5);
 
     public IngredientTests(IngredientType type, String name, float price) {
         this.type = type;

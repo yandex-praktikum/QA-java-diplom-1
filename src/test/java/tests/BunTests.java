@@ -11,9 +11,9 @@ import praktikum.Bun;
 public class BunTests {
     private final String name;
     private final float price;
-    private static final Bun firstBun = TestData.returnFirstBun();
-    private static final Bun secondBun = TestData.returnSecondBun();
-    private static final Bun thirdBun = TestData.returnThirdBun();
+    private static final Bun firstBun = TestData.returnBunByIndex(0);
+    private static final Bun secondBun = TestData.returnBunByIndex(1);
+    private static final Bun thirdBun = TestData.returnBunByIndex(2);
 
     public BunTests(String name, float price) {
         this.name = name;

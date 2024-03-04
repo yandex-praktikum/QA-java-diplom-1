@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.*;
 
@@ -13,72 +14,113 @@ import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTests {
-    Ingredient ingredient = TestData.returnIngredientByIndex(2);
-    Ingredient ingredientTwo = TestData.returnIngredientByIndex(5);
-    Ingredient ingredientThree = TestData.returnIngredientByIndex(4);
+    private Burger burger;
+    private static final String bunName = TestData.returnRandomBunName();
+    private static final String ingredientName = TestData.returnRandomIngredientName();
+    private static final String ingredientTwoName = TestData.returnRandomIngredientName();
+    private static final String ingredientThreeName = TestData.returnRandomIngredientName();
+    private static final float bunPrice = TestData.returnRandomPrice();
+    private static final float ingredientPrice = TestData.returnRandomPrice();
+    private static final IngredientType ingredientType = TestData.returnRandomIngredientType();
+    private static final IngredientType ingredientTypeTwo = TestData.returnRandomIngredientType();
+    private static final IngredientType ingredientTypeThree = TestData.returnRandomIngredientType();
+    @Mock
+    Bun bun;
 
     @Mock
-    Bun bunMock;
+    Ingredient ingredient;
+
+    @Mock
+    Ingredient ingredientTwo;
+
+    @Mock
+    Ingredient ingredientThree;
+
 
     @Test
     public void setBunTest() {
-        Bun bun = TestData.returnRandomBun();
-        Burger burger = new Burger();
+        burger = new Burger();
         burger.setBuns(bun);
-        String receipt = burger.getReceipt();
-        Assert.assertTrue("Bun's name should be in receipt", receipt.contains(bun.getName()));
+        Mockito.when(bun.getName()).thenReturn(bunName);
+        Assert.assertTrue("Bun name should be returned in the receipt", burger.getReceipt().contains(bunName));
     }
 
     @Test
     public void addIngredientTest() {
-        Burger burger = new Burger();
+        burger = new Burger();
         List<Ingredient> ingredients = MethodsHelpers.addIngredientsToIngredientList(ingredient);
-        MethodsHelpers.setBurgerBunAndIngredients(burger, bunMock,
-                ingredients);
-        String receipt = burger.getReceipt();
-        Assert.assertTrue("Ingredient's name should be in receipt", receipt.contains(ingredient.getName()));
+        MethodsHelpers.setBurgerBunAndIngredients(burger, bun, ingredients);
+        Mockito.when(ingredient.getName()).thenReturn(ingredientName);
+        Mockito.when(ingredient.getType()).thenReturn(ingredientType);
+        Assert.assertTrue("Ingredient name should be returned in the receipt",
+                burger.getReceipt().contains(ingredientName));
+        Assert.assertTrue("Ingredient type should be in the receipt",
+                burger.getReceipt().contains(ingredientType.toString().toLowerCase()));
     }
 
     @Test
     public void removeIngredientTest() {
-        Burger burger = new Burger();
-        burger.setBuns(bunMock);
-        burger.addIngredient(ingredient);
+        burger = new Burger();
+        List<Ingredient> ingredients = MethodsHelpers.addIngredientsToIngredientList(ingredient, ingredientTwo);
+        MethodsHelpers.setBurgerBunAndIngredients(burger, bun, ingredients);
+        Mockito.when(ingredientTwo.getName()).thenReturn(ingredientTwoName);
+        Mockito.when(ingredientTwo.getType()).thenReturn(ingredientTypeTwo);
         burger.removeIngredient(0);
-        String receipt = burger.getReceipt();
-        Assert.assertFalse("Ingredient shouldn't be in receipt",
-                receipt.contains(ingredient.getName()));
+        Assert.assertFalse("First ingredient shouldn't be in the receipt",
+                burger.getReceipt().contains(ingredientName));
+        Assert.assertTrue("Second ingredient should be in the receipt",
+                burger.getReceipt().contains(ingredientTwoName));
     }
 
     @Test
     public void getPriceTest() {
-        Bun bun = TestData.returnRandomBun();
         List<Ingredient> ingredientsList = MethodsHelpers.addIngredientsToIngredientList(ingredient,
                 ingredientTwo);
-        Burger burger = new Burger();
+        burger = new Burger();
         MethodsHelpers.setBurgerBunAndIngredients(burger, bun, ingredientsList);
-        float expectedPrice = MethodsHelpers.returnBurgerTotalPrice(bun, ingredientsList);
-        float actualPrice = burger.getPrice();
-        Assert.assertEquals("Prices should match", expectedPrice, actualPrice, 0.0f);
+        Mockito.when(bun.getPrice()).thenReturn(bunPrice);
+        Mockito.when(ingredient.getPrice()).thenReturn(ingredientPrice);
+        Mockito.when(ingredientTwo.getPrice()).thenReturn(ingredientPrice);
+        float expectedTotalPrice = MethodsHelpers.returnBurgerTotalPrice(bun, ingredientsList);
+        Assert.assertEquals("Prices should be equal", expectedTotalPrice, burger.getPrice(), 0.00f);
     }
 
     @Test
-    public void moveIngredientsTest() {
-        List<Ingredient> ingredientsList = MethodsHelpers.addIngredientsToIngredientList(ingredient,
+    public void moveIngredientTest() {
+        List<Ingredient> ingredients = MethodsHelpers.addIngredientsToIngredientList(ingredient,
                 ingredientTwo, ingredientThree);
-        int  index = TestData.generateIndex(ingredientsList);
-        int newIndex = TestData.generateIndex(index, ingredientsList);
-        Burger burger = new Burger();
-        MethodsHelpers.setBurgerBunAndIngredients(burger, bunMock, ingredientsList);
+        int  index = TestData.generateIndex(ingredients);
+        int newIndex = TestData.generateIndex(index, ingredients);
+        burger = new Burger();
+        MethodsHelpers.setBurgerBunAndIngredients(burger, bun, ingredients);
         burger.moveIngredient(index, newIndex);
-        ingredientsList.add(newIndex, ingredientsList.remove(index));
+        ingredients.add(newIndex, ingredients.remove(index));
+        Mockito.when(bun.getName()).thenReturn(bunName);
+        Mockito.when(ingredient.getName()).thenReturn(ingredientName);
+        Mockito.when(ingredient.getType()).thenReturn(ingredientType);
+        Mockito.when(ingredientTwo.getName()).thenReturn(ingredientTwoName);
+        Mockito.when(ingredientTwo.getType()).thenReturn(ingredientTypeTwo);
+        Mockito.when(ingredientThree.getName()).thenReturn(ingredientThreeName);
+        Mockito.when(ingredientThree.getType()).thenReturn(ingredientTypeThree);
         String receipt = burger.getReceipt();
-        String expectedReceipt = MethodsHelpers.getExpectedReceipt(bunMock, ingredientsList);
+        String expectedReceipt = MethodsHelpers.getExpectedReceipt(bun, ingredients);
         Assert.assertEquals("Receipt and expectedReceipt should have the same ingredients order and be equal",
                 expectedReceipt, receipt);
     }
 
     @Test
     public void getReceiptTest() {
+        List<Ingredient> ingredients = MethodsHelpers.addIngredientsToIngredientList(ingredient, ingredientThree);
+        burger = new Burger();
+        MethodsHelpers.setBurgerBunAndIngredients(burger, bun, ingredients);
+        Mockito.when(bun.getName()).thenReturn(bunName);
+        Mockito.when(ingredient.getName()).thenReturn(ingredientName);
+        Mockito.when(ingredient.getType()).thenReturn(ingredientType);
+        Mockito.when(ingredientThree.getName()).thenReturn(ingredientThreeName);
+        Mockito.when(ingredientThree.getType()).thenReturn(ingredientTypeTwo);
+        String receipt = burger.getReceipt();
+        String expectedReceipt = MethodsHelpers.getExpectedReceipt(bun, ingredients);
+        Assert.assertEquals("Receipt and expectedReceipt should have the same ingredients and be equal",
+                expectedReceipt, receipt);
     }
 }
