@@ -1,7 +1,6 @@
 # qa_java
 QA Java Project
 Java 11,
-selenium 4.8.1,
 junit 4.13.2,
 jacoco 0.8.7,
 mockito 5.2.0,
