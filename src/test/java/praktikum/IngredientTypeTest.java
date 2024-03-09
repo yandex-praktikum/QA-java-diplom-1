@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class IngredientTypeTest {
 
-    @Test
+    @Test //Проверка вызова ингредиентов
     public void values() {
         IngredientType[] values = IngredientType.values();
         assertEquals(2, values.length);
