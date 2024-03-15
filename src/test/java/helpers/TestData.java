@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.Random;
 
 public class TestData {
-    private final static Faker faker = new Faker();
-    private final static Database database = new Database();
-    private final static List<Bun> availableBuns = database.availableBuns();
-    private final static List<Ingredient> availableIngredients = database.availableIngredients();
+    private final static Faker FAKER = new Faker();
+    private final static Database DATABASE = new Database();
+    private final static List<Bun> AVAILABLE_BUNS = DATABASE.availableBuns();
+    private final static List<Ingredient> AVAILABLE_INGREDIENTS = DATABASE.availableIngredients();
 
     public static Bun returnBunByIndex(int index) {
         try {
-            return availableBuns.get(index);
+            return AVAILABLE_BUNS.get(index);
         } catch (Exception exception) {
             throw new RuntimeException("No bun with given index was found");
         }
@@ -25,13 +25,13 @@ public class TestData {
 
     public static Bun returnRandomBun() {
         Random random = new Random();
-        int index = random.nextInt(availableBuns.size());
-        return availableBuns.get(index);
+        int index = random.nextInt(AVAILABLE_BUNS.size());
+        return AVAILABLE_BUNS.get(index);
     }
 
     public static Ingredient returnIngredientByIndex(int index) {
         try {
-            return availableIngredients.get(index);
+            return AVAILABLE_INGREDIENTS.get(index);
         } catch (Exception exception) {
             throw new RuntimeException("No ingredient with given index was found");
         }
@@ -39,8 +39,8 @@ public class TestData {
 
     public static Ingredient returnRandomIngredient() {
         Random random = new Random();
-        int index = random.nextInt(availableIngredients.size());
-        return availableIngredients.get(index);
+        int index = random.nextInt(AVAILABLE_INGREDIENTS.size());
+        return AVAILABLE_INGREDIENTS.get(index);
     }
 
     public static int generateIndex(List<Ingredient> ingredients) {
@@ -58,11 +58,11 @@ public class TestData {
     }
 
     public static String returnRandomBunName() {
-        return faker.funnyName().name();
+        return FAKER.funnyName().name();
     }
 
     public static String returnRandomIngredientName() {
-        return faker.twinPeaks().character();
+        return FAKER.twinPeaks().character();
     }
 
     public static float returnRandomPrice() {
