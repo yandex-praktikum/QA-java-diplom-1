@@ -11,23 +11,28 @@ import static junit.framework.TestCase.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
+    float fluBunPrice = 0.50f;
+    float galacticSaucePrice = 1.50f;
+    float shellfishMeatPrice = 1.80f;
+    float SpicyXPrice = 1.70f;
+    float MagnoliaPrice = 2.10f;
     @Test
     public void testGetPrice(){
-        Bun bun = new Bun("FluBun", 0.50f);
-        Ingredient sauce = new Ingredient(IngredientType.SAUCE, "GalacticSauce", 1.50f);
-        Ingredient filling = new Ingredient(IngredientType.FILLING, "ShellfishMeat", 1.80f );
+        Bun bun = new Bun("FluBun", fluBunPrice);
+        Ingredient sauce = new Ingredient(IngredientType.SAUCE, "GalacticSauce", galacticSaucePrice);
+        Ingredient filling = new Ingredient(IngredientType.FILLING, "ShellfishMeat", shellfishMeatPrice );
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(sauce);
         burger.addIngredient(filling);
-        assertEquals(0.50f + 0.50f + 1.50f + 1.80f, burger.getPrice(), 0);
+        assertEquals(fluBunPrice + fluBunPrice + galacticSaucePrice + shellfishMeatPrice, burger.getPrice(), 0);
     }
 
     @Test
     public void testGetReceipt() {
-        Bun bun = new Bun("FluBun", 0.50f);
-        Ingredient sauce = new Ingredient(IngredientType.SAUCE, "SpicyX", 1.70f);
-        Ingredient filling = new Ingredient(IngredientType.FILLING, "Magnolia", 2.10f );
+        Bun bun = new Bun("FluBun", fluBunPrice);
+        Ingredient sauce = new Ingredient(IngredientType.SAUCE, "SpicyX", SpicyXPrice);
+        Ingredient filling = new Ingredient(IngredientType.FILLING, "Magnolia", MagnoliaPrice );
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(sauce);

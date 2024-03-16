@@ -2,18 +2,20 @@ import org.junit.Test;
 import praktikum.Bun;
 
 import static junit.framework.TestCase.assertEquals;
-// Покрой тестами классы Bun, Burger, Ingredient, IngredientType.
+
 public class BunTest {
+    float fluBunPrice = 1.50f;
+    float kratorsBunPrice = 2.10f;
     @Test
     public void testGetName() {
-        Bun bun = new Bun("FluBun", 1.50f);
+        Bun bun = new Bun("FluBun", fluBunPrice);
         assertEquals("FluBun", bun.getName());
     }
 
     @Test
     public void testGetPrice(){
-        Bun bun = new Bun("KratorsBun", 2.10f);
-        assertEquals(2.10f, bun.getPrice());
+        Bun bun = new Bun("KratorsBun", kratorsBunPrice);
+        assertEquals(kratorsBunPrice, bun.getPrice());
     }
 
 
