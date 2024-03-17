@@ -11,9 +11,10 @@ import praktikum.Bun;
 public class BunTests {
     private final String name;
     private final float price;
-    private static final Bun firstBun = TestData.returnBunByIndex(0);
-    private static final Bun secondBun = TestData.returnBunByIndex(1);
-    private static final Bun thirdBun = TestData.returnBunByIndex(2);
+    private final float delta = TestData.DELTA;
+    private static final Bun FIRST_BUN = TestData.returnBunByIndex(0);
+    private static final Bun SECOND_BUN = TestData.returnBunByIndex(1);
+    private static final Bun THIRD_BUN = TestData.returnBunByIndex(2);
 
     public BunTests(String name, float price) {
         this.name = name;
@@ -21,11 +22,11 @@ public class BunTests {
     }
 
     @Parameterized.Parameters
-    public static Object[][] getSumData() {
+    public static Object[][] bunsData() {
         return new Object[][]{
-                {firstBun.getName(), firstBun.getPrice()},
-                {secondBun.getName(), secondBun.getPrice()},
-                {thirdBun.getName(), thirdBun.getPrice()},
+                {FIRST_BUN.getName(), FIRST_BUN.getPrice()},
+                {SECOND_BUN.getName(), SECOND_BUN.getPrice()},
+                {THIRD_BUN.getName(), THIRD_BUN.getPrice()},
         };
     }
 
@@ -40,6 +41,6 @@ public class BunTests {
     public void getPriceTest() {
         Bun bun = new Bun(name, price);
         float actualPrice = bun.getPrice();
-        Assert.assertEquals("Prices should match", price, actualPrice, 0.0f);
+        Assert.assertEquals("Prices should match", price, actualPrice, delta);
     }
 }

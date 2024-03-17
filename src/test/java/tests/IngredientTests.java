@@ -12,13 +12,14 @@ import praktikum.IngredientType;
 public class IngredientTests {
     private final String name;
     private final float price;
+    private final float delta = TestData.DELTA;
     private final IngredientType type;
-    private static final Ingredient firstIngredient = TestData.returnIngredientByIndex(0);
-    private static final Ingredient secondIngredient = TestData.returnIngredientByIndex(1);
-    private static final Ingredient thirdIngredient = TestData.returnIngredientByIndex(2);
-    private static final Ingredient fourthIngredient = TestData.returnIngredientByIndex(3);
-    private static final Ingredient fifthIngredient = TestData.returnIngredientByIndex(4);
-    private static final Ingredient sixthIngredient = TestData.returnIngredientByIndex(5);
+    private static final Ingredient FIRST_INGREDIENT = TestData.returnIngredientByIndex(0);
+    private static final Ingredient SECOND_INGREDIENT = TestData.returnIngredientByIndex(1);
+    private static final Ingredient THIRD_INGREDIENT = TestData.returnIngredientByIndex(2);
+    private static final Ingredient FOURTH_INGREDIENT = TestData.returnIngredientByIndex(3);
+    private static final Ingredient FIFTH_INGREDIENT = TestData.returnIngredientByIndex(4);
+    private static final Ingredient SIXTH_INGREDIENT = TestData.returnIngredientByIndex(5);
 
     public IngredientTests(IngredientType type, String name, float price) {
         this.type = type;
@@ -27,14 +28,14 @@ public class IngredientTests {
     }
 
     @Parameterized.Parameters
-    public static Object[][] getSumData() {
+    public static Object[][] getIngredientsData() {
         return new Object[][]{
-                {firstIngredient.getType(), firstIngredient.getName(), firstIngredient.getPrice()},
-                {secondIngredient.getType(), secondIngredient.getName(), secondIngredient.getPrice()},
-                {thirdIngredient.getType(), thirdIngredient.getName(), thirdIngredient.getPrice()},
-                {fourthIngredient.getType(), fourthIngredient.getName(), fourthIngredient.getPrice()},
-                {fifthIngredient.getType(), fifthIngredient.getName(), fifthIngredient.getPrice()},
-                {sixthIngredient.getType(), sixthIngredient.getName(), sixthIngredient.getPrice()}
+                {FIRST_INGREDIENT.getType(), FIRST_INGREDIENT.getName(), FIRST_INGREDIENT.getPrice()},
+                {SECOND_INGREDIENT.getType(), SECOND_INGREDIENT.getName(), SECOND_INGREDIENT.getPrice()},
+                {THIRD_INGREDIENT.getType(), THIRD_INGREDIENT.getName(), THIRD_INGREDIENT.getPrice()},
+                {FOURTH_INGREDIENT.getType(), FOURTH_INGREDIENT.getName(), FOURTH_INGREDIENT.getPrice()},
+                {FIFTH_INGREDIENT.getType(), FIFTH_INGREDIENT.getName(), FIFTH_INGREDIENT.getPrice()},
+                {SIXTH_INGREDIENT.getType(), SIXTH_INGREDIENT.getName(), SIXTH_INGREDIENT.getPrice()}
         };
     }
 
@@ -56,6 +57,6 @@ public class IngredientTests {
     public void getIngredientPriceTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
         float actualPrice = ingredient.getPrice();
-        Assert.assertEquals("Prices should match", price, actualPrice, 0.0f);
+        Assert.assertEquals("Prices should match", price, actualPrice, delta);
     }
 }

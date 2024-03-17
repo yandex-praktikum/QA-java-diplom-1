@@ -14,6 +14,7 @@ public class TestData {
     private final static Database DATABASE = new Database();
     private final static List<Bun> AVAILABLE_BUNS = DATABASE.availableBuns();
     private final static List<Ingredient> AVAILABLE_INGREDIENTS = DATABASE.availableIngredients();
+    public static final float DELTA = 0.0f;
 
     public static Bun returnBunByIndex(int index) {
         try {
