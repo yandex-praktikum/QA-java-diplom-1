@@ -25,14 +25,12 @@ public class BurgerTest {
         Bun bun = new Bun("Краторная булка N-200i", 1255);
         burger.setBuns(bun);
         assertEquals(bun, burger.bun);
-
     }
    @Test
    public void checkAddingIngredient(){
        Burger burger = new Burger();
        burger.addIngredient(ingredient);
        assertEquals(1, burger.ingredients.size());
-
     }
 
     @Test
@@ -54,7 +52,6 @@ public class BurgerTest {
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "sausage", 300));
         burger.moveIngredient(0,1);
         burger.ingredients.get(0).equals(new Ingredient(IngredientType.FILLING, "sausage", 300));
-
     }
 
 
@@ -66,7 +63,6 @@ public class BurgerTest {
         Mockito.when(bun.getPrice()).thenReturn(1.1F);
         Mockito.when(ingredient.getPrice()).thenReturn(2.0F);
         assertEquals(4.2,burger.getPrice(),0.1);
-
     }
 
     @Test
