@@ -25,8 +25,8 @@ public class IngredientTest {
 
     public static Object[][] checkIngredientTest() {
         return new Object [][] {
-                {IngredientType.SAUCE,"Филе Люминесцентного тетраодонтимформа", 988},
-                {IngredientType.FILLING,"Соус Spicy-X", 90},
+                {IngredientType.SAUCE,"hot sauce", 100},
+                {IngredientType.FILLING,"dinosaur", 200},
 
         };
     }
