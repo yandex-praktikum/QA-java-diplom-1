@@ -27,6 +27,7 @@ public class Burger {
     }
 
     public void moveIngredient(int index, int newIndex) {
+
         ingredients.add(newIndex, ingredients.remove(index));
     }
 
